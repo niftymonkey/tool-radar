@@ -91,10 +91,10 @@ The research step assigns the default ring.
 $20/month; self-serve signup, no sales call; docs aimed at individual
 developers, not procurement teams; value demonstrated at small scale.
 
-`hold` when any hold: enterprise-only or "contact us" pricing; needs
-significant existing infrastructure to evaluate; solves an
-organization-scale-only problem; a free tier too constrained to be usable
-for a real side project.
+`hold` when any hold: enterprise-only or "contact us" pricing; no free tier
+and entry pricing above roughly $20/month; needs significant existing
+infrastructure to evaluate; solves an organization-scale-only problem; a
+free tier too constrained to be usable for a real side project.
 
 Never default to `adopt` or `trial`; those require actual usage.
 
