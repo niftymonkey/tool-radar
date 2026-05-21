@@ -1,0 +1,5 @@
+# Sponsor pages and tool-list URLs the refresher scrapes.
+# Add a source by adding an entry. Each needs a url and a short label.
+sources:
+  - url: https://t3.gg/sponsors
+    label: t3-sponsors
