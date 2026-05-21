@@ -1,8 +1,8 @@
 ---
 name: Vercel
 problem-areas: [hosting-deploy, ci-cd, media-optimization]
-ring: assess
-ring-reasoning: "Free Hobby tier and self-serve $20 Pro plan fit a solo developer, but a documented surprise-billing and DDoS-cost record means it cannot be promoted on reputation alone."
+ring: adopt
+ring-reasoning: "In active use as my default hosting and deploy platform across my own projects."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

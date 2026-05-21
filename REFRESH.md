@@ -46,7 +46,8 @@ batches.
       mandatory Reality check section. Assign `problem-areas` from
       `taxonomy.md` only. Assign the default `ring` per the rubric below.
       Set `source: scraped`, `managed: auto`, and today's date for
-      `first-seen` and `last-researched`.
+      `first-seen` and `last-researched`. When updating an existing entry
+      instead of creating one, apply the Curated entries rule below.
 
 5. **Drain the queue.** Process unchecked items in `queue.md`. New items
    are researched as in step 4; re-research items refresh an existing file
@@ -100,6 +101,21 @@ infrastructure to evaluate; solves an organization-scale-only problem; a
 free tier too constrained to be usable for a real side project.
 
 Never default to `adopt` or `trial`; those require actual usage.
+
+## Curated entries
+
+`adopt` and `trial` are human judgments. The rubric only ever assigns
+`assess` or `hold`, so an entry whose `ring` is `adopt` or `trial` is by
+definition hand-curated.
+
+When a refresh re-researches such an entry (a queue re-research or a stale
+refresh), it preserves the `ring`, the `ring-reasoning`, and the
+`When I'd reach for it` and `When I wouldn't` sections exactly as written.
+It updates only the factual sections: `What it is`, `Problem it solves`,
+`Pricing posture`, `Reality check`, the links, and `last-researched`.
+
+To lock an entry completely, including its factual sections, set
+`managed: manual`; the refresher then never touches it.
 
 ## Scope pre-filter
 

@@ -9,37 +9,37 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 ## auth
 
+- [WorkOS](tools/workos.md) `adopt`: hosted authentication via AuthKit, with enterprise SSO and SCIM when a customer needs it.
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
 - [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
-**Held**
-
-- [WorkOS](tools/workos.md) `hold`: enterprise SSO and SCIM APIs; an organization-scale problem, not solo-fit.
-
 ## security
 
+- [WorkOS](tools/workos.md) `adopt`: hosted authentication via AuthKit, with enterprise SSO and SCIM when a customer needs it.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
-**Held**
-
-- [WorkOS](tools/workos.md) `hold`: enterprise SSO and SCIM APIs; an organization-scale problem, not solo-fit.
-
 ## ci-cd
 
-- [CodeRabbit](tools/coderabbit.md) `assess`: AI pull-request review across major Git platforms.
-- [Vercel](tools/vercel.md) `assess`: Git-push frontend hosting with deep Next.js integration.
+- [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
+- [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
+- [Blacksmith](tools/blacksmith.md) `assess`: drop-in faster GitHub Actions runners on bare-metal hardware.
+- [Depot](tools/depot.md) `assess`: remote Docker build infrastructure with a persistent warm cache.
+- [RWX](tools/rwx.md) `assess`: from-scratch CI/CD modeling builds as a DAG of cached tasks.
 
 ## hosting-deploy
 
-- [Vercel](tools/vercel.md) `assess`: Git-push frontend hosting with deep Next.js integration.
+- [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
+- [DNSimple](tools/dnsimple.md) `assess`: developer-focused domain registration and DNS management.
+- [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
+- [Zephyr Cloud](tools/zephyr-cloud.md) `assess`: Module Federation deployment platform for micro-frontends.
 
 ## database
 
@@ -48,6 +48,12 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
+- [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
+- [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
+
+**Held**
+
+- [SingleStore](tools/singlestore.md) `hold`: distributed SQL for real-time analytics; production pricing starts around $700/month.
 
 ## backend-platform
 
@@ -64,11 +70,22 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 - [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
 - [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
+- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
+- [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
+
+**Held**
+
+- [Embrace](tools/embrace.md) `hold`: mobile observability built for teams at scale; $80/month paid minimum.
 
 ## product-analytics
 
 - [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
 - [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
+- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
+
+**Held**
+
+- [Embrace](tools/embrace.md) `hold`: mobile observability built for teams at scale; $80/month paid minimum.
 
 ## feature-flags
 
@@ -89,16 +106,21 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 ## media-optimization
 
-- [Vercel](tools/vercel.md) `assess`: Git-push frontend hosting with deep Next.js integration.
+- [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
+- [ImageKit](tools/imagekit.md) `assess`: image and video optimization and CDN delivery via URL parameters.
 
 ## dev-workflow
 
-- [CodeRabbit](tools/coderabbit.md) `assess`: AI pull-request review across major Git platforms.
+- [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
+- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
+- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
+- [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
 
 **Held**
 
@@ -112,7 +134,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 ## ai-code-review
 
-- [CodeRabbit](tools/coderabbit.md) `assess`: AI pull-request review across major Git platforms.
+- [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
+- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 
 **Held**
 
@@ -124,6 +147,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
+- [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
+- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
 
 ## ai-agent-infra
 

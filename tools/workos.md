@@ -1,8 +1,8 @@
 ---
 name: WorkOS
 problem-areas: [auth, security]
-ring: hold
-ring-reasoning: "The free tier is generous (1M MAU on AuthKit), but the core SSO and Directory Sync features that justify WorkOS solve an organization-scale problem and are billed per enterprise connection starting at $125/month."
+ring: adopt
+ring-reasoning: "In active use for authentication across two of my own projects; the free AuthKit tier (1M MAU) makes it a genuine solo fit despite the enterprise-scale positioning."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
@@ -14,23 +14,45 @@ pricing: https://workos.com/pricing
 
 # WorkOS
 
-**What it is:** A set of APIs that bolt enterprise identity features (SAML and OIDC SSO, SCIM directory sync, audit logs, an admin portal) onto an existing app.
+**What it is:** An authentication service whose AuthKit product provides
+hosted login UI, social and passwordless sign-in, and session handling,
+alongside enterprise identity APIs (SAML and OIDC SSO, SCIM directory sync,
+audit logs) for when a customer needs them.
 
-**Problem it solves:** Lets a B2B side project answer "does it integrate with Okta or Azure AD?" without building SAML and SCIM plumbing by hand, so the first enterprise deal is not blocked on identity work.
+**Problem it solves:** Covers ordinary app authentication for free on
+AuthKit up to 1M monthly active users, and means that if a customer ever
+demands enterprise SSO, the same vendor already provides it with no auth
+migration later.
 
 **When I'd reach for it:**
 
-- A B2B SaaS where a real prospect with an IT department is asking for SSO before they will sign.
-- Adding SCIM provisioning or audit logs because a deal hit SOC 2 review.
+- A side project that needs solid hosted auth with login UI and sessions,
+  where the free tier removes any per-user cost concern.
+- A B2B app that may later need SSO or SCIM, and wants one auth vendor that
+  scales into enterprise without a rebuild.
+- Replacing a hand-rolled auth layer where session security and login UI
+  are not worth maintaining myself.
 
 **When I wouldn't:**
 
-- A consumer or solo side project with self-serve signups and no enterprise buyers.
-- When I want drop-in login UI and managed sessions, since WorkOS expects you to own those yourself.
+- A project that needs self-hosted or open-source auth, since WorkOS is
+  fully managed.
+- When several enterprise SSO connections are needed before there is
+  revenue, since those bill per connection from $125/month each.
 
-**Pricing posture:** AuthKit user management is free for the first 1M monthly active users. SSO and Directory Sync are billed per connection, starting at $125/month each (volume discounts above 15 connections).
+**Pricing posture:** AuthKit authentication and user management is free for
+the first 1M monthly active users. SSO and Directory Sync are billed per
+connection, starting at $125/month each, with volume discounts above 15
+connections.
 
-**Reality check:** Reviewers consistently say WorkOS is not a full auth provider, you still handle sessions, user storage, and UI, and that building enterprise auth before you have enterprise customers is the common mistake. The per-connection model is fine early (one paying enterprise covers the $125) but the bill grows linearly with enterprise customer count and gets meaningful around 20 to 30 accounts. Common advice: ship with Clerk or Better Auth, add WorkOS only when a contract demands it.
+**Reality check:** AuthKit covers full hosted auth, but reviewers note
+WorkOS still expects you to model your own user and organization data
+around it rather than treating it as your database. The per-connection SSO
+pricing is fine early (one paying enterprise covers the $125) but grows
+linearly with enterprise customer count and gets meaningful around 20 to 30
+accounts. Common advice for teams with no enterprise buyers yet is to run on
+the free AuthKit tier and turn on paid SSO connections only when a contract
+demands it.
 
 **Links:** [Homepage](https://workos.com) and [Pricing](https://workos.com/pricing)
 

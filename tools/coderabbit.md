@@ -1,8 +1,8 @@
 ---
 name: CodeRabbit
 problem-areas: [ai-code-review, dev-workflow, ci-cd]
-ring: assess
-ring-reasoning: "A genuinely usable free tier, sub-20-dollar Lite plan, and two-click GitHub or GitLab setup make it easy to try solo, but it has not been used personally here."
+ring: adopt
+ring-reasoning: "In active use as my code review tool across my own projects."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
