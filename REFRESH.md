@@ -59,9 +59,12 @@ batches.
    step 4. This step is optional and may be skipped in early runs.
 
 7. **Regenerate the index.** Rebuild `INDEX.md` from all files in `tools/`,
-   grouped by problem area. Within each area, list `adopt`, `trial`, and
-   `assess` tools; collect `hold` tools in a separate held section per
-   area. A tool with multiple problem areas appears in each.
+   grouped by problem area. Every tool is one bullet, same format
+   throughout: `- [Name](tools/slug.md) ` followed by the ring in
+   backticks, a colon, and a one-line descriptor. Within each area list
+   `adopt`, `trial`, and `assess` tools first, then `hold` tools as bullets
+   under a `**Held**` label. A tool with multiple problem areas appears in
+   each.
 
 8. **Log and commit.** Append a one-paragraph summary to `CHANGELOG.md`:
    tools added, skipped (with reasons), re-researched, and queue items

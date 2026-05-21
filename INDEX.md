@@ -5,20 +5,26 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (listed separately per area). Last refreshed 2026-05-21.
+not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 ## auth
 
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
+- [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
-Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale problem.
+**Held**
+
+- [WorkOS](tools/workos.md) `hold`: enterprise SSO and SCIM APIs; an organization-scale problem, not solo-fit.
 
 ## security
 
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
+- [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
-Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale problem.
+**Held**
+
+- [WorkOS](tools/workos.md) `hold`: enterprise SSO and SCIM APIs; an organization-scale problem, not solo-fit.
 
 ## ci-cd
 
@@ -31,6 +37,9 @@ Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale 
 - [Vercel](tools/vercel.md) `assess`: Git-push frontend hosting with deep Next.js integration.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
+- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
+- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
+- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
 
 ## database
 
@@ -45,6 +54,11 @@ Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale 
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
+- [Payload](tools/payload.md) `assess`: open-source TypeScript headless CMS that installs inside a Next.js app.
+
+## cms
+
+- [Payload](tools/payload.md) `assess`: open-source TypeScript headless CMS that installs inside a Next.js app.
 
 ## error-monitoring
 
@@ -60,9 +74,18 @@ Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale 
 
 - [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
 
+## email-messaging
+
+- [Sent.dm](tools/sent-dm.md) `assess`: unified SMS, WhatsApp, and RCS messaging API with cheapest-channel routing.
+
 ## ui-components
 
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
+
+## design-tooling
+
+- [Mobbin](tools/mobbin.md) `assess`: searchable library of real app screenshots and user flows for design research.
+- [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
 
 ## media-optimization
 
@@ -72,20 +95,60 @@ Held: [WorkOS](tools/workos.md), enterprise SSO and SCIM, an organization-scale 
 
 - [CodeRabbit](tools/coderabbit.md) `assess`: AI pull-request review across major Git platforms.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
+- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
+- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
+- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
+- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 
-Held: [Greptile](tools/greptile.md), no free or hobby tier and a $30-per-seat floor.
+**Held**
+
+- [Greptile](tools/greptile.md) `hold`: whole-codebase AI code review; no free tier and a $30-per-seat floor.
+
+## cost-optimization
+
+**Held**
+
+- [Milkstraw](tools/milkstraw.md) `hold`: AWS savings-commitment optimization; value only at non-trivial cloud scale.
 
 ## ai-code-review
 
 - [CodeRabbit](tools/coderabbit.md) `assess`: AI pull-request review across major Git platforms.
 
-Held: [Greptile](tools/greptile.md), no free or hobby tier and a $30-per-seat floor.
+**Held**
+
+- [Greptile](tools/greptile.md) `hold`: whole-codebase AI code review; no free tier and a $30-per-seat floor.
+
+## ai-coding-agents
+
+- [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
+- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
+- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
+- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 
 ## ai-agent-infra
 
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
+- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
+- [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
+- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
+- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
+
+## ai-apis
+
+- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
+- [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
+- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
+- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+
+## ai-web-data
+
+- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
+- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
 
 ## background-jobs
 
@@ -93,3 +156,4 @@ Held: [Greptile](tools/greptile.md), no free or hobby tier and a $30-per-seat fl
 - [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
+- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.

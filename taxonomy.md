@@ -2,7 +2,9 @@
 
 The controlled vocabulary of problem areas. Research assigns a tool's
 `problem-areas` frontmatter only from this list. A tool may belong to more
-than one area.
+than one area. Assign an area only when solving that problem is the tool's
+purpose, not an incidental property: a cheap tool is not `cost-optimization`,
+and a tool that generates images is not `media-optimization`.
 
 Adding a new area is a human decision. If the refresher finds a tool that
 fits nothing here, it does not invent an area; it logs the tool in
