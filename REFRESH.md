@@ -67,13 +67,16 @@ batches.
    under a `**Held**` label. A tool with multiple problem areas appears in
    each.
 
-8. **Log, commit, and open a pull request.** Append a one-paragraph summary
-   to `CHANGELOG.md`: tools added, skipped (with reasons), re-researched,
-   and queue items drained. Create a branch named `refresh/YYYY-MM-DD`,
-   commit the changes with message `chore: radar refresh YYYY-MM-DD`, push
-   the branch, and open a pull request against `main` with the run summary
-   as the PR body. Do not merge the pull request; a human reviews and
-   merges it.
+8. **Log, commit, and open a pull request.** If the run produced no
+   substantive change (no tool file added, modified, or removed, and no
+   queue item processed), skip this step: the run is complete and nothing
+   is committed. Otherwise, append a one-paragraph summary to
+   `CHANGELOG.md`: tools added, skipped (with reasons), re-researched, and
+   queue items drained. Create a branch named `refresh/YYYY-MM-DD`, commit
+   the changes with message `chore: radar refresh YYYY-MM-DD`, push the
+   branch, and open a pull request against `main` with the run summary as
+   the PR body. Do not merge the pull request; a human reviews and merges
+   it.
 
 ## Entry format
 
