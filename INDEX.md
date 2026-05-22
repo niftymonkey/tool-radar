@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-05-21.
+not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## auth
 
