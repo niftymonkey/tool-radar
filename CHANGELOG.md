@@ -37,3 +37,12 @@ dev-workflow over-tagged onto CI and deploy tools). Promoted WorkOS,
 CodeRabbit, and Vercel to `adopt` as tools in active use. Added the Curated
 entries rule to REFRESH.md: a refresh never overwrites an `adopt` or `trial`
 ring, its reasoning, or its judgment sections. INDEX.md regenerated.
+
+## 2026-05-21 (batch 4)
+
+Batch 4, the final batch from t3.gg/sponsors. Added 15 tool entries:
+Agentuity, Daytona, Kernel, Rork, Chef by Convex, Ragie, Wispr Flow, Tuple,
+Graphite, AG Grid, Ahrefs, DeepSource, Agora, Bright Data, SpacetimeDB.
+Rings: 11 assess, 4 hold (Ragie, Tuple, Ahrefs, Bright Data). Corrected 4
+over-tagged problem-areas. The catalog now holds 60 tool entries across all
+22 problem areas: 3 adopt, 8 hold, 49 assess.

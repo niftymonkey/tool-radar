@@ -19,6 +19,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [WorkOS](tools/workos.md) `adopt`: hosted authentication via AuthKit, with enterprise SSO and SCIM when a customer needs it.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
+- [DeepSource](tools/deepsource.md) `assess`: cloud code review combining static analysis with AI to flag bugs and security issues.
 
 ## ci-cd
 
@@ -40,6 +41,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [DNSimple](tools/dnsimple.md) `assess`: developer-focused domain registration and DNS management.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Zephyr Cloud](tools/zephyr-cloud.md) `assess`: Module Federation deployment platform for micro-frontends.
+- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
+- [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
 
 ## database
 
@@ -50,6 +53,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
+- [SpacetimeDB](tools/spacetimedb.md) `assess`: a database that is also the app server, for real-time multiplayer apps.
 
 **Held**
 
@@ -61,6 +65,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
 - [Payload](tools/payload.md) `assess`: open-source TypeScript headless CMS that installs inside a Next.js app.
+- [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [SpacetimeDB](tools/spacetimedb.md) `assess`: a database that is also the app server, for real-time multiplayer apps.
 
 ## cms
 
@@ -86,6 +92,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 **Held**
 
 - [Embrace](tools/embrace.md) `hold`: mobile observability built for teams at scale; $80/month paid minimum.
+- [Ahrefs](tools/ahrefs.md) `hold`: SEO research platform; no free trial and a roughly $129/month first real tier.
 
 ## feature-flags
 
@@ -98,6 +105,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 ## ui-components
 
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
+- [AG Grid](tools/ag-grid.md) `assess`: high-performance JavaScript and React data-grid component.
 
 ## design-tooling
 
@@ -121,10 +129,14 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
 - [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 - [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
+- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Wispr Flow](tools/wispr-flow.md) `assess`: voice-to-text dictation that turns speech into clean writing in any app.
+- [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
 
 **Held**
 
 - [Greptile](tools/greptile.md) `hold`: whole-codebase AI code review; no free tier and a $30-per-seat floor.
+- [Tuple](tools/tuple.md) `hold`: remote pair-programming app; no free tier and a $30-per-seat floor.
 
 ## cost-optimization
 
@@ -136,6 +148,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
 - [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
+- [DeepSource](tools/deepsource.md) `assess`: cloud code review combining static analysis with AI to flag bugs and security issues.
+- [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
 
 **Held**
 
@@ -149,6 +163,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
+- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
 
 ## ai-agent-infra
 
@@ -161,6 +177,13 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
+- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
+- [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
+- [Kernel](tools/kernel.md) `assess`: unikernel cloud browsers for AI agents with sub-300ms cold starts.
+
+**Held**
+
+- [Ragie](tools/ragie.md) `hold`: managed retrieval-augmented-generation API; cheapest real plan is $100/month.
 
 ## ai-apis
 
@@ -168,12 +191,22 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-21.
 - [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [Agora](tools/agora.md) `assess`: real-time voice, video, and conversational-AI APIs over a global network.
+
+**Held**
+
+- [Ragie](tools/ragie.md) `hold`: managed retrieval-augmented-generation API; cheapest real plan is $100/month.
 
 ## ai-web-data
 
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [Kernel](tools/kernel.md) `assess`: unikernel cloud browsers for AI agents with sub-300ms cold starts.
+
+**Held**
+
+- [Bright Data](tools/bright-data.md) `hold`: enterprise web-data platform; real usage starts near $499/month.
 
 ## background-jobs
 
