@@ -67,9 +67,13 @@ batches.
    under a `**Held**` label. A tool with multiple problem areas appears in
    each.
 
-8. **Log and commit.** Append a one-paragraph summary to `CHANGELOG.md`:
-   tools added, skipped (with reasons), re-researched, and queue items
-   drained. Commit with message `chore: radar refresh YYYY-MM-DD` and push.
+8. **Log, commit, and open a pull request.** Append a one-paragraph summary
+   to `CHANGELOG.md`: tools added, skipped (with reasons), re-researched,
+   and queue items drained. Create a branch named `refresh/YYYY-MM-DD`,
+   commit the changes with message `chore: radar refresh YYYY-MM-DD`, push
+   the branch, and open a pull request against `main` with the run summary
+   as the PR body. Do not merge the pull request; a human reviews and
+   merges it.
 
 ## Entry format
 
@@ -131,4 +135,6 @@ shops, hiring marketplaces, general productivity apps, lifestyle products.
 To run by hand, follow the same steps. When run locally, research may be
 parallelized across subagents; the scheduled cloud agent runs sequentially.
 The first population of an empty catalog is run manually, in batches of up
-to the per-run cap, reviewed between batches.
+to the per-run cap, reviewed between batches. Because a manual run is
+attended, step 8 may commit directly to `main` instead of opening a pull
+request.
