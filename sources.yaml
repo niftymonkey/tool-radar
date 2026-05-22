@@ -1,5 +1,7 @@
-# Sponsor pages and tool-list URLs the refresher scrapes.
+# Sources the refresher scrapes for candidate tools.
 # Add a source by adding an entry. Each needs a url and a short label.
+# Prefer a structured source file (such as a repo data file) over a
+# rendered marketing page; marketing pages often block automated fetches.
 sources:
-  - url: https://t3.gg/sponsors
+  - url: https://raw.githubusercontent.com/t3dotgg/t3-astro/main/src/lib/sponsors.ts
     label: t3-sponsors
