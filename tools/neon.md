@@ -26,13 +26,13 @@ pricing: https://neon.tech/pricing
 
 **When I wouldn't:**
 
-- Large datasets: storage is billed at $0.75/GiB-month and at 100GB becomes $75/month just for storage, at which point traditional RDS or managed Postgres may be cheaper.
+- Large datasets: storage is billed at $0.35/GB-month and at 100GB becomes $35/month just for storage, at which point traditional RDS or managed Postgres may be cheaper.
 - Apps that cannot tolerate any cold-start latency on infrequently accessed compute — there is a brief warmup delay after a compute node has been fully suspended.
 - When you need the database to stay warm for consistent low-latency access, the compute suspend feature works against you.
 
-**Pricing posture:** Free tier with 100 compute-unit hours per month; Launch plan at $0.106/CU-hour; Scale plan at $0.222/CU-hour; storage at $0.75/GiB-month across all paid tiers; no minimum monthly spend.
+**Pricing posture:** Free tier with 100 compute-unit hours per month; Launch plan at $0.106/CU-hour; Scale plan at $0.222/CU-hour; storage at $0.35/GB-month across paid plans (Launch + Scale); no minimum monthly spend.
 
-**Reality check:** Acquired by Databricks in May 2025, after which Neon reduced storage pricing by 80% (from $1.75 to $0.35/GiB-month at some tiers) and doubled the free compute allowance. Developer reviews consistently highlight database branching as a genuine workflow improvement for CI quality. The cold-start latency is real but small in practice. Storage costs are the main gotcha at larger data sizes. Compared to Supabase Postgres, Neon is more focused on serverless and branching; Supabase bundles auth, storage, and edge functions in the same product.
+**Reality check:** Acquired by Databricks in May 2025, after which Neon reduced storage pricing by 80% (from $1.75 to $0.35/GB-month across Launch + Scale plans) and doubled the free compute allowance. Developer reviews consistently highlight database branching as a genuine workflow improvement for CI quality. The cold-start latency is real but small in practice. Storage costs are the main gotcha at larger data sizes. Compared to Supabase Postgres, Neon is more focused on serverless and branching; Supabase bundles auth, storage, and edge functions in the same product.
 
 **Links:** [Homepage](https://neon.tech) and [Pricing](https://neon.tech/pricing)
 

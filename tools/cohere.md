@@ -30,7 +30,7 @@ pricing: https://cohere.com/pricing
 - Multimodal workloads: Cohere does not ship a vision model in the Command family.
 - When OpenAI compatibility matters: Cohere uses its own request format, adding integration overhead compared to OpenAI-compatible providers.
 
-**Pricing posture:** Rate-limited trial tier free with no credit card; Embed v3 at $0.10/1M tokens; Rerank v3 at $2.00/1M tokens; Command R7B at $0.0375/$0.15 per 1M in/out; Command R+ at $2.50/$10 per 1M in/out.
+**Pricing posture:** Rate-limited trial tier free with no credit card; Embed v3 at $0.10/1M tokens; Rerank v3 at $2.00/1K searches; Command R7B at $0.0375/$0.15 per 1M in/out; Command R+ at $2.50/$10 per 1M in/out.
 
 **Reality check:** Cohere is a credible production choice for enterprise RAG, particularly when combined deployment flexibility (cloud + on-prem) or the dedicated Rerank model is a requirement. Developer community feedback notes that Command models lag OpenAI and Anthropic on instruction following and reasoning but are competitive for structured extraction and summarization tasks. The Rerank API at $2.00/1K searches is unique in the market — most competitors do not offer a managed cross-encoder reranking endpoint. Pricing is transparent and documented; the main hidden cost is implementation time for the non-OpenAI-compatible request format.
 
