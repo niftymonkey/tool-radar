@@ -5,55 +5,58 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-05-22.
+not a fit (grouped under Held per area). Last refreshed 2026-05-25.
 
 ## auth
 
 - [WorkOS](tools/workos.md) `adopt`: hosted authentication via AuthKit, with enterprise SSO and SCIM when a customer needs it.
-- [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
+- [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
+- [Supabase](tools/supabase.md) `assess`: open-source Firebase alternative combining PostgreSQL, auth, storage, and edge functions.
 - [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
 ## security
 
 - [WorkOS](tools/workos.md) `adopt`: hosted authentication via AuthKit, with enterprise SSO and SCIM when a customer needs it.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
-- [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 - [DeepSource](tools/deepsource.md) `assess`: cloud code review combining static analysis with AI to flag bugs and security issues.
+- [Unkey](tools/unkey.md) `assess`: open-source API key issuing, verification, and edge rate limiting.
 
 ## ci-cd
 
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
 - [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
-- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Blacksmith](tools/blacksmith.md) `assess`: drop-in faster GitHub Actions runners on bare-metal hardware.
 - [Depot](tools/depot.md) `assess`: remote Docker build infrastructure with a persistent warm cache.
+- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [RWX](tools/rwx.md) `assess`: from-scratch CI/CD modeling builds as a DAG of cached tasks.
 
 ## hosting-deploy
 
 - [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
-- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
-- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
+- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
+- [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [DNSimple](tools/dnsimple.md) `assess`: developer-focused domain registration and DNS management.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
-- [DNSimple](tools/dnsimple.md) `assess`: developer-focused domain registration and DNS management.
+- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
+- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Zephyr Cloud](tools/zephyr-cloud.md) `assess`: Module Federation deployment platform for micro-frontends.
-- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
-- [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
 
 ## database
 
-- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
-- [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
-- [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
+- [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
+- [Neon](tools/neon.md) `assess`: serverless PostgreSQL with scale-to-zero billing and Git-style database branching.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
-- [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
+- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
+- [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [SpacetimeDB](tools/spacetimedb.md) `assess`: a database that is also the app server, for real-time multiplayer apps.
+- [Supabase](tools/supabase.md) `assess`: open-source Firebase alternative combining PostgreSQL, auth, storage, and edge functions.
+- [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
 
 **Held**
 
@@ -61,12 +64,13 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## backend-platform
 
-- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
-- [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
 - [Appwrite](tools/appwrite.md) `assess`: open-source Firebase-style backend, managed or self-hosted.
-- [Payload](tools/payload.md) `assess`: open-source TypeScript headless CMS that installs inside a Next.js app.
 - [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
+- [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
+- [Payload](tools/payload.md) `assess`: open-source TypeScript headless CMS that installs inside a Next.js app.
 - [SpacetimeDB](tools/spacetimedb.md) `assess`: a database that is also the app server, for real-time multiplayer apps.
+- [Supabase](tools/supabase.md) `assess`: open-source Firebase alternative combining PostgreSQL, auth, storage, and edge functions.
 
 ## cms
 
@@ -74,10 +78,11 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## error-monitoring
 
-- [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
-- [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
-- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
 - [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
+- [Helicone](tools/helicone.md) `assess`: open-source LLM observability proxy that logs cost and latency with a single base-URL change.
+- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
+- [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
+- [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
 
 **Held**
 
@@ -85,14 +90,14 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## product-analytics
 
+- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
 - [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
 - [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
-- [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
 
 **Held**
 
-- [Embrace](tools/embrace.md) `hold`: mobile observability built for teams at scale; $80/month paid minimum.
 - [Ahrefs](tools/ahrefs.md) `hold`: SEO research platform; no free trial and a roughly $129/month first real tier.
+- [Embrace](tools/embrace.md) `hold`: mobile observability built for teams at scale; $80/month paid minimum.
 
 ## feature-flags
 
@@ -104,13 +109,13 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## ui-components
 
-- [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
 - [AG Grid](tools/ag-grid.md) `assess`: high-performance JavaScript and React data-grid component.
+- [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
 
 ## design-tooling
 
-- [Mobbin](tools/mobbin.md) `assess`: searchable library of real app screenshots and user flows for design research.
 - [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
+- [Mobbin](tools/mobbin.md) `assess`: searchable library of real app screenshots and user flows for design research.
 
 ## media-optimization
 
@@ -120,18 +125,18 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 ## dev-workflow
 
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
-- [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
-- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
-- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
-- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
-- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
-- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
-- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 - [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
-- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
-- [Wispr Flow](tools/wispr-flow.md) `assess`: voice-to-text dictation that turns speech into clean writing in any app.
+- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
+- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
 - [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
+- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
+- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
+- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
+- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
+- [Wispr Flow](tools/wispr-flow.md) `assess`: voice-to-text dictation that turns speech into clean writing in any app.
 
 **Held**
 
@@ -147,9 +152,9 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 ## ai-code-review
 
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI pull-request review across major Git platforms.
-- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 - [DeepSource](tools/deepsource.md) `assess`: cloud code review combining static analysis with AI to flag bugs and security issues.
 - [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
+- [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 
 **Held**
 
@@ -157,29 +162,31 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## ai-coding-agents
 
-- [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
-- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
-- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
-- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
-- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
-- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
+- [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
+- [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
+- [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
+- [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
 
 ## ai-agent-infra
 
+- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
+- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
+- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
+- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
+- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [Kernel](tools/kernel.md) `assess`: unikernel cloud browsers for AI agents with sub-300ms cold starts.
+- [LiveKit](tools/livekit.md) `assess`: open-source WebRTC platform and AI agent framework for real-time voice and video products.
+- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
+- [Pipecat](tools/pipecat.md) `assess`: open-source Python framework for composing STT, LLM, and TTS into real-time voice agents.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
-- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
 - [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
-- [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
-- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
-- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
-- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
-- [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
-- [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
-- [Kernel](tools/kernel.md) `assess`: unikernel cloud browsers for AI agents with sub-300ms cold starts.
 
 **Held**
 
@@ -187,11 +194,21 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## ai-apis
 
-- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
-- [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
-- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
-- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
 - [Agora](tools/agora.md) `assess`: real-time voice, video, and conversational-AI APIs over a global network.
+- [AssemblyAI](tools/assemblyai.md) `assess`: speech-to-text and audio intelligence API with speaker diarization and sentiment analysis.
+- [Cartesia](tools/cartesia.md) `assess`: sub-100ms text-to-speech API built for real-time voice agents and interactive apps.
+- [Cohere](tools/cohere.md) `assess`: language model, embedding, and reranking API suite purpose-built for RAG pipelines.
+- [Deepgram](tools/deepgram.md) `assess`: low-latency speech-to-text and TTS API optimized for real-time streaming and voice agents.
+- [ElevenLabs](tools/elevenlabs.md) `assess`: AI voice synthesis and cloning API for natural speech in 70+ languages.
+- [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
+- [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
+- [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [LiteLLM](tools/litellm.md) `assess`: open-source Python proxy unifying 100+ LLM providers behind an OpenAI-compatible API.
+- [OpenRouter](tools/openrouter.md) `assess`: unified gateway to 300+ AI models via a single OpenAI-compatible API.
+- [PlayHT](tools/playht.md) `assess`: text-to-speech API with 800+ voices, voice cloning, and cross-language synthesis.
+- [Portkey](tools/portkey.md) `assess`: LLM gateway with routing, fallbacks, semantic caching, and per-request observability.
+- [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
+- [Voyage AI](tools/voyage-ai.md) `assess`: retrieval-optimized embedding API with a 32K-token context window and domain-specific models.
 
 **Held**
 
@@ -210,8 +227,8 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-22.
 
 ## background-jobs
 
-- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Convex](tools/convex.md) `assess`: reactive TypeScript backend with database and sync built in.
+- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
+- [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
-- [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.

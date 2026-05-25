@@ -8,21 +8,6 @@ the run date.
 
 ## New
 
-- OpenRouter: https://openrouter.ai
-- Portkey: https://portkey.ai
-- Helicone: https://helicone.ai
-- LiteLLM: https://litellm.ai
-- AssemblyAI: https://www.assemblyai.com
-- Deepgram: https://deepgram.com
-- ElevenLabs: https://elevenlabs.io
-- Cartesia: https://cartesia.ai
-- PlayHT: https://play.ht
-- LiveKit: https://livekit.io
-- Pipecat: https://pipecat.ai
-- Neon: https://neon.tech
-- Supabase: https://supabase.com
-- Voyage AI: https://www.voyageai.com
-- Cohere: https://cohere.com
 - Honeycomb: https://honeycomb.io
 - Grafana: https://grafana.com
 - Cognee: https://www.cognee.ai
@@ -31,3 +16,19 @@ the run date.
 ## Re-research
 
 ## Done
+
+- [x] OpenRouter: https://openrouter.ai (2026-05-25)
+- [x] Portkey: https://portkey.ai (2026-05-25)
+- [x] Helicone: https://helicone.ai (2026-05-25)
+- [x] LiteLLM: https://litellm.ai (2026-05-25)
+- [x] AssemblyAI: https://www.assemblyai.com (2026-05-25)
+- [x] Deepgram: https://deepgram.com (2026-05-25)
+- [x] ElevenLabs: https://elevenlabs.io (2026-05-25)
+- [x] Cartesia: https://cartesia.ai (2026-05-25)
+- [x] PlayHT: https://play.ht (2026-05-25)
+- [x] LiveKit: https://livekit.io (2026-05-25)
+- [x] Pipecat: https://pipecat.ai (2026-05-25)
+- [x] Neon: https://neon.tech (2026-05-25)
+- [x] Supabase: https://supabase.com (2026-05-25)
+- [x] Voyage AI: https://www.voyageai.com (2026-05-25)
+- [x] Cohere: https://cohere.com (2026-05-25)
