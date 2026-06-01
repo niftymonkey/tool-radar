@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-05-25.
+not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 
 ## auth
 
@@ -79,8 +79,10 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-25.
 ## error-monitoring
 
 - [Axiom](tools/axiom.md) `assess`: serverless log and event-data platform with a piped query language.
+- [Grafana](tools/grafana.md) `assess`: open-source metrics, logs, and traces in one dashboard layer; free self-hosted or Grafana Cloud with a generous free tier.
 - [Helicone](tools/helicone.md) `assess`: open-source LLM observability proxy that logs cost and latency with a single base-URL change.
 - [Highlight](tools/highlight.md) `assess`: open-source full-stack monitoring with session-replay-linked debugging.
+- [Honeycomb](tools/honeycomb.md) `assess`: event-based high-cardinality observability with BubbleUp anomaly detection; free up to 20M events/month.
 - [PostHog](tools/posthog.md) `assess`: all-in-one product analytics, session replay, and error tracking.
 - [Sentry](tools/sentry.md) `assess`: error tracking and application monitoring with grouped issues.
 
@@ -176,6 +178,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-25.
 - [Agentuity](tools/agentuity.md) `assess`: full-stack platform to build, deploy, and run AI agents in production.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
+- [Cognee](tools/cognee.md) `assess`: open-source AI agent memory combining vector search and knowledge graphs, installable via pip.
 - [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
@@ -191,6 +194,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-05-25.
 **Held**
 
 - [Ragie](tools/ragie.md) `hold`: managed retrieval-augmented-generation API; cheapest real plan is $100/month.
+- [Zep](tools/zep.md) `hold`: managed temporal knowledge graph memory for AI agents; free tier exhausts in days and Pro is $99/month.
 
 ## ai-apis
 

@@ -3,6 +3,10 @@
 One entry per refresh run: tools added, tools skipped with reasons, tools
 re-researched, and queue items drained.
 
+## 2026-06-01
+
+Scheduled weekly refresh. Scraped t3-sponsors source (sponsors.ts); all entries already catalogued or previously rejected out of scope — no new in-scope tools found from source. Drained all 4 remaining queue items: Honeycomb, Grafana, Cognee, Zep. All 4 passed the scope pre-filter as developer tools you integrate into projects. Added 4 tool entries: Honeycomb (assess, error-monitoring) — event-based observability with a 20M events/month free tier; Grafana (assess, error-monitoring) — open-source LGTM-stack dashboarding, free self-hosted and generous Grafana Cloud free tier; Cognee (assess, ai-agent-infra) — open-source vector + knowledge graph agent memory, free to self-host; Zep (hold, ai-agent-infra) — managed temporal knowledge graph memory, free tier too constrained (exhausts in days) and Pro at $99/month is above the threshold. No stale entries requiring re-research (all existing entries carry last-researched 2026-05-21 or 2026-05-25, well within the 90-day window). Queue is now fully drained. INDEX.md regenerated; catalog now holds 79 tool entries across 22 problem areas: 3 adopt, 9 hold, 67 assess.
+
 ## 2026-05-25
 
 Scheduled weekly refresh. Scraped t3-sponsors source (sponsors.ts); all entries already catalogued or out of scope (same result as 2026-05-22 run — no new in-scope tools found from source). Drained 15 of 19 queue items (per-run cap of 15 applied; Honeycomb, Grafana, Cognee, and Zep remain for the next run). All 15 queue items passed the scope pre-filter as developer APIs or frameworks you integrate into a project. Added 15 tool entries: OpenRouter, Portkey, Helicone, LiteLLM, AssemblyAI, Deepgram, ElevenLabs, Cartesia, PlayHT, LiveKit, Pipecat, Neon, Supabase, Voyage AI, Cohere. Rings: all 15 assess. No stale entries requiring re-research (all existing entries carry last-researched 2026-05-21 or 2026-05-25, well within the 90-day window). INDEX.md regenerated; catalog now holds 75 tool entries across 22 problem areas: 3 adopt, 8 hold, 64 assess.
