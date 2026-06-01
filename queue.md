@@ -8,15 +8,14 @@ the run date.
 
 ## New
 
-- Honeycomb: https://honeycomb.io
-- Grafana: https://grafana.com
-- Cognee: https://www.cognee.ai
-- Zep: https://www.getzep.com
-
 ## Re-research
 
 ## Done
 
+- [x] Honeycomb: https://honeycomb.io (2026-06-01)
+- [x] Grafana: https://grafana.com (2026-06-01)
+- [x] Cognee: https://www.cognee.ai (2026-06-01)
+- [x] Zep: https://www.getzep.com (2026-06-01)
 - [x] OpenRouter: https://openrouter.ai (2026-05-25)
 - [x] Portkey: https://portkey.ai (2026-05-25)
 - [x] Helicone: https://helicone.ai (2026-05-25)
