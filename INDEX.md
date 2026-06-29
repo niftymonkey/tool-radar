@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-06-01.
+not a fit (grouped under Held per area). Last refreshed 2026-06-29.
 
 ## auth
 
@@ -42,6 +42,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
+- [Render](tools/render.md) `assess`: unified cloud platform for deploying web services, static sites, workers, cron jobs, and PostgreSQL from a Git push.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Zephyr Cloud](tools/zephyr-cloud.md) `assess`: Module Federation deployment platform for micro-frontends.
 
@@ -132,6 +133,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
+- [General Translation](tools/general-translation.md) `assess`: open-source i18n SDK for React that replaces JSON key management with a <T> wrapper and AI-powered translations.
 - [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
@@ -167,6 +169,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [Devin](tools/devin.md) `assess`: autonomous AI software engineer that plans, codes, tests, and debugs entire tasks in a cloud sandbox.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
@@ -179,6 +182,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Cognee](tools/cognee.md) `assess`: open-source AI agent memory combining vector search and knowledge graphs, installable via pip.
+- [CopilotKit](tools/copilotkit.md) `assess`: open-source React/Angular SDK for embedding AI copilots with bidirectional app-state sync into your application.
 - [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
