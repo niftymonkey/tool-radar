@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-06-01.
+not a fit (grouped under Held per area). Last refreshed 2026-07-13.
 
 ## auth
 
@@ -42,6 +42,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
+- [Render](tools/render.md) `assess`: Git-push cloud hosting for web services, databases, and workers with transparent instance-based pricing.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
 - [Zephyr Cloud](tools/zephyr-cloud.md) `assess`: Module Federation deployment platform for micro-frontends.
 
@@ -113,6 +114,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 
 - [AG Grid](tools/ag-grid.md) `assess`: high-performance JavaScript and React data-grid component.
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
+- [CopilotKit](tools/copilotkit.md) `assess`: open-source React/Angular framework for embedding AI copilots and agent UIs in your own app.
 
 ## design-tooling
 
@@ -132,6 +134,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
+- [General Translation](tools/general-translation.md) `assess`: open-source React/Next.js i18n toolkit that translates components via a `<T>` wrapper, backed by an AI translation API.
 - [Graphite](tools/graphite.md) `assess`: stacked-pull-request code review and workflow platform for GitHub.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
@@ -167,6 +170,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Augment Code](tools/augment-code.md) `assess`: AI coding agent with a context engine for large multi-repo codebases.
 - [Bolt.new](tools/bolt-new.md) `assess`: in-browser AI full-stack app builder by StackBlitz.
 - [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack apps on a Convex backend.
+- [Devin](tools/devin.md) `assess`: autonomous AI software engineer that handles well-scoped tasks end-to-end from task description to PR.
 - [Factory](tools/factory.md) `assess`: AI coding agents that run dev tasks across CLI, browser, and editor.
 - [Kilo Code](tools/kilo.md) `assess`: open-source AI coding agent for VS Code and JetBrains with zero-markup pricing.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
@@ -179,6 +183,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Arcjet](tools/arcjet.md) `assess`: in-code security SDK for rate limiting, bot detection, and AI abuse protection.
 - [Browserbase](tools/browserbase.md) `assess`: managed cloud headless browsers for AI agents and automation.
 - [Cognee](tools/cognee.md) `assess`: open-source AI agent memory combining vector search and knowledge graphs, installable via pip.
+- [CopilotKit](tools/copilotkit.md) `assess`: open-source React/Angular framework for embedding AI copilots and agent UIs in your own app.
 - [Daytona](tools/daytona.md) `assess`: sub-90ms isolated sandboxes for running AI-agent-generated code.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
@@ -207,6 +212,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-06-01.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: serverless inference API for generative image, video, and audio models.
 - [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
+- [General Translation](tools/general-translation.md) `assess`: open-source React/Next.js i18n toolkit that translates components via a `<T>` wrapper, backed by an AI translation API.
 - [LiteLLM](tools/litellm.md) `assess`: open-source Python proxy unifying 100+ LLM providers behind an OpenAI-compatible API.
 - [OpenRouter](tools/openrouter.md) `assess`: unified gateway to 300+ AI models via a single OpenAI-compatible API.
 - [PlayHT](tools/playht.md) `assess`: text-to-speech API with 800+ voices, voice cloning, and cross-language synthesis.
