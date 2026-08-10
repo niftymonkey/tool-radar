@@ -30,6 +30,15 @@ batches.
 2. **Diff.** Compare extracted tools against existing files in `tools/`. A
    tool already represented by a file is skipped. Collect the new ones.
 
+   Then check the entries already pending on unmerged refresh branches:
+   `git fetch origin 'refs/heads/refresh/*:refs/remotes/origin/refresh/*'`
+   and list the `tools/` files each one adds. A candidate already written on
+   an open refresh branch is not new; do not research it again. Either
+   supersede that branch (see step 8) or drop the candidate and note it in
+   the run summary. Skipping this check is what turns one unreviewed pull
+   request into a backlog of near-duplicate ones, since an unmerged branch
+   never lands in `tools/` for the plain diff above to see.
+
 3. **Scope pre-filter.** For each new tool, apply the scope pre-filter
    below. If it is out of scope, do not create a file; record the skip and
    the reason for the run summary.
@@ -77,6 +86,13 @@ batches.
    branch, and open a pull request against `main` with the run summary as
    the PR body. Do not merge the pull request; a human reviews and merges
    it.
+
+   When step 2 found candidates already pending on an earlier refresh
+   branch, supersede rather than duplicate: branch from `main`, carry those
+   entries forward with the current run's research, and say in the pull
+   request body which earlier pull requests this one replaces so a reviewer
+   can close them together. Never open a second pull request that adds the
+   same `tools/` file as an open one.
 
 ## Entry format
 

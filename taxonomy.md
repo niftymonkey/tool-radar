@@ -28,6 +28,8 @@ fits nothing here, it does not invent an area; it logs the tool in
 - `design-tooling`: design inspiration, mockups, design-to-code.
 - `media-optimization`: image and asset optimization and delivery.
 - `dev-workflow`: developer workflow tools, code review flow, pairing.
+- `i18n`: internationalization, localization, and translation tooling you
+  integrate into an application.
 - `cost-optimization`: cloud cost reduction and management.
 - `ai-code-review`: AI-powered code review.
 - `ai-coding-agents`: AI coding agents, app builders, vibe-coding platforms.

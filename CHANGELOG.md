@@ -3,6 +3,49 @@
 One entry per refresh run: tools added, tools skipped with reasons, tools
 re-researched, and queue items drained.
 
+## 2026-08-10 (backlog consolidation)
+
+Attended run consolidating ten unmerged weekly refresh pull requests (#5
+through #14, 2026-06-08 to 2026-08-10). Because none of those runs was
+merged, `tools/` on `main` never gained their entries, so every subsequent
+run re-diffed against the same catalog and re-researched the same
+candidates: the ten pull requests are near-duplicate attempts at four tools,
+not ten runs' worth of distinct findings. Consolidated rather than merged
+sequentially. Added 4 tool entries, each built on the most recent research
+(2026-08-10) with durable facts folded in from the earlier runs and
+`first-seen` set to 2026-06-08, the date each was first surfaced: Devin
+(assess, ai-coding-agents) — autonomous AI engineer from Cognition, $20/month
+individual plan after a 96% price cut, with ACU usage billing on top that
+dominates real spend; CopilotKit (assess, ai-agent-infra) — MIT-licensed
+React SDK and AG-UI protocol for embedding copilot UIs, free forever for one
+seat, 34k+ GitHub stars and a $27M Series A; Render (assess, hosting-deploy,
+database, background-jobs) — Git-push hosting for web services, PostgreSQL,
+and workers, with a real free tier whose 30-60 second cold starts and
+30-day PostgreSQL expiry are the notable traps, and flat $25/month Pro
+pricing as of April 2026; General Translation (assess, i18n) — AI i18n
+toolkit for React and Next.js whose `<T>` wrapper translates literal JSX
+without key extraction. Extended taxonomy.md with an `i18n` area (a human
+decision, taken in this run): every one of the ten runs flagged that no
+existing area covered internationalization, five declined to file General
+Translation at all over it, and five filed it under `dev-workflow` against
+that area's stated definition of code-review flow and pairing. Applied three
+factual corrections raised in review on #14 and inherited by the consolidated
+entries: General Translation's `<T>` wrapper covers literal JSX descendants,
+typically at build time, and JSON dictionaries remain supported rather than
+being replaced; Render's comparison no longer attributes ACU-based billing to
+Railway, which uses resource-based billing (ACUs are Devin's unit); and the
+claim that Boot.dev had been logged out of scope in the 2026-05-22 run is
+dropped, as it was first rejected on 2026-06-08. Scope rejections across the
+backlog remain unchanged and are not re-litigated here: Mercury (business
+banking) and Boot.dev (courses and education), alongside the 2026-05-22
+rejections. No queue items to drain (queue empty). No stale entries: the
+oldest last-researched date is 2026-05-21, 81 days old and within the 90-day
+window. Pull requests #5 through #14 were closed as superseded by this entry.
+Also amended REFRESH.md so the diff step accounts for entries already pending
+on an unmerged refresh branch, which is the failure that produced this
+backlog. INDEX.md regenerated; catalog now holds 83 tool entries across 23
+problem areas: 3 adopt, 9 hold, 71 assess.
+
 ## 2026-06-01
 
 Scheduled weekly refresh. Scraped t3-sponsors source (sponsors.ts); all entries already catalogued or previously rejected out of scope — no new in-scope tools found from source. Drained all 4 remaining queue items: Honeycomb, Grafana, Cognee, Zep. All 4 passed the scope pre-filter as developer tools you integrate into projects. Added 4 tool entries: Honeycomb (assess, error-monitoring) — event-based observability with a 20M events/month free tier; Grafana (assess, error-monitoring) — open-source LGTM-stack dashboarding, free self-hosted and generous Grafana Cloud free tier; Cognee (assess, ai-agent-infra) — open-source vector + knowledge graph agent memory, free to self-host; Zep (hold, ai-agent-infra) — managed temporal knowledge graph memory, free tier too constrained (exhausts in days) and Pro at $99/month is above the threshold. No stale entries requiring re-research (all existing entries carry last-researched 2026-05-21 or 2026-05-25, well within the 90-day window). Queue is now fully drained. INDEX.md regenerated; catalog now holds 79 tool entries across 22 problem areas: 3 adopt, 9 hold, 67 assess.
