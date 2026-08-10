@@ -15,7 +15,7 @@ pricing: Usage-based; free API key to get started; pay per translation, no per-s
 
 # General Translation
 
-**What it is:** AI-powered i18n SDK for React and Next.js that translates entire components automatically using a `<T>` wrapper—no JSON translation files, no key extraction.
+**What it is:** AI-powered i18n SDK for React and Next.js that translates literal JSX content wrapped in a `<T>` component at build time, with optional on-demand translation and support for dictionary or JSON workflows.
 
 **Problem it solves:** Adds production-quality multilingual support to a React app in hours, without managing `.json` locale files or a separate translation-key workflow.
 

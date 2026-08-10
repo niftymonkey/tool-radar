@@ -21,7 +21,7 @@ pricing: Free tier (750 instance-hrs/month, spins down after 15 min, free Postgr
 
 **When I'd reach for it:**
 - Shipping a full-stack side project or MVP with a web server and PostgreSQL and no appetite for DevOps overhead
-- When Railway's ACU-based billing feels unpredictable and you want a flat $25/month workspace fee
+- When Railway's resource-based billing feels unpredictable and you want a flat $25/month workspace fee
 - Hosting a background worker or cron job alongside a web service under one billing account
 
 **When I wouldn't:** When your service can't tolerate 30–60 second cold starts on the free tier (upgrade to the $7/month always-on tier or switch platforms); when you need VPC networking, cross-region failover, or raw compute access; when you're already happy on Vercel or Railway.
