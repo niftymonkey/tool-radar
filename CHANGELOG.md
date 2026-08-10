@@ -15,10 +15,11 @@ sequentially. Added 4 tool entries, each built on the most recent research
 (2026-08-10) with durable facts folded in from the earlier runs and
 `first-seen` set to 2026-06-08, the date each was first surfaced: Devin
 (assess, ai-coding-agents) — autonomous AI engineer from Cognition, $20/month
-individual plan after a 96% price cut, with ACU usage billing on top that
-dominates real spend; CopilotKit (assess, ai-agent-infra) — MIT-licensed
-React SDK and AG-UI protocol for embedding copilot UIs, free forever for one
-seat, 34k+ GitHub stars and a $27M Series A; Render (assess, hosting-deploy,
+individual plan after a 96% price cut, with usage billed on top that
+dominates real spend; CopilotKit (assess, ui-components, ai-agent-infra) —
+MIT-licensed React SDK and AG-UI protocol for embedding copilot UIs, free
+forever for one seat, 34k+ GitHub stars and a $27M Series A; Render (assess,
+hosting-deploy,
 database, background-jobs) — Git-push hosting for web services, PostgreSQL,
 and workers, with a real free tier whose 30-60 second cold starts and
 30-day PostgreSQL expiry are the notable traps, and flat $25/month Pro
@@ -42,8 +43,26 @@ rejections. No queue items to drain (queue empty). No stale entries: the
 oldest last-researched date is 2026-05-21, 81 days old and within the 90-day
 window. Pull requests #5 through #14 were closed as superseded by this entry.
 Also amended REFRESH.md so the diff step accounts for entries already pending
-on an unmerged refresh branch, which is the failure that produced this
-backlog. INDEX.md regenerated; catalog now holds 83 tool entries across 23
+on an open refresh pull request, which is the failure that produced this
+backlog: the check prunes deleted refs and confirms the branch backs an open
+pull request, since a merged branch is already in `tools/` and a
+closed-unmerged one was rejected — treating either as pending would suppress
+that candidate forever. Pending candidates still run through research so the
+superseding run carries current facts.
+
+Review on the consolidation itself raised two further points, both applied:
+CopilotKit gains `ui-components` alongside `ai-agent-infra`, since shipping
+copilot UI components is as much its purpose as agent wiring and
+`ai-agent-infra` is defined around runtime infrastructure; and its
+platform-support caveat no longer names specific non-React frameworks as
+early-stage, because that support has moved and the entry should not pin a
+figure that ages badly. Two contested pricing claims could not be settled:
+review disputed the Devin team-tier structure and usage-billing unit, and the
+Render bandwidth allowances, both against the 2026-08-10 research, and egress
+to devin.ai and render.com is blocked in this environment. Rather than pick a
+side, both entries drop the disputed specifics and keep what has held across
+every look, and both tools are queued for re-research by a run with network
+access. INDEX.md regenerated; catalog now holds 83 tool entries across 23
 problem areas: 3 adopt, 9 hold, 71 assess.
 
 ## 2026-06-01

@@ -30,14 +30,23 @@ batches.
 2. **Diff.** Compare extracted tools against existing files in `tools/`. A
    tool already represented by a file is skipped. Collect the new ones.
 
-   Then check the entries already pending on unmerged refresh branches:
-   `git fetch origin 'refs/heads/refresh/*:refs/remotes/origin/refresh/*'`
-   and list the `tools/` files each one adds. A candidate already written on
-   an open refresh branch is not new; do not research it again. Either
-   supersede that branch (see step 8) or drop the candidate and note it in
-   the run summary. Skipping this check is what turns one unreviewed pull
-   request into a backlog of near-duplicate ones, since an unmerged branch
-   never lands in `tools/` for the plain diff above to see.
+   Then check what is already pending on an open refresh pull request. Run
+   `git fetch --prune origin 'refs/heads/refresh/*:refs/remotes/origin/refresh/*'`
+   so refs deleted upstream disappear locally, and list the `tools/` files
+   each remaining branch adds. A branch alone does not count: fetch the
+   repository's open pull requests (`WebFetch` on the pull request list, or
+   the host's API or CLI when one is available) and keep only the branches
+   backing an **open** one. A branch whose pull request was merged is already
+   reflected in `tools/`; a branch whose pull request was closed unmerged was
+   rejected, and treating either as pending would suppress the candidate
+   forever.
+
+   Candidates found this way are **pending**, not skipped. They still go
+   through steps 3 and 4 so the superseding run carries current research, but
+   they must not produce a second competing pull request — see step 8.
+   Omitting this check is what turns one unreviewed pull request into a
+   backlog of near-duplicate ones, since an unmerged branch never lands in
+   `tools/` for the plain diff above to see.
 
 3. **Scope pre-filter.** For each new tool, apply the scope pre-filter
    below. If it is out of scope, do not create a file; record the skip and
@@ -87,12 +96,12 @@ batches.
    the PR body. Do not merge the pull request; a human reviews and merges
    it.
 
-   When step 2 found candidates already pending on an earlier refresh
-   branch, supersede rather than duplicate: branch from `main`, carry those
-   entries forward with the current run's research, and say in the pull
-   request body which earlier pull requests this one replaces so a reviewer
-   can close them together. Never open a second pull request that adds the
-   same `tools/` file as an open one.
+   When step 2 marked candidates as pending on an earlier refresh branch,
+   supersede rather than duplicate: branch from `main`, carry those entries
+   forward with this run's research (steps 3 and 4 already produced it), and
+   say in the pull request body which earlier pull requests this one replaces
+   so a reviewer can close them together. Never leave two open pull requests
+   adding the same `tools/` file.
 
 ## Entry format
 

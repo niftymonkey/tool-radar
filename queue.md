@@ -10,6 +10,12 @@ the run date.
 
 ## Re-research
 
+- [ ] devin — confirm the current tier structure and the unit of usage
+  billing. The 2026-08-10 research and a later review disagreed, and the
+  consolidation run could not reach devin.ai to settle it.
+- [ ] render — confirm the outbound bandwidth included on the free and Pro
+  plans. Same disagreement, same blocked egress.
+
 ## Done
 
 - [x] Honeycomb: https://honeycomb.io (2026-06-01)

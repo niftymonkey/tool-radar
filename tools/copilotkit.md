@@ -1,6 +1,7 @@
 ---
 name: CopilotKit
 problem-areas:
+  - ui-components
   - ai-agent-infra
 ring: assess
 ring-reasoning: Free-forever tier for a single developer seat, MIT-licensed core that is free to self-host, and self-serve sign-up; 34k+ GitHub stars and a $27M Series A indicate real maturity. Assess for any React app that needs an embedded AI assistant or agent UI wired to an agent backend.
@@ -27,7 +28,7 @@ pricing: https://www.copilotkit.ai/pricing
 
 **When I wouldn't:**
 
-- Non-React stacks — the hooks and components are React-only, with Angular and mobile support still early-stage.
+- Frontends outside CopilotKit's supported platform list. The hooks and components are built around React, and support beyond it has moved over time, so check the current list before committing a non-React stack.
 - When a plain Vercel AI SDK chatbot component already covers the use case, or you only need a markdown-rendered LLM response box.
 
 **Pricing posture:** Core framework is MIT-licensed and free to self-host, and the hosted Developer tier is free forever for one seat. Paid plans start at $39/month, rising to $100 per developer per month up to five seats; enterprise is quote-based. For a side project, self-hosting with your own LLM key costs nothing beyond inference.

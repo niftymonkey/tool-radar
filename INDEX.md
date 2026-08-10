@@ -115,6 +115,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-10.
 
 - [AG Grid](tools/ag-grid.md) `assess`: high-performance JavaScript and React data-grid component.
 - [Clerk](tools/clerk.md) `assess`: drop-in auth and user management with React UI components.
+- [CopilotKit](tools/copilotkit.md) `assess`: open-source React SDK and AG-UI protocol for embedding AI copilot UIs in an app.
 
 ## design-tooling
 
