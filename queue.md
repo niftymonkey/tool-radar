@@ -10,13 +10,10 @@ the run date.
 
 ## Re-research
 
-- [ ] devin — confirm the current tier structure and the unit of usage
-  billing. The 2026-08-10 research and a later review disagreed, and the
-  consolidation run could not reach devin.ai to settle it.
-- [ ] render — confirm the outbound bandwidth included on the free and Pro
-  plans. Same disagreement, same blocked egress.
-
 ## Done
+
+- [x] devin — ACU confirmed as ~15 min of active work at $2.25/ACU on Pro; plan names are Free / Pro ($20/mo) / Max ($200/mo) / Teams ($80/mo + $40/seat) (2026-08-17)
+- [x] render — Hobby includes 5 GB outbound bandwidth, Pro includes 25 GB, overage $0.15/GB on both; all workspaces migrated to new plans by August 1, 2026 (2026-08-17)
 
 - [x] Honeycomb: https://honeycomb.io (2026-06-01)
 - [x] Grafana: https://grafana.com (2026-06-01)
