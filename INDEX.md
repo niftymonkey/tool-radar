@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-08-10.
+not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 
 ## auth
 
@@ -62,6 +62,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-10.
 
 **Held**
 
+- [ClickHouse](tools/clickhouse.md) `hold`: column-oriented OLAP database for real-time analytics at scale; no free tier and Basic starts at ~$67/month.
 - [SingleStore](tools/singlestore.md) `hold`: distributed SQL for real-time analytics; production pricing starts around $700/month.
 
 ## backend-platform
@@ -126,6 +127,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-10.
 
 - [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
 - [ImageKit](tools/imagekit.md) `assess`: image and video optimization and CDN delivery via URL parameters.
+- [Mux](tools/mux.md) `assess`: API-first video encoding, storage, and streaming delivery with a 100K-minute free tier.
 
 ## dev-workflow
 

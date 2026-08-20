@@ -3,6 +3,10 @@
 One entry per refresh run: tools added, tools skipped with reasons, tools
 re-researched, and queue items drained.
 
+## 2026-08-17
+
+Scheduled weekly refresh. Scraped t3-sponsors source (sponsors.ts). Found 2 new in-scope tools: Mux and ClickHouse (both new sponsors not present in earlier runs). All other new entries in the source were already catalogued or previously rejected out of scope — rejections are not re-litigated: Fondo (startup accounting service, rejected 2026-05-22), Mercury (business banking, rejected 2026-08-10), Boot.dev (courses and education, rejected 2026-06-08), and a set of consultancies, hiring marketplaces, education platforms, and lifestyle products rejected on 2026-05-22 (Infinite Red, DockYard, G2i, Notion, Epic Web, Frontend Masters, Code Crafters, Superhuman, Eight Sleep). Both new tools passed the scope pre-filter as developer-facing APIs you integrate into a project. Added 2 tool entries: Mux (assess, media-optimization) — API-first video encoding, storage, and streaming delivery with a 100K delivery-minutes/month free tier, no credit card required; ClickHouse (hold, database) — column-oriented OLAP database for real-time analytics at scale, no permanent free tier and Basic cloud tier starts at ~$67/month. Drained 2 queue re-research items: devin — ACU unit confirmed as ~15 minutes of active autonomous work billed at $2.25/ACU on Pro, plan names pinned as Free / Pro ($20/mo) / Max ($200/mo) / Teams ($80/mo + $40/seat); render — outbound bandwidth confirmed as 5 GB on Hobby (free) and 25 GB on Pro ($25/mo), overage $0.15/GB on both, all workspaces migrated to new plans by August 1, 2026. No stale entries requiring re-research (oldest last-researched date is 2026-05-21, 88 days old and within the 90-day window). INDEX.md regenerated; catalog now holds 85 tool entries across 23 problem areas: 3 adopt, 10 hold, 72 assess.
+
 ## 2026-08-10 (backlog consolidation)
 
 Attended run consolidating ten unmerged weekly refresh pull requests (#5
