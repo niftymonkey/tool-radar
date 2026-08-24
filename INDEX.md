@@ -57,7 +57,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-24.
 - [Neon](tools/neon.md) `assess`: serverless PostgreSQL with scale-to-zero billing and Git-style database branching.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
 - [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
-- [Qdrant](tools/qdrant.md) `assess`: open-source vector database for embeddings and semantic search, with a permanently free cloud cluster.
+- [Qdrant](tools/qdrant.md) `assess`: open-source vector database for embeddings and semantic search; free cloud cluster suspends after 1 week of inactivity and is deleted after 4 weeks.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Render](tools/render.md) `assess`: Git-push hosting for web services, databases, and workers, with a flat $25/month Pro workspace.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.

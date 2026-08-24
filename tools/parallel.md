@@ -16,7 +16,7 @@ pricing: https://parallel.ai/pricing
 
 **What it is:** A web research and search API suite for AI agents that runs its own web index; the Task API and FindAll evaluated fields attach Basis metadata (citations, confidence scores, and reasoning) to outputs, while Search and Extract return URLs and excerpts without Basis metadata.
 
-**Problem it solves:** Gives an AI agent or app accurate web data—from fast single-step search to multi-step deep research running up to 30 minutes—without building a scraper or gluing together multiple search APIs; the Task API's Basis metadata enables provenance-tracked research for pipelines where source verification matters.
+**Problem it solves:** Gives an AI agent or app accurate web data—from fast single-step search to multi-step deep research (up to 45 minutes for general research, up to 2 hours on the ultra8x processor)—without building a scraper or gluing together multiple search APIs; the Task API's Basis metadata enables provenance-tracked research for pipelines where source verification matters.
 
 **When I'd reach for it:**
 
