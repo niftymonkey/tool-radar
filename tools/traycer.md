@@ -2,7 +2,7 @@
 name: Traycer
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
-ring-reasoning: "Free tier with 5 Artifacts per month, no credit card required, and self-serve signup; paid plans start at $10/month, well within the assess threshold."
+ring-reasoning: "Free BYOA plan (bring your own agent, $0/user) with self-serve signup and no credit card; first paid tier (Sync) at $10/user/month, well within the assess threshold."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-08-24
@@ -29,9 +29,9 @@ pricing: https://docs.traycer.ai/account/pricing
 - Simple, single-file changes where a direct agent prompt is faster than the planning overhead.
 - Projects outside TypeScript, JavaScript, or Python where the planning-to-agent handoff is rougher.
 
-**Pricing posture:** Free tier includes 5 Artifacts per month with no credit card; Lite at $10/month, Pro+ at $40/month; annual plans are 20% off.
+**Pricing posture:** BYOA plan free ($0/user); Sync at $10/user/month (cloud sync, no inference credits); Lite at $20/user/month; Pro at $40/user/month; Ultra from $100/user/month; annual plans 20% off; 7-day free trial for paid features.
 
-**Reality check:** By mid-2026, Traycer reported 100K+ users and 171K+ VS Code Marketplace installs, suggesting real adoption beyond hype. Community reports cite excessive lint errors after agentic runs requiring cleanup and a tight free-tier Artifact slot limit that restricts anything beyond evaluation. The desktop app went open source under Apache 2.0 in June 2026. Competes with Devin, Factory, and similar orchestration-layer tools; differentiates on the VSCode extension integration and multi-agent handoff rather than a proprietary agent runtime.
+**Reality check:** By mid-2026, Traycer reported 100K+ users, ~40K VS Code installs, and ~240K Open VSX installs—suggesting real adoption beyond hype. Community reports cite excessive lint errors after agentic runs requiring cleanup, and the BYOA free plan has no inference credits so actual AI work requires a paid tier. The desktop app and core clients are MIT-licensed and open source on GitHub (released June 2026). Competes with Devin, Factory, and similar orchestration-layer tools; differentiates on VSCode extension integration and multi-agent handoff rather than a proprietary agent runtime.
 
 **Links:** [Homepage](https://traycer.ai) and [Pricing](https://docs.traycer.ai/account/pricing)
 

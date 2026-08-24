@@ -27,11 +27,11 @@ pricing: https://ai.pydantic.dev
 **When I wouldn't:**
 
 - TypeScript or Node.js stacks—PydanticAI is Python-only with no JS/TS client.
-- Graph-shaped workflows with cycles, conditional branches, or human-in-the-loop checkpoints; LangGraph handles those patterns better.
+- Projects where robust built-in graph persistence is needed out of the box; the underlying pydantic-graph package supports graph execution, branching, loops, and human-in-the-loop patterns, but the graph-builder API has limited native persistence—full durability requires adding a Temporal, DBOS, or Prefect integration.
 
 **Pricing posture:** MIT-licensed open source, free to use and self-host; Pydantic Logfire (optional observability companion) has separate paid plans.
 
-**Reality check:** Community signals in 2026 praise FastAPI-like ergonomics and strong MCP support. Compared to LangChain it has far less boilerplate and easier unit-testability; compared to LangGraph it lacks built-in graph primitives and checkpointing. Narrower scope is both a strength (less to learn) and a weakness (no built-in persistence or multi-agent coordination). Developed by the Pydantic team, which has credible authorship from the core validation library's 100M+ monthly PyPI downloads, though PydanticAI itself is a younger project with a smaller community than LangChain or LangGraph.
+**Reality check:** Community signals in 2026 praise FastAPI-like ergonomics and strong MCP support. Compared to LangChain it has far less boilerplate and easier unit-testability. Compared to LangGraph: PydanticAI includes pydantic-graph (graph execution, branching, loops, human-in-the-loop), but the graph-builder API has limited native persistence; full durable execution requires a Temporal, DBOS, or Prefect integration. Narrower scope is both a strength (less to learn) and a weakness (smaller pre-built integration ecosystem). Developed by the Pydantic team, credible authorship from the core validation library's 100M+ monthly PyPI downloads, though PydanticAI itself is a younger project with a smaller community than LangChain or LangGraph.
 
 **Links:** [Homepage](https://ai.pydantic.dev)
 

@@ -2,7 +2,7 @@
 name: Qdrant
 problem-areas: [database]
 ring: assess
-ring-reasoning: "Permanently free managed cloud cluster (0.5 vCPU, 1 GB RAM, 4 GB disk) with no time limit; fully open source under Apache 2.0 for self-hosting; self-serve signup with no sales contact required."
+ring-reasoning: "Free managed cloud cluster (0.5 vCPU, 1 GB RAM, 4 GB disk) with self-serve signup; fully open source under Apache 2.0 for self-hosting at no cost. Note: free clusters are suspended after 1 week of inactivity and permanently deleted after 4 weeks if not reactivated."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-08-24
@@ -29,7 +29,7 @@ pricing: https://qdrant.tech/pricing/
 - Fully serverless with zero infrastructure management is the priority; Pinecone or pgvector via Neon or Supabase are lower-friction starting points.
 - JavaScript-only stacks where Qdrant's Rust-native SDK is a secondary, thinner client compared to Python.
 
-**Pricing posture:** Free cloud cluster (single node, no high availability) with no time limit; Standard managed cloud is ~$30–$200/month resource-based; fully free to self-host under Apache 2.0.
+**Pricing posture:** Free cloud cluster (single node, no high availability); cluster suspends after 1 week of inactivity and is permanently deleted after 4 weeks if not reactivated—stored vectors are lost. Standard managed cloud ~$30–$200/month resource-based; fully free to self-host under Apache 2.0.
 
 **Reality check:** Consistently ranked alongside Pinecone and Weaviate in independent 2026 benchmarks, with strong marks for filtering accuracy and hybrid sparse+dense retrieval. Main gotcha for solo developers is operational overhead: unlike Pinecone or pgvector-inside-Supabase, self-hosted Qdrant adds infra management, and the free cloud node has no high availability for production workloads. Compared to pgvector (already bundled inside Supabase or Neon), Qdrant trades simpler stack integration for better vector-native features and performance at scale.
 
