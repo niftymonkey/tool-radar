@@ -5,7 +5,7 @@ the files in `tools/`. Do not edit by hand; it is overwritten on the next
 run.
 
 Rings: `adopt` proven, `trial` being tried, `assess` worth knowing, `hold`
-not a fit (grouped under Held per area). Last refreshed 2026-08-17.
+not a fit (grouped under Held per area). Last refreshed 2026-08-24.
 
 ## auth
 
@@ -31,6 +31,10 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [Netlify](tools/netlify.md) `assess`: Git-push hosting for sites and JAMstack apps.
 - [RWX](tools/rwx.md) `assess`: from-scratch CI/CD modeling builds as a DAG of cached tasks.
 
+**Held**
+
+- [QA Wolf](tools/qa-wolf.md) `hold`: managed AI-powered E2E testing service; enterprise-only quote-based pricing with no free tier and a median annual contract of $90K.
+
 ## hosting-deploy
 
 - [Vercel](tools/vercel.md) `adopt`: Git-push frontend hosting with deep Next.js integration.
@@ -53,6 +57,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [Neon](tools/neon.md) `assess`: serverless PostgreSQL with scale-to-zero billing and Git-style database branching.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
 - [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
+- [Qdrant](tools/qdrant.md) `assess`: open-source vector database for embeddings and semantic search, with a permanently free cloud cluster.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Render](tools/render.md) `assess`: Git-push hosting for web services, databases, and workers, with a flat $25/month Pro workspace.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
@@ -142,6 +147,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Macroscope](tools/macroscope.md) `assess`: AST-based AI code reviewer with auto-fix and auto-approve.
 - [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Traycer](tools/traycer.md) `assess`: AI coding orchestration layer that decomposes tasks and coordinates multiple AI agents from a free VSCode extension.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Wispr Flow](tools/wispr-flow.md) `assess`: voice-to-text dictation that turns speech into clean writing in any app.
 
@@ -182,6 +188,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [Lovable](tools/lovable.md) `assess`: AI app builder generating React, Tailwind, and Supabase apps from prompts.
 - [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts into React and Tailwind UI.
 - [Rork](tools/rork.md) `assess`: AI builder that generates native React Native mobile apps from prompts.
+- [Traycer](tools/traycer.md) `assess`: AI coding orchestration layer that decomposes tasks and coordinates multiple AI agents from a free VSCode extension.
 
 ## ai-agent-infra
 
@@ -198,6 +205,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [LiveKit](tools/livekit.md) `assess`: open-source WebRTC platform and AI agent framework for real-time voice and video products.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
 - [Pipecat](tools/pipecat.md) `assess`: open-source Python framework for composing STT, LLM, and TTS into real-time voice agents.
+- [PydanticAI](tools/pydantic-ai.md) `assess`: open-source Python agent framework with typed outputs, dependency injection, and multi-model support.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
 - [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
@@ -235,6 +243,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-17.
 - [Exa](tools/exa.md) `assess`: AI-native web search API built for LLMs and agents.
 - [Firecrawl](tools/firecrawl.md) `assess`: web scraping and crawling API that turns sites into LLM-ready data.
 - [Kernel](tools/kernel.md) `assess`: unikernel cloud browsers for AI agents with sub-300ms cold starts.
+- [Parallel](tools/parallel.md) `assess`: web research and search API suite for AI agents with citation-backed results and a free initial allowance.
 
 **Held**
 
