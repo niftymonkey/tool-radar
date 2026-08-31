@@ -3,6 +3,7 @@ name: Augment Code
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
 ring-reasoning: "The $20 Indie tier is self-serve and aimed at individuals, but no free tier and a context engine tuned for 100K-plus-file repos means its core value is hard to feel at side-project scale."
+summary: "Agentic AI coding platform whose Context Engine indexes large multi-repo codebases so agents can plan, refactor, and open pull requests with real architectural awareness."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

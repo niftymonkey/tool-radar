@@ -3,6 +3,7 @@ name: Macroscope
 problem-areas: [ai-code-review, dev-workflow]
 ring: assess
 ring-reasoning: "Self-serve signup with $100 of free usage and usage-based pricing that costs roughly a dollar per review keeps a side project well under $20/month, and the docs target individual developers."
+summary: "AI code reviewer that maps your codebase with AST analysis to flag high-signal bugs on pull requests and optionally auto-fix or auto-approve low-risk changes."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

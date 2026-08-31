@@ -3,6 +3,7 @@ name: Blacksmith
 problem-areas: [ci-cd]
 ring: assess
 ring-reasoning: "A 3,000-free-minute monthly tier, pure usage billing, and a one-line drop-in swap make it easy to evaluate solo; not yet tried personally, so it cannot be promoted past assess."
+summary: "Drop-in replacement for GitHub Actions runners that runs your existing workflows on bare-metal gaming CPUs with co-located caching."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

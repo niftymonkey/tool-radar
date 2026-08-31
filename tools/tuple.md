@@ -3,6 +3,7 @@ name: Tuple
 problem-areas: [dev-workflow]
 ring: hold
 ring-reasoning: "No free tier and a $30/month per-seat entry price above the roughly $20 assess threshold, and the value (real-time pairing) is hard to demonstrate solo since it needs a second person."
+summary: "Remote pair-programming app for macOS and Windows built around low-latency screen sharing and seamless shared remote control. No free tier, $30/seat floor."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

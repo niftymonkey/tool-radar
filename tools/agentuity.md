@@ -3,6 +3,7 @@ name: Agentuity
 problem-areas: [ai-agent-infra, hosting-deploy]
 ring: assess
 ring-reasoning: "Self-serve signup with $5 free credits and pure usage-based pricing fits a side project, but the platform is young and integrations are all code you write yourself, so it cannot be promoted without hands-on use."
+summary: "Full-stack platform for building, deploying, and running AI agents in production, wrapping existing frameworks with one SDK and one CLI."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

@@ -3,6 +3,7 @@ name: Graphite
 problem-areas: [dev-workflow, ai-code-review]
 ring: assess
 ring-reasoning: "A free Hobby tier covers personal repos with self-serve signup and docs aimed at individual developers, so it clears the assess bar even though AI review and the merge queue sit behind the $40/user/month Team plan."
+summary: "Code review and workflow platform for GitHub built around stacked pull requests, a stack-aware merge queue, and an AI review agent."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

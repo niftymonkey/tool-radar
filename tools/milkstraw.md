@@ -3,6 +3,7 @@ name: Milkstraw
 problem-areas: [cost-optimization]
 ring: hold
 ring-reasoning: "Pricing is performance-based with no flat tier, and the problem it solves (committed-use AWS discounts at scale) is only meaningful once a cloud bill is large enough to optimize, so it is not evaluable on a small side-project bill."
+summary: "AWS cost optimization service that injects shareable savings commitments into your AWS Organization to apply Savings Plan discounts. Value only at non-trivial cloud scale."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

@@ -3,6 +3,7 @@ name: Upstash
 problem-areas: [database, background-jobs, ai-agent-infra]
 ring: assess
 ring-reasoning: "Free tier of 500K commands per month, instant self-serve signup, and pay-per-request billing that scales to zero make it a near-perfect fit for low-traffic side projects, though it has not been tried personally."
+summary: "Serverless data platform offering Redis, a Vector database, and the QStash message queue, all accessible over HTTP and billed per request."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

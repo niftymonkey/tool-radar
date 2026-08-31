@@ -3,6 +3,7 @@ name: Greptile
 problem-areas: [ai-code-review, dev-workflow]
 ring: hold
 ring-reasoning: "No free tier and a $30-per-seat entry price exceed the assess threshold of a free tier or sub-$20 hobby pricing; a 2026 overage-pricing controversy reinforces the hold."
+summary: "AI code review agent that indexes an entire codebase and runs a swarm of LLM agents over each pull request to catch cross-file bugs. No free tier, $30/seat floor."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

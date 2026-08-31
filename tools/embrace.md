@@ -3,6 +3,7 @@ name: Embrace
 problem-areas: [error-monitoring, product-analytics]
 ring: hold
 ring-reasoning: "A real free tier and self-serve signup exist, but the platform is built for mobile teams at scale, custom metrics sit behind Enterprise, and the cheapest paid plan starts at an $80/month minimum."
+summary: "Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

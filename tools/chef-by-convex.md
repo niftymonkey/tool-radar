@@ -3,6 +3,7 @@ name: Chef by Convex
 problem-areas: [ai-coding-agents, backend-platform, hosting-deploy]
 ring: assess
 ring-reasoning: "A generous free tier and a $25 per-developer Pro plan with self-serve signup make it easy to evaluate, and value shows at small scale, but generated code still needs manual cleanup before it is production-ready."
+summary: "AI app builder that generates full-stack web apps from prompts, wiring a React and Tailwind frontend to a Convex backend with database, auth, and real-time UIs."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

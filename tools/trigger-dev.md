@@ -3,6 +3,7 @@ name: Trigger.dev
 problem-areas: [background-jobs, ai-agent-infra, dev-workflow]
 ring: assess
 ring-reasoning: "A real free tier, a $10 hobby plan, and self-serve TypeScript-native setup make it easy to evaluate at small scale, though usage-based billing and a TypeScript-only runtime limit who it fits."
+summary: "Managed platform for durable background jobs, scheduled tasks, and AI agent workflows written as plain async TypeScript functions that live in your own repo."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

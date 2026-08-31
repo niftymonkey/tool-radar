@@ -6,6 +6,7 @@ problem-areas:
   - background-jobs
 ring: assess
 ring-reasoning: A real free tier (750 instance-hours/month), self-serve sign-up, and docs aimed squarely at individual developers; the April 2026 flat-rate Pro workspace at $25/month with no per-seat fees makes pricing predictable. Free-tier cold starts keep it short of adopt, but it is fully evaluable on a side project without spending anything.
+summary: "Managed cloud platform for deploying web services, static sites, PostgreSQL databases, Redis instances, and background workers from a Git push."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08

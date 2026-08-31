@@ -3,6 +3,7 @@ name: Ragie
 problem-areas: [ai-apis, ai-agent-infra]
 ring: hold
 ring-reasoning: "A free Developer tier exists for exploration, but the cheapest paid plan is $100/month, far above the roughly $20 hobby threshold, so a real side project quickly outgrows free use at production cost."
+summary: "Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

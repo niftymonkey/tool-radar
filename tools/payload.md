@@ -3,6 +3,7 @@ name: Payload
 problem-areas: [cms, backend-platform]
 ring: assess
 ring-reasoning: "Open-source MIT core deploys free forever on any Node host and the docs target individual developers, so it clears the assess bar even though Payload Cloud is paused and there is no public managed tier to price."
+summary: "Open-source, TypeScript-native headless CMS and backend framework that installs directly inside a Next.js app, with content schemas defined in code."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

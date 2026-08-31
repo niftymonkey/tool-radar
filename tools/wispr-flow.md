@@ -3,6 +3,7 @@ name: Wispr Flow
 problem-areas: [dev-workflow]
 ring: assess
 ring-reasoning: "A free tier, $12/month Pro pricing, and self-serve signup all fit the assess bar, but it is cloud-only and not yet tried personally, so it cannot be promoted on reputation alone."
+summary: "Voice-to-text dictation app that turns natural speech into clean, AI-formatted writing inside any app on Mac, Windows, iOS, and Android."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

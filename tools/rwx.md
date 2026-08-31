@@ -3,6 +3,7 @@ name: RWX
 problem-areas: [ci-cd]
 ring: assess
 ring-reasoning: "Self-serve signup with $50 free credit and per-second usage billing fits a solo budget, but a from-scratch CI model and custom config keep it at assess until tried personally."
+summary: "From-first-principles CI/CD platform that models builds as a DAG of cached tasks and lets you run CI against uncommitted local changes."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

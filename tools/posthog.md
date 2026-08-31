@@ -3,6 +3,7 @@ name: PostHog
 problem-areas: [product-analytics, feature-flags, error-monitoring]
 ring: assess
 ring-reasoning: "A genuinely large free tier (1M events, 5K replays, feature flags), usage-based pricing starting at $0, and self-serve developer-focused setup make it easy to adopt solo, but it has not been used personally here."
+summary: "Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

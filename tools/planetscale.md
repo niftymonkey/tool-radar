@@ -3,6 +3,7 @@ name: PlanetScale
 problem-areas: [database]
 ring: assess
 ring-reasoning: "A $5/month single-node Postgres tier and self-serve signup keep it inside assess territory, though the free Hobby tier is gone and the platform now positions toward funded teams rather than hobbyists."
+summary: "Managed database platform offering Vitess-based MySQL and managed Postgres, known for Git-style branching and zero-downtime, non-blocking schema changes."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

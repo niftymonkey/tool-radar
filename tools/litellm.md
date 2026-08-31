@@ -3,6 +3,8 @@ name: LiteLLM
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Open-source Python proxy is free to self-host with no per-request fees; covers routing, fallbacks, and caching across 100+ providers without any paid tier for solo use."
+summary: "Open-source Python library and proxy server that presents a unified OpenAI-compatible API across 100+ LLM providers."
+pricing-note: "Free (open-source); hosted proxy plans available"
 source: manual
 discovered-via: https://litellm.ai
 first-seen: 2026-05-25

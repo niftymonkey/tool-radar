@@ -4,6 +4,7 @@ problem-areas:
   - database
 ring: hold
 ring-reasoning: No permanent free tier on ClickHouse Cloud — entry-level Basic starts at ~$67/month, well above the solo-developer threshold. Self-hosted is free and open-source but running column-oriented OLAP in production requires schema design expertise and ongoing tuning that is not side-project-sized work.
+summary: "Open-source column-oriented database for real-time OLAP analytics. No free tier; Basic cloud tier starts at ~$67/month."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-17

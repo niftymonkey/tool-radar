@@ -3,6 +3,7 @@ name: Helicone
 problem-areas: [error-monitoring]
 ring: assess
 ring-reasoning: "Free tier covers 10K requests per month with 7-day log retention; open-source codebase is self-hostable; self-serve signup with no sales call needed to evaluate."
+summary: "Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy with a single base-URL change."
 source: manual
 discovered-via: https://helicone.ai
 first-seen: 2026-05-25

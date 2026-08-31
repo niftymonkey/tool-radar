@@ -3,6 +3,7 @@ name: SpacetimeDB
 problem-areas: [database, backend-platform]
 ring: assess
 ring-reasoning: "A genuinely usable free tier and a $25/month Pro plan with self-serve signup make it easy to evaluate solo; not tried personally, and a young API plus real SDK gotchas mean it needs hands-on validation before trust."
+summary: "Database that is also the application server, where server logic (reducers) runs inside the database as WebAssembly modules and state changes are pushed to subscribed clients in real time."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

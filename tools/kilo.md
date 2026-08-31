@@ -3,6 +3,7 @@ name: Kilo Code
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
 ring-reasoning: "The extension is free and open source with optional BYOK or a $19 credit plan, all self-serve, and it delivers full value to an individual developer at small scale."
+summary: "Open-source AI coding agent for VS Code and JetBrains with 500+ models, zero-markup pricing, and specialized Architect, Code, Debug, and Orchestrator modes."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

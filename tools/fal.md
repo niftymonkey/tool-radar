@@ -3,6 +3,7 @@ name: FAL
 problem-areas: [ai-apis, ai-agent-infra]
 ring: assess
 ring-reasoning: "Pure pay-per-output billing with sign-up credits, instant self-serve API access, and per-image costs in the cents make it cheap to evaluate at side-project scale, though it has not been tried personally."
+summary: "Serverless inference platform exposing 1,000+ generative image, video, audio, and 3D models behind one API on an accelerated GPU runtime."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

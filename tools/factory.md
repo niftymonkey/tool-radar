@@ -3,6 +3,7 @@ name: Factory
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
 ring-reasoning: "The $20 Pro tier is self-serve and individually priced, but no free tier plus an agent-delegation model that assumes solid CI and review discipline makes the value hard to feel on a casual side project."
+summary: "Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, and editor."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

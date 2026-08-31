@@ -3,6 +3,7 @@ name: Convex
 problem-areas: [backend-platform, database, background-jobs]
 ring: assess
 ring-reasoning: "A genuinely generous free tier and self-serve TypeScript DX make it easy to try at side-project scale, but the proprietary document-relational model and reactive-query cost behavior keep it short of a personal endorsement."
+summary: "Reactive backend platform where database, queries, mutations, scheduling, and auth are written in TypeScript and kept in sync with your frontend automatically."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

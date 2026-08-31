@@ -3,6 +3,7 @@ name: Sentry
 problem-areas: [error-monitoring, product-analytics]
 ring: assess
 ring-reasoning: "Free Developer tier covers a real side project and signup is self-serve, but event-volume billing on paid tiers and not yet tried personally keep it short of trial."
+summary: "Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

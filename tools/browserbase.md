@@ -3,6 +3,7 @@ name: Browserbase
 problem-areas: [ai-agent-infra, ai-web-data, dev-workflow]
 ring: assess
 ring-reasoning: "A real free tier plus a $20 per month Developer plan and self-serve signup keep it within side-project reach, though it has not been tried personally and cost climbs fast at agent volume."
+summary: "Managed cloud platform that runs real headless Chromium browsers, drivable over Playwright, Puppeteer, or CDP, so AI agents can navigate the web like a human."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

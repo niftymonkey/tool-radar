@@ -4,6 +4,7 @@ problem-areas:
   - ai-coding-agents
 ring: assess
 ring-reasoning: A free tier plus a $20/month individual plan (right at the threshold) make it self-serve and fully evaluable on a solo project. Cognition's ARR grew from $1M to $73M in the nine months after the price cut, indicating real adoption, but success on complex tasks still falls short of senior-engineer level. Worth knowing and trying on well-scoped work.
+summary: "Autonomous AI software engineer from Cognition that takes a task description, reads your codebase, implements a solution, runs tests, and opens a pull request."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08

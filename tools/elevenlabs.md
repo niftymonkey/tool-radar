@@ -3,6 +3,7 @@ name: ElevenLabs
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Free tier with 10K credits per month and a Starter plan at $5/month give meaningful access to voice synthesis for solo evaluation; self-serve signup with no sales call."
+summary: "AI voice synthesis API that generates natural speech from text in 70+ languages and clones voices from short audio samples."
 source: manual
 discovered-via: https://elevenlabs.io
 first-seen: 2026-05-25

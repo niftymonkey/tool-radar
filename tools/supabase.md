@@ -3,6 +3,7 @@ name: Supabase
 problem-areas: [database, backend-platform, auth]
 ring: assess
 ring-reasoning: "Free tier supports 50K monthly active users, 500MB database, and 1GB storage — enough to ship a real product — with Pro at $25/month when you need more; self-serve with no sales call."
+summary: "Open-source Firebase alternative wrapping PostgreSQL with auto-generated REST and GraphQL APIs, built-in auth with Row Level Security, storage, real-time subscriptions, and edge functions."
 source: manual
 discovered-via: https://supabase.com
 first-seen: 2026-05-25

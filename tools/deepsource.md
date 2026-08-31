@@ -3,6 +3,7 @@ name: DeepSource
 problem-areas: [ai-code-review, security]
 ring: assess
 ring-reasoning: "Self-serve signup, a 14-day no-card trial, and a $24 per-seat Team plan sit at the assess threshold; a free plan covers solo public-repo work but not private side projects."
+summary: "Cloud-hosted code review platform that combines static analysis with AI agents to flag bugs, security issues, and quality problems on every pull request."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

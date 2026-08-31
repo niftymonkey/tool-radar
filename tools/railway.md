@@ -3,6 +3,7 @@ name: Railway
 problem-areas: [hosting-deploy, database, background-jobs]
 ring: assess
 ring-reasoning: "Best-in-class deploy DX and a $5 hobby tier make it tempting; not yet tried personally, and a documented 2026 reliability and data-loss record means it cannot be promoted on reputation alone."
+summary: "Full-stack cloud platform that deploys apps, databases, and background services from a Git push, with per-second usage-based billing and no server management."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

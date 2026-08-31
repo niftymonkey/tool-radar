@@ -3,6 +3,7 @@ name: Appwrite
 problem-areas: [backend-platform, auth, database]
 ring: assess
 ring-reasoning: "A no-pause free tier with solid limits and self-serve $25 Pro pricing make Appwrite Cloud easy to try, while the open-source code stays free, even though self-hosting carries real operational weight."
+summary: "Open-source backend-as-a-service bundling auth, databases, storage, serverless functions, messaging, realtime, and web hosting — managed cloud or self-hosted via Docker."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

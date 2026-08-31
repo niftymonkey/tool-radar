@@ -3,6 +3,7 @@ name: LiveKit
 problem-areas: [ai-agent-infra]
 ring: assess
 ring-reasoning: "Free Build tier with 5K WebRTC minutes and 1K AI Agent minutes per month; open-source core is self-hostable; self-serve signup with no sales call to build and demo a working voice agent."
+summary: "Open-source WebRTC platform for real-time voice, video, and data, with a built-in Agents framework that orchestrates STT → LLM → TTS pipelines into conversational AI agents."
 source: manual
 discovered-via: https://livekit.io
 first-seen: 2026-05-25

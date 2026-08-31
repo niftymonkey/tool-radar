@@ -3,6 +3,7 @@ name: Exa
 problem-areas: [ai-web-data, ai-apis, ai-agent-infra]
 ring: assess
 ring-reasoning: "Free 1,000 requests per month, usage-based pricing from $7 per 1k searches, and self-serve signup make it easy to evaluate for an agent side project without any sales contact."
+summary: "AI-native web search API that returns semantically relevant pages, token-efficient content excerpts, and structured JSON, built for LLMs and agents."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

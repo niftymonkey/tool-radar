@@ -3,6 +3,7 @@ name: PlayHT
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Free tier covers 5K words per month and self-serve signup allow voice quality evaluation at no cost; real production use requires the Creator plan at $39/month."
+summary: "Text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model with sub-300ms latency."
 source: manual
 discovered-via: https://play.ht
 first-seen: 2026-05-25

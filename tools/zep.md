@@ -4,6 +4,7 @@ problem-areas:
   - ai-agent-infra
 ring: hold
 ring-reasoning: Free tier exhausts in days (10K messages, typically under a week) and is not usable for a real side project; Pro at $99/month is well above the $20/month threshold.
+summary: "Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts in days; Pro is $99/month."
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01

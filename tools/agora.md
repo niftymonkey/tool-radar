@@ -3,6 +3,7 @@ name: Agora
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "A genuine 10,000 free monthly minutes and self-serve usage-based pricing make it evaluable solo; not tried personally, and per-minute billing scales fast enough that it warrants caution before production."
+summary: "Real-time engagement platform providing voice, video, live streaming, and conversational AI APIs over a proprietary global low-latency network."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

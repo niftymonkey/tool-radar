@@ -3,6 +3,7 @@ name: Pipecat
 problem-areas: [ai-agent-infra]
 ring: assess
 ring-reasoning: "Open-source BSD-2 Python framework; free to self-host with no per-request fees; Pipecat Cloud adds managed hosting at $0.01/min active with no monthly minimum, making it safe to evaluate fully."
+summary: "Open-source Python framework for building real-time voice and multimodal conversational AI agents by composing STT, LLM, TTS, and transport services into a pipeline."
 source: manual
 discovered-via: https://pipecat.ai
 first-seen: 2026-05-25

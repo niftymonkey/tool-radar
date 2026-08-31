@@ -4,6 +4,7 @@ problem-areas:
   - error-monitoring
 ring: assess
 ring-reasoning: Free tier of 20M events/month is genuinely usable for a real side project; self-serve signup; strong developer-focused docs and a distinct mental model worth learning.
+summary: "Event-based observability platform built around high-cardinality distributed tracing and exploratory querying, with a 20M events/month free tier."
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01

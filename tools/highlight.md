@@ -3,6 +3,7 @@ name: Highlight
 problem-areas: [error-monitoring, product-analytics]
 ring: assess
 ring-reasoning: "A free-forever tier, self-serve signup, and an Apache 2.0 self-host option fit a side project, but the jump from free to the first paid plan is steep and the platform has not been tried personally."
+summary: "Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

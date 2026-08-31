@@ -3,6 +3,7 @@ name: Sevalla
 problem-areas: [hosting-deploy, database]
 ring: assess
 ring-reasoning: "A free static-site tier, $50 startup credits, and $5 entry pricing with self-serve signup fit a solo developer, but it is a young platform not yet tried personally."
+summary: "Heroku-style hosting from Kinsta that deploys Docker-based apps, managed databases, static sites, and S3-compatible object storage on GKE across 25 regions."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

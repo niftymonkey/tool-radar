@@ -3,6 +3,7 @@ name: Sent.dm
 problem-areas: [email-messaging]
 ring: assess
 ring-reasoning: "Self-serve signup gives API access in minutes and pay-as-you-go billing starts at fractions of a cent per contact with no minimum, so a side project can evaluate it at small scale."
+summary: "Unified messaging API that sends to SMS, WhatsApp, and RCS through one call and auto-selects the cheapest reliable channel per recipient."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

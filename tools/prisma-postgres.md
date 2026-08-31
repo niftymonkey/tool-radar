@@ -3,6 +3,7 @@ name: Prisma Postgres
 problem-areas: [database]
 ring: assess
 ring-reasoning: "A no-credit-card free tier and a $10/month Starter plan with self-serve signup and individual-developer docs make it easy to evaluate at small scale; not yet tried personally."
+summary: "Serverless managed PostgreSQL from the Prisma team, with built-in connection pooling, global query caching, and instant provisioning, billed per database operation."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

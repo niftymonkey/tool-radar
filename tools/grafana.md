@@ -4,6 +4,7 @@ problem-areas:
   - error-monitoring
 ring: assess
 ring-reasoning: Open-source self-hosted path is completely free; Grafana Cloud free tier (10K metric series, 50 GB logs/traces) is usable for a real side project; self-serve with developer-focused docs.
+summary: "Open-source observability and dashboarding platform unifying metrics (Prometheus/Mimir), logs (Loki), and traces (Tempo) — available self-hosted or as Grafana Cloud."
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01
