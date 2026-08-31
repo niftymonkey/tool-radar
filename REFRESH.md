@@ -256,6 +256,22 @@ Adding an area to `taxonomy.md` needs a matching entry in
 `radar/sectors.json` to choose where it sits on the dial and what it is
 called. Until then the build appends it with a generated label and warns.
 
+### Publishing
+
+`radar/index.html` is a single self-contained file — it opens from disk
+with no server. Publishing it somewhere shareable is a separate step, and
+deliberately not automated in this repository: the destination is a
+personal link, and this repository is public.
+
+To republish after a merge that changed the radar, ask Claude to publish
+`radar/index.html` to the existing artifact, passing that artifact's URL
+so the link stays stable. Publishing without the URL creates a second
+artifact instead of updating the first, which is the one mistake worth
+avoiding — anyone holding the old link keeps seeing the old catalog.
+
+Nothing breaks if this is skipped. The repository stays correct on its
+own; only the published copy goes stale.
+
 ## Manual run
 
 To run by hand, follow the same steps. When run locally, research may be
