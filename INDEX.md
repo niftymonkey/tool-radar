@@ -57,7 +57,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-31.
 - [Neon](tools/neon.md) `assess`: serverless PostgreSQL with scale-to-zero billing and Git-style database branching.
 - [PlanetScale](tools/planetscale.md) `assess`: managed MySQL and Postgres with Git-style schema branching.
 - [Prisma Postgres](tools/prisma-postgres.md) `assess`: serverless managed PostgreSQL wired into the Prisma ORM.
-- [Qdrant](tools/qdrant.md) `assess`: open-source Rust-powered vector database with a free cloud tier and best-in-class p50 latency.
+- [Qdrant](tools/qdrant.md) `assess`: open-source Rust-powered vector database with a free cloud tier and top-ranked p50 latency in 2026 benchmarks.
 - [Railway](tools/railway.md) `assess`: full-stack hosting for apps, databases, and workers from a Git push.
 - [Render](tools/render.md) `assess`: Git-push hosting for web services, databases, and workers, with a flat $25/month Pro workspace.
 - [Sevalla](tools/sevalla.md) `assess`: Heroku-style hosting for apps, databases, and static sites, by Kinsta.
@@ -207,7 +207,7 @@ not a fit (grouped under Held per area). Last refreshed 2026-08-31.
 - [Modal](tools/modal.md) `assess`: serverless Python compute with GPUs and sandboxes, billed per second.
 - [Pipecat](tools/pipecat.md) `assess`: open-source Python framework for composing STT, LLM, and TTS into real-time voice agents.
 - [Pydantic AI](tools/pydantic-ai.md) `assess`: type-safe Python agent framework from the Pydantic team for building validated, production-grade LLM apps.
-- [Qdrant](tools/qdrant.md) `assess`: open-source Rust-powered vector database with a free cloud tier and best-in-class p50 latency.
+- [Qdrant](tools/qdrant.md) `assess`: open-source Rust-powered vector database with a free cloud tier and top-ranked p50 latency in 2026 benchmarks.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: durable background jobs and AI workflows as TypeScript functions.
 - [Upstash](tools/upstash.md) `assess`: serverless Redis, vector, and message queue billed per request.
 - [Vapi](tools/vapi.md) `assess`: voice AI platform for building agents that answer and place phone calls.
