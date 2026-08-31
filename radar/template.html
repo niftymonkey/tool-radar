@@ -140,18 +140,42 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
 .ab-stat{font-family:var(--mono);font-size:10px;color:var(--text2);background:var(--surface2);
   border:1px solid var(--border2);border-radius:5px;padding:4px 8px}
 .ab-stat b{font-weight:500;color:var(--text)}
-#ab-body h3{font-family:var(--mono);font-size:11.5px;font-weight:500;text-transform:uppercase;
-  letter-spacing:.06em;color:var(--text3);margin:20px 0 8px}
-#ab-body h3:first-of-type{margin-top:0}
-#ab-body p{font-size:12.5px;line-height:1.65;color:var(--text2);margin-bottom:9px}
-#ab-body ul{margin:0 0 10px 2px;list-style:none}
-#ab-body li{font-size:12.5px;line-height:1.6;color:var(--text2);padding-left:13px;position:relative;margin-bottom:3px}
-#ab-body li::before{content:'';position:absolute;left:1px;top:8px;width:4px;height:4px;
+#ab-body h3{font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text3);margin:22px 0 9px;padding-bottom:6px;
+  border-bottom:1px solid var(--border2)}
+.ab-lede{font-size:13.5px;line-height:1.55;color:var(--text2);margin:0}
+.ab-lede strong{color:var(--text);font-weight:600}
+.ab-note{font-size:11.5px;line-height:1.55;color:var(--text3);margin-top:9px}
+.ab-note strong{color:var(--text2);font-weight:600}
+
+.ab-rings{display:flex;flex-direction:column;gap:1px}
+.ab-ring{display:grid;grid-template-columns:9px 52px 1fr auto;align-items:center;gap:9px;
+  padding:6px 8px;border-radius:6px}
+.ab-ring:nth-child(odd){background:var(--surface2)}
+.ab-ring-dot{width:9px;height:9px;border-radius:50%}
+.ab-ring-name{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text);text-transform:capitalize}
+.ab-ring-txt{font-size:11.5px;color:var(--text2);line-height:1.4}
+.ab-ring-n{font-family:var(--mono);font-size:10px;color:var(--text3)}
+
+.ab-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ab-col{border:1px solid var(--border2);border-radius:8px;padding:10px 11px}
+.ab-col-hd{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.ab-rule{font-family:var(--mono);font-size:9.5px;color:var(--text3)}
+
+.ab-list{list-style:none;margin:0}
+.ab-list li{font-size:11.5px;line-height:1.5;color:var(--text2);padding-left:12px;
+  position:relative;margin-bottom:5px}
+.ab-list li:last-child{margin-bottom:0}
+.ab-list li::before{content:'';position:absolute;left:2px;top:7px;width:3px;height:3px;
   border-radius:50%;background:var(--text3)}
-#ab-body strong{color:var(--text);font-weight:600}
-#ab-body em{font-style:normal;color:var(--text);border-bottom:1px dotted var(--text3)}
+.ab-list strong{color:var(--text);font-weight:600}
+
+.ab-chips{display:flex;flex-wrap:wrap;gap:4px}
+.ab-chip{font-family:var(--mono);font-size:10px;color:var(--text3);background:var(--surface2);
+  border:1px solid var(--border2);border-radius:100px;padding:3px 9px}
 #ab-body code{font-family:var(--mono);font-size:11px;background:var(--surface2);
   border:1px solid var(--border2);border-radius:3px;padding:.5px 4px}
+@media(max-width:520px){.ab-cols{grid-template-columns:1fr}}
 
 /* ── SHARED CARDS ── */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:box-shadow .15s,border-color .15s}
@@ -195,11 +219,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
 .exd-ring-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
 .exd-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px}
 
-/* ── DETAIL PANEL ── */
-#dbackdrop{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.25);display:none;cursor:pointer}
-#dbackdrop.open{display:block}
-#dpanel{position:fixed;top:0;right:-380px;width:350px;height:100vh;z-index:201;background:var(--surface);border-left:1px solid var(--border);transition:right .22s cubic-bezier(.4,0,.2,1);overflow-y:auto;display:flex;flex-direction:column}
-#dpanel.open{right:0}
+/* ── DETAIL PANEL ──
+   In-flow and non-modal: it stays open while you click other dots and cards,
+   swapping its contents rather than closing and reopening. */
+#dpanel{flex-shrink:0;width:0;overflow:hidden;transition:width .2s ease}
+#dpanel.open{width:346px}
+#dpanel-inner{width:346px;height:100%;display:flex;flex-direction:column;
+  background:var(--surface);border-left:1px solid var(--border);overflow-y:auto}
 #dhdr{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 18px 0;gap:8px}
 #dclose{background:none;border:none;cursor:pointer;font-size:18px;color:var(--text2);line-height:1;flex-shrink:0;padding:2px}
 #dclose:hover{color:var(--text)}
@@ -208,6 +234,17 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
 .dareas{display:flex;flex-wrap:wrap;gap:4px;margin-top:11px}
 .datag{font-family:var(--mono);font-size:10px;padding:3px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:100px;color:var(--text2)}
 .dsec{margin-top:18px}
+.dwhy{margin-top:14px;padding:10px 13px;border-radius:8px;border-left:3px solid var(--border);background:var(--surface2)}
+.dwhy.adopt{border-left-color:var(--adopt)}
+.dwhy.trial{border-left-color:var(--trial)}
+.dwhy.assess{border-left-color:var(--assess)}
+.dwhy.hold{border-left-color:var(--hold)}
+.dwhy .dlabel{margin-bottom:4px}
+.dwhy-text{font-size:12.5px;color:var(--text2);line-height:1.6}
+.dmeta{margin-top:20px;padding-top:12px;border-top:1px solid var(--border2);
+  font-family:var(--mono);font-size:10px;color:var(--text3)}
+circle.rdot.sel{stroke:var(--text);stroke-width:2.5}
+.card.sel{border-color:var(--assess);box-shadow:var(--shadow)}
 .dlabel{font-size:10px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:5px}
 .dtext{font-size:13px;color:var(--text2);line-height:1.65}
 .dpricing{font-size:12px;color:var(--text2);line-height:1.6;font-family:var(--mono)}
@@ -215,7 +252,7 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
 .dlink:hover{border-color:var(--assess)}
 .dlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 
-@media(prefers-reduced-motion:reduce){#dpanel{transition:none}}
+@media(prefers-reduced-motion:reduce){#dpanel,#filt{transition:none}}
 :focus-visible{outline:2px solid var(--assess);outline-offset:2px}
 </style>
 
@@ -277,6 +314,13 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
   </div>
 </div>
 </div>
+
+<aside id="dpanel" aria-label="Tool detail">
+  <div id="dpanel-inner">
+    <div id="dhdr"><div id="dname-wrap"></div><button id="dclose" aria-label="Close">✕</button></div>
+    <div id="dbody"></div>
+  </div>
+</aside>
 </div>
 
 <div id="abd"></div>
@@ -291,11 +335,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
   </div>
 </div>
 
-<div id="dbackdrop"></div>
-<div id="dpanel" role="dialog" aria-modal="true" aria-label="Tool detail">
-  <div id="dhdr"><div id="dname-wrap"></div><button id="dclose" aria-label="Close">✕</button></div>
-  <div id="dbody"></div>
-</div>
 
 <script>
 const AREAS = __AREAS__;
@@ -314,6 +353,7 @@ const TOOLS_DEDUPED = (() => {
 const state = {
   view: 'radar',
   explorerArea: null,
+  selected: null,
   radar: {tx:0, ty:0, scale:1},
   active: new Set(AREAS),
 };
@@ -560,6 +600,7 @@ function renderRadar() {
       toggleArea(el.dataset.area);
     });
   });
+  markSelected(state.selected);
   setupRadarPanZoom();
 }
 
@@ -708,8 +749,19 @@ function renderExplorerDetail(area){
 }
 
 /* ── DETAIL PANEL ── */
+// Marks which dot or card the open panel describes. Needed once the panel
+// stays open across clicks — otherwise nothing ties the two together.
+function markSelected(name){
+  document.querySelectorAll('circle.rdot.sel,.card.sel').forEach(e=>e.classList.remove('sel'));
+  if(!name) return;
+  const q=CSS.escape(name);
+  document.querySelectorAll(`circle.rdot[data-name="${q}"]`).forEach(e=>e.classList.add('sel'));
+  document.querySelectorAll(`.card[data-name="${q}"]`).forEach(e=>e.classList.add('sel'));
+}
+
 function showDetail(name){
   const t=TOOLS_DEDUPED.find(t=>t.name===name); if(!t) return;
+  state.selected=name;
   const isUrl=s=>s&&s.startsWith('http');
   document.getElementById('dname-wrap').innerHTML=
     `<div class="dname">${t.name}</div><div style="margin-top:8px"><span class="rbadge ${t.ring}">${t.ring}</span></div>`;
@@ -717,20 +769,28 @@ function showDetail(name){
   const pHtml=isUrl(t.pricing)
     ?`<a href="${t.pricing}" target="_blank" rel="noopener" class="dlink">Pricing →</a>`
     :`<div class="dpricing">${t.pricing}</div>`;
+  // Why it sits in this ring is the one thing the dial itself cannot show.
+  const why=t.why
+    ?`<div class="dwhy ${t.ring}"><div class="dlabel">Why ${t.ring}</div><div class="dwhy-text">${t.why}</div></div>`
+    :'';
   document.getElementById('dbody').innerHTML=`
     <div class="dareas">${areas}</div>
     <div class="dsec"><div class="dlabel">About</div><div class="dtext">${t.desc}</div></div>
+    ${why}
     <div class="dsec"><div class="dlabel">Pricing</div>${pHtml}</div>
-    <div class="dlinks"><a href="${t.homepage}" target="_blank" rel="noopener" class="dlink">Homepage →</a></div>`;
-  document.getElementById('dbackdrop').classList.add('open');
+    <div class="dlinks"><a href="${t.homepage}" target="_blank" rel="noopener" class="dlink">Homepage →</a></div>
+    ${t.researched?`<div class="dmeta">researched ${t.researched}</div>`:''}`;
   document.getElementById('dpanel').classList.add('open');
-  document.getElementById('dpanel').focus();
+  document.getElementById('dpanel-inner').scrollTop=0;
+  markSelected(name);
 }
 
 function hideDetail(){
-  document.getElementById('dbackdrop').classList.remove('open');
+  state.selected=null;
   document.getElementById('dpanel').classList.remove('open');
+  markSelected(null);
 }
+
 
 /* ── VIEW SWITCH ── */
 function switchView(v){
@@ -747,21 +807,49 @@ function switchView(v){
    Counts are computed from the data so the explanation can never drift from
    what is on screen. The copy itself lives in radar/about.md. */
 function buildAbout(){
-  const byRing = RINGS.map(r=>({r, n:TOOLS_DEDUPED.filter(t=>t.ring===r).length}));
-  const placements = TOOLS_DEDUPED.reduce((a,t)=>a+t.areas.length,0);
-  const dates = TOOLS_DEDUPED.map(t=>t.researched).filter(Boolean).sort();
+  const A=ABOUT_HTML;
+  const count=r=>TOOLS_DEDUPED.filter(t=>t.ring===r).length;
+  const placements=TOOLS_DEDUPED.reduce((a,t)=>a+t.areas.length,0);
+  const dates=TOOLS_DEDUPED.map(t=>t.researched).filter(Boolean).sort();
 
-  const stats = [
+  document.getElementById('ab-stats').innerHTML=[
     `<span class="ab-stat"><b>${TOOLS_DEDUPED.length}</b> tools</span>`,
-    `<span class="ab-stat"><b>${AREAS.length}</b> problem areas</span>`,
+    `<span class="ab-stat"><b>${AREAS.length}</b> areas</span>`,
     `<span class="ab-stat"><b>${placements}</b> dots</span>`,
-    ...byRing.map(({r,n})=>
-      `<span class="ab-stat"><span style="color:${RC[r]}">●</span> <b>${n}</b> ${r}</span>`),
-  ];
-  if(dates.length) stats.push(`<span class="ab-stat">researched <b>${dates[0]}</b> → <b>${dates[dates.length-1]}</b></span>`);
+    dates.length?`<span class="ab-stat">researched <b>${dates[0]}</b> → <b>${dates[dates.length-1]}</b></span>`:'',
+  ].join('');
 
-  document.getElementById('ab-stats').innerHTML = stats.join('');
-  document.getElementById('ab-copy').innerHTML = ABOUT_HTML;
+  const ringRows=RINGS.map(r=>`
+    <div class="ab-ring">
+      <span class="ab-ring-dot" style="background:${RC[r]}"></span>
+      <span class="ab-ring-name">${r}</span>
+      <span class="ab-ring-txt">${A.rings[r]||''}</span>
+      <span class="ab-ring-n">${count(r)}</span>
+    </div>`).join('');
+
+  const col=(ring,d)=>`
+    <div class="ab-col">
+      <div class="ab-col-hd"><span class="rbadge ${ring}">${ring}</span><span class="ab-rule">${d.rule}</span></div>
+      <ul class="ab-list">${d.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`;
+
+  document.getElementById('ab-copy').innerHTML=`
+    <p class="ab-lede">${A.lede}</p>
+
+    <h3>The rings</h3>
+    <div class="ab-rings">${ringRows}</div>
+    <p class="ab-note">${A.ringNote}</p>
+
+    <h3>How assess and hold are decided</h3>
+    <div class="ab-cols">${col('assess',A.rubric.assess)}${col('hold',A.rubric.hold)}</div>
+    <p class="ab-note">${A.rubricNote}</p>
+
+    <h3>Reading the dial</h3>
+    <ul class="ab-list">${A.dial.map(d=>`<li>${d}</li>`).join('')}</ul>
+
+    <h3>Never included</h3>
+    <div class="ab-chips">${A.excluded.map(e=>`<span class="ab-chip">${e}</span>`).join('')}</div>
+    <p class="ab-note">${A.excludedNote}</p>`;
 }
 
 function showAbout(){
@@ -785,8 +873,6 @@ function init(){
   if(window.innerWidth<=820) filt.classList.add('collapsed');
   document.getElementById('filt-head').addEventListener('click',()=>{
     filt.classList.toggle('collapsed');
-    // the dial is sized by its container, so re-render once the width settles
-    setTimeout(()=>{ if(state.view==='radar') renderRadar(); },180);
   });
   document.getElementById('filt-all').addEventListener('click',()=>{ state.active=new Set(AREAS); applyFilter(); });
   document.getElementById('filt-none').addEventListener('click',()=>{ state.active=new Set(); applyFilter(); });
@@ -795,7 +881,6 @@ function init(){
   });
   document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.mode)));
   document.getElementById('exd-back').addEventListener('click',()=>{ state.explorerArea=null; renderExplorer(); });
-  document.getElementById('dbackdrop').addEventListener('click',hideDetail);
   document.getElementById('dclose').addEventListener('click',hideDetail);
   document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ hideAbout(); hideDetail(); } });
   window.addEventListener('resize',()=>{ if(state.view==='radar') renderRadar(); });

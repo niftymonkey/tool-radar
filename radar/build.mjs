@@ -180,6 +180,7 @@ function readTools(areas) {
       homepage: (data.homepage || '').trim(),
       pricing: (data['pricing-note'] || data.pricing || '').trim(),
       researched: (data['last-researched'] || '').trim(),
+      why: (data['ring-reasoning'] || '').trim(),
       desc: summary,
     });
   }
@@ -202,27 +203,16 @@ const inline = (s) =>
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em>$1</em>');
 
-// Just enough Markdown for radar/about.md: h2, paragraphs, and bullet lists.
-function renderAbout() {
-  const src = readFileSync(join(ROOT, 'radar', 'about.md'), 'utf8');
-  const out = [];
-  let para = [];
-  let list = [];
-
-  const flushPara = () => { if (para.length) { out.push(`<p>${inline(para.join(' '))}</p>`); para = []; } };
-  const flushList = () => { if (list.length) { out.push(`<ul>${list.map((i) => `<li>${inline(i)}</li>`).join('')}</ul>`); list = []; } };
-  const flush = () => { flushPara(); flushList(); };
-
-  for (const raw of src.split('\n')) {
-    const line = raw.trim();
-    if (!line) { flush(); continue; }
-    if (line.startsWith('## ')) { flush(); out.push(`<h3>${inline(line.slice(3))}</h3>`); continue; }
-    if (line.startsWith('- ')) { flushPara(); list.push(line.slice(2)); continue; }
-    flushList();
-    para.push(line);
-  }
-  flush();
-  return out.join('');
+// radar/about.json holds short fragments rather than prose, so the page can
+// render them as tables, columns and chips instead of paragraphs. Inline
+// emphasis is applied here so escaping stays on this side of the boundary.
+function readAbout() {
+  const walk = (v) =>
+    typeof v === 'string' ? inline(v)
+      : Array.isArray(v) ? v.map(walk)
+      : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, walk(x)]))
+      : v;
+  return walk(JSON.parse(readFileSync(join(ROOT, 'radar', 'about.json'), 'utf8')));
 }
 
 /* ── emit ───────────────────────────────────────────────────────────────── */
@@ -234,9 +224,31 @@ function serialize(tools) {
     (t) =>
       `  {name:${esc(t.name)},ring:${esc(t.ring)},areas:[${t.areas.map(esc).join(',')}],` +
       `homepage:${esc(t.homepage)},pricing:${esc(t.pricing)},` +
-      `researched:${esc(t.researched)},desc:${esc(t.desc)}}`
+      `researched:${esc(t.researched)},why:${esc(t.why)},desc:${esc(t.desc)}}`
   );
   return `[\n${rows.join(',\n')}\n]`;
+}
+
+// Selectors and hooks the page cannot render correctly without. A bulk edit to
+// the template can drop a whole CSS section without any error surfacing — the
+// page still loads, it just renders unstyled — so assert they survive.
+const TEMPLATE_REQUIRED = [
+  '.rbadge{', '.rbadge.adopt', '.rbadge.trial', '.rbadge.assess', '.rbadge.hold',
+  '.card{', '.atile{', '.exd-cards{',
+  '#dpanel{', '#dpanel-inner', '.dwhy{', '.dname{', '.dlink{',
+  '#filt{', '.filt-row{', '#shell{', '#views{',
+  '#about', '.ab-ring', '.ab-col', '.ab-chip',
+  'id="dpanel-inner"', 'id="ab-copy"', 'id="filt-body"', 'id="radar-g"',
+];
+
+function checkTemplate(html) {
+  const missing = TEMPLATE_REQUIRED.filter((sel) => !html.includes(sel));
+  if (missing.length) {
+    throw new Error(
+      `template.html is missing ${missing.length} required selector(s) — a CSS or markup ` +
+      `section was probably dropped by a bulk edit:\n  ${missing.join('\n  ')}`
+    );
+  }
 }
 
 function build() {
@@ -245,11 +257,12 @@ function build() {
   const tools = readTools(areas);
 
   let html = readFileSync(TEMPLATE, 'utf8');
+  checkTemplate(html);
   for (const [marker, value] of [
     ['__TOOLS__', serialize(tools)],
     ['__AREAS__', JSON.stringify(areas)],
     ['__AREA_LABELS__', JSON.stringify(labels)],
-    ['__ABOUT__', JSON.stringify(renderAbout())],
+    ['__ABOUT__', JSON.stringify(readAbout())],
   ]) {
     if (!html.includes(marker)) throw new Error(`template.html: missing ${marker} marker`);
     html = html.replace(marker, value);

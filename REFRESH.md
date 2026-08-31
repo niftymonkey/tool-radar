@@ -194,9 +194,11 @@ Inputs:
   radar geometry. Frozen. Editing it is a deliberate design change, not
   part of a refresh; the generator only substitutes `__TOOLS__`,
   `__AREAS__`, `__AREA_LABELS__`, and `__ABOUT__` into it.
-- `radar/about.md` — the "Reading this radar" copy shown behind the header
-  `?` button. Keep it short; it explains who the catalog is for and how
-  rings are assigned, and the counts beside it are computed from the data.
+- `radar/about.json` — the "Reading this radar" copy shown behind the
+  header `?` button. Short fragments, not prose: the page renders them as
+  a ring table, a two-column rubric, and chips. Keep the ring rubric here
+  in step with the Ring rubric section above. Counts are computed from
+  the data, so never write them here.
 - `radar/sectors.json` — the order the problem areas appear around the
   dial, and their short labels. Ordering is a presentation choice
   (related areas sit adjacent), so it deliberately does not follow
