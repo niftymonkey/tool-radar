@@ -3,6 +3,7 @@ name: OpenRouter
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "25+ models available free with no credit card required, pay-as-you-go with no monthly minimum, and a single OpenAI-compatible endpoint make it safe to evaluate without any commitment."
+summary: "Unified API gateway that routes requests to 300+ AI models from 60+ providers through a single OpenAI-compatible endpoint."
 source: manual
 discovered-via: https://openrouter.ai
 first-seen: 2026-05-25

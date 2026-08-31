@@ -3,6 +3,7 @@ name: Vercel
 problem-areas: [hosting-deploy, ci-cd, media-optimization]
 ring: adopt
 ring-reasoning: "In active use as my default hosting and deploy platform across my own projects."
+summary: "Frontend cloud platform that builds and deploys web apps from a Git push, with deep Next.js integration, a global edge network, and preview deployments."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

@@ -3,6 +3,7 @@ name: Mobbin
 problem-areas: [design-tooling]
 ring: assess
 ring-reasoning: "A real free tier and a roughly $10/month Pro plan with self-serve signup put it in assess range; it is a reference library, not something you ship with, so value is easy to judge at small scale."
+summary: "Searchable library of real, shipped mobile and web app screenshots organized into step-by-step user flows, built for design pattern research."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

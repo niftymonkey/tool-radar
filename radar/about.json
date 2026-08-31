@@ -1,0 +1,44 @@
+{
+  "lede": "Everything here is judged for **one person, paying their own way**. A tool that is excellent for a funded team can still land in Hold.",
+
+  "rings": {
+    "adopt": "Proven in real use. A default choice.",
+    "trial": "Actively being tried on a real project.",
+    "assess": "Worth knowing. Not tried yet.",
+    "hold": "Doesn't fit solo work — reason recorded on each tool."
+  },
+  "ringNote": "Adopt and Trial describe **experience**. Assess and Hold describe **research**. Nothing is promoted by being researched, so every new tool starts at Assess however good it looks.",
+
+  "rubric": {
+    "assess": {
+      "rule": "needs all",
+      "items": [
+        "Free tier, or under ~$20/mo",
+        "Self-serve — no sales call",
+        "Docs for developers, not procurement",
+        "Useful at small scale"
+      ]
+    },
+    "hold": {
+      "rule": "any one",
+      "items": [
+        "Enterprise or \"contact us\" pricing",
+        "No free tier, entry over ~$20/mo",
+        "Needs infrastructure just to evaluate",
+        "Only a problem at org scale",
+        "Free tier too thin to ship on"
+      ]
+    }
+  },
+  "rubricNote": "Hold is not a verdict on quality. It records that the economics don't fit one person.",
+
+  "dial": [
+    "Sectors are **problems to solve**, not vendor categories.",
+    "Distance from the centre is the ring.",
+    "A tool sits in **every area it serves**, so one tool can be several dots.",
+    "Position inside a band is packing only — it means nothing."
+  ],
+
+  "excluded": ["courses", "consultancies", "hiring marketplaces", "productivity apps", "lifestyle products"],
+  "excludedNote": "Absence usually just means not researched yet."
+}

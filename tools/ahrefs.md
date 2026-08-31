@@ -3,6 +3,7 @@ name: Ahrefs
 problem-areas: [product-analytics]
 ring: hold
 ring-reasoning: "No free trial and a meaningful entry plan at roughly $129 per month put it well above the assess threshold for solo and side-project budgets."
+summary: "SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; first real tier ~$129/month."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

@@ -3,6 +3,7 @@ name: Arcjet
 problem-areas: [security, ai-agent-infra]
 ring: assess
 ring-reasoning: "The Individual plan is $25/month per app with self-serve signup and a free trial, docs are written for individual developers, and the SDK proves its value on a single small app."
+summary: "Developer-first security SDK that runs inline in your application code, providing rate limiting, bot detection, WAF, email validation, and AI prompt-injection protection."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

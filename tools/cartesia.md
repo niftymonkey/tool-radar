@@ -3,6 +3,7 @@ name: Cartesia
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Free tier with 10K characters and paid plans starting at $5/month make it practical to test sub-100ms TTS in a side project; self-serve signup with no sales call required."
+summary: "Low-latency text-to-speech API (Sonic models) built for real-time AI agents, delivering time-to-first-audio as low as 40ms for streaming voice interactions."
 source: manual
 discovered-via: https://cartesia.ai
 first-seen: 2026-05-25

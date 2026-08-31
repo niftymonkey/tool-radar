@@ -3,6 +3,7 @@ name: Voyage AI
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "First 200M tokens free on major models with pay-as-you-go from $0.02 per million tokens after that; self-serve API access with no subscription or sales call required."
+summary: "Specialized text embedding API with a 32K-token context window, domain-specific variants (code, legal, finance), and multimodal support optimized for retrieval accuracy."
 source: manual
 discovered-via: https://www.voyageai.com
 first-seen: 2026-05-25

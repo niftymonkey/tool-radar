@@ -3,6 +3,7 @@ name: Modal
 problem-areas: [ai-agent-infra, background-jobs, hosting-deploy]
 ring: assess
 ring-reasoning: "A free Starter plan with $30 per month in credits, per-second usage billing, and self-serve signup let an individual developer ship GPU workloads without a sales call."
+summary: "Serverless cloud compute platform that runs Python code, GPUs, and isolated sandboxes from a decorator, scaling from zero with per-second billing."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

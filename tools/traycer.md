@@ -5,6 +5,7 @@ problem-areas:
   - dev-workflow
 ring: assess
 ring-reasoning: BYOA tier is free ($0/user/month); Sync is $10/user/month and Lite is $20/user/month; VS Code extension with self-serve signup; 100K+ users confirms value at individual-developer scale.
+summary: "AI coding assistant that decomposes tasks into step-by-step plans and runs background code review as you work in VS Code."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-31

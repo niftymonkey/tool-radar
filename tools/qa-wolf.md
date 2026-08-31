@@ -5,6 +5,8 @@ problem-areas:
   - dev-workflow
 ring: hold
 ring-reasoning: Platform offers a free trial but no ongoing free allowance; the fully-managed Coverage as a Service product has a median annual contract of $90K; priced and positioned for engineering organizations, not solo side projects.
+summary: "AI-native E2E testing platform providing self-serve Playwright/Appium infrastructure or a fully managed service that writes and maintains your entire test suite."
+pricing-note: "Platform: free trial, then $0.01/AI credit + $0.15/runner minute; Coverage as a Service: median ~$90K/year"
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-31

@@ -3,6 +3,7 @@ name: CodeRabbit
 problem-areas: [ai-code-review, dev-workflow, ci-cd]
 ring: adopt
 ring-reasoning: "In active use as my code review tool across my own projects."
+summary: "AI code review tool that auto-reviews pull requests across GitHub, GitLab, Azure DevOps, and Bitbucket with inline comments and PR summaries."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

@@ -3,6 +3,7 @@ name: Cohere
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Rate-limited trial access with no credit card required; pay-as-you-go from $0.0375 per million tokens with no monthly minimum; self-serve signup aimed at individual developers."
+summary: "AI API suite providing language generation (Command), embeddings (Embed), and reranking (Rerank) purpose-built for enterprise RAG pipelines."
 source: manual
 discovered-via: https://cohere.com
 first-seen: 2026-05-25

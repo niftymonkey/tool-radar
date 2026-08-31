@@ -5,6 +5,7 @@ problem-areas:
   - ai-agent-infra
 ring: assess
 ring-reasoning: Free-forever tier for a single developer seat, MIT-licensed core that is free to self-host, and self-serve sign-up; 34k+ GitHub stars and a $27M Series A indicate real maturity. Assess for any React app that needs an embedded AI assistant or agent UI wired to an agent backend.
+summary: "Open-source React SDK for adding in-app AI copilot UIs — chat panels, assistants, and human-in-the-loop interfaces — to an existing React application."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08

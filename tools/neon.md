@@ -3,6 +3,7 @@ name: Neon
 problem-areas: [database]
 ring: assess
 ring-reasoning: "Free tier with 100 compute-unit hours per month and scale-to-zero billing cover a side project that runs intermittently; no minimum spend and self-serve signup with no sales call."
+summary: "Serverless PostgreSQL database that scales compute to zero when idle, bills per second of active compute, and adds Git-style database branching for ephemeral dev/test environments."
 source: manual
 discovered-via: https://neon.tech
 first-seen: 2026-05-25

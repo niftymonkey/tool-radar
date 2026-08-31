@@ -4,6 +4,7 @@ problem-areas:
   - media-optimization
 ring: assess
 ring-reasoning: Generous free tier (100K delivery minutes/month, no credit card), self-serve signup, and API-first documentation aimed at individual developers. Usage-based pricing scales with actual consumption rather than seat fees, making it fully evaluable on a side project without upfront commitment.
+summary: "API-first video infrastructure platform handling encoding, storage, and streaming delivery with a 100K delivery-minutes/month free tier."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-17

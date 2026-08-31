@@ -3,6 +3,7 @@ name: Magic Patterns
 problem-areas: [design-tooling, ai-coding-agents]
 ring: assess
 ring-reasoning: "A free tier plus a $20 per seat Starter plan with self-serve signup keeps it in assess range, though the free tier's small credit allowance limits how far you can evaluate it."
+summary: "AI prototyping tool that turns prompts, screenshots, or Figma imports into live React and Tailwind UI on an infinite canvas."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

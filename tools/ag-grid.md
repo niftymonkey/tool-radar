@@ -3,6 +3,7 @@ name: AG Grid
 problem-areas: [ui-components]
 ring: assess
 ring-reasoning: "The MIT-licensed Community edition is genuinely free for production and covers most side-project needs, qualifying it for assess despite the $999-plus Enterprise tier."
+summary: "High-performance JavaScript and React data-grid component that renders, sorts, filters, and edits large tabular datasets with row and column virtualization."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

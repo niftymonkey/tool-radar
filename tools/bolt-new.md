@@ -3,6 +3,7 @@ name: Bolt.new
 problem-areas: [ai-coding-agents, hosting-deploy, dev-workflow]
 ring: assess
 ring-reasoning: "A real free tier and a $25 Pro plan with self-serve signup make it cheap to try, but a documented 31 percent success rate on complex apps and insecure backend defaults mean it cannot be trusted past prototypes."
+summary: "In-browser AI full-stack app builder by StackBlitz that generates, runs, and deploys web apps from natural-language prompts inside WebContainers with no local setup."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

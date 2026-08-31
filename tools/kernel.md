@@ -3,6 +3,7 @@ name: Kernel
 problem-areas: [ai-agent-infra, ai-web-data]
 ring: assess
 ring-reasoning: "A free Developer tier with $5 monthly credits, self-serve signup, and per-second usage pricing fits a side project, but the company was founded in 2025 and is less battle-tested than established browser-infra rivals."
+summary: "Cloud browser infrastructure for AI agents that spins up sandboxed Chromium on unikernels in under 300ms, with session persistence, live view, and stealth mode."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

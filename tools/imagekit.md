@@ -3,6 +3,7 @@ name: ImageKit
 problem-areas: [media-optimization]
 ring: assess
 ring-reasoning: "A genuinely usable Forever Free tier (20 GB bandwidth, 3 GB storage) and a $9/month Lite plan with self-serve signup and developer-first docs make it easy to evaluate at side-project scale."
+summary: "Media optimization platform that resizes, transforms, and format-converts images and video through URL parameters, then delivers them over a global CDN."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

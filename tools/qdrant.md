@@ -5,6 +5,8 @@ problem-areas:
   - ai-agent-infra
 ring: assess
 ring-reasoning: Free cloud tier (single-node, 1 GB RAM; Qdrant's sizing example is ~1M 768-dimensional vectors); fully free to self-host under Apache 2.0; self-serve signup; Premium tier adds SSO and a minimum spend requirement alongside usage billing.
+summary: "Open-source, Rust-powered vector database built for high-performance similarity search and RAG, with a free cloud tier and top-ranked p50 latency in 2026 benchmarks."
+pricing-note: "Free cloud tier; self-hosted always free (Apache 2.0); Cloud Standard/Premium usage-billed hourly"
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-31

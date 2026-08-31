@@ -3,6 +3,7 @@ name: SingleStore
 problem-areas: [database]
 ring: hold
 ring-reasoning: "A free shared workspace exists, but the cheapest production plan starts around $0.99/hr (roughly $700/month) with no flat hobby tier, and the product solves a problem that only appears at organization scale."
+summary: "Distributed SQL database running transactional, analytical, and vector workloads in one MySQL-compatible engine. Production pricing starts ~$700/month."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

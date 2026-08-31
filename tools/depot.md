@@ -3,6 +3,7 @@ name: Depot
 problem-areas: [ci-cd]
 ring: assess
 ring-reasoning: "A $20/month Developer plan is explicitly pitched at solo devs and side projects with self-serve signup and no sales call, but a 7-day-only trial keeps it at assess until tried personally."
+summary: "Remote build infrastructure that replaces docker build with managed BuildKit machines that keep a warm, persistent cache."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

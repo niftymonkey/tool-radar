@@ -3,6 +3,7 @@ name: Daytona
 problem-areas: [ai-agent-infra]
 ring: assess
 ring-reasoning: "Self-serve signup with $200 in free compute and per-second usage pricing makes it cheap to evaluate at side-project scale, but it has not been tried personally and a 2025 product pivot means it is still maturing."
+summary: "Cloud platform that provisions isolated sandbox environments in under 90ms for running AI-agent-generated code, with file, Git, process, and LSP APIs."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

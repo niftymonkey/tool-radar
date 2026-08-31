@@ -4,6 +4,7 @@ problem-areas:
   - ai-agent-infra
 ring: assess
 ring-reasoning: Fully open-source and free to self-host; managed cloud has a free tier; Python SDK targets developers directly; value is demonstrable at small scale with a pip install.
+summary: "Open-source AI agent memory control plane that combines vector search and knowledge graphs to give agents persistent, structured memory with traceable retrieval."
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01

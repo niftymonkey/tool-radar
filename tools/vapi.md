@@ -3,6 +3,7 @@ name: Vapi
 problem-areas: [ai-apis, ai-agent-infra]
 ring: assess
 ring-reasoning: "Usage-based Build tier with no upfront cost, free credits for testing, and self-serve API signup make it cheap to start, though it has not been tried personally."
+summary: "Developer platform for building voice AI agents that answer and place phone calls, orchestrating swappable STT, LLM, TTS, and telephony providers behind one API."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

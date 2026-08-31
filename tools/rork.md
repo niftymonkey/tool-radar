@@ -3,6 +3,7 @@ name: Rork
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
 ring-reasoning: "A limited free tier and a $25 entry plan with self-serve signup make it cheap to evaluate, but a documented record of bugs, broken publishing, and unresponsive support keeps it firmly at prototype scope."
+summary: "AI app builder that generates complete native mobile apps for iOS and Android from a text description, outputting an Expo and React Native project."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

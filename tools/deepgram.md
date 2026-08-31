@@ -3,6 +3,7 @@ name: Deepgram
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "$200 in free credits with no credit card required and pay-as-you-go pricing from there; no monthly minimum makes it easy to add real-time transcription to a side project without any lock-in."
+summary: "Speech AI API offering real-time and batch transcription, text-to-speech, and voice agent capabilities optimized for low latency across 45+ languages."
 source: manual
 discovered-via: https://deepgram.com
 first-seen: 2026-05-25

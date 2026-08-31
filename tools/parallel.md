@@ -4,6 +4,8 @@ problem-areas:
   - ai-web-data
 ring: assess
 ring-reasoning: Signup credits cover 16,000 requests; 5,000-request monthly allowance on eligible plans; self-serve API; developer-focused with clear per-request pricing after the free allowance; value is apparent at side-project AI pipeline scale.
+summary: "Web research API for AI developers that accepts a high-level research objective and returns structured, cited results with confidence scores."
+pricing-note: "Signup credits: ~16,000 requests; monthly allowance: 5,000 requests + $5 credit; Search from $1/1,000; Task from $5–$2,400/1,000"
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-31

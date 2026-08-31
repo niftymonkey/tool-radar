@@ -3,6 +3,7 @@ name: Lovable
 problem-areas: [ai-coding-agents, hosting-deploy, dev-workflow]
 ring: assess
 ring-reasoning: "A free tier and a $25 Pro plan with self-serve signup make it easy to evaluate, but insecure Supabase defaults and credit-burning debugging loops keep it short of anything beyond prototypes."
+summary: "AI app builder that generates full-stack websites from prompts, outputting a React, Tailwind, and Supabase stack with one-click deploy and GitHub sync."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

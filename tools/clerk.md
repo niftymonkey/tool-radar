@@ -3,6 +3,7 @@ name: Clerk
 problem-areas: [auth, ui-components]
 ring: assess
 ring-reasoning: "Free up to 50K monthly active users with self-serve signup and a $25/month Pro tier, docs aimed squarely at individual developers, and value obvious at small scale."
+summary: "Hosted authentication and user management service with drop-in React UI components for sign-in, profiles, and organization switching."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

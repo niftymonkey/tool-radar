@@ -3,6 +3,7 @@ name: Axiom
 problem-areas: [error-monitoring, dev-workflow]
 ring: assess
 ring-reasoning: "A free-forever tier with 500 GB monthly ingest and 30-day retention covers a real side project, signup is self-serve, and the cheapest paid plan is $25/month."
+summary: "Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL)."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

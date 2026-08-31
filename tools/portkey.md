@@ -3,6 +3,7 @@ name: Portkey
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "Free Dev plan covers 10K logged requests per month with self-serve signup; the open-source gateway can also be self-hosted at zero per-request cost."
+summary: "AI gateway and observability control plane that routes requests to 250+ LLM providers with fallbacks, load balancing, semantic caching, and per-request cost logging."
 source: manual
 discovered-via: https://portkey.ai
 first-seen: 2026-05-25

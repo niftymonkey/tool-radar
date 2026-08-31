@@ -108,9 +108,25 @@ batches.
 Each `tools/<slug>.md` file is YAML frontmatter plus a templated body.
 
 Frontmatter: `name`, `problem-areas` (list, from `taxonomy.md`), `ring`,
-`ring-reasoning`, `source` (`scraped` or `manual`), `discovered-via`,
-`first-seen`, `last-researched`, `managed` (`auto`, `manual`, or
-`needs-research`), `homepage`, `pricing`.
+`ring-reasoning`, `summary`, `source` (`scraped` or `manual`),
+`discovered-via`, `first-seen`, `last-researched`, `managed` (`auto`,
+`manual`, or `needs-research`), `homepage`, `pricing`, and optionally
+`pricing-note`.
+
+`summary` is the one-sentence card copy the radar renders. Write it as
+part of research, not as an afterthought: it is what someone reads when
+scanning a problem area for options, and it is the only prose the radar
+shows before the detail panel. Keep it under about 190 characters, since
+the card clamps to two lines. It usually condenses **What it is**, but
+where the pricing is the thing worth knowing up front, spend the last
+clause on it — `"... in one MySQL-compatible engine. Production pricing
+starts ~$700/month."` A missing `summary` does not break the build; the
+generator falls back to the **What it is** sentence and warns, which is
+worse copy, so write one.
+
+`pricing-note` is optional and only needed when `pricing` is a bare URL
+or too long to display: the radar shows `pricing-note` when present and
+`pricing` otherwise.
 
 Body, in order: a level-one heading with the tool name, then bolded lines
 for **What it is** (one sentence), **Problem it solves** (one sentence,
@@ -133,6 +149,36 @@ infrastructure to evaluate; solves an organization-scale-only problem; a
 free tier too constrained to be usable for a real side project.
 
 Never default to `adopt` or `trial`; those require actual usage.
+
+## Promoting a tool
+
+The rubric only ever assigns `assess` or `hold`. Moving a tool to `adopt`
+or `trial` is a human edit, because it is a claim about experience that
+no amount of research can establish. Nothing in a refresh run will ever
+do it for you, however good a tool looks.
+
+```
+node radar/promote.mjs <slug|name> <ring> "<reason>"
+node radar/promote.mjs wispr-flow adopt "In active use as my dictation tool."
+```
+
+It sets `ring` and rewrites `ring-reasoning` together, which is the part
+that is easy to get wrong by hand. The reasoning is rendered on the radar
+as "Why adopt", so an entry promoted without rewriting it shows an
+argument for the ring it just left — the tool refuses a reason that still
+reads that way.
+
+Write the reason as the claim it is: what you use it for, or what it
+replaced. One sentence is enough. It is the only justification a reader
+gets for why the tool sits where it does.
+
+Leave `managed: auto`. The Curated entries rule below then keeps your
+ring, your reasoning, and your judgment sections intact while the
+refresher still updates pricing and the reality check. Use
+`managed: manual` only to freeze an entry completely, facts included.
+
+Demotion is the same command with a different ring — a tool you tried and
+put down goes back to `assess` or `hold` with a reason saying why.
 
 ## Curated entries
 
@@ -157,6 +203,47 @@ workflow with? If not, skip it, create no file, and log the skip in
 `CHANGELOG.md` so a wrong call can be overridden by queueing the tool in
 `queue.md`. Out of scope: courses and education, consultancies and dev
 shops, hiring marketplaces, general productivity apps, lifestyle products.
+
+## Radar page
+
+`radar/index.html` is a generated visualization of the catalog. It is
+built, never hand-edited:
+
+```
+node radar/build.mjs           # regenerate radar/index.html
+node radar/build.mjs --check    # verify it matches the entries; exit 1 if stale
+```
+
+Regenerate it in the same commit as any change to `tools/`, `taxonomy.md`,
+or `radar/sectors.json`, so the page never lags the catalog. `--check` is
+the CI guard for that.
+
+Inputs:
+
+- `radar/template.html` — the page itself: layout, styling, and all the
+  radar geometry. Frozen. Editing it is a deliberate design change, not
+  part of a refresh; the generator only substitutes `__TOOLS__`,
+  `__AREAS__`, `__AREA_LABELS__`, and `__ABOUT__` into it.
+- `radar/about.json` — the "Reading this radar" copy shown behind the
+  header `?` button. Short fragments, not prose: the page renders them as
+  a ring table, a two-column rubric, and chips. Keep the ring rubric here
+  in step with the Ring rubric section above. Counts are computed from
+  the data, so never write them here.
+- `radar/sectors.json` — the order the problem areas appear around the
+  dial, and their short labels. Ordering is a presentation choice
+  (related areas sit adjacent), so it deliberately does not follow
+  `taxonomy.md`'s order.
+- `tools/*.md` and `taxonomy.md` — the data.
+
+The build never fails on questionable data, because a silently dropped
+tool is worse than an odd-looking one. It warns on stderr and renders
+anyway for: an unrecognized `ring` (drawn as `assess`), a `problem-areas`
+entry missing from `taxonomy.md` (ignored), a duplicate `name`, and a
+missing `summary` (derived). Read the warnings — each one is a data fix.
+
+Adding an area to `taxonomy.md` needs a matching entry in
+`radar/sectors.json` to choose where it sits on the dial and what it is
+called. Until then the build appends it with a generated label and warns.
 
 ## Manual run
 

@@ -3,6 +3,7 @@ name: Netlify
 problem-areas: [hosting-deploy, ci-cd, backend-platform]
 ring: assess
 ring-reasoning: "Free tier and self-serve $9 Personal plan suit a solo developer, but the 2025 credit-based pricing model makes costs hard to predict and it has not been tried personally."
+summary: "Web deployment platform that builds and ships sites and full-stack apps from Git, with serverless functions, deploy previews, and a global edge network."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

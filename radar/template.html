@@ -1,0 +1,891 @@
+<title>Tool Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f0f2f5;--surface:#fff;--surface2:#f4f6f9;
+  --border:#d4d7dd;--border2:#e8eaed;
+  --text:#111827;--text2:#4b5563;--text3:#9ca3af;
+  --adopt:#059669;--adopt-bg:#d1fae5;--adopt-fg:#065f46;
+  --trial:#d97706;--trial-bg:#fef3c7;--trial-fg:#92400e;
+  --assess:#6366f1;--assess-bg:#e0e7ff;--assess-fg:#3730a3;
+  --hold:#6b7280;--hold-bg:#f3f4f6;--hold-fg:#374151;
+  --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 12px rgba(0,0,0,.04);
+  --mono:'DM Mono','Courier New',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --hdr:52px;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;
+    --border:#30363d;--border2:#21262d;
+    --text:#e6edf3;--text2:#8b949e;--text3:#484f58;
+    --adopt:#3fb950;--adopt-bg:rgba(63,185,80,.13);--adopt-fg:#3fb950;
+    --trial:#d29922;--trial-bg:rgba(210,153,34,.13);--trial-fg:#e3b341;
+    --assess:#818cf8;--assess-bg:rgba(129,140,248,.13);--assess-fg:#a5b4fc;
+    --hold:#6e7681;--hold-bg:rgba(110,118,129,.13);--hold-fg:#8b949e;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;
+  --border:#30363d;--border2:#21262d;
+  --text:#e6edf3;--text2:#8b949e;--text3:#484f58;
+  --adopt:#3fb950;--adopt-bg:rgba(63,185,80,.13);--adopt-fg:#3fb950;
+  --trial:#d29922;--trial-bg:rgba(210,153,34,.13);--trial-fg:#e3b341;
+  --assess:#818cf8;--assess-bg:rgba(129,140,248,.13);--assess-fg:#a5b4fc;
+  --hold:#6e7681;--hold-bg:rgba(110,118,129,.13);--hold-fg:#8b949e;
+  --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);
+}
+
+body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+/* Header */
+#hdr{height:var(--hdr);flex-shrink:0;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:0 16px;position:relative}
+.brand{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand-blip{width:9px;height:9px;border-radius:50%;background:var(--assess);box-shadow:0 0 6px var(--assess)}
+.mode-nav{display:flex;gap:2px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:3px;position:absolute;left:50%;transform:translateX(-50%)}
+.mode-btn{font-family:var(--sans);font-size:12px;font-weight:500;padding:4px 16px;border:none;border-radius:5px;background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.mode-btn:hover{color:var(--text)}
+.mode-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.hdr-stat{font-family:var(--mono);font-size:11px;color:var(--text3);white-space:nowrap}
+
+/* Views */
+.view{display:none;flex:1;overflow:hidden;flex-direction:column}
+.view.active{display:flex}
+
+/* ── RADAR ── */
+#radar-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;overflow:hidden;cursor:grab;user-select:none}
+#radar-wrap.dragging{cursor:grabbing}
+#radar-svg{
+  width:min(calc(100vh - var(--hdr) - 24px), 100%);
+  height:min(calc(100vh - var(--hdr) - 24px), 100%);
+  overflow:visible;
+  flex-shrink:0;
+}
+.leg-item{display:flex;align-items:center;gap:5px;color:var(--text2);font-size:11px;white-space:nowrap}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.leg-sep{width:1px;height:12px;background:var(--border);margin:0 2px}
+#radar-hint{position:absolute;top:12px;right:16px;font-size:10px;color:var(--text3);font-family:var(--mono);pointer-events:none}
+#radar-empty{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;pointer-events:none}
+#radar-wrap.empty #radar-empty{display:flex}
+#radar-wrap.empty #radar-svg{opacity:.12}
+.re-t{font-family:var(--mono);font-size:13px;color:var(--text2)}
+.re-s{font-size:11px;color:var(--text3)}
+#rtip{position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px;pointer-events:none;box-shadow:var(--shadow);max-width:200px;display:none;z-index:10}
+
+/* ── AREA FILTER ──
+   A real side panel, not an overlay: it sits in the layout row so the radar
+   and the Explorer grid reflow beside it instead of being covered. */
+#shell{flex:1;display:flex;min-height:0;overflow:hidden}
+#views{flex:1;display:flex;flex-direction:column;min-width:0;position:relative;overflow:hidden}
+#filt{flex-shrink:0;width:214px;display:flex;flex-direction:column;min-height:0;
+  background:var(--surface);border-right:1px solid var(--border);transition:width .16s ease}
+#filt.collapsed{width:38px}
+.filt-head{display:flex;align-items:center;gap:7px;padding:9px 11px;cursor:pointer;
+  user-select:none;flex-shrink:0;border-bottom:1px solid var(--border2)}
+#filt.collapsed .filt-head{justify-content:center;padding:9px 0}
+.filt-title{font-family:var(--mono);font-size:11px;font-weight:500}
+.filt-n{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:auto}
+.filt-caret{font-size:8px;color:var(--text3);transition:transform .15s;flex-shrink:0}
+#filt.collapsed .filt-caret{transform:rotate(-90deg)}
+#filt.collapsed .filt-title,#filt.collapsed .filt-n,
+#filt.collapsed .filt-acts,#filt.collapsed .filt-body{display:none}
+.filt-acts{display:flex;gap:5px;padding:8px 11px;border-bottom:1px solid var(--border2)}
+.filt-act{flex:1;font-family:var(--sans);font-size:10px;padding:4px 0;border:1px solid var(--border);
+  border-radius:5px;background:var(--surface2);color:var(--text2);cursor:pointer;transition:color .12s,border-color .12s}
+.filt-act:hover{color:var(--text);border-color:var(--text3)}
+.filt-body{overflow-y:auto;padding:5px}
+.filt-row{display:flex;align-items:center;gap:7px;padding:4px 6px;border-radius:5px;cursor:pointer;user-select:none}
+.filt-row:hover{background:var(--surface2)}
+.filt-box{width:12px;height:12px;border-radius:3px;border:1.5px solid var(--border);flex-shrink:0;position:relative}
+.filt-row.on .filt-box{background:var(--assess);border-color:var(--assess)}
+.filt-row.on .filt-box::after{content:'';position:absolute;left:3.5px;top:1px;width:3px;height:6px;
+  border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.filt-lbl{font-size:11px;color:var(--text3);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filt-row.on .filt-lbl{color:var(--text)}
+.filt-c{font-family:var(--mono);font-size:9px;color:var(--text3)}
+.filt-solo{font-family:var(--sans);font-size:9px;color:var(--text3);background:var(--surface);
+  border:1px solid var(--border);border-radius:3px;padding:1px 5px;opacity:0;transition:opacity .12s}
+.filt-row:hover .filt-solo{opacity:1}
+.filt-solo:hover{color:var(--text);border-color:var(--text3)}
+.slabel{cursor:pointer}
+.slabel:hover{fill:var(--text)}
+.slabel.off{opacity:.3}
+.rtip-name{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1.3}
+.rtip-ring{font-size:11px;margin-top:2px}
+
+/* ── ABOUT ──
+   Opt-in only: never shown on load, opened from the header. */
+.hdr-btn{font-family:var(--mono);font-size:11px;width:19px;height:19px;flex-shrink:0;
+  border:1px solid var(--border);border-radius:50%;background:var(--surface2);
+  color:var(--text3);cursor:pointer;line-height:1;transition:color .12s,border-color .12s}
+.hdr-btn:hover{color:var(--text);border-color:var(--text3)}
+#abd{position:fixed;inset:0;z-index:300;background:rgba(0,0,0,.32);display:none}
+#abd.open{display:block}
+#about{position:fixed;z-index:301;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(560px,calc(100vw - 32px));max-height:min(76vh,720px);display:none;
+  flex-direction:column;background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,.22)}
+#about.open{display:flex}
+#ab-hdr{display:flex;align-items:center;gap:10px;padding:14px 18px;flex-shrink:0;
+  border-bottom:1px solid var(--border2)}
+#ab-title{font-family:var(--mono);font-size:14px;font-weight:500}
+#ab-close{margin-left:auto;background:none;border:none;color:var(--text3);font-size:15px;
+  cursor:pointer;padding:2px 5px;border-radius:5px;line-height:1}
+#ab-close:hover{color:var(--text);background:var(--surface2)}
+#ab-body{overflow-y:auto;padding:16px 18px 20px}
+#ab-stats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.ab-stat{font-family:var(--mono);font-size:10px;color:var(--text2);background:var(--surface2);
+  border:1px solid var(--border2);border-radius:5px;padding:4px 8px}
+.ab-stat b{font-weight:500;color:var(--text)}
+#ab-body h3{font-family:var(--mono);font-size:10px;font-weight:500;text-transform:uppercase;
+  letter-spacing:.09em;color:var(--text3);margin:22px 0 9px;padding-bottom:6px;
+  border-bottom:1px solid var(--border2)}
+.ab-lede{font-size:13.5px;line-height:1.55;color:var(--text2);margin:0}
+.ab-lede strong{color:var(--text);font-weight:600}
+.ab-note{font-size:11.5px;line-height:1.55;color:var(--text3);margin-top:9px}
+.ab-note strong{color:var(--text2);font-weight:600}
+
+.ab-rings{display:flex;flex-direction:column;gap:1px}
+.ab-ring{display:grid;grid-template-columns:9px 52px 1fr auto;align-items:center;gap:9px;
+  padding:6px 8px;border-radius:6px}
+.ab-ring:nth-child(odd){background:var(--surface2)}
+.ab-ring-dot{width:9px;height:9px;border-radius:50%}
+.ab-ring-name{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text);text-transform:capitalize}
+.ab-ring-txt{font-size:11.5px;color:var(--text2);line-height:1.4}
+.ab-ring-n{font-family:var(--mono);font-size:10px;color:var(--text3)}
+
+.ab-cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ab-col{border:1px solid var(--border2);border-radius:8px;padding:10px 11px}
+.ab-col-hd{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.ab-rule{font-family:var(--mono);font-size:9.5px;color:var(--text3)}
+
+.ab-list{list-style:none;margin:0}
+.ab-list li{font-size:11.5px;line-height:1.5;color:var(--text2);padding-left:12px;
+  position:relative;margin-bottom:5px}
+.ab-list li:last-child{margin-bottom:0}
+.ab-list li::before{content:'';position:absolute;left:2px;top:7px;width:3px;height:3px;
+  border-radius:50%;background:var(--text3)}
+.ab-list strong{color:var(--text);font-weight:600}
+
+.ab-chips{display:flex;flex-wrap:wrap;gap:4px}
+.ab-chip{font-family:var(--mono);font-size:10px;color:var(--text3);background:var(--surface2);
+  border:1px solid var(--border2);border-radius:100px;padding:3px 9px}
+#ab-body code{font-family:var(--mono);font-size:11px;background:var(--surface2);
+  border:1px solid var(--border2);border-radius:3px;padding:.5px 4px}
+@media(max-width:520px){.ab-cols{grid-template-columns:1fr}}
+
+/* ── SHARED CARDS ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:box-shadow .15s,border-color .15s}
+.card:hover,.card:focus-visible{box-shadow:var(--shadow);border-color:var(--assess);outline:none}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.cn{font-family:var(--mono);font-size:13px;font-weight:500}
+.rbadge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;flex-shrink:0}
+.rbadge.adopt{background:var(--adopt-bg);color:var(--adopt-fg)}
+.rbadge.trial{background:var(--trial-bg);color:var(--trial-fg)}
+.rbadge.assess{background:var(--assess-bg);color:var(--assess-fg)}
+.rbadge.hold{background:var(--hold-bg);color:var(--hold-fg)}
+.cd{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ctags{display:flex;flex-wrap:wrap;gap:3px}
+.ctag{font-family:var(--mono);font-size:10px;color:var(--text3);padding:2px 6px;background:var(--surface2);border-radius:3px}
+
+/* ── EXPLORER ── */
+#explorer-overview{flex:1;overflow-y:auto;padding:14px}
+#area-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.atile{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 15px;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .12s}
+.atile:hover,.atile:focus-visible{box-shadow:var(--shadow);border-color:var(--assess);transform:translateY(-1px);outline:none}
+.atile.empty{opacity:.4;cursor:default;pointer-events:none}
+.atn{font-family:var(--mono);font-size:12px;font-weight:500;margin-bottom:6px;line-height:1.3}
+.atc{font-size:11px;color:var(--text2);margin-bottom:9px}
+.atbar{display:flex;height:4px;border-radius:2px;overflow:hidden;gap:1px}
+.atbar-s{height:100%;border-radius:1px;min-width:2px}
+
+/* Explorer detail */
+#explorer-detail{display:none;flex:1;flex-direction:column;overflow:hidden}
+#explorer-detail.active{display:flex}
+#exd-nav{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
+#exd-back{display:flex;align-items:center;gap:5px;background:none;border:1px solid var(--border);border-radius:6px;padding:5px 11px;font-size:12px;cursor:pointer;color:var(--text2);font-family:var(--sans);transition:border-color .12s,color .12s}
+#exd-back:hover{color:var(--text);border-color:var(--text2)}
+#exd-title{font-family:var(--mono);font-size:15px;font-weight:500}
+#exd-count{font-size:11px;color:var(--text3);font-family:var(--mono);margin-left:auto}
+#exd-body{flex:1;overflow-y:auto;padding:18px 16px}
+.exd-section{margin-bottom:28px}
+.exd-section:last-child{margin-bottom:0}
+.exd-section-head{display:flex;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border2)}
+.exd-ring-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.exd-ring-label{font-size:11px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.07em}
+.exd-ring-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+.exd-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px}
+
+/* ── DETAIL PANEL ──
+   In-flow and non-modal: it stays open while you click other dots and cards,
+   swapping its contents rather than closing and reopening. */
+#dpanel{flex-shrink:0;width:0;overflow:hidden;transition:width .2s ease}
+#dpanel.open{width:346px}
+#dpanel-inner{width:346px;height:100%;display:flex;flex-direction:column;
+  background:var(--surface);border-left:1px solid var(--border);overflow-y:auto}
+#dhdr{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 18px 0;gap:8px}
+#dclose{background:none;border:none;cursor:pointer;font-size:18px;color:var(--text2);line-height:1;flex-shrink:0;padding:2px}
+#dclose:hover{color:var(--text)}
+#dbody{padding:10px 18px 36px;flex:1}
+.dname{font-family:var(--mono);font-size:19px;font-weight:500;line-height:1.25;text-wrap:balance}
+.dareas{display:flex;flex-wrap:wrap;gap:4px;margin-top:11px}
+.datag{font-family:var(--mono);font-size:10px;padding:3px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:100px;color:var(--text2)}
+.dsec{margin-top:18px}
+.dwhy{margin-top:14px;padding:10px 13px;border-radius:8px;border-left:3px solid var(--border);background:var(--surface2)}
+.dwhy.adopt{border-left-color:var(--adopt)}
+.dwhy.trial{border-left-color:var(--trial)}
+.dwhy.assess{border-left-color:var(--assess)}
+.dwhy.hold{border-left-color:var(--hold)}
+.dwhy .dlabel{margin-bottom:4px}
+.dwhy-text{font-size:12.5px;color:var(--text2);line-height:1.6}
+.dmeta{margin-top:20px;padding-top:12px;border-top:1px solid var(--border2);
+  font-family:var(--mono);font-size:10px;color:var(--text3)}
+circle.rdot.sel{stroke:var(--text);stroke-width:2.5}
+.card.sel{border-color:var(--assess);box-shadow:var(--shadow)}
+.dlabel{font-size:10px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:5px}
+.dtext{font-size:13px;color:var(--text2);line-height:1.65}
+.dpricing{font-size:12px;color:var(--text2);line-height:1.6;font-family:var(--mono)}
+.dlink{display:inline-flex;align-items:center;gap:4px;margin-top:14px;font-size:13px;color:var(--assess);text-decoration:none;font-weight:500;border:1px solid var(--border);border-radius:6px;padding:6px 12px;transition:border-color .15s}
+.dlink:hover{border-color:var(--assess)}
+.dlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+@media(prefers-reduced-motion:reduce){#dpanel,#filt{transition:none}}
+:focus-visible{outline:2px solid var(--assess);outline-offset:2px}
+</style>
+
+<header id="hdr">
+  <div class="brand"><div class="brand-blip"></div>Tool Radar</div>
+  <nav class="mode-nav">
+    <button class="mode-btn active" data-mode="radar">Radar</button>
+    <button class="mode-btn" data-mode="explorer">Explorer</button>
+  </nav>
+  <div class="leg-sep"></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--adopt)"></div>Adopt</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--trial)"></div>Trial</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--assess)"></div>Assess</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--hold)"></div>Hold</div>
+  <div class="leg-sep"></div>
+  <div class="hdr-stat" id="hdr-stat"></div>
+  <button class="hdr-btn" id="ab-open" aria-label="About this radar" title="About this radar">?</button>
+</header>
+
+<div id="shell">
+<aside id="filt">
+  <div class="filt-head" id="filt-head">
+    <span class="filt-caret">▼</span>
+    <span class="filt-title">Areas</span>
+    <span class="filt-n" id="filt-n"></span>
+  </div>
+  <div class="filt-acts">
+    <button class="filt-act" id="filt-all">All</button>
+    <button class="filt-act" id="filt-none">None</button>
+    <button class="filt-act" id="filt-inv">Invert</button>
+  </div>
+  <div class="filt-body" id="filt-body"></div>
+</aside>
+
+<div id="views">
+<div class="view active" id="view-radar">
+  <div id="radar-wrap">
+    <svg id="radar-svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"><g id="radar-g"></g></svg>
+    <div id="radar-hint">scroll to zoom · drag to pan · dbl-click to reset</div>
+    <div id="radar-empty">
+      <div class="re-t">No areas selected</div>
+      <div class="re-s">Pick at least one area in the filter panel</div>
+    </div>
+    <div id="rtip"></div>
+  </div>
+</div>
+
+<div class="view" id="view-explorer">
+  <div id="explorer-overview">
+    <div id="area-grid"></div>
+  </div>
+  <div id="explorer-detail">
+    <div id="exd-nav">
+      <button id="exd-back">← All areas</button>
+      <span id="exd-title"></span>
+      <span id="exd-count"></span>
+    </div>
+    <div id="exd-body"></div>
+  </div>
+</div>
+</div>
+
+<aside id="dpanel" aria-label="Tool detail">
+  <div id="dpanel-inner">
+    <div id="dhdr"><div id="dname-wrap"></div><button id="dclose" aria-label="Close">✕</button></div>
+    <div id="dbody"></div>
+  </div>
+</aside>
+</div>
+
+<div id="abd"></div>
+<div id="about" role="dialog" aria-modal="true" aria-labelledby="ab-title">
+  <div id="ab-hdr">
+    <span id="ab-title">Reading this radar</span>
+    <button id="ab-close" aria-label="Close">✕</button>
+  </div>
+  <div id="ab-body">
+    <div id="ab-stats"></div>
+    <div id="ab-copy"></div>
+  </div>
+</div>
+
+
+<script>
+const AREAS = __AREAS__;
+const AL = __AREA_LABELS__;
+const RINGS = ['adopt','trial','assess','hold'];
+const RC = {adopt:'var(--adopt)',trial:'var(--trial)',assess:'var(--assess)',hold:'var(--hold)'};
+
+const TOOLS = __TOOLS__;
+const ABOUT_HTML = __ABOUT__;
+
+const TOOLS_DEDUPED = (() => {
+  const seen = new Set();
+  return TOOLS.filter(t => { if(seen.has(t.name)) return false; seen.add(t.name); return true; });
+})();
+
+const state = {
+  view: 'radar',
+  explorerArea: null,
+  selected: null,
+  radar: {tx:0, ty:0, scale:1},
+  active: new Set(AREAS),
+};
+
+/* ── AREA FILTER ──
+   Filtering re-partitions the dial rather than blanking wedges: the geometry
+   is driven by activeAreas(), so four selected areas get a quarter of the
+   circle each and their dots spread out to match. */
+const LS_KEY = 'tool-radar:areas';
+
+function activeAreas(){ return AREAS.filter(a=>state.active.has(a)); }
+
+function loadFilter(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(!raw) return;
+    const saved = JSON.parse(raw).filter(a=>AREAS.includes(a));
+    // An empty or fully stale selection would render a blank dial on load.
+    if(saved.length) state.active = new Set(saved);
+  }catch(e){ /* private mode, blocked storage — fall back to showing everything */ }
+}
+
+function saveFilter(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify([...state.active])); }
+  catch(e){ /* not worth surfacing; the filter still works for this session */ }
+}
+
+const areaTotals = (()=>{
+  const c={}; AREAS.forEach(a=>c[a]=0);
+  TOOLS_DEDUPED.forEach(t=>t.areas.forEach(a=>{ if(c[a]!==undefined) c[a]++; }));
+  return c;
+})();
+
+// The stat line reports what is currently on screen, so it has to refresh on
+// every filter change in whichever view is showing.
+function updateStat(){
+  const nA = activeAreas().length;
+  const shown = new Set();
+  TOOLS_DEDUPED.forEach(t=>{ if(t.areas.some(a=>state.active.has(a))) shown.add(t.name); });
+  document.getElementById('hdr-stat').textContent = nA===AREAS.length
+    ? `${TOOLS_DEDUPED.length} tools · ${AREAS.length} areas`
+    : `${shown.size} tool${shown.size===1?'':'s'} · ${nA} of ${AREAS.length} areas`;
+}
+
+function applyFilter(){
+  saveFilter();
+  renderFilter();
+  if(state.view==='radar') renderRadar();
+  else renderExplorer();
+}
+
+function renderFilter(){
+  const on = activeAreas().length;
+  document.getElementById('filt-n').textContent = `${on}/${AREAS.length}`;
+  document.getElementById('filt-body').innerHTML = AREAS.map(a=>`
+    <div class="filt-row${state.active.has(a)?' on':''}" data-area="${a}">
+      <div class="filt-box"></div>
+      <span class="filt-lbl">${AL[a]||a}</span>
+      <span class="filt-c">${areaTotals[a]}</span>
+      <span class="filt-solo" data-solo="${a}">only</span>
+    </div>`).join('');
+
+  document.querySelectorAll('#filt-body .filt-row').forEach(row=>{
+    row.addEventListener('click',e=>{
+      const solo = e.target.closest('.filt-solo');
+      const a = row.dataset.area;
+      if(solo){ state.active = new Set([a]); }
+      else if(state.active.has(a)) state.active.delete(a);
+      else state.active.add(a);
+      applyFilter();
+    });
+  });
+}
+
+function toggleArea(a){
+  if(state.active.has(a)) state.active.delete(a); else state.active.add(a);
+  applyFilter();
+}
+
+/* ── RADAR ── */
+let radarDragMoved = false;
+
+function applyRadarTransform() {
+  const g = document.getElementById('radar-g');
+  if (g) g.setAttribute('transform', `translate(${state.radar.tx},${state.radar.ty}) scale(${state.radar.scale})`);
+}
+
+function renderRadar() {
+  const CX = 300, CY = 300;
+  const SECTORS = activeAreas();
+  const wrap = document.getElementById('radar-wrap');
+  wrap.classList.toggle('empty', SECTORS.length === 0);
+  updateStat();
+  if (!SECTORS.length) { document.getElementById('radar-g').innerHTML = ''; return; }
+  const N = SECTORS.length, SA = (2*Math.PI)/N, START = -Math.PI/2;
+  const OUTER = 263, LABEL_R = 285;
+
+  // Radial budget shared by the ring bands.
+  const R_IN = 42, R_OUT = 256, BAND_GAP = 12;
+  // Dot geometry. DOT_PITCH is the minimum centre-to-centre spacing that keeps
+  // neighbouring dots from touching (radius 4 plus a 2px breather).
+  const DOT_R = 4, DOT_PITCH = 10, ROW_STEP = 17, PAD = 10, USABLE = .68;
+  const MIN_BAND = 20;
+
+  // Columns that fit in one sector's usable arc at radius r. The arc grows with
+  // r, so outer rows hold more dots than inner ones.
+  const colsAt = r => Math.max(1, Math.floor(1 + (SA*USABLE*r)/DOT_PITCH));
+
+  // With few sectors selected the arc gets wide enough to string a whole cell
+  // out in one line. Cap columns so a cell stays a readable block instead. At
+  // the full 23 sectors colsAt() is always the smaller of the two, so this has
+  // no effect on the unfiltered dial.
+  const blockCols = n => Math.max(3, Math.ceil(Math.sqrt(n*1.6)));
+
+  // A tool occupies a cell in EVERY problem area it belongs to, not just its
+  // first. Placing by primary area only would hide ~40% of memberships.
+  const cells = {};
+  TOOLS_DEDUPED.forEach(t => {
+    t.areas.forEach(a => {
+      const ai = SECTORS.indexOf(a); if (ai < 0) return;
+      const k = ai + '_' + t.ring;
+      (cells[k] = cells[k] || []).push(t);
+    });
+  });
+
+  // Rows a cell of n dots needs, filling outward from the band's inner edge.
+  const rowsFor = (n, rMin) => {
+    const cap = blockCols(n);
+    let rows = 0, placed = 0;
+    while (placed < n && rows < 40) { placed += Math.min(colsAt(rMin + PAD + rows*ROW_STEP), cap); rows++; }
+    return Math.max(rows, 1);
+  };
+
+  // Size each band from its busiest cell, then normalise to the radial budget.
+  // An empty ring keeps a thin band so the ring model still reads.
+  const worst = {};
+  RINGS.forEach(r => { worst[r] = 0; });
+  Object.entries(cells).forEach(([k, tools]) => {
+    const ring = k.split('_')[1];
+    if (worst[ring] !== undefined) worst[ring] = Math.max(worst[ring], tools.length);
+  });
+
+  // Sizing runs before band positions exist, so rows are estimated against a
+  // nominal 3 columns — what a sector's arc supports at the inner edge of the
+  // busy assess band. Placement below uses colsAt(), which never returns fewer,
+  // so a band can only ever end up with more room than its estimate needed.
+  const NOMINAL_COLS = 3;
+  const natural = {};
+  RINGS.forEach(ring => {
+    natural[ring] = worst[ring] === 0
+      ? MIN_BAND
+      : Math.ceil(worst[ring]/NOMINAL_COLS) * ROW_STEP + 2*PAD;
+  });
+  const budget = (R_OUT - R_IN) - BAND_GAP*(RINGS.length - 1);
+  const naturalSum = RINGS.reduce((a, r) => a + natural[r], 0);
+  const k = budget / naturalSum;
+
+  const BANDS = {};
+  let cursor = R_IN;
+  RINGS.forEach(ring => {
+    const depth = natural[ring] * k;
+    BANDS[ring] = [cursor, cursor + depth];
+    cursor += depth + BAND_GAP;
+  });
+
+  let h = `<rect width="600" height="600" fill="var(--bg)"/>`;
+
+  // Concentric band fills, largest first so each smaller one paints on top.
+  RINGS.slice().reverse().forEach((ring, i) => {
+    const rMax = BANDS[ring][1];
+    const fill = i % 2 === 0 ? 'var(--surface)' : 'var(--surface2)';
+    const extra = i === 0 ? ' stroke-width="1"' : ' stroke-width=".8" stroke-dasharray="3 4"';
+    h += `<circle cx="${CX}" cy="${CY}" r="${rMax.toFixed(1)}" fill="${fill}" stroke="var(--border)"${extra}/>`;
+  });
+  h += `<circle cx="${CX}" cy="${CY}" r="${R_IN}" fill="var(--bg)" stroke="none"/>`;
+
+  for (let i=0;i<N;i++){
+    const a=START+i*SA, x=CX+OUTER*Math.cos(a), y=CY+OUTER*Math.sin(a);
+    h+=`<line x1="${CX}" y1="${CY}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--border)" stroke-width=".5" opacity=".5"/>`;
+  }
+
+  RINGS.forEach(ring => {
+    const [rMin, rMax] = BANDS[ring], r = (rMin + rMax)/2;
+    h+=`<text x="${CX}" y="${(CY-r+3).toFixed(1)}" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" fill="var(--text3)" letter-spacing="1.5">${ring.toUpperCase()}</text>`;
+  });
+
+  for(let i=0;i<N;i++){
+    const a=START+(i+.5)*SA, x=CX+LABEL_R*Math.cos(a), y=CY+LABEL_R*Math.sin(a);
+    let rot=a*180/Math.PI+90; if(rot>90&&rot<270) rot+=180;
+    h+=`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="8" fill="var(--text2)" transform="rotate(${rot.toFixed(1)},${x.toFixed(1)},${y.toFixed(1)})" class="slabel" data-area="${SECTORS[i]}">${AL[SECTORS[i]]}</text>`;
+  }
+
+  Object.entries(cells).forEach(([key, tools]) => {
+    const [aiStr, ring] = key.split('_');
+    const band = BANDS[ring]; if (!band) return;
+    const [rMin, rMax] = band, n = tools.length;
+    const sBase = START + parseInt(aiStr)*SA;
+    const margin = (SA - SA*USABLE)/2;
+    const inner = rMin + PAD, outer = rMax - PAD;
+
+    // Rows are evenly spread and never exceed ROW_STEP, so a cell that would
+    // overflow its band compresses instead of piling up at the outer edge.
+    const rows = rowsFor(n, rMin);
+    const step = rows > 1 ? Math.min(ROW_STEP, (outer - inner)/(rows - 1)) : 0;
+
+    let i = 0;
+    for (let row = 0; row < rows && i < n; row++) {
+      const r = inner + row*step;
+      const cols = Math.min(colsAt(r), blockCols(n), n - i);
+      for (let c = 0; c < cols; c++, i++) {
+        const t = tools[i];
+        const af = cols <= 1 ? .5 : c/(cols - 1);
+        const angle = sBase + margin + SA*USABLE*af;
+        const x = CX + r*Math.cos(angle), y = CY + r*Math.sin(angle);
+        const enc = t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+        h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${DOT_R}" fill="${RC[t.ring]}" class="rdot" data-name="${enc}" style="cursor:pointer"/>`;
+        h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="10" fill="transparent" class="rhit" data-name="${enc}" style="cursor:pointer"/>`;
+      }
+    }
+  });
+
+  const g=document.getElementById('radar-g');
+  g.innerHTML=h;
+  applyRadarTransform();
+
+  const tip=document.getElementById('rtip');
+  g.querySelectorAll('.rhit').forEach(el=>{
+    el.addEventListener('mouseenter',e=>{
+      const t=TOOLS_DEDUPED.find(t=>t.name===el.dataset.name); if(!t) return;
+      tip.innerHTML=`<div class="rtip-name">${t.name}</div><div class="rtip-ring" style="color:${RC[t.ring]}">${t.ring}</div>`;
+      tip.style.display='block'; positionTip(e.clientX,e.clientY);
+    });
+    el.addEventListener('mousemove',e=>positionTip(e.clientX,e.clientY));
+    el.addEventListener('mouseleave',()=>{tip.style.display='none';});
+    el.addEventListener('click',()=>{tip.style.display='none'; showDetail(el.dataset.name);});
+  });
+
+  // Clicking a sector label drops that area from the dial. The panel stays the
+  // way back — a label that is gone cannot be clicked to bring itself back.
+  g.querySelectorAll('.slabel').forEach(el=>{
+    el.addEventListener('click',e=>{
+      if(radarDragMoved) return;   // don't toggle at the end of a pan
+      e.stopPropagation();
+      toggleArea(el.dataset.area);
+    });
+  });
+  markSelected(state.selected);
+  setupRadarPanZoom();
+}
+
+function positionTip(cx,cy){
+  const tip=document.getElementById('rtip');
+  tip.style.left=(cx+14)+'px'; tip.style.top=(cy-36)+'px';
+}
+
+function setupRadarPanZoom(){
+  const wrap=document.getElementById('radar-wrap'), svg=document.getElementById('radar-svg');
+  if(wrap._pzSetup) return; wrap._pzSetup=true;
+  let dragging=false, dragStart=null;
+
+  function svgCoords(cx,cy){
+    const r=svg.getBoundingClientRect(), sc=r.width/600;
+    return{x:(cx-r.left)/sc, y:(cy-r.top)/sc};
+  }
+  wrap.addEventListener('wheel',e=>{
+    e.preventDefault();
+    const f=e.deltaY<0?1.12:1/1.12, ns=Math.max(0.4,Math.min(8,state.radar.scale*f));
+    const c=svgCoords(e.clientX,e.clientY);
+    const gx=(c.x-state.radar.tx)/state.radar.scale, gy=(c.y-state.radar.ty)/state.radar.scale;
+    state.radar.tx=c.x-gx*ns; state.radar.ty=c.y-gy*ns; state.radar.scale=ns;
+    applyRadarTransform();
+  },{passive:false});
+  wrap.addEventListener('mousedown',e=>{
+    if(e.button!==0) return; dragging=true; radarDragMoved=false;
+    const sc=svg.getBoundingClientRect().width/600;
+    dragStart={x:e.clientX-state.radar.tx*sc, y:e.clientY-state.radar.ty*sc};
+    wrap.classList.add('dragging'); e.preventDefault();
+  });
+  window.addEventListener('mousemove',e=>{
+    if(!dragging) return;
+    radarDragMoved=true;
+    const sc=svg.getBoundingClientRect().width/600;
+    state.radar.tx=(e.clientX-dragStart.x)/sc; state.radar.ty=(e.clientY-dragStart.y)/sc;
+    applyRadarTransform();
+  });
+  window.addEventListener('mouseup',()=>{if(!dragging)return; dragging=false; wrap.classList.remove('dragging');});
+  wrap.addEventListener('dblclick',()=>{state.radar.tx=0;state.radar.ty=0;state.radar.scale=1;applyRadarTransform();});
+
+  let ltd=null;
+  wrap.addEventListener('touchstart',e=>{
+    if(e.touches.length===1){
+      dragging=true;
+      const sc=svg.getBoundingClientRect().width/600, t=e.touches[0];
+      dragStart={x:t.clientX-state.radar.tx*sc, y:t.clientY-state.radar.ty*sc};
+    } else if(e.touches.length===2){
+      dragging=false;
+      ltd=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY);
+    }
+    e.preventDefault();
+  },{passive:false});
+  wrap.addEventListener('touchmove',e=>{
+    if(e.touches.length===1&&dragging){
+      const sc=svg.getBoundingClientRect().width/600, t=e.touches[0];
+      state.radar.tx=(t.clientX-dragStart.x)/sc; state.radar.ty=(t.clientY-dragStart.y)/sc;
+      applyRadarTransform();
+    } else if(e.touches.length===2&&ltd!==null){
+      const dist=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY);
+      const mx=(e.touches[0].clientX+e.touches[1].clientX)/2, my=(e.touches[0].clientY+e.touches[1].clientY)/2;
+      const ns=Math.max(0.4,Math.min(8,state.radar.scale*dist/ltd));
+      const c=svgCoords(mx,my);
+      const gx=(c.x-state.radar.tx)/state.radar.scale, gy=(c.y-state.radar.ty)/state.radar.scale;
+      state.radar.tx=c.x-gx*ns; state.radar.ty=c.y-gy*ns; state.radar.scale=ns;
+      ltd=dist; applyRadarTransform();
+    }
+    e.preventDefault();
+  },{passive:false});
+  wrap.addEventListener('touchend',()=>{dragging=false;ltd=null;});
+}
+
+/* ── EXPLORER ── */
+function renderExplorer(){
+  if(state.explorerArea) renderExplorerDetail(state.explorerArea);
+  else renderExplorerOverview();
+}
+
+function renderExplorerOverview(){
+  document.getElementById('explorer-overview').style.display='';
+  document.getElementById('explorer-detail').classList.remove('active');
+
+  const SECTORS=activeAreas();
+  const counts={};
+  SECTORS.forEach(a=>{counts[a]={total:0}; RINGS.forEach(r=>counts[a][r]=0);});
+  TOOLS_DEDUPED.forEach(t=>{
+    t.areas.forEach(a=>{ if(counts[a]){counts[a][t.ring]++;counts[a].total++;} });
+  });
+
+  document.getElementById('area-grid').innerHTML=SECTORS.map(area=>{
+    const c=counts[area];
+    if(!c.total) return `<div class="atile empty"><div class="atn">${AL[area]}</div><div class="atc">0 tools</div><div class="atbar"></div></div>`;
+    const segs=RINGS.filter(r=>c[r]>0)
+      .map(r=>`<div class="atbar-s" style="background:${RC[r]};flex:${c[r]/c.total*100}"></div>`).join('');
+    const detail=RINGS.filter(r=>c[r]>0).map(r=>`${c[r]} ${r}`).join(' · ');
+    return `<div class="atile" data-area="${area}" tabindex="0" role="button">
+      <div class="atn">${AL[area]}</div>
+      <div class="atc">${c.total} tool${c.total!==1?'s':''} <span style="color:var(--text3);font-size:10px">· ${detail}</span></div>
+      <div class="atbar">${segs}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('.atile:not(.empty)').forEach(tile=>{
+    tile.addEventListener('click',()=>{ state.explorerArea=tile.dataset.area; renderExplorer(); });
+    tile.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') tile.click(); });
+  });
+  updateStat();
+}
+
+function renderExplorerDetail(area){
+  document.getElementById('explorer-overview').style.display='none';
+  document.getElementById('explorer-detail').classList.add('active');
+  document.getElementById('exd-title').textContent=AL[area]||area;
+
+  const byRing={}; RINGS.forEach(r=>byRing[r]=[]);
+  TOOLS_DEDUPED.forEach(t=>{ if(t.areas.includes(area) && byRing[t.ring]) byRing[t.ring].push(t); });
+  const total=RINGS.reduce((a,r)=>a+byRing[r].length,0);
+  document.getElementById('exd-count').textContent=`${total} tool${total!==1?'s':''}`;
+
+  const RNAMES={adopt:'Adopt',assess:'Assess',hold:'Hold'};
+  document.getElementById('exd-body').innerHTML=RINGS.filter(r=>byRing[r].length).map(ring=>{
+    const tools=byRing[ring];
+    const cards=tools.map(t=>{
+      const tags=t.areas.slice(0,3).map(a=>`<span class="ctag">${AL[a]||a}</span>`).join('');
+      const enc=t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+      return `<div class="card" data-name="${enc}" tabindex="0" role="button">
+        <div class="ch"><span class="cn">${t.name}</span><span class="rbadge ${ring}">${ring}</span></div>
+        <p class="cd">${t.desc}</p>
+        <div class="ctags">${tags}</div>
+      </div>`;
+    }).join('');
+    return `<div class="exd-section">
+      <div class="exd-section-head">
+        <div class="exd-ring-dot" style="background:${RC[ring]}"></div>
+        <span class="exd-ring-label" style="color:${RC[ring]}">${RNAMES[ring]}</span>
+        <span class="exd-ring-count">${tools.length} tool${tools.length!==1?'s':''}</span>
+      </div>
+      <div class="exd-cards">${cards}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('#exd-body .card').forEach(c=>{
+    c.addEventListener('click',()=>showDetail(c.dataset.name));
+    c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') showDetail(c.dataset.name); });
+  });
+}
+
+/* ── DETAIL PANEL ── */
+// Marks which dot or card the open panel describes. Needed once the panel
+// stays open across clicks — otherwise nothing ties the two together.
+function markSelected(name){
+  document.querySelectorAll('circle.rdot.sel,.card.sel').forEach(e=>e.classList.remove('sel'));
+  if(!name) return;
+  const q=CSS.escape(name);
+  document.querySelectorAll(`circle.rdot[data-name="${q}"]`).forEach(e=>e.classList.add('sel'));
+  document.querySelectorAll(`.card[data-name="${q}"]`).forEach(e=>e.classList.add('sel'));
+}
+
+function showDetail(name){
+  const t=TOOLS_DEDUPED.find(t=>t.name===name); if(!t) return;
+  state.selected=name;
+  const isUrl=s=>s&&s.startsWith('http');
+  document.getElementById('dname-wrap').innerHTML=
+    `<div class="dname">${t.name}</div><div style="margin-top:8px"><span class="rbadge ${t.ring}">${t.ring}</span></div>`;
+  const areas=t.areas.map(a=>`<span class="datag">${AL[a]||a}</span>`).join('');
+  const pHtml=isUrl(t.pricing)
+    ?`<a href="${t.pricing}" target="_blank" rel="noopener" class="dlink">Pricing →</a>`
+    :`<div class="dpricing">${t.pricing}</div>`;
+  // Why it sits in this ring is the one thing the dial itself cannot show.
+  const why=t.why
+    ?`<div class="dwhy ${t.ring}"><div class="dlabel">Why ${t.ring}</div><div class="dwhy-text">${t.why}</div></div>`
+    :'';
+  document.getElementById('dbody').innerHTML=`
+    <div class="dareas">${areas}</div>
+    <div class="dsec"><div class="dlabel">About</div><div class="dtext">${t.desc}</div></div>
+    ${why}
+    <div class="dsec"><div class="dlabel">Pricing</div>${pHtml}</div>
+    <div class="dlinks"><a href="${t.homepage}" target="_blank" rel="noopener" class="dlink">Homepage →</a></div>
+    ${t.researched?`<div class="dmeta">researched ${t.researched}</div>`:''}`;
+  document.getElementById('dpanel').classList.add('open');
+  document.getElementById('dpanel-inner').scrollTop=0;
+  markSelected(name);
+}
+
+function hideDetail(){
+  state.selected=null;
+  document.getElementById('dpanel').classList.remove('open');
+  markSelected(null);
+}
+
+
+/* ── VIEW SWITCH ── */
+function switchView(v){
+  state.view=v;
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===v));
+  document.getElementById('view-'+v).classList.add('active');
+  if(v==='radar') renderRadar();
+  else if(v==='explorer') renderExplorer();
+}
+
+/* ── INIT ── */
+/* ── ABOUT ──
+   Counts are computed from the data so the explanation can never drift from
+   what is on screen. The copy itself lives in radar/about.md. */
+function buildAbout(){
+  const A=ABOUT_HTML;
+  const count=r=>TOOLS_DEDUPED.filter(t=>t.ring===r).length;
+  const placements=TOOLS_DEDUPED.reduce((a,t)=>a+t.areas.length,0);
+  const dates=TOOLS_DEDUPED.map(t=>t.researched).filter(Boolean).sort();
+
+  document.getElementById('ab-stats').innerHTML=[
+    `<span class="ab-stat"><b>${TOOLS_DEDUPED.length}</b> tools</span>`,
+    `<span class="ab-stat"><b>${AREAS.length}</b> areas</span>`,
+    `<span class="ab-stat"><b>${placements}</b> dots</span>`,
+    dates.length?`<span class="ab-stat">researched <b>${dates[0]}</b> → <b>${dates[dates.length-1]}</b></span>`:'',
+  ].join('');
+
+  const ringRows=RINGS.map(r=>`
+    <div class="ab-ring">
+      <span class="ab-ring-dot" style="background:${RC[r]}"></span>
+      <span class="ab-ring-name">${r}</span>
+      <span class="ab-ring-txt">${A.rings[r]||''}</span>
+      <span class="ab-ring-n">${count(r)}</span>
+    </div>`).join('');
+
+  const col=(ring,d)=>`
+    <div class="ab-col">
+      <div class="ab-col-hd"><span class="rbadge ${ring}">${ring}</span><span class="ab-rule">${d.rule}</span></div>
+      <ul class="ab-list">${d.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`;
+
+  document.getElementById('ab-copy').innerHTML=`
+    <p class="ab-lede">${A.lede}</p>
+
+    <h3>The rings</h3>
+    <div class="ab-rings">${ringRows}</div>
+    <p class="ab-note">${A.ringNote}</p>
+
+    <h3>How assess and hold are decided</h3>
+    <div class="ab-cols">${col('assess',A.rubric.assess)}${col('hold',A.rubric.hold)}</div>
+    <p class="ab-note">${A.rubricNote}</p>
+
+    <h3>Reading the dial</h3>
+    <ul class="ab-list">${A.dial.map(d=>`<li>${d}</li>`).join('')}</ul>
+
+    <h3>Never included</h3>
+    <div class="ab-chips">${A.excluded.map(e=>`<span class="ab-chip">${e}</span>`).join('')}</div>
+    <p class="ab-note">${A.excludedNote}</p>`;
+}
+
+function showAbout(){
+  document.getElementById('abd').classList.add('open');
+  document.getElementById('about').classList.add('open');
+  document.getElementById('ab-close').focus();
+}
+function hideAbout(){
+  document.getElementById('abd').classList.remove('open');
+  document.getElementById('about').classList.remove('open');
+}
+
+function init(){
+  buildAbout();
+  document.getElementById('ab-open').addEventListener('click',showAbout);
+  document.getElementById('ab-close').addEventListener('click',hideAbout);
+  document.getElementById('abd').addEventListener('click',hideAbout);
+  loadFilter();
+  renderFilter();
+  const filt=document.getElementById('filt');
+  if(window.innerWidth<=820) filt.classList.add('collapsed');
+  document.getElementById('filt-head').addEventListener('click',()=>{
+    filt.classList.toggle('collapsed');
+  });
+  document.getElementById('filt-all').addEventListener('click',()=>{ state.active=new Set(AREAS); applyFilter(); });
+  document.getElementById('filt-none').addEventListener('click',()=>{ state.active=new Set(); applyFilter(); });
+  document.getElementById('filt-inv').addEventListener('click',()=>{
+    state.active=new Set(AREAS.filter(a=>!state.active.has(a))); applyFilter();
+  });
+  document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.mode)));
+  document.getElementById('exd-back').addEventListener('click',()=>{ state.explorerArea=null; renderExplorer(); });
+  document.getElementById('dclose').addEventListener('click',hideDetail);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ hideAbout(); hideDetail(); } });
+  window.addEventListener('resize',()=>{ if(state.view==='radar') renderRadar(); });
+  renderRadar();
+  renderExplorerOverview();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>

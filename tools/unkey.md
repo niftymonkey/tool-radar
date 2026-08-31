@@ -3,6 +3,7 @@ name: Unkey
 problem-areas: [auth, security]
 ring: assess
 ring-reasoning: "A genuinely usable free tier (150K verifications and 1K keys per month) plus a five-minute self-serve setup and developer-focused docs put it squarely in assess range for a side project."
+summary: "Open-source API key management platform that issues, verifies, expires, and rate-limits keys at the edge with built-in usage analytics."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

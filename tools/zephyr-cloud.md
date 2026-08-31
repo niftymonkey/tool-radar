@@ -3,6 +3,7 @@ name: Zephyr Cloud
 problem-areas: [hosting-deploy]
 ring: assess
 ring-reasoning: "A free Personal tier with 1,000 monthly deployments and self-serve signup fits an individual developer, but it is a niche platform not tried personally and most side projects never need micro-frontends."
+summary: "Module Federation deployment platform that captures every bundler build as an immutable version and resolves micro-frontend dependencies automatically across CDN providers."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

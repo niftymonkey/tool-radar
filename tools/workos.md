@@ -3,6 +3,7 @@ name: WorkOS
 problem-areas: [auth, security]
 ring: adopt
 ring-reasoning: "In active use for authentication across two of my own projects; the free AuthKit tier (1M MAU) makes it a genuine solo fit despite the enterprise-scale positioning."
+summary: "Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs)."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

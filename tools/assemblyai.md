@@ -3,6 +3,7 @@ name: AssemblyAI
 problem-areas: [ai-apis]
 ring: assess
 ring-reasoning: "$50 in free credits on signup (roughly 185 hours of transcription), self-serve access, and pay-as-you-go pricing make it practical to build and demo a speech feature with no upfront spend."
+summary: "Speech AI API providing accurate transcription, speaker diarization, sentiment analysis, summarization, and entity detection from pre-recorded or streaming audio."
 source: manual
 discovered-via: https://www.assemblyai.com
 first-seen: 2026-05-25

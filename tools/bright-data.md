@@ -3,6 +3,7 @@ name: Bright Data
 problem-areas: [ai-web-data]
 ring: hold
 ring-reasoning: "Pay-as-you-go exists but real usage starts around enterprise pricing, the trial is sales-gated with KYC, and the dashboard plus pricing model are built for data teams, not solo side projects."
+summary: "Enterprise web-data platform combining the largest residential proxy network with scraping APIs and pre-built datasets for collecting public web data at scale."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21

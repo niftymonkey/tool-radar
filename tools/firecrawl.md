@@ -3,6 +3,7 @@ name: Firecrawl
 problem-areas: [ai-web-data, ai-apis, ai-agent-infra]
 ring: assess
 ring-reasoning: "A 1,000-credit free tier and a $16 per month Hobby plan with self-serve signup make it cheap to try, though credit-based billing means costs need watching at scale."
+summary: "Web scraping and crawling API that turns websites, including JavaScript-rendered pages and PDFs, into clean markdown and structured JSON ready for LLMs."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
