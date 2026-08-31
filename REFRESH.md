@@ -150,6 +150,36 @@ free tier too constrained to be usable for a real side project.
 
 Never default to `adopt` or `trial`; those require actual usage.
 
+## Promoting a tool
+
+The rubric only ever assigns `assess` or `hold`. Moving a tool to `adopt`
+or `trial` is a human edit, because it is a claim about experience that
+no amount of research can establish. Nothing in a refresh run will ever
+do it for you, however good a tool looks.
+
+```
+node radar/promote.mjs <slug|name> <ring> "<reason>"
+node radar/promote.mjs wispr-flow adopt "In active use as my dictation tool."
+```
+
+It sets `ring` and rewrites `ring-reasoning` together, which is the part
+that is easy to get wrong by hand. The reasoning is rendered on the radar
+as "Why adopt", so an entry promoted without rewriting it shows an
+argument for the ring it just left — the tool refuses a reason that still
+reads that way.
+
+Write the reason as the claim it is: what you use it for, or what it
+replaced. One sentence is enough. It is the only justification a reader
+gets for why the tool sits where it does.
+
+Leave `managed: auto`. The Curated entries rule below then keeps your
+ring, your reasoning, and your judgment sections intact while the
+refresher still updates pricing and the reality check. Use
+`managed: manual` only to freeze an entry completely, facts included.
+
+Demotion is the same command with a different ring — a tool you tried and
+put down goes back to `assess` or `hold` with a reason saying why.
+
 ## Curated entries
 
 `adopt` and `trial` are human judgments. The rubric only ever assigns

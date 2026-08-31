@@ -32,4 +32,6 @@ Every entry carries a `ring`, borrowed from the ThoughtWorks Tech Radar:
 - `hold`: not a fit for solo side-project work, with the reason recorded.
 
 Scraped entries default to `assess`. Promotion to `trial` or `adopt` is
-always a human decision.
+always a human decision — the research rubric has no path to either. Use
+`node radar/promote.mjs <slug> <ring> "<reason>"`; see the Promoting a
+tool section of `REFRESH.md`.
