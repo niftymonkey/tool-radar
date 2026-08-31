@@ -85,7 +85,9 @@ batches.
    under a `**Held**` label. A tool with multiple problem areas appears in
    each.
 
-8. **Log, commit, and open a pull request.** If the run produced no
+8. **Rebuild the radar, log, commit, and open a pull request.** Run
+   `node radar/build.mjs` and include the regenerated `radar/index.html`
+   in the commit; CI fails the pull request without it. If the run produced no
    substantive change (no tool file added, modified, or removed, and no
    queue item processed), skip this step: the run is complete and nothing
    is committed. Otherwise, append a one-paragraph summary to
@@ -215,8 +217,17 @@ node radar/build.mjs --check    # verify it matches the entries; exit 1 if stale
 ```
 
 Regenerate it in the same commit as any change to `tools/`, `taxonomy.md`,
-or `radar/sectors.json`, so the page never lags the catalog. `--check` is
-the CI guard for that.
+or `radar/sectors.json`, so the page never lags the catalog.
+
+`.github/workflows/radar.yml` enforces this: a pull request touching any
+of those paths fails if `radar/index.html` does not match the entries.
+That is why step 8 commits the rebuilt page along with the entries rather
+than leaving it to be regenerated after the merge — the page on `main` is
+correct at every commit, not eventually.
+
+The workflow also posts a job summary with the tool and ring counts, and
+lists any data warnings the build emitted as pull request annotations.
+Warnings never fail the build, but each one is a data fix worth making.
 
 Inputs:
 
@@ -244,6 +255,22 @@ missing `summary` (derived). Read the warnings — each one is a data fix.
 Adding an area to `taxonomy.md` needs a matching entry in
 `radar/sectors.json` to choose where it sits on the dial and what it is
 called. Until then the build appends it with a generated label and warns.
+
+### Publishing
+
+`radar/index.html` is a single self-contained file — it opens from disk
+with no server. Publishing it somewhere shareable is a separate step, and
+deliberately not automated in this repository: the destination is a
+personal link, and this repository is public.
+
+To republish after a merge that changed the radar, ask Claude to publish
+`radar/index.html` to the existing artifact, passing that artifact's URL
+so the link stays stable. Publishing without the URL creates a second
+artifact instead of updating the first, which is the one mistake worth
+avoiding — anyone holding the old link keeps seeing the old catalog.
+
+Nothing breaks if this is skipped. The repository stays correct on its
+own; only the published copy goes stale.
 
 ## Manual run
 
