@@ -193,7 +193,10 @@ Inputs:
 - `radar/template.html` — the page itself: layout, styling, and all the
   radar geometry. Frozen. Editing it is a deliberate design change, not
   part of a refresh; the generator only substitutes `__TOOLS__`,
-  `__AREAS__`, and `__AREA_LABELS__` into it.
+  `__AREAS__`, `__AREA_LABELS__`, and `__ABOUT__` into it.
+- `radar/about.md` — the "Reading this radar" copy shown behind the header
+  `?` button. Keep it short; it explains who the catalog is for and how
+  rings are assigned, and the counts beside it are computed from the data.
 - `radar/sectors.json` — the order the problem areas appear around the
   dial, and their short labels. Ordering is a presentation choice
   (related areas sit adjacent), so it deliberately does not follow

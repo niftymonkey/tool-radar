@@ -179,6 +179,7 @@ function readTools(areas) {
       areas: validAreas,
       homepage: (data.homepage || '').trim(),
       pricing: (data['pricing-note'] || data.pricing || '').trim(),
+      researched: (data['last-researched'] || '').trim(),
       desc: summary,
     });
   }
@@ -186,6 +187,42 @@ function readTools(areas) {
   // Stable order: ring (adopt→hold), then name. Independent of filesystem order.
   tools.sort((a, b) => (RINGS.indexOf(a.ring) - RINGS.indexOf(b.ring)) || a.name.localeCompare(b.name));
   return tools;
+}
+
+/* ── about copy ─────────────────────────────────────────────────────────── */
+
+const escHtml = (s) =>
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+// Inline spans, applied after escaping so the copy can't inject markup.
+const inline = (s) =>
+  escHtml(s)
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    // bold first, so its inner asterisks are gone before italics are matched
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+
+// Just enough Markdown for radar/about.md: h2, paragraphs, and bullet lists.
+function renderAbout() {
+  const src = readFileSync(join(ROOT, 'radar', 'about.md'), 'utf8');
+  const out = [];
+  let para = [];
+  let list = [];
+
+  const flushPara = () => { if (para.length) { out.push(`<p>${inline(para.join(' '))}</p>`); para = []; } };
+  const flushList = () => { if (list.length) { out.push(`<ul>${list.map((i) => `<li>${inline(i)}</li>`).join('')}</ul>`); list = []; } };
+  const flush = () => { flushPara(); flushList(); };
+
+  for (const raw of src.split('\n')) {
+    const line = raw.trim();
+    if (!line) { flush(); continue; }
+    if (line.startsWith('## ')) { flush(); out.push(`<h3>${inline(line.slice(3))}</h3>`); continue; }
+    if (line.startsWith('- ')) { flushPara(); list.push(line.slice(2)); continue; }
+    flushList();
+    para.push(line);
+  }
+  flush();
+  return out.join('');
 }
 
 /* ── emit ───────────────────────────────────────────────────────────────── */
@@ -196,7 +233,8 @@ function serialize(tools) {
   const rows = tools.map(
     (t) =>
       `  {name:${esc(t.name)},ring:${esc(t.ring)},areas:[${t.areas.map(esc).join(',')}],` +
-      `homepage:${esc(t.homepage)},pricing:${esc(t.pricing)},desc:${esc(t.desc)}}`
+      `homepage:${esc(t.homepage)},pricing:${esc(t.pricing)},` +
+      `researched:${esc(t.researched)},desc:${esc(t.desc)}}`
   );
   return `[\n${rows.join(',\n')}\n]`;
 }
@@ -211,6 +249,7 @@ function build() {
     ['__TOOLS__', serialize(tools)],
     ['__AREAS__', JSON.stringify(areas)],
     ['__AREA_LABELS__', JSON.stringify(labels)],
+    ['__ABOUT__', JSON.stringify(renderAbout())],
   ]) {
     if (!html.includes(marker)) throw new Error(`template.html: missing ${marker} marker`);
     html = html.replace(marker, value);
