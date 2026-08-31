@@ -272,6 +272,27 @@ function build() {
 
 const { html, tools, areas } = build();
 const check = process.argv.includes('--check');
+const summary = process.argv.includes('--summary');
+
+const byRing = RINGS.map((r) => `${tools.filter((t) => t.ring === r).length} ${r}`).join(', ');
+const placements = tools.reduce((a, t) => a + t.areas.length, 0);
+const stat = `${tools.length} tools (${byRing}) · ${areas.length} areas · ${placements} radar placements`;
+
+// --summary writes Markdown on stdout for a CI job summary, and nothing else,
+// so it can be redirected straight into $GITHUB_STEP_SUMMARY.
+if (summary) {
+  const stale = check && existsSync(OUT) && readFileSync(OUT, 'utf8') !== html;
+  const lines = [`### Radar`, '', stale
+    ? '**`radar/index.html` is out of date.** Run `node radar/build.mjs` and commit the result.'
+    : '`radar/index.html` is up to date.', '', stat];
+  if (warnings.length) {
+    lines.push('', `<details><summary>${warnings.length} data warning(s)</summary>`, '');
+    warnings.forEach((w) => lines.push(`- ${w}`));
+    lines.push('', '</details>');
+  }
+  console.log(lines.join('\n'));
+  process.exit(stale ? 1 : 0);
+}
 
 if (check) {
   const current = existsSync(OUT) ? readFileSync(OUT, 'utf8') : null;
@@ -284,10 +305,10 @@ if (check) {
   writeFileSync(OUT, html, 'utf8');
 }
 
-const byRing = RINGS.map((r) => `${tools.filter((t) => t.ring === r).length} ${r}`).join(', ');
-const placements = tools.reduce((a, t) => a + t.areas.length, 0);
-console.log(`${tools.length} tools (${byRing}) · ${areas.length} areas · ${placements} radar placements`);
+console.log(stat);
 if (warnings.length) {
+  // Surface data problems as annotations on the pull request, not just in the log.
+  const annotate = !!process.env.GITHUB_ACTIONS;
   console.error(`\n${warnings.length} warning(s):`);
-  warnings.forEach((w) => console.error('  ' + w));
+  warnings.forEach((w) => console.error(annotate ? `::warning::${w}` : '  ' + w));
 }

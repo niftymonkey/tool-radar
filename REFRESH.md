@@ -85,7 +85,9 @@ batches.
    under a `**Held**` label. A tool with multiple problem areas appears in
    each.
 
-8. **Log, commit, and open a pull request.** If the run produced no
+8. **Rebuild the radar, log, commit, and open a pull request.** Run
+   `node radar/build.mjs` and include the regenerated `radar/index.html`
+   in the commit; CI fails the pull request without it. If the run produced no
    substantive change (no tool file added, modified, or removed, and no
    queue item processed), skip this step: the run is complete and nothing
    is committed. Otherwise, append a one-paragraph summary to
@@ -215,8 +217,17 @@ node radar/build.mjs --check    # verify it matches the entries; exit 1 if stale
 ```
 
 Regenerate it in the same commit as any change to `tools/`, `taxonomy.md`,
-or `radar/sectors.json`, so the page never lags the catalog. `--check` is
-the CI guard for that.
+or `radar/sectors.json`, so the page never lags the catalog.
+
+`.github/workflows/radar.yml` enforces this: a pull request touching any
+of those paths fails if `radar/index.html` does not match the entries.
+That is why step 8 commits the rebuilt page along with the entries rather
+than leaving it to be regenerated after the merge — the page on `main` is
+correct at every commit, not eventually.
+
+The workflow also posts a job summary with the tool and ring counts, and
+lists any data warnings the build emitted as pull request annotations.
+Warnings never fail the build, but each one is a data fix worth making.
 
 Inputs:
 

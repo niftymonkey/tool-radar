@@ -1,0 +1,50 @@
+name: Radar
+
+# radar/index.html is generated from tools/ and must be committed alongside
+# whatever changed it. This fails a pull request that leaves it stale, so the
+# page is never behind the catalog — no after-the-fact regeneration needed.
+#
+# It also runs on main, to catch a stale page arriving through a path that
+# skipped pull request checks (a direct push, or an admin merge).
+
+on:
+  pull_request:
+    paths:
+      - 'tools/**'
+      - 'taxonomy.md'
+      - 'radar/**'
+      - '.github/workflows/radar.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/**'
+      - 'taxonomy.md'
+      - 'radar/**'
+      - '.github/workflows/radar.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: radar/index.html is up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # The build has no dependencies — node builtins only — so there is
+      # nothing to install.
+      - name: Check the built page matches the catalog
+        run: node radar/build.mjs --check
+
+      # Data problems never fail the build (a dropped tool is worse than an
+      # odd-looking one), but they should be visible on the pull request
+      # rather than buried in a log.
+      - name: Summarise
+        if: always()
+        run: node radar/build.mjs --check --summary >> "$GITHUB_STEP_SUMMARY" || true
