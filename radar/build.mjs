@@ -281,7 +281,10 @@ const stat = `${tools.length} tools (${byRing}) · ${areas.length} areas · ${pl
 // --summary writes Markdown on stdout for a CI job summary, and nothing else,
 // so it can be redirected straight into $GITHUB_STEP_SUMMARY.
 if (summary) {
-  const stale = check && existsSync(OUT) && readFileSync(OUT, 'utf8') !== html;
+  // A missing page is stale, not fresh. Gating this on existsSync reported
+  // "up to date" for an absent file while --check correctly failed.
+  const built = existsSync(OUT) ? readFileSync(OUT, 'utf8') : null;
+  const stale = built !== html;
   const lines = [`### Radar`, '', stale
     ? '**`radar/index.html` is out of date.** Run `node radar/build.mjs` and commit the result.'
     : '`radar/index.html` is up to date.', '', stat];

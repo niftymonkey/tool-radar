@@ -32,6 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The job only reads files and runs node — it never pushes — so there
+          # is no reason to leave a token in .git/config on the runner.
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
