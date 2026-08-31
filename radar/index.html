@@ -1,0 +1,628 @@
+<title>Tool Radar</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f0f2f5;--surface:#fff;--surface2:#f4f6f9;
+  --border:#d4d7dd;--border2:#e8eaed;
+  --text:#111827;--text2:#4b5563;--text3:#9ca3af;
+  --adopt:#059669;--adopt-bg:#d1fae5;--adopt-fg:#065f46;
+  --trial:#d97706;--trial-bg:#fef3c7;--trial-fg:#92400e;
+  --assess:#6366f1;--assess-bg:#e0e7ff;--assess-fg:#3730a3;
+  --hold:#6b7280;--hold-bg:#f3f4f6;--hold-fg:#374151;
+  --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 12px rgba(0,0,0,.04);
+  --mono:'DM Mono','Courier New',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --hdr:52px;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;
+    --border:#30363d;--border2:#21262d;
+    --text:#e6edf3;--text2:#8b949e;--text3:#484f58;
+    --adopt:#3fb950;--adopt-bg:rgba(63,185,80,.13);--adopt-fg:#3fb950;
+    --trial:#d29922;--trial-bg:rgba(210,153,34,.13);--trial-fg:#e3b341;
+    --assess:#818cf8;--assess-bg:rgba(129,140,248,.13);--assess-fg:#a5b4fc;
+    --hold:#6e7681;--hold-bg:rgba(110,118,129,.13);--hold-fg:#8b949e;
+    --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1117;--surface:#161b22;--surface2:#1c2330;
+  --border:#30363d;--border2:#21262d;
+  --text:#e6edf3;--text2:#8b949e;--text3:#484f58;
+  --adopt:#3fb950;--adopt-bg:rgba(63,185,80,.13);--adopt-fg:#3fb950;
+  --trial:#d29922;--trial-bg:rgba(210,153,34,.13);--trial-fg:#e3b341;
+  --assess:#818cf8;--assess-bg:rgba(129,140,248,.13);--assess-fg:#a5b4fc;
+  --hold:#6e7681;--hold-bg:rgba(110,118,129,.13);--hold-fg:#8b949e;
+  --shadow:0 1px 3px rgba(0,0,0,.4),0 4px 12px rgba(0,0,0,.3);
+}
+
+body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+/* Header */
+#hdr{height:var(--hdr);flex-shrink:0;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:0 16px;position:relative}
+.brand{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.brand-blip{width:9px;height:9px;border-radius:50%;background:var(--assess);box-shadow:0 0 6px var(--assess)}
+.mode-nav{display:flex;gap:2px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:3px;position:absolute;left:50%;transform:translateX(-50%)}
+.mode-btn{font-family:var(--sans);font-size:12px;font-weight:500;padding:4px 16px;border:none;border-radius:5px;background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
+.mode-btn:hover{color:var(--text)}
+.mode-btn.active{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.hdr-stat{font-family:var(--mono);font-size:11px;color:var(--text3);white-space:nowrap}
+
+/* Views */
+.view{display:none;flex:1;overflow:hidden;flex-direction:column}
+.view.active{display:flex}
+
+/* ── RADAR ── */
+#radar-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:12px;position:relative;overflow:hidden;cursor:grab;user-select:none}
+#radar-wrap.dragging{cursor:grabbing}
+#radar-svg{
+  width:min(calc(100vh - var(--hdr) - 24px), 100%);
+  height:min(calc(100vh - var(--hdr) - 24px), 100%);
+  overflow:visible;
+}
+.leg-item{display:flex;align-items:center;gap:5px;color:var(--text2);font-size:11px;white-space:nowrap}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.leg-sep{width:1px;height:12px;background:var(--border);margin:0 2px}
+#radar-hint{position:absolute;top:12px;right:16px;font-size:10px;color:var(--text3);font-family:var(--mono);pointer-events:none}
+#rtip{position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px;pointer-events:none;box-shadow:var(--shadow);max-width:200px;display:none;z-index:10}
+.rtip-name{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1.3}
+.rtip-ring{font-size:11px;margin-top:2px}
+
+/* ── SHARED CARDS ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:13px 15px;cursor:pointer;transition:box-shadow .15s,border-color .15s}
+.card:hover,.card:focus-visible{box-shadow:var(--shadow);border-color:var(--assess);outline:none}
+.ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.cn{font-family:var(--mono);font-size:13px;font-weight:500}
+.rbadge{font-size:10px;font-weight:600;padding:2px 7px;border-radius:100px;letter-spacing:.04em;text-transform:uppercase;flex-shrink:0}
+.rbadge.adopt{background:var(--adopt-bg);color:var(--adopt-fg)}
+.rbadge.trial{background:var(--trial-bg);color:var(--trial-fg)}
+.rbadge.assess{background:var(--assess-bg);color:var(--assess-fg)}
+.rbadge.hold{background:var(--hold-bg);color:var(--hold-fg)}
+.cd{font-size:12px;color:var(--text2);line-height:1.5;margin-bottom:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ctags{display:flex;flex-wrap:wrap;gap:3px}
+.ctag{font-family:var(--mono);font-size:10px;color:var(--text3);padding:2px 6px;background:var(--surface2);border-radius:3px}
+
+/* ── EXPLORER ── */
+#explorer-overview{flex:1;overflow-y:auto;padding:14px}
+#area-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.atile{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 15px;cursor:pointer;transition:box-shadow .15s,border-color .15s,transform .12s}
+.atile:hover,.atile:focus-visible{box-shadow:var(--shadow);border-color:var(--assess);transform:translateY(-1px);outline:none}
+.atile.empty{opacity:.4;cursor:default;pointer-events:none}
+.atn{font-family:var(--mono);font-size:12px;font-weight:500;margin-bottom:6px;line-height:1.3}
+.atc{font-size:11px;color:var(--text2);margin-bottom:9px}
+.atbar{display:flex;height:4px;border-radius:2px;overflow:hidden;gap:1px}
+.atbar-s{height:100%;border-radius:1px;min-width:2px}
+
+/* Explorer detail */
+#explorer-detail{display:none;flex:1;flex-direction:column;overflow:hidden}
+#explorer-detail.active{display:flex}
+#exd-nav{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
+#exd-back{display:flex;align-items:center;gap:5px;background:none;border:1px solid var(--border);border-radius:6px;padding:5px 11px;font-size:12px;cursor:pointer;color:var(--text2);font-family:var(--sans);transition:border-color .12s,color .12s}
+#exd-back:hover{color:var(--text);border-color:var(--text2)}
+#exd-title{font-family:var(--mono);font-size:15px;font-weight:500}
+#exd-count{font-size:11px;color:var(--text3);font-family:var(--mono);margin-left:auto}
+#exd-body{flex:1;overflow-y:auto;padding:18px 16px}
+.exd-section{margin-bottom:28px}
+.exd-section:last-child{margin-bottom:0}
+.exd-section-head{display:flex;align-items:center;gap:9px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border2)}
+.exd-ring-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.exd-ring-label{font-size:11px;font-family:var(--mono);font-weight:500;text-transform:uppercase;letter-spacing:.07em}
+.exd-ring-count{font-size:10px;color:var(--text3);font-family:var(--mono)}
+.exd-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:9px}
+
+/* ── DETAIL PANEL ── */
+#dbackdrop{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.25);display:none;cursor:pointer}
+#dbackdrop.open{display:block}
+#dpanel{position:fixed;top:0;right:-380px;width:350px;height:100vh;z-index:201;background:var(--surface);border-left:1px solid var(--border);transition:right .22s cubic-bezier(.4,0,.2,1);overflow-y:auto;display:flex;flex-direction:column}
+#dpanel.open{right:0}
+#dhdr{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 18px 0;gap:8px}
+#dclose{background:none;border:none;cursor:pointer;font-size:18px;color:var(--text2);line-height:1;flex-shrink:0;padding:2px}
+#dclose:hover{color:var(--text)}
+#dbody{padding:10px 18px 36px;flex:1}
+.dname{font-family:var(--mono);font-size:19px;font-weight:500;line-height:1.25;text-wrap:balance}
+.dareas{display:flex;flex-wrap:wrap;gap:4px;margin-top:11px}
+.datag{font-family:var(--mono);font-size:10px;padding:3px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:100px;color:var(--text2)}
+.dsec{margin-top:18px}
+.dlabel{font-size:10px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:5px}
+.dtext{font-size:13px;color:var(--text2);line-height:1.65}
+.dpricing{font-size:12px;color:var(--text2);line-height:1.6;font-family:var(--mono)}
+.dlink{display:inline-flex;align-items:center;gap:4px;margin-top:14px;font-size:13px;color:var(--assess);text-decoration:none;font-weight:500;border:1px solid var(--border);border-radius:6px;padding:6px 12px;transition:border-color .15s}
+.dlink:hover{border-color:var(--assess)}
+.dlinks{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+@media(prefers-reduced-motion:reduce){#dpanel{transition:none}}
+:focus-visible{outline:2px solid var(--assess);outline-offset:2px}
+</style>
+
+<header id="hdr">
+  <div class="brand"><div class="brand-blip"></div>Tool Radar</div>
+  <nav class="mode-nav">
+    <button class="mode-btn active" data-mode="radar">Radar</button>
+    <button class="mode-btn" data-mode="explorer">Explorer</button>
+  </nav>
+  <div class="leg-sep"></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--adopt)"></div>Adopt</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--trial)"></div>Trial</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--assess)"></div>Assess</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--hold)"></div>Hold</div>
+  <div class="leg-sep"></div>
+  <div class="hdr-stat" id="hdr-stat"></div>
+</header>
+
+<div class="view active" id="view-radar">
+  <div id="radar-wrap">
+    <svg id="radar-svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"><g id="radar-g"></g></svg>
+    <div id="radar-hint">scroll to zoom · drag to pan · dbl-click to reset</div>
+    <div id="rtip"></div>
+  </div>
+</div>
+
+<div class="view" id="view-explorer">
+  <div id="explorer-overview">
+    <div id="area-grid"></div>
+  </div>
+  <div id="explorer-detail">
+    <div id="exd-nav">
+      <button id="exd-back">← All areas</button>
+      <span id="exd-title"></span>
+      <span id="exd-count"></span>
+    </div>
+    <div id="exd-body"></div>
+  </div>
+</div>
+
+<div id="dbackdrop"></div>
+<div id="dpanel" role="dialog" aria-modal="true" aria-label="Tool detail">
+  <div id="dhdr"><div id="dname-wrap"></div><button id="dclose" aria-label="Close">✕</button></div>
+  <div id="dbody"></div>
+</div>
+
+<script>
+const AREAS = ["auth","security","ci-cd","dev-workflow","ai-code-review","ai-coding-agents","ai-agent-infra","ai-apis","ai-web-data","background-jobs","hosting-deploy","database","backend-platform","cms","error-monitoring","product-analytics","feature-flags","ui-components","design-tooling","media-optimization","email-messaging","i18n","cost-optimization"];
+const AL = {"auth":"Auth","security":"Security","ci-cd":"CI/CD","dev-workflow":"Workflow","ai-code-review":"AI Review","ai-coding-agents":"AI Agents","ai-agent-infra":"AI Infra","ai-apis":"AI APIs","ai-web-data":"Web Data","background-jobs":"Jobs","hosting-deploy":"Deploy","database":"Database","backend-platform":"Backend","cms":"CMS","error-monitoring":"Monitoring","product-analytics":"Analytics","feature-flags":"Flags","ui-components":"UI Comps","design-tooling":"Design","media-optimization":"Media","email-messaging":"Messaging","i18n":"i18n","cost-optimization":"Cost"};
+const RINGS = ['adopt','trial','assess','hold'];
+const RC = {adopt:'var(--adopt)',trial:'var(--trial)',assess:'var(--assess)',hold:'var(--hold)'};
+
+const TOOLS = [
+  {name:"CodeRabbit",ring:"adopt",areas:["ai-code-review","dev-workflow","ci-cd"],homepage:"https://www.coderabbit.ai",pricing:"https://www.coderabbit.ai/pricing",desc:"AI code review tool that auto-reviews pull requests across GitHub, GitLab, Azure DevOps, and Bitbucket with inline comments and PR summaries."},
+  {name:"Vercel",ring:"adopt",areas:["hosting-deploy","ci-cd","media-optimization"],homepage:"https://vercel.com",pricing:"https://vercel.com/pricing",desc:"Frontend cloud platform that builds and deploys web apps from a Git push, with deep Next.js integration, a global edge network, and preview deployments."},
+  {name:"WorkOS",ring:"adopt",areas:["auth","security"],homepage:"https://workos.com",pricing:"https://workos.com/pricing",desc:"Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs)."},
+  {name:"AG Grid",ring:"assess",areas:["ui-components"],homepage:"https://www.ag-grid.com",pricing:"https://www.ag-grid.com/license-pricing/",desc:"High-performance JavaScript and React data-grid component that renders, sorts, filters, and edits large tabular datasets with row and column virtualization."},
+  {name:"Agentuity",ring:"assess",areas:["ai-agent-infra","hosting-deploy"],homepage:"https://agentuity.com",pricing:"https://agentuity.com/pricing",desc:"Full-stack platform for building, deploying, and running AI agents in production, wrapping existing frameworks with one SDK and one CLI."},
+  {name:"Agora",ring:"assess",areas:["ai-apis"],homepage:"https://www.agora.io",pricing:"https://www.agora.io/en/pricing/",desc:"Real-time engagement platform providing voice, video, live streaming, and conversational AI APIs over a proprietary global low-latency network."},
+  {name:"Appwrite",ring:"assess",areas:["backend-platform","auth","database"],homepage:"https://appwrite.io",pricing:"https://appwrite.io/pricing",desc:"Open-source backend-as-a-service bundling auth, databases, storage, serverless functions, messaging, realtime, and web hosting — managed cloud or self-hosted via Docker."},
+  {name:"Arcjet",ring:"assess",areas:["security","ai-agent-infra"],homepage:"https://arcjet.com",pricing:"https://arcjet.com/pricing",desc:"Developer-first security SDK that runs inline in your application code, providing rate limiting, bot detection, WAF, email validation, and AI prompt-injection protection."},
+  {name:"AssemblyAI",ring:"assess",areas:["ai-apis"],homepage:"https://www.assemblyai.com",pricing:"https://www.assemblyai.com/pricing",desc:"Speech AI API providing accurate transcription, speaker diarization, sentiment analysis, summarization, and entity detection from pre-recorded or streaming audio."},
+  {name:"Augment Code",ring:"assess",areas:["ai-coding-agents","dev-workflow"],homepage:"https://www.augmentcode.com",pricing:"https://www.augmentcode.com/pricing",desc:"Agentic AI coding platform whose Context Engine indexes large multi-repo codebases so agents can plan, refactor, and open pull requests with real architectural awareness."},
+  {name:"Axiom",ring:"assess",areas:["error-monitoring","dev-workflow"],homepage:"https://axiom.co",pricing:"https://axiom.co/pricing",desc:"Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL)."},
+  {name:"Blacksmith",ring:"assess",areas:["ci-cd"],homepage:"https://blacksmith.sh",pricing:"https://blacksmith.sh/pricing",desc:"Drop-in replacement for GitHub Actions runners that runs your existing workflows on bare-metal gaming CPUs with co-located caching."},
+  {name:"Bolt.new",ring:"assess",areas:["ai-coding-agents","hosting-deploy","dev-workflow"],homepage:"https://bolt.new",pricing:"https://bolt.new/pricing",desc:"In-browser AI full-stack app builder by StackBlitz that generates, runs, and deploys web apps from natural-language prompts inside WebContainers with no local setup."},
+  {name:"Browserbase",ring:"assess",areas:["ai-agent-infra","ai-web-data","dev-workflow"],homepage:"https://browserbase.com",pricing:"https://browserbase.com/pricing",desc:"Managed cloud platform that runs real headless Chromium browsers, drivable over Playwright, Puppeteer, or CDP, so AI agents can navigate the web like a human."},
+  {name:"Cartesia",ring:"assess",areas:["ai-apis"],homepage:"https://cartesia.ai",pricing:"https://cartesia.ai/pricing",desc:"Low-latency text-to-speech API (Sonic models) built for real-time AI agents, delivering time-to-first-audio as low as 40ms for streaming voice interactions."},
+  {name:"Chef by Convex",ring:"assess",areas:["ai-coding-agents","backend-platform","hosting-deploy"],homepage:"https://chef.convex.dev",pricing:"https://www.convex.dev/pricing",desc:"AI app builder that generates full-stack web apps from prompts, wiring a React and Tailwind frontend to a Convex backend with database, auth, and real-time UIs."},
+  {name:"Clerk",ring:"assess",areas:["auth","ui-components"],homepage:"https://clerk.com",pricing:"https://clerk.com/pricing",desc:"Hosted authentication and user management service with drop-in React UI components for sign-in, profiles, and organization switching."},
+  {name:"Cognee",ring:"assess",areas:["ai-agent-infra"],homepage:"https://www.cognee.ai",pricing:"https://www.cognee.ai/pricing",desc:"Open-source AI agent memory control plane that combines vector search and knowledge graphs to give agents persistent, structured memory with traceable retrieval."},
+  {name:"Cohere",ring:"assess",areas:["ai-apis"],homepage:"https://cohere.com",pricing:"https://cohere.com/pricing",desc:"AI API suite providing language generation (Command), embeddings (Embed), and reranking (Rerank) purpose-built for enterprise RAG pipelines."},
+  {name:"Convex",ring:"assess",areas:["backend-platform","database","background-jobs"],homepage:"https://convex.dev",pricing:"https://convex.dev/pricing",desc:"Reactive backend platform where database, queries, mutations, scheduling, and auth are written in TypeScript and kept in sync with your frontend automatically."},
+  {name:"CopilotKit",ring:"assess",areas:["ui-components","ai-agent-infra"],homepage:"https://www.copilotkit.ai",pricing:"https://www.copilotkit.ai/pricing",desc:"Open-source React SDK for adding in-app AI copilot UIs — chat panels, assistants, and human-in-the-loop interfaces — to an existing React application."},
+  {name:"Daytona",ring:"assess",areas:["ai-agent-infra"],homepage:"https://www.daytona.io",pricing:"https://www.daytona.io/pricing",desc:"Cloud platform that provisions isolated sandbox environments in under 90ms for running AI-agent-generated code, with file, Git, process, and LSP APIs."},
+  {name:"Deepgram",ring:"assess",areas:["ai-apis"],homepage:"https://deepgram.com",pricing:"https://deepgram.com/pricing",desc:"Speech AI API offering real-time and batch transcription, text-to-speech, and voice agent capabilities optimized for low latency across 45+ languages."},
+  {name:"DeepSource",ring:"assess",areas:["ai-code-review","security"],homepage:"https://deepsource.com",pricing:"https://deepsource.com/pricing",desc:"Cloud-hosted code review platform that combines static analysis with AI agents to flag bugs, security issues, and quality problems on every pull request."},
+  {name:"Depot",ring:"assess",areas:["ci-cd"],homepage:"https://depot.dev",pricing:"https://depot.dev/pricing",desc:"Remote build infrastructure that replaces docker build with managed BuildKit machines that keep a warm, persistent cache."},
+  {name:"Devin",ring:"assess",areas:["ai-coding-agents"],homepage:"https://devin.ai",pricing:"https://devin.ai/pricing",desc:"Autonomous AI software engineer from Cognition that takes a task description, reads your codebase, implements a solution, runs tests, and opens a pull request."},
+  {name:"DNSimple",ring:"assess",areas:["hosting-deploy"],homepage:"https://dnsimple.com",pricing:"https://dnsimple.com/pricing",desc:"Developer-focused DNS hosting and domain registration with a clean dashboard, REST API, one-click service templates, ALIAS records, DNSSEC, and Let's Encrypt automation."},
+  {name:"ElevenLabs",ring:"assess",areas:["ai-apis"],homepage:"https://elevenlabs.io",pricing:"https://elevenlabs.io/pricing",desc:"AI voice synthesis API that generates natural speech from text in 70+ languages and clones voices from short audio samples."},
+  {name:"Exa",ring:"assess",areas:["ai-web-data","ai-apis","ai-agent-infra"],homepage:"https://exa.ai",pricing:"https://exa.ai/pricing",desc:"AI-native web search API that returns semantically relevant pages, token-efficient content excerpts, and structured JSON, built for LLMs and agents."},
+  {name:"Factory",ring:"assess",areas:["ai-coding-agents","dev-workflow"],homepage:"https://factory.ai",pricing:"https://factory.ai/pricing",desc:"Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, and editor."},
+  {name:"FAL",ring:"assess",areas:["ai-apis","ai-agent-infra"],homepage:"https://fal.ai",pricing:"https://fal.ai/pricing",desc:"Serverless inference platform exposing 1,000+ generative image, video, audio, and 3D models behind one API on an accelerated GPU runtime."},
+  {name:"Firecrawl",ring:"assess",areas:["ai-web-data","ai-apis","ai-agent-infra"],homepage:"https://firecrawl.dev",pricing:"https://firecrawl.dev/pricing",desc:"Web scraping and crawling API that turns websites, including JavaScript-rendered pages and PDFs, into clean markdown and structured JSON ready for LLMs."},
+  {name:"General Translation",ring:"assess",areas:["i18n"],homepage:"https://generaltranslation.com",pricing:"https://generaltranslation.com/pricing",desc:"AI-powered i18n toolkit for React and Next.js whose <T> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key."},
+  {name:"Grafana",ring:"assess",areas:["error-monitoring"],homepage:"https://grafana.com",pricing:"https://grafana.com/pricing/",desc:"Open-source observability and dashboarding platform unifying metrics (Prometheus/Mimir), logs (Loki), and traces (Tempo) — available self-hosted or as Grafana Cloud."},
+  {name:"Graphite",ring:"assess",areas:["dev-workflow","ai-code-review"],homepage:"https://graphite.com",pricing:"https://graphite.com/pricing",desc:"Code review and workflow platform for GitHub built around stacked pull requests, a stack-aware merge queue, and an AI review agent."},
+  {name:"Helicone",ring:"assess",areas:["error-monitoring"],homepage:"https://helicone.ai",pricing:"https://helicone.ai/pricing",desc:"Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy with a single base-URL change."},
+  {name:"Highlight",ring:"assess",areas:["error-monitoring","product-analytics"],homepage:"https://highlight.io",pricing:"https://highlight.io/pricing",desc:"Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product."},
+  {name:"Honeycomb",ring:"assess",areas:["error-monitoring"],homepage:"https://www.honeycomb.io",pricing:"https://www.honeycomb.io/pricing",desc:"Event-based observability platform built around high-cardinality distributed tracing and exploratory querying, with a 20M events/month free tier."},
+  {name:"ImageKit",ring:"assess",areas:["media-optimization"],homepage:"https://imagekit.io",pricing:"https://imagekit.io/plans/",desc:"Media optimization platform that resizes, transforms, and format-converts images and video through URL parameters, then delivers them over a global CDN."},
+  {name:"Kernel",ring:"assess",areas:["ai-agent-infra","ai-web-data"],homepage:"https://www.kernel.sh",pricing:"https://www.kernel.sh/pricing",desc:"Cloud browser infrastructure for AI agents that spins up sandboxed Chromium on unikernels in under 300ms, with session persistence, live view, and stealth mode."},
+  {name:"Kilo Code",ring:"assess",areas:["ai-coding-agents","dev-workflow"],homepage:"https://kilo.ai",pricing:"https://kilo.ai/pricing",desc:"Open-source AI coding agent for VS Code and JetBrains with 500+ models, zero-markup pricing, and specialized Architect, Code, Debug, and Orchestrator modes."},
+  {name:"LiteLLM",ring:"assess",areas:["ai-apis"],homepage:"https://litellm.ai",pricing:"Free (open-source); hosted proxy plans available",desc:"Open-source Python library and proxy server that presents a unified OpenAI-compatible API across 100+ LLM providers."},
+  {name:"LiveKit",ring:"assess",areas:["ai-agent-infra"],homepage:"https://livekit.io",pricing:"https://livekit.io/pricing",desc:"Open-source WebRTC platform for real-time voice, video, and data, with a built-in Agents framework that orchestrates STT → LLM → TTS pipelines into conversational AI agents."},
+  {name:"Lovable",ring:"assess",areas:["ai-coding-agents","hosting-deploy","dev-workflow"],homepage:"https://lovable.dev",pricing:"https://lovable.dev/pricing",desc:"AI app builder that generates full-stack websites from prompts, outputting a React, Tailwind, and Supabase stack with one-click deploy and GitHub sync."},
+  {name:"Macroscope",ring:"assess",areas:["ai-code-review","dev-workflow"],homepage:"https://macroscope.com",pricing:"https://macroscope.com/pricing",desc:"AI code reviewer that maps your codebase with AST analysis to flag high-signal bugs on pull requests and optionally auto-fix or auto-approve low-risk changes."},
+  {name:"Magic Patterns",ring:"assess",areas:["design-tooling","ai-coding-agents"],homepage:"https://www.magicpatterns.com",pricing:"https://www.magicpatterns.com/pricing",desc:"AI prototyping tool that turns prompts, screenshots, or Figma imports into live React and Tailwind UI on an infinite canvas."},
+  {name:"Mobbin",ring:"assess",areas:["design-tooling"],homepage:"https://mobbin.com",pricing:"https://mobbin.com/pricing",desc:"Searchable library of real, shipped mobile and web app screenshots organized into step-by-step user flows, built for design pattern research."},
+  {name:"Modal",ring:"assess",areas:["ai-agent-infra","background-jobs","hosting-deploy"],homepage:"https://modal.com",pricing:"https://modal.com/pricing",desc:"Serverless cloud compute platform that runs Python code, GPUs, and isolated sandboxes from a decorator, scaling from zero with per-second billing."},
+  {name:"Mux",ring:"assess",areas:["media-optimization"],homepage:"https://mux.com",pricing:"https://mux.com/pricing",desc:"API-first video infrastructure platform handling encoding, storage, and streaming delivery with a 100K delivery-minutes/month free tier."},
+  {name:"Neon",ring:"assess",areas:["database"],homepage:"https://neon.tech",pricing:"https://neon.tech/pricing",desc:"Serverless PostgreSQL database that scales compute to zero when idle, bills per second of active compute, and adds Git-style database branching for ephemeral dev/test environments."},
+  {name:"Netlify",ring:"assess",areas:["hosting-deploy","ci-cd","backend-platform"],homepage:"https://www.netlify.com",pricing:"https://www.netlify.com/pricing/",desc:"Web deployment platform that builds and ships sites and full-stack apps from Git, with serverless functions, deploy previews, and a global edge network."},
+  {name:"OpenRouter",ring:"assess",areas:["ai-apis"],homepage:"https://openrouter.ai",pricing:"https://openrouter.ai/pricing",desc:"Unified API gateway that routes requests to 300+ AI models from 60+ providers through a single OpenAI-compatible endpoint."},
+  {name:"Parallel",ring:"assess",areas:["ai-web-data"],homepage:"https://parallel.ai",pricing:"Signup credits: ~16,000 requests; monthly allowance: 5,000 requests + $5 credit; Search from $1/1,000; Task from $5–$2,400/1,000",desc:"Web research API for AI developers that accepts a high-level research objective and returns structured, cited results with confidence scores."},
+  {name:"Payload",ring:"assess",areas:["cms","backend-platform"],homepage:"https://payloadcms.com",pricing:"https://payloadcms.com/get-started",desc:"Open-source, TypeScript-native headless CMS and backend framework that installs directly inside a Next.js app, with content schemas defined in code."},
+  {name:"Pipecat",ring:"assess",areas:["ai-agent-infra"],homepage:"https://pipecat.ai",pricing:"https://www.daily.co/pricing/pipecat-cloud/",desc:"Open-source Python framework for building real-time voice and multimodal conversational AI agents by composing STT, LLM, TTS, and transport services into a pipeline."},
+  {name:"PlanetScale",ring:"assess",areas:["database"],homepage:"https://planetscale.com",pricing:"https://planetscale.com/pricing",desc:"Managed database platform offering Vitess-based MySQL and managed Postgres, known for Git-style branching and zero-downtime, non-blocking schema changes."},
+  {name:"PlayHT",ring:"assess",areas:["ai-apis"],homepage:"https://play.ht",pricing:"https://play.ht/pricing",desc:"Text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model with sub-300ms latency."},
+  {name:"Portkey",ring:"assess",areas:["ai-apis"],homepage:"https://portkey.ai",pricing:"https://portkey.ai/pricing",desc:"AI gateway and observability control plane that routes requests to 250+ LLM providers with fallbacks, load balancing, semantic caching, and per-request cost logging."},
+  {name:"PostHog",ring:"assess",areas:["product-analytics","feature-flags","error-monitoring"],homepage:"https://posthog.com",pricing:"https://posthog.com/pricing",desc:"Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK."},
+  {name:"Prisma Postgres",ring:"assess",areas:["database"],homepage:"https://www.prisma.io/postgres",pricing:"https://www.prisma.io/pricing",desc:"Serverless managed PostgreSQL from the Prisma team, with built-in connection pooling, global query caching, and instant provisioning, billed per database operation."},
+  {name:"Pydantic AI",ring:"assess",areas:["ai-agent-infra"],homepage:"https://ai.pydantic.dev",pricing:"Free and open-source (MIT license)",desc:"Python agent framework from the Pydantic team for building production-grade LLM applications with type safety, dependency injection, and typed runtime validation."},
+  {name:"Qdrant",ring:"assess",areas:["database","ai-agent-infra"],homepage:"https://qdrant.tech",pricing:"Free cloud tier; self-hosted always free (Apache 2.0); Cloud Standard/Premium usage-billed hourly",desc:"Open-source, Rust-powered vector database built for high-performance similarity search and RAG, with a free cloud tier and top-ranked p50 latency in 2026 benchmarks."},
+  {name:"Railway",ring:"assess",areas:["hosting-deploy","database","background-jobs"],homepage:"https://railway.com",pricing:"https://railway.com/pricing",desc:"Full-stack cloud platform that deploys apps, databases, and background services from a Git push, with per-second usage-based billing and no server management."},
+  {name:"Render",ring:"assess",areas:["hosting-deploy","database","background-jobs"],homepage:"https://render.com",pricing:"https://render.com/pricing",desc:"Managed cloud platform for deploying web services, static sites, PostgreSQL databases, Redis instances, and background workers from a Git push."},
+  {name:"Rork",ring:"assess",areas:["ai-coding-agents","dev-workflow"],homepage:"https://rork.com",pricing:"https://rork.com/pricing",desc:"AI app builder that generates complete native mobile apps for iOS and Android from a text description, outputting an Expo and React Native project."},
+  {name:"RWX",ring:"assess",areas:["ci-cd"],homepage:"https://www.rwx.com",pricing:"https://www.rwx.com/pricing",desc:"From-first-principles CI/CD platform that models builds as a DAG of cached tasks and lets you run CI against uncommitted local changes."},
+  {name:"Sent.dm",ring:"assess",areas:["email-messaging"],homepage:"https://sent.dm",pricing:"https://sent.dm/pricing",desc:"Unified messaging API that sends to SMS, WhatsApp, and RCS through one call and auto-selects the cheapest reliable channel per recipient."},
+  {name:"Sentry",ring:"assess",areas:["error-monitoring","product-analytics"],homepage:"https://sentry.io",pricing:"https://sentry.io/pricing/",desc:"Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages."},
+  {name:"Sevalla",ring:"assess",areas:["hosting-deploy","database"],homepage:"https://sevalla.com",pricing:"https://sevalla.com/pricing",desc:"Heroku-style hosting from Kinsta that deploys Docker-based apps, managed databases, static sites, and S3-compatible object storage on GKE across 25 regions."},
+  {name:"SpacetimeDB",ring:"assess",areas:["database","backend-platform"],homepage:"https://spacetimedb.com",pricing:"https://spacetimedb.com/pricing",desc:"Database that is also the application server, where server logic (reducers) runs inside the database as WebAssembly modules and state changes are pushed to subscribed clients in real time."},
+  {name:"Supabase",ring:"assess",areas:["database","backend-platform","auth"],homepage:"https://supabase.com",pricing:"https://supabase.com/pricing",desc:"Open-source Firebase alternative wrapping PostgreSQL with auto-generated REST and GraphQL APIs, built-in auth with Row Level Security, storage, real-time subscriptions, and edge functions."},
+  {name:"Traycer",ring:"assess",areas:["ai-code-review","dev-workflow"],homepage:"https://traycer.ai",pricing:"BYOA free ($0/user/month); Sync $10/user/month; Lite $20/user/month",desc:"AI coding assistant that decomposes tasks into step-by-step plans and runs background code review as you work in VS Code."},
+  {name:"Trigger.dev",ring:"assess",areas:["background-jobs","ai-agent-infra","dev-workflow"],homepage:"https://trigger.dev",pricing:"https://trigger.dev/pricing",desc:"Managed platform for durable background jobs, scheduled tasks, and AI agent workflows written as plain async TypeScript functions that live in your own repo."},
+  {name:"Unkey",ring:"assess",areas:["auth","security"],homepage:"https://unkey.com",pricing:"https://unkey.com/pricing",desc:"Open-source API key management platform that issues, verifies, expires, and rate-limits keys at the edge with built-in usage analytics."},
+  {name:"Upstash",ring:"assess",areas:["database","background-jobs","ai-agent-infra"],homepage:"https://upstash.com",pricing:"https://upstash.com/pricing",desc:"Serverless data platform offering Redis, a Vector database, and the QStash message queue, all accessible over HTTP and billed per request."},
+  {name:"Vapi",ring:"assess",areas:["ai-apis","ai-agent-infra"],homepage:"https://vapi.ai",pricing:"https://vapi.ai/pricing",desc:"Developer platform for building voice AI agents that answer and place phone calls, orchestrating swappable STT, LLM, TTS, and telephony providers behind one API."},
+  {name:"Voyage AI",ring:"assess",areas:["ai-apis"],homepage:"https://www.voyageai.com",pricing:"https://docs.voyageai.com/docs/pricing",desc:"Specialized text embedding API with a 32K-token context window, domain-specific variants (code, legal, finance), and multimodal support optimized for retrieval accuracy."},
+  {name:"Wispr Flow",ring:"assess",areas:["dev-workflow"],homepage:"https://wisprflow.ai",pricing:"https://wisprflow.ai/pricing",desc:"Voice-to-text dictation app that turns natural speech into clean, AI-formatted writing inside any app on Mac, Windows, iOS, and Android."},
+  {name:"Zephyr Cloud",ring:"assess",areas:["hosting-deploy"],homepage:"https://zephyr-cloud.io",pricing:"https://zephyr-cloud.io/pricing",desc:"Module Federation deployment platform that captures every bundler build as an immutable version and resolves micro-frontend dependencies automatically across CDN providers."},
+  {name:"Ahrefs",ring:"hold",areas:["product-analytics"],homepage:"https://ahrefs.com",pricing:"https://ahrefs.com/pricing",desc:"SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; first real tier ~$129/month."},
+  {name:"Bright Data",ring:"hold",areas:["ai-web-data"],homepage:"https://brightdata.com",pricing:"https://brightdata.com/pricing",desc:"Enterprise web-data platform combining the largest residential proxy network with scraping APIs and pre-built datasets for collecting public web data at scale."},
+  {name:"ClickHouse",ring:"hold",areas:["database"],homepage:"https://clickhouse.com",pricing:"https://clickhouse.com/pricing",desc:"Open-source column-oriented database for real-time OLAP analytics. No free tier; Basic cloud tier starts at ~$67/month."},
+  {name:"Embrace",ring:"hold",areas:["error-monitoring","product-analytics"],homepage:"https://embrace.io",pricing:"https://embrace.io/pricing/",desc:"Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum."},
+  {name:"Greptile",ring:"hold",areas:["ai-code-review","dev-workflow"],homepage:"https://www.greptile.com",pricing:"https://www.greptile.com/pricing",desc:"AI code review agent that indexes an entire codebase and runs a swarm of LLM agents over each pull request to catch cross-file bugs. No free tier, $30/seat floor."},
+  {name:"Milkstraw",ring:"hold",areas:["cost-optimization"],homepage:"https://www.milkstraw.ai",pricing:"https://www.milkstraw.ai/pricing",desc:"AWS cost optimization service that injects shareable savings commitments into your AWS Organization to apply Savings Plan discounts. Value only at non-trivial cloud scale."},
+  {name:"QA Wolf",ring:"hold",areas:["ci-cd","dev-workflow"],homepage:"https://www.qawolf.com",pricing:"Platform: free trial, then $0.01/AI credit + $0.15/runner minute; Coverage as a Service: median ~$90K/year",desc:"AI-native E2E testing platform providing self-serve Playwright/Appium infrastructure or a fully managed service that writes and maintains your entire test suite."},
+  {name:"Ragie",ring:"hold",areas:["ai-apis","ai-agent-infra"],homepage:"https://www.ragie.ai",pricing:"https://www.ragie.ai/pricing",desc:"Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month."},
+  {name:"SingleStore",ring:"hold",areas:["database"],homepage:"https://www.singlestore.com",pricing:"https://www.singlestore.com/pricing/",desc:"Distributed SQL database running transactional, analytical, and vector workloads in one MySQL-compatible engine. Production pricing starts ~$700/month."},
+  {name:"Tuple",ring:"hold",areas:["dev-workflow"],homepage:"https://tuple.app",pricing:"https://tuple.app/pricing",desc:"Remote pair-programming app for macOS and Windows built around low-latency screen sharing and seamless shared remote control. No free tier, $30/seat floor."},
+  {name:"Zep",ring:"hold",areas:["ai-agent-infra"],homepage:"https://www.getzep.com",pricing:"https://www.getzep.com/pricing/",desc:"Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts in days; Pro is $99/month."}
+];
+
+const TOOLS_DEDUPED = (() => {
+  const seen = new Set();
+  return TOOLS.filter(t => { if(seen.has(t.name)) return false; seen.add(t.name); return true; });
+})();
+
+const state = {
+  view: 'radar',
+  explorerArea: null,
+  radar: {tx:0, ty:0, scale:1},
+};
+
+/* ── RADAR ── */
+function applyRadarTransform() {
+  const g = document.getElementById('radar-g');
+  if (g) g.setAttribute('transform', `translate(${state.radar.tx},${state.radar.ty}) scale(${state.radar.scale})`);
+}
+
+function renderRadar() {
+  const CX = 300, CY = 300;
+  const N = AREAS.length, SA = (2*Math.PI)/N, START = -Math.PI/2;
+  const OUTER = 263, LABEL_R = 285;
+
+  // Radial budget shared by the ring bands.
+  const R_IN = 42, R_OUT = 256, BAND_GAP = 12;
+  // Dot geometry. DOT_PITCH is the minimum centre-to-centre spacing that keeps
+  // neighbouring dots from touching (radius 4 plus a 2px breather).
+  const DOT_R = 4, DOT_PITCH = 10, ROW_STEP = 17, PAD = 10, USABLE = .68;
+  const MIN_BAND = 20;
+
+  // Columns that fit in one sector's usable arc at radius r. The arc grows with
+  // r, so outer rows hold more dots than inner ones.
+  const colsAt = r => Math.max(1, Math.floor(1 + (SA*USABLE*r)/DOT_PITCH));
+
+  // A tool occupies a cell in EVERY problem area it belongs to, not just its
+  // first. Placing by primary area only would hide ~40% of memberships.
+  const cells = {};
+  TOOLS_DEDUPED.forEach(t => {
+    t.areas.forEach(a => {
+      const ai = AREAS.indexOf(a); if (ai < 0) return;
+      const k = ai + '_' + t.ring;
+      (cells[k] = cells[k] || []).push(t);
+    });
+  });
+
+  // Rows a cell of n dots needs, filling outward from the band's inner edge.
+  const rowsFor = (n, rMin) => {
+    let rows = 0, placed = 0;
+    while (placed < n && rows < 40) { placed += colsAt(rMin + PAD + rows*ROW_STEP); rows++; }
+    return Math.max(rows, 1);
+  };
+
+  // Size each band from its busiest cell, then normalise to the radial budget.
+  // An empty ring keeps a thin band so the ring model still reads.
+  const worst = {};
+  RINGS.forEach(r => { worst[r] = 0; });
+  Object.entries(cells).forEach(([k, tools]) => {
+    const ring = k.split('_')[1];
+    if (worst[ring] !== undefined) worst[ring] = Math.max(worst[ring], tools.length);
+  });
+
+  // Sizing runs before band positions exist, so rows are estimated against a
+  // nominal 3 columns — what a sector's arc supports at the inner edge of the
+  // busy assess band. Placement below uses colsAt(), which never returns fewer,
+  // so a band can only ever end up with more room than its estimate needed.
+  const NOMINAL_COLS = 3;
+  const natural = {};
+  RINGS.forEach(ring => {
+    natural[ring] = worst[ring] === 0
+      ? MIN_BAND
+      : Math.ceil(worst[ring]/NOMINAL_COLS) * ROW_STEP + 2*PAD;
+  });
+  const budget = (R_OUT - R_IN) - BAND_GAP*(RINGS.length - 1);
+  const naturalSum = RINGS.reduce((a, r) => a + natural[r], 0);
+  const k = budget / naturalSum;
+
+  const BANDS = {};
+  let cursor = R_IN;
+  RINGS.forEach(ring => {
+    const depth = natural[ring] * k;
+    BANDS[ring] = [cursor, cursor + depth];
+    cursor += depth + BAND_GAP;
+  });
+
+  let h = `<rect width="600" height="600" fill="var(--bg)"/>`;
+
+  // Concentric band fills, largest first so each smaller one paints on top.
+  RINGS.slice().reverse().forEach((ring, i) => {
+    const rMax = BANDS[ring][1];
+    const fill = i % 2 === 0 ? 'var(--surface)' : 'var(--surface2)';
+    const extra = i === 0 ? ' stroke-width="1"' : ' stroke-width=".8" stroke-dasharray="3 4"';
+    h += `<circle cx="${CX}" cy="${CY}" r="${rMax.toFixed(1)}" fill="${fill}" stroke="var(--border)"${extra}/>`;
+  });
+  h += `<circle cx="${CX}" cy="${CY}" r="${R_IN}" fill="var(--bg)" stroke="none"/>`;
+
+  for (let i=0;i<N;i++){
+    const a=START+i*SA, x=CX+OUTER*Math.cos(a), y=CY+OUTER*Math.sin(a);
+    h+=`<line x1="${CX}" y1="${CY}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="var(--border)" stroke-width=".5" opacity=".5"/>`;
+  }
+
+  RINGS.forEach(ring => {
+    const [rMin, rMax] = BANDS[ring], r = (rMin + rMax)/2;
+    h+=`<text x="${CX}" y="${(CY-r+3).toFixed(1)}" text-anchor="middle" font-family="DM Mono,monospace" font-size="7.5" fill="var(--text3)" letter-spacing="1.5">${ring.toUpperCase()}</text>`;
+  });
+
+  for(let i=0;i<N;i++){
+    const a=START+(i+.5)*SA, x=CX+LABEL_R*Math.cos(a), y=CY+LABEL_R*Math.sin(a);
+    let rot=a*180/Math.PI+90; if(rot>90&&rot<270) rot+=180;
+    h+=`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="8" fill="var(--text2)" transform="rotate(${rot.toFixed(1)},${x.toFixed(1)},${y.toFixed(1)})">${AL[AREAS[i]]}</text>`;
+  }
+
+  Object.entries(cells).forEach(([key, tools]) => {
+    const [aiStr, ring] = key.split('_');
+    const band = BANDS[ring]; if (!band) return;
+    const [rMin, rMax] = band, n = tools.length;
+    const sBase = START + parseInt(aiStr)*SA;
+    const margin = (SA - SA*USABLE)/2;
+    const inner = rMin + PAD, outer = rMax - PAD;
+
+    // Rows are evenly spread and never exceed ROW_STEP, so a cell that would
+    // overflow its band compresses instead of piling up at the outer edge.
+    const rows = rowsFor(n, rMin);
+    const step = rows > 1 ? Math.min(ROW_STEP, (outer - inner)/(rows - 1)) : 0;
+
+    let i = 0;
+    for (let row = 0; row < rows && i < n; row++) {
+      const r = inner + row*step;
+      const cols = Math.min(colsAt(r), n - i);
+      for (let c = 0; c < cols; c++, i++) {
+        const t = tools[i];
+        const af = cols <= 1 ? .5 : c/(cols - 1);
+        const angle = sBase + margin + SA*USABLE*af;
+        const x = CX + r*Math.cos(angle), y = CY + r*Math.sin(angle);
+        const enc = t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+        h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${DOT_R}" fill="${RC[t.ring]}" class="rdot" data-name="${enc}" style="cursor:pointer"/>`;
+        h+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="10" fill="transparent" class="rhit" data-name="${enc}" style="cursor:pointer"/>`;
+      }
+    }
+  });
+
+  const g=document.getElementById('radar-g');
+  g.innerHTML=h;
+  applyRadarTransform();
+
+  const tip=document.getElementById('rtip');
+  g.querySelectorAll('.rhit').forEach(el=>{
+    el.addEventListener('mouseenter',e=>{
+      const t=TOOLS_DEDUPED.find(t=>t.name===el.dataset.name); if(!t) return;
+      tip.innerHTML=`<div class="rtip-name">${t.name}</div><div class="rtip-ring" style="color:${RC[t.ring]}">${t.ring}</div>`;
+      tip.style.display='block'; positionTip(e.clientX,e.clientY);
+    });
+    el.addEventListener('mousemove',e=>positionTip(e.clientX,e.clientY));
+    el.addEventListener('mouseleave',()=>{tip.style.display='none';});
+    el.addEventListener('click',()=>{tip.style.display='none'; showDetail(el.dataset.name);});
+  });
+  setupRadarPanZoom();
+}
+
+function positionTip(cx,cy){
+  const tip=document.getElementById('rtip');
+  tip.style.left=(cx+14)+'px'; tip.style.top=(cy-36)+'px';
+}
+
+function setupRadarPanZoom(){
+  const wrap=document.getElementById('radar-wrap'), svg=document.getElementById('radar-svg');
+  if(wrap._pzSetup) return; wrap._pzSetup=true;
+  let dragging=false, dragStart=null;
+
+  function svgCoords(cx,cy){
+    const r=svg.getBoundingClientRect(), sc=r.width/600;
+    return{x:(cx-r.left)/sc, y:(cy-r.top)/sc};
+  }
+  wrap.addEventListener('wheel',e=>{
+    e.preventDefault();
+    const f=e.deltaY<0?1.12:1/1.12, ns=Math.max(0.4,Math.min(8,state.radar.scale*f));
+    const c=svgCoords(e.clientX,e.clientY);
+    const gx=(c.x-state.radar.tx)/state.radar.scale, gy=(c.y-state.radar.ty)/state.radar.scale;
+    state.radar.tx=c.x-gx*ns; state.radar.ty=c.y-gy*ns; state.radar.scale=ns;
+    applyRadarTransform();
+  },{passive:false});
+  wrap.addEventListener('mousedown',e=>{
+    if(e.button!==0) return; dragging=true;
+    const sc=svg.getBoundingClientRect().width/600;
+    dragStart={x:e.clientX-state.radar.tx*sc, y:e.clientY-state.radar.ty*sc};
+    wrap.classList.add('dragging'); e.preventDefault();
+  });
+  window.addEventListener('mousemove',e=>{
+    if(!dragging) return;
+    const sc=svg.getBoundingClientRect().width/600;
+    state.radar.tx=(e.clientX-dragStart.x)/sc; state.radar.ty=(e.clientY-dragStart.y)/sc;
+    applyRadarTransform();
+  });
+  window.addEventListener('mouseup',()=>{if(!dragging)return; dragging=false; wrap.classList.remove('dragging');});
+  wrap.addEventListener('dblclick',()=>{state.radar.tx=0;state.radar.ty=0;state.radar.scale=1;applyRadarTransform();});
+
+  let ltd=null;
+  wrap.addEventListener('touchstart',e=>{
+    if(e.touches.length===1){
+      dragging=true;
+      const sc=svg.getBoundingClientRect().width/600, t=e.touches[0];
+      dragStart={x:t.clientX-state.radar.tx*sc, y:t.clientY-state.radar.ty*sc};
+    } else if(e.touches.length===2){
+      dragging=false;
+      ltd=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY);
+    }
+    e.preventDefault();
+  },{passive:false});
+  wrap.addEventListener('touchmove',e=>{
+    if(e.touches.length===1&&dragging){
+      const sc=svg.getBoundingClientRect().width/600, t=e.touches[0];
+      state.radar.tx=(t.clientX-dragStart.x)/sc; state.radar.ty=(t.clientY-dragStart.y)/sc;
+      applyRadarTransform();
+    } else if(e.touches.length===2&&ltd!==null){
+      const dist=Math.hypot(e.touches[1].clientX-e.touches[0].clientX,e.touches[1].clientY-e.touches[0].clientY);
+      const mx=(e.touches[0].clientX+e.touches[1].clientX)/2, my=(e.touches[0].clientY+e.touches[1].clientY)/2;
+      const ns=Math.max(0.4,Math.min(8,state.radar.scale*dist/ltd));
+      const c=svgCoords(mx,my);
+      const gx=(c.x-state.radar.tx)/state.radar.scale, gy=(c.y-state.radar.ty)/state.radar.scale;
+      state.radar.tx=c.x-gx*ns; state.radar.ty=c.y-gy*ns; state.radar.scale=ns;
+      ltd=dist; applyRadarTransform();
+    }
+    e.preventDefault();
+  },{passive:false});
+  wrap.addEventListener('touchend',()=>{dragging=false;ltd=null;});
+}
+
+/* ── EXPLORER ── */
+function renderExplorer(){
+  if(state.explorerArea) renderExplorerDetail(state.explorerArea);
+  else renderExplorerOverview();
+}
+
+function renderExplorerOverview(){
+  document.getElementById('explorer-overview').style.display='';
+  document.getElementById('explorer-detail').classList.remove('active');
+
+  const counts={};
+  AREAS.forEach(a=>{counts[a]={total:0}; RINGS.forEach(r=>counts[a][r]=0);});
+  TOOLS_DEDUPED.forEach(t=>{
+    t.areas.forEach(a=>{ if(counts[a]){counts[a][t.ring]++;counts[a].total++;} });
+  });
+
+  document.getElementById('area-grid').innerHTML=AREAS.map(area=>{
+    const c=counts[area];
+    if(!c.total) return `<div class="atile empty"><div class="atn">${AL[area]}</div><div class="atc">0 tools</div><div class="atbar"></div></div>`;
+    const segs=RINGS.filter(r=>c[r]>0)
+      .map(r=>`<div class="atbar-s" style="background:${RC[r]};flex:${c[r]/c.total*100}"></div>`).join('');
+    const detail=RINGS.filter(r=>c[r]>0).map(r=>`${c[r]} ${r}`).join(' · ');
+    return `<div class="atile" data-area="${area}" tabindex="0" role="button">
+      <div class="atn">${AL[area]}</div>
+      <div class="atc">${c.total} tool${c.total!==1?'s':''} <span style="color:var(--text3);font-size:10px">· ${detail}</span></div>
+      <div class="atbar">${segs}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('.atile:not(.empty)').forEach(tile=>{
+    tile.addEventListener('click',()=>{ state.explorerArea=tile.dataset.area; renderExplorer(); });
+    tile.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') tile.click(); });
+  });
+  document.getElementById('hdr-stat').textContent=`${TOOLS_DEDUPED.length} tools · ${AREAS.length} areas`;
+}
+
+function renderExplorerDetail(area){
+  document.getElementById('explorer-overview').style.display='none';
+  document.getElementById('explorer-detail').classList.add('active');
+  document.getElementById('exd-title').textContent=AL[area]||area;
+
+  const byRing={}; RINGS.forEach(r=>byRing[r]=[]);
+  TOOLS_DEDUPED.forEach(t=>{ if(t.areas.includes(area) && byRing[t.ring]) byRing[t.ring].push(t); });
+  const total=RINGS.reduce((a,r)=>a+byRing[r].length,0);
+  document.getElementById('exd-count').textContent=`${total} tool${total!==1?'s':''}`;
+
+  const RNAMES={adopt:'Adopt',assess:'Assess',hold:'Hold'};
+  document.getElementById('exd-body').innerHTML=RINGS.filter(r=>byRing[r].length).map(ring=>{
+    const tools=byRing[ring];
+    const cards=tools.map(t=>{
+      const tags=t.areas.slice(0,3).map(a=>`<span class="ctag">${AL[a]||a}</span>`).join('');
+      const enc=t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+      return `<div class="card" data-name="${enc}" tabindex="0" role="button">
+        <div class="ch"><span class="cn">${t.name}</span><span class="rbadge ${ring}">${ring}</span></div>
+        <p class="cd">${t.desc}</p>
+        <div class="ctags">${tags}</div>
+      </div>`;
+    }).join('');
+    return `<div class="exd-section">
+      <div class="exd-section-head">
+        <div class="exd-ring-dot" style="background:${RC[ring]}"></div>
+        <span class="exd-ring-label" style="color:${RC[ring]}">${RNAMES[ring]}</span>
+        <span class="exd-ring-count">${tools.length} tool${tools.length!==1?'s':''}</span>
+      </div>
+      <div class="exd-cards">${cards}</div>
+    </div>`;
+  }).join('');
+
+  document.querySelectorAll('#exd-body .card').forEach(c=>{
+    c.addEventListener('click',()=>showDetail(c.dataset.name));
+    c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') showDetail(c.dataset.name); });
+  });
+}
+
+/* ── DETAIL PANEL ── */
+function showDetail(name){
+  const t=TOOLS_DEDUPED.find(t=>t.name===name); if(!t) return;
+  const isUrl=s=>s&&s.startsWith('http');
+  document.getElementById('dname-wrap').innerHTML=
+    `<div class="dname">${t.name}</div><div style="margin-top:8px"><span class="rbadge ${t.ring}">${t.ring}</span></div>`;
+  const areas=t.areas.map(a=>`<span class="datag">${AL[a]||a}</span>`).join('');
+  const pHtml=isUrl(t.pricing)
+    ?`<a href="${t.pricing}" target="_blank" rel="noopener" class="dlink">Pricing →</a>`
+    :`<div class="dpricing">${t.pricing}</div>`;
+  document.getElementById('dbody').innerHTML=`
+    <div class="dareas">${areas}</div>
+    <div class="dsec"><div class="dlabel">About</div><div class="dtext">${t.desc}</div></div>
+    <div class="dsec"><div class="dlabel">Pricing</div>${pHtml}</div>
+    <div class="dlinks"><a href="${t.homepage}" target="_blank" rel="noopener" class="dlink">Homepage →</a></div>`;
+  document.getElementById('dbackdrop').classList.add('open');
+  document.getElementById('dpanel').classList.add('open');
+  document.getElementById('dpanel').focus();
+}
+
+function hideDetail(){
+  document.getElementById('dbackdrop').classList.remove('open');
+  document.getElementById('dpanel').classList.remove('open');
+}
+
+/* ── VIEW SWITCH ── */
+function switchView(v){
+  state.view=v;
+  document.querySelectorAll('.view').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.mode===v));
+  document.getElementById('view-'+v).classList.add('active');
+  if(v==='radar') renderRadar();
+  else if(v==='explorer') renderExplorer();
+}
+
+/* ── INIT ── */
+function init(){
+  document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.mode)));
+  document.getElementById('exd-back').addEventListener('click',()=>{ state.explorerArea=null; renderExplorer(); });
+  document.getElementById('dbackdrop').addEventListener('click',hideDetail);
+  document.getElementById('dclose').addEventListener('click',hideDetail);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape') hideDetail(); });
+  window.addEventListener('resize',()=>{ if(state.view==='radar') renderRadar(); });
+  renderRadar();
+  renderExplorerOverview();
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
