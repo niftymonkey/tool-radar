@@ -108,9 +108,25 @@ batches.
 Each `tools/<slug>.md` file is YAML frontmatter plus a templated body.
 
 Frontmatter: `name`, `problem-areas` (list, from `taxonomy.md`), `ring`,
-`ring-reasoning`, `source` (`scraped` or `manual`), `discovered-via`,
-`first-seen`, `last-researched`, `managed` (`auto`, `manual`, or
-`needs-research`), `homepage`, `pricing`.
+`ring-reasoning`, `summary`, `source` (`scraped` or `manual`),
+`discovered-via`, `first-seen`, `last-researched`, `managed` (`auto`,
+`manual`, or `needs-research`), `homepage`, `pricing`, and optionally
+`pricing-note`.
+
+`summary` is the one-sentence card copy the radar renders. Write it as
+part of research, not as an afterthought: it is what someone reads when
+scanning a problem area for options, and it is the only prose the radar
+shows before the detail panel. Keep it under about 190 characters, since
+the card clamps to two lines. It usually condenses **What it is**, but
+where the pricing is the thing worth knowing up front, spend the last
+clause on it — `"... in one MySQL-compatible engine. Production pricing
+starts ~$700/month."` A missing `summary` does not break the build; the
+generator falls back to the **What it is** sentence and warns, which is
+worse copy, so write one.
+
+`pricing-note` is optional and only needed when `pricing` is a bare URL
+or too long to display: the radar shows `pricing-note` when present and
+`pricing` otherwise.
 
 Body, in order: a level-one heading with the tool name, then bolded lines
 for **What it is** (one sentence), **Problem it solves** (one sentence,
@@ -157,6 +173,42 @@ workflow with? If not, skip it, create no file, and log the skip in
 `CHANGELOG.md` so a wrong call can be overridden by queueing the tool in
 `queue.md`. Out of scope: courses and education, consultancies and dev
 shops, hiring marketplaces, general productivity apps, lifestyle products.
+
+## Radar page
+
+`radar/index.html` is a generated visualization of the catalog. It is
+built, never hand-edited:
+
+```
+node radar/build.mjs           # regenerate radar/index.html
+node radar/build.mjs --check    # verify it matches the entries; exit 1 if stale
+```
+
+Regenerate it in the same commit as any change to `tools/`, `taxonomy.md`,
+or `radar/sectors.json`, so the page never lags the catalog. `--check` is
+the CI guard for that.
+
+Inputs:
+
+- `radar/template.html` — the page itself: layout, styling, and all the
+  radar geometry. Frozen. Editing it is a deliberate design change, not
+  part of a refresh; the generator only substitutes `__TOOLS__`,
+  `__AREAS__`, and `__AREA_LABELS__` into it.
+- `radar/sectors.json` — the order the problem areas appear around the
+  dial, and their short labels. Ordering is a presentation choice
+  (related areas sit adjacent), so it deliberately does not follow
+  `taxonomy.md`'s order.
+- `tools/*.md` and `taxonomy.md` — the data.
+
+The build never fails on questionable data, because a silently dropped
+tool is worse than an odd-looking one. It warns on stderr and renders
+anyway for: an unrecognized `ring` (drawn as `assess`), a `problem-areas`
+entry missing from `taxonomy.md` (ignored), a duplicate `name`, and a
+missing `summary` (derived). Read the warnings — each one is a data fix.
+
+Adding an area to `taxonomy.md` needs a matching entry in
+`radar/sectors.json` to choose where it sits on the dial and what it is
+called. Until then the build appends it with a generated label and warns.
 
 ## Manual run
 

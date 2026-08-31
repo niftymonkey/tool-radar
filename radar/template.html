@@ -67,7 +67,47 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
 .leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .leg-sep{width:1px;height:12px;background:var(--border);margin:0 2px}
 #radar-hint{position:absolute;top:12px;right:16px;font-size:10px;color:var(--text3);font-family:var(--mono);pointer-events:none}
+#radar-empty{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;pointer-events:none}
+#radar-wrap.empty #radar-empty{display:flex}
+#radar-wrap.empty #radar-svg{opacity:.12}
+.re-t{font-family:var(--mono);font-size:13px;color:var(--text2)}
+.re-s{font-size:11px;color:var(--text3)}
 #rtip{position:fixed;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 12px;pointer-events:none;box-shadow:var(--shadow);max-width:200px;display:none;z-index:10}
+
+/* ── AREA FILTER ── */
+#filt{position:fixed;left:12px;top:calc(var(--hdr) + 12px);z-index:60;width:206px;
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;
+  max-height:calc(100vh - var(--hdr) - 24px)}
+.filt-head{display:flex;align-items:center;gap:7px;padding:9px 11px;cursor:pointer;user-select:none}
+#filt:not(.collapsed) .filt-head{border-bottom:1px solid var(--border2)}
+.filt-title{font-family:var(--mono);font-size:11px;font-weight:500}
+.filt-n{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:auto}
+.filt-caret{font-size:8px;color:var(--text3);transition:transform .15s}
+#filt.collapsed .filt-caret{transform:rotate(-90deg)}
+#filt.collapsed .filt-acts,#filt.collapsed .filt-body{display:none}
+.filt-acts{display:flex;gap:5px;padding:8px 11px;border-bottom:1px solid var(--border2)}
+.filt-act{flex:1;font-family:var(--sans);font-size:10px;padding:4px 0;border:1px solid var(--border);
+  border-radius:5px;background:var(--surface2);color:var(--text2);cursor:pointer;transition:color .12s,border-color .12s}
+.filt-act:hover{color:var(--text);border-color:var(--text3)}
+.filt-body{overflow-y:auto;padding:5px}
+.filt-row{display:flex;align-items:center;gap:7px;padding:4px 6px;border-radius:5px;cursor:pointer;user-select:none}
+.filt-row:hover{background:var(--surface2)}
+.filt-box{width:12px;height:12px;border-radius:3px;border:1.5px solid var(--border);flex-shrink:0;position:relative}
+.filt-row.on .filt-box{background:var(--assess);border-color:var(--assess)}
+.filt-row.on .filt-box::after{content:'';position:absolute;left:3.5px;top:1px;width:3px;height:6px;
+  border:solid #fff;border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.filt-lbl{font-size:11px;color:var(--text3);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filt-row.on .filt-lbl{color:var(--text)}
+.filt-c{font-family:var(--mono);font-size:9px;color:var(--text3)}
+.filt-solo{font-family:var(--sans);font-size:9px;color:var(--text3);background:var(--surface);
+  border:1px solid var(--border);border-radius:3px;padding:1px 5px;opacity:0;transition:opacity .12s}
+.filt-row:hover .filt-solo{opacity:1}
+.filt-solo:hover{color:var(--text);border-color:var(--text3)}
+.slabel{cursor:pointer}
+.slabel:hover{fill:var(--text)}
+.slabel.off{opacity:.3}
+@media(max-width:820px){#filt{display:none}}
 .rtip-name{font-family:var(--mono);font-size:12px;font-weight:500;line-height:1.3}
 .rtip-ring{font-size:11px;margin-top:2px}
 
@@ -156,9 +196,27 @@ body{font-family:var(--sans);background:var(--bg);color:var(--text);height:100vh
   <div id="radar-wrap">
     <svg id="radar-svg" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet"><g id="radar-g"></g></svg>
     <div id="radar-hint">scroll to zoom · drag to pan · dbl-click to reset</div>
+    <div id="radar-empty">
+      <div class="re-t">No areas selected</div>
+      <div class="re-s">Pick at least one area in the filter panel</div>
+    </div>
     <div id="rtip"></div>
   </div>
 </div>
+
+<aside id="filt">
+  <div class="filt-head" id="filt-head">
+    <span class="filt-caret">▼</span>
+    <span class="filt-title">Areas</span>
+    <span class="filt-n" id="filt-n"></span>
+  </div>
+  <div class="filt-acts">
+    <button class="filt-act" id="filt-all">All</button>
+    <button class="filt-act" id="filt-none">None</button>
+    <button class="filt-act" id="filt-inv">Invert</button>
+  </div>
+  <div class="filt-body" id="filt-body"></div>
+</aside>
 
 <div class="view" id="view-explorer">
   <div id="explorer-overview">
@@ -197,9 +255,87 @@ const state = {
   view: 'radar',
   explorerArea: null,
   radar: {tx:0, ty:0, scale:1},
+  active: new Set(AREAS),
 };
 
+/* ── AREA FILTER ──
+   Filtering re-partitions the dial rather than blanking wedges: the geometry
+   is driven by activeAreas(), so four selected areas get a quarter of the
+   circle each and their dots spread out to match. */
+const LS_KEY = 'tool-radar:areas';
+
+function activeAreas(){ return AREAS.filter(a=>state.active.has(a)); }
+
+function loadFilter(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(!raw) return;
+    const saved = JSON.parse(raw).filter(a=>AREAS.includes(a));
+    // An empty or fully stale selection would render a blank dial on load.
+    if(saved.length) state.active = new Set(saved);
+  }catch(e){ /* private mode, blocked storage — fall back to showing everything */ }
+}
+
+function saveFilter(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify([...state.active])); }
+  catch(e){ /* not worth surfacing; the filter still works for this session */ }
+}
+
+const areaTotals = (()=>{
+  const c={}; AREAS.forEach(a=>c[a]=0);
+  TOOLS_DEDUPED.forEach(t=>t.areas.forEach(a=>{ if(c[a]!==undefined) c[a]++; }));
+  return c;
+})();
+
+// The stat line reports what is currently on screen, so it has to refresh on
+// every filter change in whichever view is showing.
+function updateStat(){
+  const nA = activeAreas().length;
+  const shown = new Set();
+  TOOLS_DEDUPED.forEach(t=>{ if(t.areas.some(a=>state.active.has(a))) shown.add(t.name); });
+  document.getElementById('hdr-stat').textContent = nA===AREAS.length
+    ? `${TOOLS_DEDUPED.length} tools · ${AREAS.length} areas`
+    : `${shown.size} tool${shown.size===1?'':'s'} · ${nA} of ${AREAS.length} areas`;
+}
+
+function applyFilter(){
+  saveFilter();
+  renderFilter();
+  if(state.view==='radar') renderRadar();
+  else renderExplorer();
+}
+
+function renderFilter(){
+  const on = activeAreas().length;
+  document.getElementById('filt-n').textContent = `${on}/${AREAS.length}`;
+  document.getElementById('filt-body').innerHTML = AREAS.map(a=>`
+    <div class="filt-row${state.active.has(a)?' on':''}" data-area="${a}">
+      <div class="filt-box"></div>
+      <span class="filt-lbl">${AL[a]||a}</span>
+      <span class="filt-c">${areaTotals[a]}</span>
+      <span class="filt-solo" data-solo="${a}">only</span>
+    </div>`).join('');
+
+  document.querySelectorAll('#filt-body .filt-row').forEach(row=>{
+    row.addEventListener('click',e=>{
+      const solo = e.target.closest('.filt-solo');
+      const a = row.dataset.area;
+      if(solo){ state.active = new Set([a]); }
+      else if(state.active.has(a)) state.active.delete(a);
+      else state.active.add(a);
+      applyFilter();
+    });
+  });
+}
+
+function toggleArea(a){
+  if(state.active.has(a)) state.active.delete(a); else state.active.add(a);
+  applyFilter();
+}
+
 /* ── RADAR ── */
+let radarDragMoved = false;
+
 function applyRadarTransform() {
   const g = document.getElementById('radar-g');
   if (g) g.setAttribute('transform', `translate(${state.radar.tx},${state.radar.ty}) scale(${state.radar.scale})`);
@@ -207,7 +343,12 @@ function applyRadarTransform() {
 
 function renderRadar() {
   const CX = 300, CY = 300;
-  const N = AREAS.length, SA = (2*Math.PI)/N, START = -Math.PI/2;
+  const SECTORS = activeAreas();
+  const wrap = document.getElementById('radar-wrap');
+  wrap.classList.toggle('empty', SECTORS.length === 0);
+  updateStat();
+  if (!SECTORS.length) { document.getElementById('radar-g').innerHTML = ''; return; }
+  const N = SECTORS.length, SA = (2*Math.PI)/N, START = -Math.PI/2;
   const OUTER = 263, LABEL_R = 285;
 
   // Radial budget shared by the ring bands.
@@ -221,12 +362,18 @@ function renderRadar() {
   // r, so outer rows hold more dots than inner ones.
   const colsAt = r => Math.max(1, Math.floor(1 + (SA*USABLE*r)/DOT_PITCH));
 
+  // With few sectors selected the arc gets wide enough to string a whole cell
+  // out in one line. Cap columns so a cell stays a readable block instead. At
+  // the full 23 sectors colsAt() is always the smaller of the two, so this has
+  // no effect on the unfiltered dial.
+  const blockCols = n => Math.max(3, Math.ceil(Math.sqrt(n*1.6)));
+
   // A tool occupies a cell in EVERY problem area it belongs to, not just its
   // first. Placing by primary area only would hide ~40% of memberships.
   const cells = {};
   TOOLS_DEDUPED.forEach(t => {
     t.areas.forEach(a => {
-      const ai = AREAS.indexOf(a); if (ai < 0) return;
+      const ai = SECTORS.indexOf(a); if (ai < 0) return;
       const k = ai + '_' + t.ring;
       (cells[k] = cells[k] || []).push(t);
     });
@@ -234,8 +381,9 @@ function renderRadar() {
 
   // Rows a cell of n dots needs, filling outward from the band's inner edge.
   const rowsFor = (n, rMin) => {
+    const cap = blockCols(n);
     let rows = 0, placed = 0;
-    while (placed < n && rows < 40) { placed += colsAt(rMin + PAD + rows*ROW_STEP); rows++; }
+    while (placed < n && rows < 40) { placed += Math.min(colsAt(rMin + PAD + rows*ROW_STEP), cap); rows++; }
     return Math.max(rows, 1);
   };
 
@@ -295,7 +443,7 @@ function renderRadar() {
   for(let i=0;i<N;i++){
     const a=START+(i+.5)*SA, x=CX+LABEL_R*Math.cos(a), y=CY+LABEL_R*Math.sin(a);
     let rot=a*180/Math.PI+90; if(rot>90&&rot<270) rot+=180;
-    h+=`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="8" fill="var(--text2)" transform="rotate(${rot.toFixed(1)},${x.toFixed(1)},${y.toFixed(1)})">${AL[AREAS[i]]}</text>`;
+    h+=`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-family="DM Mono,monospace" font-size="8" fill="var(--text2)" transform="rotate(${rot.toFixed(1)},${x.toFixed(1)},${y.toFixed(1)})" class="slabel" data-area="${SECTORS[i]}">${AL[SECTORS[i]]}</text>`;
   }
 
   Object.entries(cells).forEach(([key, tools]) => {
@@ -314,7 +462,7 @@ function renderRadar() {
     let i = 0;
     for (let row = 0; row < rows && i < n; row++) {
       const r = inner + row*step;
-      const cols = Math.min(colsAt(r), n - i);
+      const cols = Math.min(colsAt(r), blockCols(n), n - i);
       for (let c = 0; c < cols; c++, i++) {
         const t = tools[i];
         const af = cols <= 1 ? .5 : c/(cols - 1);
@@ -342,6 +490,16 @@ function renderRadar() {
     el.addEventListener('mouseleave',()=>{tip.style.display='none';});
     el.addEventListener('click',()=>{tip.style.display='none'; showDetail(el.dataset.name);});
   });
+
+  // Clicking a sector label drops that area from the dial. The panel stays the
+  // way back — a label that is gone cannot be clicked to bring itself back.
+  g.querySelectorAll('.slabel').forEach(el=>{
+    el.addEventListener('click',e=>{
+      if(radarDragMoved) return;   // don't toggle at the end of a pan
+      e.stopPropagation();
+      toggleArea(el.dataset.area);
+    });
+  });
   setupRadarPanZoom();
 }
 
@@ -368,13 +526,14 @@ function setupRadarPanZoom(){
     applyRadarTransform();
   },{passive:false});
   wrap.addEventListener('mousedown',e=>{
-    if(e.button!==0) return; dragging=true;
+    if(e.button!==0) return; dragging=true; radarDragMoved=false;
     const sc=svg.getBoundingClientRect().width/600;
     dragStart={x:e.clientX-state.radar.tx*sc, y:e.clientY-state.radar.ty*sc};
     wrap.classList.add('dragging'); e.preventDefault();
   });
   window.addEventListener('mousemove',e=>{
     if(!dragging) return;
+    radarDragMoved=true;
     const sc=svg.getBoundingClientRect().width/600;
     state.radar.tx=(e.clientX-dragStart.x)/sc; state.radar.ty=(e.clientY-dragStart.y)/sc;
     applyRadarTransform();
@@ -423,13 +582,14 @@ function renderExplorerOverview(){
   document.getElementById('explorer-overview').style.display='';
   document.getElementById('explorer-detail').classList.remove('active');
 
+  const SECTORS=activeAreas();
   const counts={};
-  AREAS.forEach(a=>{counts[a]={total:0}; RINGS.forEach(r=>counts[a][r]=0);});
+  SECTORS.forEach(a=>{counts[a]={total:0}; RINGS.forEach(r=>counts[a][r]=0);});
   TOOLS_DEDUPED.forEach(t=>{
     t.areas.forEach(a=>{ if(counts[a]){counts[a][t.ring]++;counts[a].total++;} });
   });
 
-  document.getElementById('area-grid').innerHTML=AREAS.map(area=>{
+  document.getElementById('area-grid').innerHTML=SECTORS.map(area=>{
     const c=counts[area];
     if(!c.total) return `<div class="atile empty"><div class="atn">${AL[area]}</div><div class="atc">0 tools</div><div class="atbar"></div></div>`;
     const segs=RINGS.filter(r=>c[r]>0)
@@ -446,7 +606,7 @@ function renderExplorerOverview(){
     tile.addEventListener('click',()=>{ state.explorerArea=tile.dataset.area; renderExplorer(); });
     tile.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' ') tile.click(); });
   });
-  document.getElementById('hdr-stat').textContent=`${TOOLS_DEDUPED.length} tools · ${AREAS.length} areas`;
+  updateStat();
 }
 
 function renderExplorerDetail(area){
@@ -524,6 +684,16 @@ function switchView(v){
 
 /* ── INIT ── */
 function init(){
+  loadFilter();
+  renderFilter();
+  document.getElementById('filt-head').addEventListener('click',()=>{
+    document.getElementById('filt').classList.toggle('collapsed');
+  });
+  document.getElementById('filt-all').addEventListener('click',()=>{ state.active=new Set(AREAS); applyFilter(); });
+  document.getElementById('filt-none').addEventListener('click',()=>{ state.active=new Set(); applyFilter(); });
+  document.getElementById('filt-inv').addEventListener('click',()=>{
+    state.active=new Set(AREAS.filter(a=>!state.active.has(a))); applyFilter();
+  });
   document.querySelectorAll('.mode-btn').forEach(b=>b.addEventListener('click',()=>switchView(b.dataset.mode)));
   document.getElementById('exd-back').addEventListener('click',()=>{ state.explorerArea=null; renderExplorer(); });
   document.getElementById('dbackdrop').addEventListener('click',hideDetail);
