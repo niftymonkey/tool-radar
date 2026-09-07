@@ -7,7 +7,7 @@ summary: "Serverless event-data platform that ingests, stores, and queries logs,
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://axiom.co
 pricing: https://axiom.co/pricing
@@ -30,10 +30,10 @@ pricing: https://axiom.co/pricing
 - When the actual need is error debugging with stack traces and breadcrumbs, where Sentry is the right tool.
 - A project that wants pre-built dashboards and visual faceted search out of the box rather than writing queries.
 
-**Pricing posture:** Free Personal tier with 500 GB monthly ingest, 25 GB storage, and 30-day retention. Axiom Cloud starts at $25/month with credit-based usage billing and no per-seat charges.
+**Pricing posture:** Free Personal tier (always free) with approximately 500 GB monthly data loaded, ~25 GB storage, and no hard retention limit. Paid Team tier starts around $25/month; usage is billed in credits per GB of data loaded (roughly $0.12/GB, dropping at volume). No per-seat charges. Spend caps are configurable to prevent bill shock.
 
 **Reality check:** Reviewers repeatedly call the free tier exceptionally generous for solo work and rate Axiom as 5 to 10 times cheaper than Datadog at comparable volume. The honest caveats: APL has a real learning curve (familiar if you know Kusto, hours of docs otherwise), there are fewer integrations and no pre-built dashboards so you build your own, credit-based billing is hard to predict at first, and the free tier caps you at 2 datasets and 1 user. Common advice is to pair it with Sentry, Axiom for logs and Sentry for errors, since both free tiers cost nothing.
 
 **Links:** [Homepage](https://axiom.co) and [Pricing](https://axiom.co/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

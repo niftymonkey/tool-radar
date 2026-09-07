@@ -3,11 +3,11 @@ name: Ahrefs
 problem-areas: [product-analytics]
 ring: hold
 ring-reasoning: "No free trial and a meaningful entry plan at roughly $129 per month put it well above the assess threshold for solo and side-project budgets."
-summary: "SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; first real tier ~$129/month."
+summary: "SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; prices raised March 2026 — Lite now $129/month."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://ahrefs.com
 pricing: https://ahrefs.com/pricing
@@ -30,10 +30,10 @@ pricing: https://ahrefs.com/pricing
 - An early-stage project where free tools (Google Search Console, Bing Webmaster) cover the basics.
 - Content-first work, since on-page optimization tooling is weak until pricier tiers.
 
-**Pricing posture:** No free trial and no refunds; a $29/month Starter plan exists but its 100-credit cap makes it a demo, not a working tool, and the first meaningful tier (Lite) is roughly $129/month.
+**Pricing posture:** No free trial and no refunds; a $29/month Starter plan exists but its 200-credit cap makes it a demo, not a working tool. Ahrefs raised prices in March 2026: Lite is now $129/month (up from $99), Standard is $249/month (up from $199), Advanced $449/month (up from $399). Seat add-ons also increased from $30 to $50 per seat.
 
-**Reality check:** Reviewers in 2026 consistently flag the credit system as the main gotcha: filters and reports burn credits, and solo users report hitting the Lite plan's 500-credit wall within a week. There is no trial, so you commit $129 blind, and the refund policy is reported as hard to navigate. For free Site Explorer and Site Audit on your own verified domains, the free Ahrefs Webmaster Tools is the honest entry point.
+**Reality check:** The March 2026 price increases make Ahrefs materially more expensive than it was. Reviewers consistently flag the credit system as the main gotcha: filters and reports burn credits, and solo users report hitting the Lite plan's wall within a week. There is no trial, so you commit $129 blind, and the refund policy is reported as hard to navigate. For free Site Explorer and Site Audit on your own verified domains, the free Ahrefs Webmaster Tools is the honest entry point.
 
 **Links:** [Homepage](https://ahrefs.com) and [Pricing](https://ahrefs.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

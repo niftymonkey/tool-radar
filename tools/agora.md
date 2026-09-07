@@ -7,7 +7,7 @@ summary: "Real-time engagement platform providing voice, video, live streaming, 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://www.agora.io
 pricing: https://www.agora.io/en/pricing/
@@ -30,10 +30,10 @@ pricing: https://www.agora.io/en/pricing/
 - A pure voice AI agent, where LiveKit usually lands cheaper per minute with transparent pricing.
 - A small SaaS that just needs an occasional team meeting feature, where a prebuilt UI from Daily or Whereby saves a quarter.
 
-**Pricing posture:** Usage-based with 10,000 free RTC minutes monthly (voice, video, streaming, recording share this pool). Voice is $0.99 per 1,000 minutes, HD video $3.99, Conversational AI $0.10 per minute after a separate 300-minute trial.
+**Pricing posture:** Usage-based with 10,000 free RTC minutes monthly (voice, video, streaming share this pool; Conversational AI is a separate 300-minute trial). Voice is $0.99 per 1,000 minutes, HD video $3.99, Conversational AI $0.10 per minute. Subscription tiers ($45.99–$1,217.99/month) reduce per-minute rates to $0.81–$0.92/1,000 for committed usage.
 
-**Reality check:** Agora gives you media transport, not product UX, user directories, or session logic, that is still your code. The 10,000 free minutes do not offset Conversational AI, which is gated to a separate 300-minute trial. Per-minute billing scales brutally: 1,000 users at an hour of HD daily runs into thousands of dollars a month. Real-Time STT left on by default keeps billing even when everyone is muted. Conversational AI is effectively an enterprise product requiring sales contact for higher volume.
+**Reality check:** Agora gives you media transport, not product UX, user directories, or session logic—that is still your code. The 10,000 free minutes do not cover Conversational AI (separate 300-minute trial) nor STT or real-time translation. Per-minute billing scales brutally: 1,000 users at an hour of HD daily runs into thousands of dollars a month. Real-Time STT left on by default keeps billing even when everyone is muted. Conversational AI at higher volume is effectively an enterprise product requiring sales contact.
 
 **Links:** [Homepage](https://www.agora.io) and [Pricing](https://www.agora.io/en/pricing/)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07
