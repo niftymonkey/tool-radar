@@ -4,7 +4,7 @@ problem-areas:
   - i18n
 ring: assess
 ring-reasoning: Free API key with usage-based pricing and no per-seat fees, self-serve setup via `npx gt@latest`, and docs aimed at individual React/Next.js developers. Solves a real solo-project friction point — adding i18n without translation-key churn — at a scale where you pay only when you actually translate content.
-summary: "AI-powered i18n toolkit for React and Next.js whose <T> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key."
+summary: "AI-powered i18n toolkit for React and Next.js whose \\<T\\> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08

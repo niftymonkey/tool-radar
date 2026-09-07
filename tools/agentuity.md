@@ -32,7 +32,7 @@ pricing: https://agentuity.com/pricing
 
 **Pricing posture:** Free plan with $5 in credits and no card required, then pure usage-based billing on compute units, storage commands, and bandwidth, with no per-seat fees.
 
-**Reality check:** The platform remains young and comparisons flag real friction: there is no monthly credit allowance or plan tiers, so the bill is fully variable and hard to forecast, and every integration is code you write and maintain rather than a connector. Pricing details are not publicly listed as of mid-2026; Capterra lists it as "Contact vendor" suggesting possible pricing changes. Public docs have improved but the platform is not yet comparable to mature hosting alternatives.
+**Reality check:** The platform remains young and comparisons flag real friction: there is no monthly credit allowance or plan tiers, so the bill is fully variable and hard to forecast, and every integration is code you write and maintain rather than a connector. Usage rates are published on the pricing page; some third-party trackers (Capterra) list it as "Contact vendor", which appears to lag the actual pricing page. Public docs have improved but the platform is not yet comparable to mature hosting alternatives.
 
 **Links:** [Homepage](https://agentuity.com) and [Pricing](https://agentuity.com/pricing)
 

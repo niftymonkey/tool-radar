@@ -32,7 +32,7 @@ pricing: https://ahrefs.com/pricing
 
 **Pricing posture:** No free trial and no refunds; a $29/month Starter plan exists but its 200-credit cap makes it a demo, not a working tool. Ahrefs raised prices in March 2026: Lite is now $129/month (up from $99), Standard is $249/month (up from $199), Advanced $449/month (up from $399). Seat add-ons also increased from $30 to $50 per seat.
 
-**Reality check:** The March 2026 price increases make Ahrefs materially more expensive than it was. Reviewers consistently flag the credit system as the main gotcha: filters and reports burn credits, and solo users report hitting the Lite plan's wall within a week. There is no trial, so you commit $129 blind, and the refund policy is reported as hard to navigate. For free Site Explorer and Site Audit on your own verified domains, the free Ahrefs Webmaster Tools is the honest entry point.
+**Reality check:** The March 2026 price increases make Ahrefs materially more expensive than it was. Reviewers consistently flag the credit system as the main gotcha: filters and reports burn credits, and solo users report hitting the Lite plan's wall within a week. There is no trial, so you pay $129 for Lite without a free trial (the $29 Starter's 200-credit cap makes it a demo, not a working tool), and the refund policy is reported as hard to navigate. For free Site Explorer and Site Audit on your own verified domains, the free Ahrefs Webmaster Tools is the honest entry point.
 
 **Links:** [Homepage](https://ahrefs.com) and [Pricing](https://ahrefs.com/pricing)
 

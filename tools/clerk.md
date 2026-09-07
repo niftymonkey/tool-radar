@@ -27,7 +27,7 @@ pricing: https://clerk.com/pricing
 **When I wouldn't:**
 
 - A project with EU data residency or GDPR sensitivity, since Clerk stores user data in the US only with no self-hosting.
-- An app expecting to blow well past 50K monthly active users, where $0.02 per extra user adds up fast.
+- An app expecting to blow well past 50K MRU, where $0.02 per extra user adds up fast.
 
 **Pricing posture:** Hobby plan is free up to 50K monthly retained users (MRU) with no credit card — note Clerk bills MRU (users active in the last 30 days), a narrower unit than the MAU most competitors meter. Pro is $25/month, adds MFA and branding removal, then $0.02 per user above 50K. Business is $300/month. SAML connections cost roughly $75/month each.
 
