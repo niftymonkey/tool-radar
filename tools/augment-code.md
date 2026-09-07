@@ -7,7 +7,7 @@ summary: "Agentic AI coding platform whose Context Engine indexes large multi-re
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://www.augmentcode.com
 pricing: https://www.augmentcode.com/pricing
@@ -32,8 +32,8 @@ pricing: https://www.augmentcode.com/pricing
 
 **Pricing posture:** No free tier. Indie is $20/month for 40,000 credits and one user. Standard is $60/month per developer; Max is $200/month per developer.
 
-**Reality check:** Reviewers rate it the strongest tool for complex refactors on large repos, but the credit model is unpredictable at high usage and overkill for small codebases. The revert-to-checkpoint feature is reportedly flaky and can leave half-reverted code, and the agent sometimes adds unrequested refactors or leaves debug output behind, so its work still needs review.
+**Reality check:** Reviewers rate it the strongest tool for complex refactors on large repos, but developer sentiment in 2026 calls the credit-based pricing "insanely expensive" following the shift from earlier flat-rate billing. The credit model is unpredictable at high usage and overkill for small codebases. Remote Agents (background task execution) and enhanced MCP tool support are new in 2026. The revert-to-checkpoint feature is still reportedly flaky, and the agent sometimes adds unrequested refactors or leaves debug output behind, so its work still needs review.
 
 **Links:** [Homepage](https://www.augmentcode.com) and [Pricing](https://www.augmentcode.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

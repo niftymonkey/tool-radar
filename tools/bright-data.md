@@ -7,7 +7,7 @@ summary: "Enterprise web-data platform combining the largest residential proxy n
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://brightdata.com
 pricing: https://brightdata.com/pricing
@@ -28,12 +28,12 @@ pricing: https://brightdata.com/pricing
 **When I wouldn't:**
 
 - A side project scraping simple, lightly protected sites, where ScraperAPI or Scrape.do cover it at a fraction of the cost.
-- Any monthly scraping budget under roughly $100, where the entry economics do not work.
+- Any monthly scraping budget under roughly $100 for committed plans — pay-as-you-go at $8.40/GB technically supports low-volume use, but the KYC-gated trial, steep learning curve, and complex pricing make it hard to justify unless scraping heavy targets is genuinely your bottleneck.
 
-**Pricing posture:** Pay-as-you-go residential proxies at about $8/GB with no commitment; monthly plans start near $499 for meaningfully better rates and reach $999 for the business tier. A free trial exists but is sales-gated.
+**Pricing posture:** Pay-as-you-go residential proxies at about $8.40/GB; datacenter proxies from $0.60/IP. Monthly committed plans start near $499 for better rates. Pre-built datasets and scraping APIs are priced per request or subscription. A free trial exists but is typically sales-gated with KYC.
 
 **Reality check:** Reviewers consistently call this an enterprise product mispriced for individuals. The free trial typically requires a sales call, credit card, and KYC before full access. There is a large gap between casual per-GB use and the $499 minimum, with no real middle-ground plan. Per-GB billing is unpredictable: retries, large pages, and inefficient selectors all burn bandwidth. The dashboard has dozens of overlapping products and a documented steep learning curve. For most solo developers, ScraperAPI or Scrape.do cover 90% of needs at 20 to 50% of the cost.
 
 **Links:** [Homepage](https://brightdata.com) and [Pricing](https://brightdata.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

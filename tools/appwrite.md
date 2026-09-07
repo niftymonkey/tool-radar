@@ -7,7 +7,7 @@ summary: "Open-source backend-as-a-service bundling auth, databases, storage, se
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://appwrite.io
 pricing: https://appwrite.io/pricing
@@ -30,10 +30,10 @@ pricing: https://appwrite.io/pricing
 - A quick MVP or internal tool where a single-binary option like PocketBase ships far faster.
 - Self-hosting on tight resources, since the default stack wants 2 to 4 GB RAM across 10-plus containers.
 
-**Pricing posture:** Free tier with no project pausing and limits around 75K monthly active users. Pro starts at $25/month with unlimited org members; Enterprise is custom. The open-source build is free to self-host.
+**Pricing posture:** Free tier (capped at 2 projects) with no project pausing, 75K monthly active users, 2 GB storage, and 5 GB bandwidth. Pro starts at $25/month per project with higher resource limits; Enterprise is custom. The open-source build is free to self-host.
 
 **Reality check:** The consistent complaint is operational weight: self-hosting means a multi-container Docker stack where a failed Redis or MariaDB container takes down realtime or everything. Backups and upgrades are entirely your responsibility, and the concept count (projects, collections, buckets, teams, roles, permissions) gives it a steeper learning curve than lighter alternatives. Reviewers point side-project builders to PocketBase and SQL-heavy apps to Supabase.
 
 **Links:** [Homepage](https://appwrite.io) and [Pricing](https://appwrite.io/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

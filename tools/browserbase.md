@@ -7,7 +7,7 @@ summary: "Managed cloud platform that runs real headless Chromium browsers, driv
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://browserbase.com
 pricing: https://browserbase.com/pricing
@@ -32,8 +32,8 @@ pricing: https://browserbase.com/pricing
 
 **Pricing posture:** Free tier gives 1 browser hour, 3 concurrent browsers, and $5 of model tokens. Developer is $20/month for 100 browser hours then $0.12/hour. Startup is $99/month. Billing is account-level, not per seat, and residential proxies cost extra on lower tiers.
 
-**Reality check:** 2026 reviews call Browserbase the polish leader: best developer experience, cleanest docs, and session replay no competitor matches. The recurring warnings are cost and lock-in: roughly $0.10 per session means an agent doing hundreds of daily sessions can hit hundreds of dollars a month, residential IPs are an extra charge on cheaper tiers, and there is no self-hosted option. Reviewers also note 5 to 10 second cold starts, CAPTCHA interruptions, and occasional instability on long sessions. Steel and Browserless are the cited alternatives when cost or self-hosting matters.
+**Reality check:** 2026 reviews call Browserbase the polish leader: best developer experience, cleanest docs, and session replay no competitor matches. The platform has expanded beyond raw browser sessions to include a Model Gateway (unified LLM billing), search and fetch APIs, and Runtime for deploying agents directly. The recurring warnings are cost and lock-in: roughly $0.10 per session means an agent doing hundreds of daily sessions can hit hundreds of dollars a month, residential IPs are an extra charge on cheaper tiers, and there is no self-hosted option. Reviewers also note 5 to 10 second cold starts, CAPTCHA interruptions, and occasional instability on long sessions. Steel and Browserless are the cited alternatives when cost or self-hosting matters.
 
 **Links:** [Homepage](https://browserbase.com) and [Pricing](https://browserbase.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

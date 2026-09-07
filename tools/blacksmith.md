@@ -7,7 +7,7 @@ summary: "Drop-in replacement for GitHub Actions runners that runs your existing
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://blacksmith.sh
 pricing: https://blacksmith.sh/pricing
@@ -30,10 +30,10 @@ pricing: https://blacksmith.sh/pricing
 - A project not on GitHub Actions, since it supports nothing else.
 - Needing macOS or GPU runners as a hard requirement, as Linux x64 and ARM are the focus.
 
-**Pricing posture:** No per-seat fees. Every plan includes 3,000 free minutes per month, then pay-as-you-go from $0.0025/min (Ubuntu ARM) to $0.004/min (Ubuntu x64). Docker layer caching and sticky disks are $0.50/GB/month add-ons.
+**Pricing posture:** No per-seat fees. Every plan includes 3,000 free minutes per month, then pay-as-you-go from $0.0025/min (Ubuntu ARM), $0.004/min (Ubuntu x64), and $0.008/min (Windows). Docker layer caching and sticky disks are $0.50/GB/month add-ons.
 
-**Reality check:** Reviews back the speed and observability claims, but flag real caveats: it is GitHub Actions only, Docker acceleration needs Blacksmith-specific actions, and per-minute billing plus separate cache-storage charges make costs harder to predict than a flat plan. Running CI on third-party infrastructure also means trusting them with your secrets and source.
+**Reality check:** GitHub added a $0.002/min control-plane fee on all Actions usage in March 2026, which strengthens Blacksmith's value proposition: even including this fee Blacksmith claims 67% total cost savings versus GitHub-hosted runners. Reviews back the speed and observability claims, but flag real caveats: it is GitHub Actions only, Docker acceleration needs Blacksmith-specific actions, and per-minute billing plus separate cache-storage charges make costs harder to predict than a flat plan. Running CI on third-party infrastructure also means trusting them with your secrets and source.
 
 **Links:** [Homepage](https://blacksmith.sh) and [Pricing](https://blacksmith.sh/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07

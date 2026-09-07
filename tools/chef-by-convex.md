@@ -7,7 +7,7 @@ summary: "AI app builder that generates full-stack web apps from prompts, wiring
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-07
 managed: auto
 homepage: https://chef.convex.dev
 pricing: https://www.convex.dev/pricing
@@ -15,7 +15,7 @@ pricing: https://www.convex.dev/pricing
 
 # Chef by Convex
 
-**What it is:** An AI app builder that generates full-stack web apps from prompts, wiring a React and Tailwind frontend to a Convex backend with database, auth, file uploads, real-time UIs, and background workflows.
+**What it is:** An open-source AI app builder that generates full-stack web apps from prompts, wiring a React and Tailwind frontend to a Convex backend with database, auth, file uploads, real-time UIs, and background workflows.
 
 **Problem it solves:** Lets a solo builder ship a genuinely full-stack MVP, with working backend logic rather than just a UI shell, from a single prompt and with no deployment step.
 
@@ -36,4 +36,4 @@ pricing: https://www.convex.dev/pricing
 
 **Links:** [Homepage](https://chef.convex.dev) and [Pricing](https://www.convex.dev/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-07
