@@ -30,7 +30,7 @@ pricing: https://agentuity.com/pricing
 - A simple stateless LLM call that a serverless function handles fine.
 - When you need a predictable flat monthly bill rather than usage that varies with every session.
 
-**Pricing posture:** Free plan with $5 in credits and no card required, then pure usage-based billing on compute units, storage commands, and bandwidth, with no per-seat fees.
+**Pricing posture:** $5 in one-time signup credits, no card required, no ongoing free tier. After that, pure usage-based billing on compute units, storage commands, and bandwidth, with no per-seat fees.
 
 **Reality check:** The platform remains young and comparisons flag real friction: there is no monthly credit allowance or plan tiers, so the bill is fully variable and hard to forecast, and every integration is code you write and maintain rather than a connector. Usage rates are published on the pricing page; some third-party trackers (Capterra) list it as "Contact vendor", which appears to lag the actual pricing page. Public docs have improved but the platform is not yet comparable to mature hosting alternatives.
 
