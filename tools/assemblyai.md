@@ -7,7 +7,7 @@ summary: "Speech AI API providing accurate transcription, speaker diarization, s
 source: manual
 discovered-via: https://www.assemblyai.com
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-09-14
 managed: auto
 homepage: https://www.assemblyai.com
 pricing: https://www.assemblyai.com/pricing
@@ -15,26 +15,25 @@ pricing: https://www.assemblyai.com/pricing
 
 # AssemblyAI
 
-**What it is:** A speech AI API providing accurate transcription, speaker diarization, sentiment analysis, summarization, and entity detection from pre-recorded audio or real-time streaming.
+**What it is:** A speech AI API providing accurate transcription, speaker diarization, sentiment analysis, summarization, and entity detection from pre-recorded audio or real-time streaming, plus LeMUR for asking questions about audio content.
 
 **Problem it solves:** Lets a solo developer add production-grade transcription and audio intelligence to an app without building or hosting any speech models.
 
 **When I'd reach for it:**
 
 - Building a podcast app, meeting notes tool, or any feature where I need accurate transcripts with speaker labels.
-- Real-time captioning for a video or voice product: streaming transcription is supported via WebSocket.
-- Extracting structured data from audio: entity detection, topic detection, and content moderation are available as add-ons to base transcription.
+- Real-time captioning for a video or voice product: streaming transcription is supported via WebSocket with 99+ language support.
+- Extracting structured data from audio or asking natural-language questions about audio content via LeMUR.
 
 **When I wouldn't:**
 
-- When multilingual coverage matters: real-time streaming is limited to 6 languages (English, Spanish, French, German, Italian, Portuguese beta), whereas batch transcription covers more.
 - When predictable costs are critical: audio intelligence add-ons (diarization, entity detection, summarization) stack on top of base rates and can double or triple the effective price per hour.
-- Extremely high-volume workloads where per-minute pricing adds up quickly.
+- Extremely high-volume workloads where per-minute pricing adds up quickly; Deepgram is cheaper for raw transcription at scale.
 
-**Pricing posture:** $50 free credits on signup; pay-as-you-go at $0.15/hour for Universal model; speaker diarization and other intelligence add-ons priced separately on top.
+**Pricing posture:** $50 free credits on signup; pay-as-you-go at $0.15/hour for Universal-2 or $0.21/hour for Universal-3.5 Pro; speaker diarization add-on at +$0.02/hour; other intelligence features priced separately.
 
-**Reality check:** G2 reviews consistently highlight transcription accuracy — particularly across accents and background noise — as a standout strength. The most common complaint is cost unpredictability when stacking add-ons. Compared to Deepgram, AssemblyAI offers a richer audio intelligence feature set out of the box; Deepgram is cheaper per minute for raw transcription and stronger on real-time latency. The $50 free-tier credits are generous enough to finish a proof of concept entirely within them.
+**Reality check:** Reviews consistently highlight transcription accuracy across accents and background noise as the standout strength. LeMUR — the AI layer that lets you ask questions about a transcript — is genuinely differentiating for meeting-notes and research use cases. The main complaint remains cost unpredictability when stacking add-ons. Compared to Deepgram, AssemblyAI offers a richer audio intelligence feature set; Deepgram is cheaper per raw transcription minute and stronger on real-time latency. The $50 free credits are generous enough to finish a proof of concept entirely within them.
 
 **Links:** [Homepage](https://www.assemblyai.com) and [Pricing](https://www.assemblyai.com/pricing)
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-09-14
