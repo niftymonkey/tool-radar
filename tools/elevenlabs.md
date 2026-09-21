@@ -32,7 +32,7 @@ pricing: https://elevenlabs.io/pricing
 
 **Pricing posture:** Free tier at 10K credits/month (~10 min TTS, no commercial rights); Starter at $6/month for 30K credits with commercial license; Creator at $22/month for 100K credits; Pro at $99/month for 500K credits; annual billing saves ~17%.
 
-**Reality check:** ElevenLabs v3 and Cartesia Sonic 3 tied at MOS 4.6 in a 2026 blinded listener panel — ElevenLabs wins on emotional transitions and long-form narration naturalness; Cartesia wins on conversational latency. The v3 model offers less fine-grained voice control than Multilingual v2, and some reviewers flag occasional robotic output. Credits expire monthly with no rollover, and pricing unpredictability at scale is the most common developer complaint. Starter went from $5 to $6 between the May 2025 and current pricing page.
+**Reality check:** ElevenLabs v3 and Cartesia Sonic 3 tied at MOS 4.6 in a 2026 blinded listener panel — ElevenLabs wins on emotional transitions and long-form narration naturalness; Cartesia wins on conversational latency. The v3 model offers less fine-grained voice control than Multilingual v2, and some reviewers flag occasional robotic output. Credits expire monthly with no rollover, and pricing unpredictability at scale is the most common developer complaint. Starter went from $5 to $6 between the May 2026 and current pricing page.
 
 **Links:** [Homepage](https://elevenlabs.io) and [Pricing](https://elevenlabs.io/pricing)
 

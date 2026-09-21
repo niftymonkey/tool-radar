@@ -32,7 +32,7 @@ pricing: https://www.daytona.io/pricing
 
 **Pricing posture:** Free trial with $200 in compute credits, no card required; pay-as-you-go at $0.0504/vCPU-hour and $0.0162/GiB-hour for CPU sandboxes; H100 at $2.27/hr, H200 at $2.61/hr on-demand; no per-seat fees.
 
-**Reality check:** Benchmarks rate Daytona fastest on cold starts (~90–150ms) and best for persistent or long-running agent workloads. The warm-reaction from teams shipping production agents validates the 2025 pivot from dev environments to AI sandboxes. Key gotchas: Docker container isolation is weaker than E2B's Firecracker microVMs; stopped sandboxes fully release resources (no instant resume); the default 15-minute auto-pause window may be too short for cheap usage patterns; no GPU model inference (GPU is compute-only, not inference). Morph Cloud is preferred when you need agent state snapshotting and forking; E2B wins on SDK maturity and community.
+**Reality check:** Benchmarks rate Daytona fastest on cold starts (~90–150ms) and best for persistent or long-running agent workloads. The warm-reaction from teams shipping production agents validates the 2025 pivot from dev environments to AI sandboxes. Key gotchas: Docker container isolation is weaker than E2B's Firecracker microVMs; stopped sandboxes fully release resources (no instant resume); the default 15-minute auto-pause window may be too short for cheap usage patterns; GPU sandboxes are user-managed compute — you can run model inference inside them, but Daytona provides no managed inference API. Morph Cloud is preferred when you need agent state snapshotting and forking; E2B wins on SDK maturity and community.
 
 **Links:** [Homepage](https://www.daytona.io) and [Pricing](https://www.daytona.io/pricing)
 

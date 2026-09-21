@@ -7,7 +7,7 @@ summary: "Web scraping and crawling API that turns websites, including JavaScrip
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://firecrawl.dev
 pricing: https://firecrawl.dev/pricing
