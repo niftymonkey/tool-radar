@@ -1,6 +1,6 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-14. 90 tools across 23 problem areas.
+Last refreshed 2026-09-21. 90 tools across 23 problem areas.
 
 ## auth
 
@@ -82,23 +82,23 @@ Last refreshed 2026-09-14. 90 tools across 23 problem areas.
 - [Axiom](tools/axiom.md) `assess`: Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL).
 - [Grafana](tools/grafana.md) `assess`: Open-source observability and dashboarding platform unifying metrics (Prometheus/Mimir), logs (Loki), and traces (Tempo) — available self-hosted or as Grafana Cloud.
 - [Helicone](tools/helicone.md) `assess`: Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy with a single base-URL change.
-- [Highlight](tools/highlight.md) `assess`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product.
 - [Honeycomb](tools/honeycomb.md) `assess`: Event-based observability platform built around high-cardinality distributed tracing and exploratory querying, with a 20M events/month free tier.
 - [PostHog](tools/posthog.md) `assess`: Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK.
 - [Sentry](tools/sentry.md) `assess`: Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages.
 
 **Held:**
 - [Embrace](tools/embrace.md) `hold`: Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum.
+- [Highlight](tools/highlight.md) `hold`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing. Standalone cloud ended Feb 2026 — use LaunchDarkly Observability or self-host.
 
 ## product-analytics
 
-- [Highlight](tools/highlight.md) `assess`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product.
 - [PostHog](tools/posthog.md) `assess`: Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK.
 - [Sentry](tools/sentry.md) `assess`: Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages.
 
 **Held:**
 - [Ahrefs](tools/ahrefs.md) `hold`: SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; prices raised March 2026 — Lite now $129/month.
 - [Embrace](tools/embrace.md) `hold`: Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum.
+- [Highlight](tools/highlight.md) `hold`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing. Standalone cloud ended Feb 2026 — use LaunchDarkly Observability or self-host.
 
 ## feature-flags
 
