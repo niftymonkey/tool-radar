@@ -7,7 +7,7 @@ summary: "AWS cost optimization service that injects shareable savings commitmen
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://www.milkstraw.ai
 pricing: https://www.milkstraw.ai/pricing
@@ -32,8 +32,8 @@ pricing: https://www.milkstraw.ai/pricing
 
 **Pricing posture:** No flat fee and no upfront cost; the fee is 20% of the incremental savings delivered, billed monthly after your AWS bill posts. No charge if it finds no savings.
 
-**Reality check:** This is a young vendor, and independent community signal is thin; almost all available detail comes from Milkstraw's own docs and pricing page rather than third-party reviews or reliability reports. The model requires accepting AWS Organization invites for accounts you do not control and trusting a least-privilege role; the docs describe zero workload access and CloudTrail auditability, but there is no track record yet to weigh that against. Savings depend entirely on your usage scale, so the value is unproven for small bills.
+**Reality check:** Milkstraw raised $2M in January 2026 and added RDS optimization (EC2 and RDS). Independent community signal remains thin; almost all available detail comes from Milkstraw's own docs and case studies. The model requires accepting AWS Organization invites and trusting a least-privilege cross-account IAM role; the docs describe zero workload access and CloudTrail auditability, but third-party reliability reports are scarce. Savings depend entirely on your usage scale, so the value is unproven for small bills.
 
 **Links:** [Homepage](https://www.milkstraw.ai) and [Pricing](https://www.milkstraw.ai/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

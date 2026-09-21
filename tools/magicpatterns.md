@@ -7,7 +7,7 @@ summary: "AI prototyping tool that turns prompts, screenshots, or Figma imports 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://www.magicpatterns.com
 pricing: https://www.magicpatterns.com/pricing
@@ -30,10 +30,10 @@ pricing: https://www.magicpatterns.com/pricing
 - Building a full app with backend, database, or auth; it is frontend-only by design.
 - When already using v0 or Cursor, which cover the same prompt-to-React ground.
 
-**Pricing posture:** Free tier with only 50 to 250 monthly credits. Starter is $20 per seat per month ($17 annual); Business is $100 per seat per month; on-demand pay-as-you-go credits available on paid plans.
+**Pricing posture:** Free tier with 100 monthly credits and full visual editing. Starter is $20 per seat per month ($17 annual) with 1,000 credits, GitHub sync, and MCP server access. Business is $100 per seat per month. A March 2026 credit model overhaul multiplied existing balances 10× and moved all plans to the current prices.
 
 **Reality check:** 2026 reviews praise its frontend focus and canvas-based exploration but agree it is deliberately narrow: weak backend and data story, no full-stack scope, and a free tier limited enough that most users hit the wall quickly. Reviewers note v0 from Vercel does most of the same things with more distribution, and some call the design-only scope too small to justify a separate subscription.
 
 **Links:** [Homepage](https://www.magicpatterns.com) and [Pricing](https://www.magicpatterns.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

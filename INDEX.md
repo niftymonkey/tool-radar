@@ -1,6 +1,6 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-07. 90 tools across 23 problem areas.
+Last refreshed 2026-09-21. 90 tools across 23 problem areas.
 
 ## auth
 
@@ -22,7 +22,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI code review tool that auto-reviews pull requests across GitHub, GitLab, Azure DevOps, and Bitbucket with inline comments and PR summaries.
 - [Vercel](tools/vercel.md) `adopt`: Frontend cloud platform that builds and deploys web apps from a Git push, with deep Next.js integration, a global edge network, and preview deployments.
 - [Blacksmith](tools/blacksmith.md) `assess`: Drop-in replacement for GitHub Actions runners that runs your existing workflows on bare-metal gaming CPUs with co-located caching.
-- [Depot](tools/depot.md) `assess`: Remote build infrastructure that replaces docker build with managed BuildKit machines that keep a warm, persistent cache.
+- [Depot](tools/depot.md) `assess`: Remote build infrastructure that replaces docker build with managed BuildKit machines that keep a warm, persistent cache, plus GitHub Actions runners at roughly half the cost of GitHub-hosted.
 - [Netlify](tools/netlify.md) `assess`: Web deployment platform that builds and ships sites and full-stack apps from Git, with serverless functions, deploy previews, and a global edge network.
 - [RWX](tools/rwx.md) `assess`: From-first-principles CI/CD platform that models builds as a DAG of cached tasks and lets you run CI against uncommitted local changes.
 
@@ -82,23 +82,23 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Axiom](tools/axiom.md) `assess`: Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL).
 - [Grafana](tools/grafana.md) `assess`: Open-source observability and dashboarding platform unifying metrics (Prometheus/Mimir), logs (Loki), and traces (Tempo) — available self-hosted or as Grafana Cloud.
 - [Helicone](tools/helicone.md) `assess`: Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy with a single base-URL change.
-- [Highlight](tools/highlight.md) `assess`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product.
 - [Honeycomb](tools/honeycomb.md) `assess`: Event-based observability platform built around high-cardinality distributed tracing and exploratory querying, with a 20M events/month free tier.
 - [PostHog](tools/posthog.md) `assess`: Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK.
 - [Sentry](tools/sentry.md) `assess`: Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages.
 
 **Held:**
 - [Embrace](tools/embrace.md) `hold`: Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum.
+- [Highlight](tools/highlight.md) `hold`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing. Standalone cloud ended Feb 2026 — use LaunchDarkly Observability or self-host.
 
 ## product-analytics
 
-- [Highlight](tools/highlight.md) `assess`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product.
 - [PostHog](tools/posthog.md) `assess`: Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK.
 - [Sentry](tools/sentry.md) `assess`: Error tracking and application monitoring platform capturing exceptions, traces, and performance data across web and mobile apps with SDKs for most major languages.
 
 **Held:**
 - [Ahrefs](tools/ahrefs.md) `hold`: SEO and content-analysis platform for backlink analysis, keyword research, rank tracking, and site audits. No free trial; prices raised March 2026 — Lite now $129/month.
 - [Embrace](tools/embrace.md) `hold`: Mobile and web observability platform built on OpenTelemetry capturing crashes, freezes, network failures, and full user sessions. $80/month paid minimum.
+- [Highlight](tools/highlight.md) `hold`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing. Standalone cloud ended Feb 2026 — use LaunchDarkly Observability or self-host.
 
 ## feature-flags
 
@@ -133,7 +133,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Axiom](tools/axiom.md) `assess`: Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL).
 - [Bolt.new](tools/bolt-new.md) `assess`: In-browser AI full-stack app builder by StackBlitz that generates, runs, and deploys web apps from prompts inside WebContainers; Bolt V2 adds Bolt Cloud with databases, auth, and edge functions.
 - [Browserbase](tools/browserbase.md) `assess`: Managed cloud platform that runs real headless Chromium browsers, drivable over Playwright, Puppeteer, or CDP, so AI agents can navigate the web like a human.
-- [Factory](tools/factory.md) `assess`: Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, and editor.
+- [Factory](tools/factory.md) `assess`: Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, Desktop app, and editor.
 - [Graphite](tools/graphite.md) `assess`: Code review and workflow platform for GitHub built around stacked pull requests, a stack-aware merge queue, and an AI review agent.
 - [Kilo Code](tools/kilo.md) `assess`: Open-source AI coding agent for VS Code and JetBrains with 500+ models, zero-markup pricing, and specialized Architect, Code, Debug, and Orchestrator modes.
 - [Lovable](tools/lovable.md) `assess`: AI app builder that generates full-stack websites from prompts, outputting a React, Tailwind, and Supabase stack with one-click deploy and GitHub sync.
@@ -174,7 +174,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Bolt.new](tools/bolt-new.md) `assess`: In-browser AI full-stack app builder by StackBlitz that generates, runs, and deploys web apps from prompts inside WebContainers; Bolt V2 adds Bolt Cloud with databases, auth, and edge functions.
 - [Chef by Convex](tools/chef-by-convex.md) `assess`: AI app builder that generates full-stack web apps from prompts, wiring a React and Tailwind frontend to a Convex backend with database, auth, and real-time UIs.
 - [Devin](tools/devin.md) `assess`: Autonomous AI software engineer from Cognition that takes a task description, reads your codebase, implements a solution, runs tests, and opens a pull request.
-- [Factory](tools/factory.md) `assess`: Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, and editor.
+- [Factory](tools/factory.md) `assess`: Agent-native development platform whose autonomous Droids run real dev tasks (editing files, running commands, pushing changes) from the CLI, browser, Desktop app, and editor.
 - [Kilo Code](tools/kilo.md) `assess`: Open-source AI coding agent for VS Code and JetBrains with 500+ models, zero-markup pricing, and specialized Architect, Code, Debug, and Orchestrator modes.
 - [Lovable](tools/lovable.md) `assess`: AI app builder that generates full-stack websites from prompts, outputting a React, Tailwind, and Supabase stack with one-click deploy and GitHub sync.
 - [Magic Patterns](tools/magicpatterns.md) `assess`: AI prototyping tool that turns prompts, screenshots, or Figma imports into live React and Tailwind UI on an infinite canvas.
@@ -212,7 +212,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Cartesia](tools/cartesia.md) `assess`: Low-latency text-to-speech API (Sonic models) built for real-time AI agents, delivering time-to-first-audio as low as 40ms for streaming voice interactions.
 - [Cohere](tools/cohere.md) `assess`: AI API suite providing language generation (Command), embeddings (Embed), and reranking (Rerank) purpose-built for enterprise RAG pipelines.
 - [Deepgram](tools/deepgram.md) `assess`: Speech AI API offering real-time and batch transcription, text-to-speech, and voice agent capabilities optimized for low latency across 45+ languages.
-- [ElevenLabs](tools/elevenlabs.md) `assess`: AI voice synthesis API that generates natural speech from text in 70+ languages and clones voices from short audio samples.
+- [ElevenLabs](tools/elevenlabs.md) `assess`: AI voice synthesis API that generates natural speech from text in 70+ languages and clones voices from short audio samples, with Flash v2.5 at ~75ms for real-time use cases.
 - [Exa](tools/exa.md) `assess`: AI-native web search API that returns semantically relevant pages, token-efficient content excerpts, and structured JSON, built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: Serverless inference platform exposing 1,000+ generative image, video, audio, and 3D models behind one API on an accelerated GPU runtime.
 - [Firecrawl](tools/firecrawl.md) `assess`: Web scraping and crawling API that turns websites, including JavaScript-rendered pages and PDFs, into clean markdown and structured JSON ready for LLMs.
