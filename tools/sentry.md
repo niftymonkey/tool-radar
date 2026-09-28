@@ -7,7 +7,7 @@ summary: "Error tracking and application monitoring platform capturing exception
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://sentry.io
 pricing: https://sentry.io/pricing/
@@ -30,10 +30,10 @@ pricing: https://sentry.io/pricing/
 - A noisy app that throws thousands of errors a day, where event-volume billing could outrun the budget fast.
 - A project with strict data-residency needs better served by a self-hosted option like GlitchTip.
 
-**Pricing posture:** Free Developer tier covers one user and roughly 5,000 errors a month. Team is $26/month and Business is $80/month, both with unlimited users; paid plans bill on prepaid event volume.
+**Pricing posture:** Free Developer tier covers one user and roughly 5,000 errors a month. Team is $26/month and Business is $80/month (annual billing), both with unlimited users; paid plans bill on prepaid event volume. The AI-powered Seer debugger is a $40/active-contributor/month add-on for Business and Enterprise plans.
 
-**Reality check:** The depth and error grouping are widely praised, and the free tier is genuinely usable for a side project. The recurring complaint is the consumption model: one bug that loops can burn a monthly quota and trigger an unexpected bill, so indie hackers who want predictability often compare it to flat-rate Honeybadger or self-hosted GlitchTip and Bugsink.
+**Reality check:** The depth and error grouping are widely praised, and the free tier is genuinely usable for a side project. The recurring complaint is the consumption model: one bug that loops can burn a monthly quota and trigger an unexpected bill (one report: 3× spike hitting 1.4M events/day), so indie hackers who want predictability often compare it to flat-rate Honeybadger or self-hosted GlitchTip and Bugsink. The new Seer AI features are gated behind a Business add-on, not available on Team or free.
 
 **Links:** [Homepage](https://sentry.io) and [Pricing](https://sentry.io/pricing/)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

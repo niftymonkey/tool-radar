@@ -1,6 +1,6 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-07. 90 tools across 23 problem areas.
+Last refreshed 2026-09-28. 90 tools across 23 problem areas.
 
 ## auth
 

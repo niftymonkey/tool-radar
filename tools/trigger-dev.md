@@ -7,7 +7,7 @@ summary: "Managed platform for durable background jobs, scheduled tasks, and AI 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://trigger.dev
 pricing: https://trigger.dev/pricing
@@ -30,10 +30,10 @@ pricing: https://trigger.dev/pricing
 - A backend that is not TypeScript, since Python, Go, and Ruby are not production-supported.
 - Millions of short sub-five-second jobs, where a self-hosted BullMQ or Vercel cron is cheaper.
 
-**Pricing posture:** Free tier with $5 of monthly usage included. Hobby is $10/month, Pro is $50/month, both with matching usage credits; extra Pro seats run $20/month.
+**Pricing posture:** Free tier with $5 of monthly usage, 10 concurrent runs, and 1-day log retention. Hobby is $10/month (7-day logs), Pro is $50/month (200+ concurrent runs, 30-day logs, Dedicated Slack support); both plans include matching usage credits. Extra Pro concurrency add-ons at $10/month per 50 runs.
 
 **Reality check:** The recurring gotcha is usage-based billing that grows faster than expected past roughly 1M runs per month, since compute-seconds accrue even while a task sits idle waiting. Cold starts after idle periods run two to five seconds, and documentation thins out past basic patterns, pushing advanced retry and idempotency questions to Discord or the source. Reviewers suggest Inngest for simpler event-driven jobs.
 
 **Links:** [Homepage](https://trigger.dev) and [Pricing](https://trigger.dev/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

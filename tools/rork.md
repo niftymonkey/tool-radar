@@ -7,7 +7,7 @@ summary: "AI app builder that generates complete native mobile apps for iOS and 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://rork.com
 pricing: https://rork.com/pricing
@@ -30,10 +30,10 @@ pricing: https://rork.com/pricing
 - Anything with paying users or that must reliably publish to the App Store, given documented deployment failures.
 - Projects needing heavy iteration, since message-based pricing burns budget fast on tweaks.
 
-**Pricing posture:** Limited free tier (public projects only, no code export). Paid plans run $25/month for 100 messages up to $200/month for 1,000. Rork Max, a separate native-Swift product, is $200/month.
+**Pricing posture:** Limited free tier (35 credits/month, public projects only, no code export). Junior $25/month, Senior $100/month; Rork Max (native Swift for Apple platforms) is a separate $200/month product. Rork raised $15M seed in April 2026.
 
 **Reality check:** Reviewers consistently call it a promising beta with serious flaws. Common complaints: apps crashing, previews not loading, the Publish button failing for many users, and a support team reported as largely unresponsive. Message-based pricing means each prompt counts, so debugging loops get expensive. Good for fast first prototypes, risky for anything you need to actually ship and support.
 
 **Links:** [Homepage](https://rork.com) and [Pricing](https://rork.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28
