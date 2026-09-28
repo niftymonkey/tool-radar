@@ -30,7 +30,7 @@ pricing: https://trigger.dev/pricing
 - A backend that is not TypeScript, since Python, Go, and Ruby are not production-supported.
 - Millions of short sub-five-second jobs, where a self-hosted BullMQ or Vercel cron is cheaper.
 
-**Pricing posture:** Free tier with $5 of monthly usage, 10 concurrent runs, and 1-day log retention. Hobby is $10/month (7-day logs), Pro is $50/month (200+ concurrent runs, 30-day logs, Dedicated Slack support); both plans include matching usage credits. Extra Pro concurrency add-ons at $10/month per 50 runs.
+**Pricing posture:** Free tier with $5 of monthly usage, 20 concurrent runs, and 1-day log retention. Hobby is $10/month (7-day logs), Pro is $50/month (200+ concurrent runs, 30-day logs, Dedicated Slack support); both plans include matching usage credits. Extra Pro concurrency add-ons at $10/month per 50 runs.
 
 **Reality check:** The recurring gotcha is usage-based billing that grows faster than expected past roughly 1M runs per month, since compute-seconds accrue even while a task sits idle waiting. Cold starts after idle periods run two to five seconds, and documentation thins out past basic patterns, pushing advanced retry and idempotency questions to Discord or the source. Reviewers suggest Inngest for simpler event-driven jobs.
 

@@ -30,7 +30,7 @@ pricing: https://planetscale.com/pricing
 - A hobby project or prototype, where Neon and Turso offer real free tiers and PlanetScale does not.
 - An app that depends on database-level foreign key constraints, which Vitess does not enforce.
 
-**Pricing posture:** No free tier since the Hobby plan was retired in 2024. Postgres single-node from $5/month, HA cluster from $15/month, Metal (local NVMe) from $50/month, Vitess from $39/month. Storage $0.50/GB beyond 10 GB, egress $0.06/GB beyond 100 GB.
+**Pricing posture:** No free tier since the Hobby plan was retired in 2024. Postgres single-node from $5/month, HA cluster from $15/month, Metal (local NVMe) from $50/month, Vitess from $39/month. Storage $0.50/GB beyond 10 GB, egress $0.06/GB beyond 10 GB for single-node Postgres and beyond 100 GB for HA plans.
 
 **Reality check:** The 2024 free-tier removal pushed many solo developers to Neon or Turso and was widely called tone-deaf. Storage is structurally expensive, roughly $1.50 to $2.50 per GB versus well under $1 elsewhere, and unindexed queries can spike row-read billing. The branching is genuinely best-in-class, but most reviews say solo devs rarely need zero-downtime DDL and Neon delivers similar branching on Postgres with a free tier.
 

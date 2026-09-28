@@ -30,7 +30,7 @@ pricing: https://sent.dm/pricing
 - A project that only ever needs plain SMS and is already integrated with one provider.
 - Very low volume (under roughly 1,000 messages a month), where 10DLC setup is not worth it.
 
-**Pricing posture:** No free tier. Pay-as-you-go: US SMS (10DLC) ~$0.0030/message at carrier rate with no platform markup, WhatsApp ~$0.04/business-initiated conversation, plus number rental ($5/mo toll-free, $15/mo 10DLC local). Enterprise is quote-only.
+**Pricing posture:** No free tier. Pay-as-you-go: $0.0150/contact/month platform fee, US SMS (10DLC) ~$0.0030/message at carrier rate with no platform markup, WhatsApp ~$0.04/business-initiated conversation, plus number rental ($5/mo toll-free, $15/mo 10DLC local). Enterprise is quote-only.
 
 **Reality check:** Reviewers credit clean SDKs and 80 to 90 percent savings versus legacy aggregators via OTT routing, but flag real gotchas: 10DLC and WhatsApp registration paperwork is still on you, international SMS rates are volatile and can cause bill shock, live human support is gated behind Enterprise, and at least one review notes no public status page and occasional reliability concerns.
 
