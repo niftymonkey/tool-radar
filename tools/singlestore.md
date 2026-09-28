@@ -30,7 +30,7 @@ pricing: https://www.singlestore.com/pricing/
 - A normal side project where plain Postgres comfortably handles both reads and reporting.
 - Any budget-sensitive project: there is no flat hobby tier and production billing is usage-based and easy to overrun.
 
-**Pricing posture:** Free Shared workspace for development (genuine, not a crippled trial). Managed Standard at $0.99/credit-hour, Enterprise at $1.49/credit-hour; smallest workspace (S-00, 2 GB) is $0.99/hour (~$713/month continuous). No per-seat fees; no flat low-cost plan. Acquired by Vector Capital in September 2025.
+**Pricing posture:** Free Shared workspace for development (genuine, not a crippled trial). Managed Standard at $0.99/hour, Enterprise at $1.49/hour; smallest workspace (S-00, 2 GB) is $0.99/hour (~$713/month continuous). No per-seat fees; no flat low-cost plan. Acquired by Vector Capital in September 2025.
 
 **Reality check:** Reviewers consistently praise the speed and MySQL compatibility but flag premium pricing versus open-source stacks, pricing that stays vague until late scoping, unorganized documentation with thin training, and performance that depends heavily on careful key distribution and capacity planning. SingleStore was acquired by Vector Capital in September 2025, which adds product-direction uncertainty. Common alternatives raised are ClickHouse, BigQuery, and TiDB Cloud.
 
