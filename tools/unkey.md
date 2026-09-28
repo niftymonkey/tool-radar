@@ -7,7 +7,7 @@ summary: "Open-source API key management platform that issues, verifies, expires
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://unkey.com
 pricing: https://unkey.com/pricing
@@ -30,10 +30,10 @@ pricing: https://unkey.com/pricing
 - A project that needs only a single static API key with no analytics or lifecycle.
 - When a full API gateway like Kong already covers key management end to end.
 
-**Pricing posture:** Free tier covers 1K keys, 150K verifications a month, 7-day logs, and unlimited rate limiting. Paid plans scale by verification volume, with the Pro tier commonly cited around $25/month for roughly 250K verifications. Enterprise is quote-only.
+**Pricing posture:** Free tier covers 1K keys and 150K verifications a month with 7-day logs. The hosted cloud has two product lines — API key management (priced by verification volume) and Deploy compute ($5/mo Starter, $25/mo Pro, $50/mo Business); check the pricing page's tabs to read only the one you need. Enterprise is quote-only.
 
 **Reality check:** Reviewers rate it the leading modern alternative to legacy gateways, with 5K-plus GitHub stars, edge verification, and a three-line integration. Caveats: it is AGPL-3.0 and self-hosting is possible but not officially supported, so the hosted service is the realistic path; the ecosystem is younger than Kong's with fewer integrations; and active development can introduce breaking changes. The 7-day log retention on the free tier limits production debugging.
 
 **Links:** [Homepage](https://unkey.com) and [Pricing](https://unkey.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28
