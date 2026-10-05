@@ -7,7 +7,7 @@ summary: "Open-source WebRTC platform for real-time voice, video, and data, with
 source: manual
 discovered-via: https://livekit.io
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-10-05
 managed: auto
 homepage: https://livekit.io
 pricing: https://livekit.io/pricing
@@ -31,10 +31,10 @@ pricing: https://livekit.io/pricing
 - Once I outgrow the free Build tier, I commit to $50/month (Ship) or $500/month (Scale) regardless of whether I use the bundled minutes.
 - Teams that want telephony, phone number provisioning, and warm transfers as turnkey features — LiveKit provides primitives, not a call center platform.
 
-**Pricing posture:** Free Build tier with 5K WebRTC + 1K AI Agent minutes per month; Ship at $50/month; Scale at $500/month; open-source and self-hostable for teams with ops capability.
+**Pricing posture:** Free Build tier with 5K WebRTC + 1K AI Agent minutes per month; Ship at $50/month with 5K included AI Agent minutes; Scale at $500/month with 50K included AI Agent minutes; overage at $0.01/agent-minute; downstream egress dropped from $0.18/GB to $0.12/GB in 2026; open-source and self-hostable for teams with ops capability.
 
-**Reality check:** Strongly regarded in the voice AI community for the quality of its Agents framework and real-time infrastructure. Cost comparisons show LiveKit Scale + inference running at roughly half the cost of Agora at equivalent scale. The main complaint is that the Ship and Scale tiers are fixed monthly commitments, not pure pay-as-you-go. One case study documented $19,400/month on LiveKit vs. a $45,000 Agora quote for the same workload. The open-source nature (Apache 2.0) makes the self-host path credible for teams with ops capability.
+**Reality check:** Strongly regarded in the voice AI community for the quality of its Agents framework and real-time infrastructure. In 2026 LiveKit reduced downstream bandwidth rates from $0.18/GB to $0.12/GB (upstream is free), benefiting voice AI workloads where audio data flows primarily downstream. Cost comparisons continue to show LiveKit running at roughly half the cost of Agora at equivalent scale; one case study documented $19,400/month on LiveKit vs. a $45,000 Agora quote for the same workload. The main complaint remains that Ship and Scale tiers are fixed monthly commitments, not pure pay-as-you-go. OpenAI running ChatGPT Voice on LiveKit continues to demonstrate platform maturity at scale. The open-source nature (Apache 2.0) makes the self-host path credible for teams with ops capability.
 
 **Links:** [Homepage](https://livekit.io), [Pricing](https://livekit.io/pricing), and [GitHub](https://github.com/livekit/livekit)
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-10-05

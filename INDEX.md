@@ -1,6 +1,6 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-07. 90 tools across 23 problem areas.
+Last refreshed 2026-10-05. 90 tools across 23 problem areas.
 
 ## auth
 
@@ -81,7 +81,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 - [Axiom](tools/axiom.md) `assess`: Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL).
 - [Grafana](tools/grafana.md) `assess`: Open-source observability and dashboarding platform unifying metrics (Prometheus/Mimir), logs (Loki), and traces (Tempo) — available self-hosted or as Grafana Cloud.
-- [Helicone](tools/helicone.md) `assess`: Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy with a single base-URL change.
+- [Helicone](tools/helicone.md) `assess`: Open-source LLM observability platform that logs every AI request and tracks cost and latency by routing calls through its proxy — cloud product acquired by Mintlify and now in maintenance mode.
 - [Highlight](tools/highlight.md) `assess`: Open-source full-stack monitoring platform unifying error tracking, session replay, logging, and OpenTelemetry tracing in one product.
 - [Honeycomb](tools/honeycomb.md) `assess`: Event-based observability platform built around high-cardinality distributed tracing and exploratory querying, with a 20M events/month free tier.
 - [PostHog](tools/posthog.md) `assess`: Open-source product platform bundling event analytics, session replay, feature flags, A/B testing, surveys, error tracking, and a data warehouse behind a single SDK.
@@ -149,7 +149,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 ## i18n
 
-- [General Translation](tools/general-translation.md) `assess`: AI-powered i18n toolkit for React and Next.js whose \<T\> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key.
+- [General Translation](tools/general-translation.md) `assess`: AI-powered i18n toolkit for React and Next.js whose <T> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key.
 
 ## cost-optimization
 
@@ -216,14 +216,14 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Exa](tools/exa.md) `assess`: AI-native web search API that returns semantically relevant pages, token-efficient content excerpts, and structured JSON, built for LLMs and agents.
 - [FAL](tools/fal.md) `assess`: Serverless inference platform exposing 1,000+ generative image, video, audio, and 3D models behind one API on an accelerated GPU runtime.
 - [Firecrawl](tools/firecrawl.md) `assess`: Web scraping and crawling API that turns websites, including JavaScript-rendered pages and PDFs, into clean markdown and structured JSON ready for LLMs.
-- [LiteLLM](tools/litellm.md) `assess`: Open-source Python library and proxy server that presents a unified OpenAI-compatible API across 100+ LLM providers.
-- [OpenRouter](tools/openrouter.md) `assess`: Unified API gateway that routes requests to 300+ AI models from 60+ providers through a single OpenAI-compatible endpoint.
-- [PlayHT](tools/playht.md) `assess`: Text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model with sub-300ms latency.
-- [Portkey](tools/portkey.md) `assess`: AI gateway and observability control plane that routes requests to 250+ LLM providers with fallbacks, load balancing, semantic caching, and per-request cost logging.
+- [LiteLLM](tools/litellm.md) `assess`: Open-source Python library and proxy server that presents a unified OpenAI-compatible API across 100+ LLM providers, now at v1.104 with LiteAgents and a Rust rewrite underway.
+- [OpenRouter](tools/openrouter.md) `assess`: Unified API gateway that routes requests to 400+ AI models from 70+ providers through a single OpenAI-compatible endpoint, with response caching and Batch API added in 2026.
+- [Portkey](tools/portkey.md) `assess`: AI gateway and observability control plane that routes requests to 250+ LLM providers with fallbacks, semantic caching, and per-request cost logging — acquired by Palo Alto Networks in May 2026.
 - [Vapi](tools/vapi.md) `assess`: Developer platform for building voice AI agents that answer and place phone calls, orchestrating swappable STT, LLM, TTS, and telephony providers behind one API.
-- [Voyage AI](tools/voyage-ai.md) `assess`: Specialized text embedding API with a 32K-token context window, domain-specific variants (code, legal, finance), and multimodal support optimized for retrieval accuracy.
+- [Voyage AI](tools/voyage-ai.md) `assess`: Specialized text embedding API with the Voyage 4 family (January 2026), featuring MoE architecture, domain-specific models, and per-model pricing from $0.02 to $0.12/1M tokens.
 
 **Held:**
+- [PlayHT](tools/playht.md) `hold`: Text-to-speech API with 800+ voices and voice cloning — acquired by Meta in July 2025, shut down December 31, 2025, and no longer available as a standalone service.
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
 
 ## ai-web-data
@@ -245,4 +245,3 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Render](tools/render.md) `assess`: Managed cloud platform for deploying web services, static sites, PostgreSQL databases, Redis instances, and background workers from a Git push.
 - [Trigger.dev](tools/trigger-dev.md) `assess`: Managed platform for durable background jobs, scheduled tasks, and AI agent workflows written as plain async TypeScript functions that live in your own repo.
 - [Upstash](tools/upstash.md) `assess`: Serverless data platform offering Redis, a Vector database, and the QStash message queue, all accessible over HTTP and billed per request.
-

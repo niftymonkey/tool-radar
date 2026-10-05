@@ -7,7 +7,7 @@ summary: "Serverless PostgreSQL database that scales compute to zero when idle, 
 source: manual
 discovered-via: https://neon.tech
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-10-05
 managed: auto
 homepage: https://neon.tech
 pricing: https://neon.tech/pricing
@@ -33,8 +33,8 @@ pricing: https://neon.tech/pricing
 
 **Pricing posture:** Free tier with 100 compute-unit hours per month; Launch plan at $0.106/CU-hour; Scale plan at $0.222/CU-hour; storage at $0.35/GB-month across paid plans (Launch + Scale); no minimum monthly spend.
 
-**Reality check:** Acquired by Databricks in May 2025, after which Neon reduced storage pricing by 80% (from $1.75 to $0.35/GB-month across Launch + Scale plans) and doubled the free compute allowance. Developer reviews consistently highlight database branching as a genuine workflow improvement for CI quality. The cold-start latency is real but small in practice. Storage costs are the main gotcha at larger data sizes. Compared to Supabase Postgres, Neon is more focused on serverless and branching; Supabase bundles auth, storage, and edge functions in the same product.
+**Reality check:** Acquired by Databricks in May 2025 and continuing to operate independently as of October 2026 with its own pricing, free tier, and product roadmap. Neon reduced storage pricing by 80% (from $1.75 to $0.35/GB-month) and doubled the free compute allowance post-acquisition. The Scale tier added SOC 2 Type 2 and HIPAA eligibility. Developer reviews consistently highlight database branching as a genuine workflow improvement for CI quality. The cold-start latency is real but small in practice. Storage costs are the main gotcha at larger data sizes. Compared to Supabase Postgres, Neon is more focused on serverless and branching; Supabase bundles auth, storage, and edge functions in the same product.
 
 **Links:** [Homepage](https://neon.tech) and [Pricing](https://neon.tech/pricing)
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-10-05
