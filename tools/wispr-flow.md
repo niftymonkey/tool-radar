@@ -38,9 +38,10 @@ up automatically.
 
 **Pricing posture:** Free tier capped at 2,000 words per week on Mac/Windows
 (unlimited on Android during a 2026 promo); Pro is $15/month or $12/month
-billed annually for unlimited words; Growth is $23/month or $18/month billed
-annually; Enterprise is custom and sales-led. Notetaker ships on Growth and
-above.
+billed annually for unlimited words; Growth dictation is $23/month or $18/month
+billed annually, while Growth with Dictation + Notetaker is $33/month or
+$26/month equivalent with annual billing; Enterprise is custom and sales-led.
+Notetaker ships on Growth and above.
 
 **Reality check:** All transcription is cloud-only, and reviewers flag that
 the context-aware feature captures periodic active-window screenshots, a
@@ -48,8 +49,9 @@ structural dealbreaker for sensitive work. Wispr trains on your data by
 default on Free and Pro plans — opt out in Settings before using it with
 anything sensitive. Memory footprint on older hardware is meaningful (reports
 of ~1 GB while recording on 8 GB machines). Independent reviews report a
-2.7/5 Trustpilot score. Notetaker transcription is strong but misses speaker
-labels and doesn't keep meeting audio for verification. Local-first tools
+2.7/5 Trustpilot score. Notetaker transcription is strong and identifies
+speakers, but it may use generic labels when identification is uncertain. It
+doesn't keep meeting audio for verification. Local-first tools
 like SuperWhisper win on privacy.
 
 **Links:** [Homepage](https://wisprflow.ai) · [Pricing](https://wisprflow.ai/pricing)

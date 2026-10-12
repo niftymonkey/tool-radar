@@ -3,7 +3,7 @@ name: Zep
 problem-areas:
   - ai-agent-infra
 ring: hold
-ring-reasoning: Free tier exhausts quickly (10K credits/month, ~1K episodes) and is not usable for a real side project; first paid tier (Flex) is $125/month, well above the $20/month threshold.
+ring-reasoning: Free tier exhausts quickly (10K credits/month, ~10K short episodes ≤350 bytes each) and is not usable for a real side project; first paid tier (Flex) is $125/month, well above the $20/month threshold.
 summary: "Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts quickly; Flex starts at $125/month."
 source: scraped
 discovered-via: queue

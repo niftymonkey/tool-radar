@@ -45,7 +45,7 @@ provides it with no auth migration later.
 **Pricing posture:** AuthKit authentication and user management is free for
 the first 1M monthly active users. SSO and Directory Sync are billed per
 connection at $125/month each for the first 15 connections, then $100 for
-16–30, $80 for 31–50, and $65 for 51+. Custom domains add $99/month. FGA
+16–30, $80 for 31–50, and $65 for 51–100; contact sales above 100. Custom domains add $99/month. FGA
 pricing is an enterprise add-on; verify on the pricing page.
 
 **Reality check:** AuthKit covers full hosted auth, but reviewers note
