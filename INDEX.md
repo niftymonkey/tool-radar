@@ -1,10 +1,10 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-07. 90 tools across 23 problem areas.
+Last refreshed 2026-10-12. 90 tools across 23 problem areas.
 
 ## auth
 
-- [WorkOS](tools/workos.md) `adopt`: Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs).
+- [WorkOS](tools/workos.md) `adopt`: Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs, and fine-grained authorization).
 - [Appwrite](tools/appwrite.md) `assess`: Open-source backend-as-a-service bundling auth, databases, storage, serverless functions, messaging, realtime, and web hosting — managed cloud or self-hosted via Docker.
 - [Clerk](tools/clerk.md) `assess`: Hosted authentication and user management service with drop-in React UI components for sign-in, profiles, and organization switching.
 - [Supabase](tools/supabase.md) `assess`: Open-source Firebase alternative wrapping PostgreSQL with auto-generated REST and GraphQL APIs, built-in auth with Row Level Security, storage, real-time subscriptions, and edge functions.
@@ -12,7 +12,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 ## security
 
-- [WorkOS](tools/workos.md) `adopt`: Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs).
+- [WorkOS](tools/workos.md) `adopt`: Authentication service with AuthKit for hosted login UI and enterprise identity APIs (SAML SSO, SCIM directory sync, audit logs, and fine-grained authorization).
 - [Arcjet](tools/arcjet.md) `assess`: Developer-first security SDK that runs inline in your application code, providing rate limiting, bot detection, WAF, email validation, and AI prompt-injection protection.
 - [DeepSource](tools/deepsource.md) `assess`: Cloud-hosted code review platform that combines static analysis with AI agents to flag bugs, security issues, and quality problems on every pull request.
 - [Unkey](tools/unkey.md) `assess`: Open-source API key management platform that issues, verifies, expires, and rate-limits keys at the edge with built-in usage analytics.
@@ -128,7 +128,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 ## dev-workflow
 
 - [CodeRabbit](tools/coderabbit.md) `adopt`: AI code review tool that auto-reviews pull requests across GitHub, GitLab, Azure DevOps, and Bitbucket with inline comments and PR summaries.
-- [Wispr Flow](tools/wispr-flow.md) `adopt`: Voice-to-text dictation app that turns natural speech into clean, AI-formatted writing inside any app on Mac, Windows, iOS, and Android.
+- [Wispr Flow](tools/wispr-flow.md) `adopt`: Voice-to-text dictation app that turns natural speech into clean, AI-formatted writing inside any app on Mac, Windows, iOS, and Android. Notetaker meeting notes added in 2026.
 - [Augment Code](tools/augment-code.md) `assess`: Agentic AI coding platform whose Context Engine indexes large multi-repo codebases so agents can plan, refactor, and open pull requests with real architectural awareness.
 - [Axiom](tools/axiom.md) `assess`: Serverless event-data platform that ingests, stores, and queries logs, traces, metrics, and AI telemetry at scale with no sampling and a piped query language (APL).
 - [Bolt.new](tools/bolt-new.md) `assess`: In-browser AI full-stack app builder by StackBlitz that generates, runs, and deploys web apps from prompts inside WebContainers; Bolt V2 adds Bolt Cloud with databases, auth, and edge functions.
@@ -203,7 +203,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 **Held:**
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
-- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts in days; Pro is $99/month.
+- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts quickly; Flex starts at $125/month.
 
 ## ai-apis
 
