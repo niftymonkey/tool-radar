@@ -238,7 +238,7 @@ Last refreshed 2026-11-02. 90 tools across 23 problem areas.
 
 ## i18n
 
-- [General Translation](tools/general-translation.md) `assess`: AI-powered i18n toolkit for React and Next.js whose <T> wrapper translates literal JSX at build time, so UI copy needs no extracted translation key.
+- [General Translation](tools/general-translation.md) `assess`: AI-powered i18n toolkit for React and Next.js whose `<T>` wrapper translates literal JSX at build time, so UI copy needs no extracted translation key.
 
 ## cost-optimization
 
