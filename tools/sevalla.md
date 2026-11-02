@@ -7,7 +7,7 @@ summary: "Heroku-style hosting from Kinsta that deploys Docker-based apps, manag
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://sevalla.com
 pricing: https://sevalla.com/pricing
@@ -32,8 +32,8 @@ pricing: https://sevalla.com/pricing
 
 **Pricing posture:** Static site hosting is free (100 sites, 100GB bandwidth, 600 build minutes). Application and database hosting start at $5/month, object storage is $0.02 per GB per month, and new accounts get $50 in free credits. No per-seat pricing; collaborators are unlimited.
 
-**Reality check:** Reviews are positive on transparent pricing, fast deploys (around 14 seconds for static sites), human developer support at no extra cost, and an all-in-one feature set that spares the usual vendor juggling between Vercel and an external database. The recurring caution is that Sevalla is a young platform: thinner community and documentation than Heroku, Vercel, or Render, and usage-based billing that can be unpredictable for projects with spiky traffic. No widely reported reliability incidents yet, partly because the track record is still short.
+**Reality check:** Kinsta formally completed its migration of all application and database hosting to Sevalla on February 2, 2026, so the platform is now the official Kinsta PaaS product. Reviews are positive on transparent pricing, fast deploys (around 14 seconds for static sites), human developer support at no extra cost, and an all-in-one feature set that spares the usual vendor juggling between Vercel and an external database. The recurring caution is thinner community and documentation than Heroku, Vercel, or Render, and usage-based billing that can be unpredictable for projects with spiky traffic.
 
 **Links:** [Homepage](https://sevalla.com) and [Pricing](https://sevalla.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

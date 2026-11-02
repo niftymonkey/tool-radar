@@ -7,7 +7,7 @@ summary: "Serverless managed PostgreSQL from the Prisma team, with built-in conn
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://www.prisma.io/postgres
 pricing: https://www.prisma.io/pricing
@@ -36,4 +36,4 @@ pricing: https://www.prisma.io/pricing
 
 **Links:** [Homepage](https://www.prisma.io/postgres) and [Pricing](https://www.prisma.io/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

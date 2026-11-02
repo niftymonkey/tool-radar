@@ -2,12 +2,12 @@
 name: Netlify
 problem-areas: [hosting-deploy, ci-cd, backend-platform]
 ring: assess
-ring-reasoning: "Free tier and self-serve $9 Personal plan suit a solo developer, but the 2025 credit-based pricing model makes costs hard to predict and it has not been tried personally."
+ring-reasoning: "Free tier (300 credits) and self-serve $9 Personal plan suit a solo developer; an April 2026 update added unlimited seats on the $20 Pro plan and credit rate adjustments, but the opaque credit system still makes costs hard to predict."
 summary: "Web deployment platform that builds and ships sites and full-stack apps from Git, with serverless functions, deploy previews, and a global edge network."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://www.netlify.com
 pricing: https://www.netlify.com/pricing/
@@ -32,8 +32,8 @@ pricing: https://www.netlify.com/pricing/
 
 **Pricing posture:** Free tier with a 300-credit allowance. Personal is $9/month with about 1,000 credits and Pro is $20/month for unlimited members; billing is credit-based rather than per-seat.
 
-**Reality check:** Netlify replaced simple limits with an opaque credit pool in September 2025, and the consensus complaint is that costs are now hard to predict. The free tier's 300 credits can vanish in roughly two days of active deploys, and even the $9 plan's credits run out within weeks under per-commit CI/CD. Bandwidth overage is steep at around $55 per 100GB, though the system tends to fail the site rather than generate a runaway bill. Cloudflare Pages is the usual cheaper comparison for static sites.
+**Reality check:** Netlify replaced simple limits with an opaque credit pool in September 2025, and the consensus complaint is that costs are now hard to predict. An April 2026 update brought unlimited seats on Pro and new credit rates (bandwidth now 20 credits/GB, compute 10 credits/GB-hour), but the fundamental opacity remains. The free tier's 300 credits can vanish in roughly two days of active deploys, and even the $9 plan's credits run out within weeks under per-commit CI/CD. Bandwidth overage is steep at around $55 per 100GB, though the system tends to fail the site rather than generate a runaway bill. Cloudflare Pages is the usual cheaper comparison for static sites.
 
 **Links:** [Homepage](https://www.netlify.com) and [Pricing](https://www.netlify.com/pricing/)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

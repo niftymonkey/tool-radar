@@ -7,7 +7,7 @@ summary: "Remote pair-programming app for macOS and Windows built around low-lat
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://tuple.app
 pricing: https://tuple.app/pricing
@@ -36,4 +36,4 @@ pricing: https://tuple.app/pricing
 
 **Links:** [Homepage](https://tuple.app) and [Pricing](https://tuple.app/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

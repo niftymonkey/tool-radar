@@ -7,7 +7,7 @@ summary: "Cloud browser infrastructure for AI agents that spins up sandboxed Chr
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://www.kernel.sh
 pricing: https://www.kernel.sh/pricing
@@ -36,4 +36,4 @@ pricing: https://www.kernel.sh/pricing
 
 **Links:** [Homepage](https://www.kernel.sh) and [Pricing](https://www.kernel.sh/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

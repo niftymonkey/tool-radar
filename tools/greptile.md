@@ -7,7 +7,7 @@ summary: "AI code review agent that indexes an entire codebase and runs a swarm 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://www.greptile.com
 pricing: https://www.greptile.com/pricing
@@ -35,4 +35,4 @@ pricing: https://www.greptile.com/pricing
 
 **Links:** [Homepage](https://www.greptile.com) and [Pricing](https://www.greptile.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21
