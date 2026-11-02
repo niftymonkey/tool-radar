@@ -28,7 +28,7 @@ pricing: https://firecrawl.dev/pricing
 **When I wouldn't:**
 
 - Scraping Amazon, LinkedIn, or Cloudflare-protected pages, where independent benchmarks put success near 34 percent.
-- When predictable flat billing matters, since per-operation credit multipliers (5× for JSON extraction, up to 1,500× for agents) make costs hard to forecast.
+- When predictable flat billing matters, since JSON extraction costs 5 credits per page and Agent pricing is dynamic and query-dependent (100–1,500 credits per query).
 
 **Pricing posture:** Free tier gives 1,000 credits per month (no rollover). Hobby is $16/month billed annually ($19/month billed monthly) for 5,000 credits, no rollover. Standard is $83/month (billed annually), Growth $333/month. Scale at $599/month adds 1M credits and one month of rollover. No per-seat fee. Stealth Mode costs 5× more per page; the FIRE-1 agent is billed even on failed runs.
 
