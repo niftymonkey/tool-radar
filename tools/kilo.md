@@ -2,12 +2,12 @@
 name: Kilo Code
 problem-areas: [ai-coding-agents, dev-workflow]
 ring: assess
-ring-reasoning: "The extension is free and open source with optional BYOK or a $19 credit plan, all self-serve, and it delivers full value to an individual developer at small scale."
+ring-reasoning: "The extension is free and open source (Apache-2.0) with optional BYOK or a Kilo Pass credit plan, all self-serve, and it delivers full value to an individual developer at small scale. A 5% credit-purchase processing fee takes effect September 1, 2026."
 summary: "Open-source AI coding agent for VS Code and JetBrains with 500+ models, zero-markup pricing, and specialized Architect, Code, Debug, and Orchestrator modes."
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://kilo.ai
 pricing: https://kilo.ai/pricing
@@ -30,10 +30,10 @@ pricing: https://kilo.ai/pricing
 - Wanting a zero-decision, install-and-go tool, since Kilo needs more configuration than Cursor or Copilot.
 - Relying on Orchestrator mode casually, since multi-agent runs burn tokens far faster than single-agent work.
 
-**Pricing posture:** Extension is free and open source under Apache-2.0. Bring your own API keys at no markup, or buy Kilo Pass credits from $19/month. Teams is $15/user/month.
+**Pricing posture:** Extension is free and open source under Apache-2.0. Bring your own API keys at no markup, or use Kilo Pass (Starter/Pro/Expert tiers) billed per credit with a 5% processing fee on card purchases from September 1, 2026. Teams is $15/user/month for centralized billing and shared management. Cloud agents bill per second and require a $5 minimum balance.
 
-**Reality check:** Reviewers praise model freedom and prompt transparency but flag a smaller community than Cline (roughly 9.5K versus 59K GitHub stars), feature sprawl across voice, cloud agents, and Slack, and a recent extension rebuild some long-time users find less transparent. Users report intermittent "API Request Failed" errors and subpar autocomplete. The Cline-fork lineage also draws ongoing community criticism over heavy marketing relative to upstream contribution.
+**Reality check:** Anaconda acquired Kilo in 2026, adding enterprise backing but introducing questions about open-source independence. Reviewers praise model freedom and prompt transparency but flag a smaller community than Cline, feature sprawl across voice, cloud agents, and Slack, and a recent extension rebuild some long-time users find less transparent. Users report intermittent "API Request Failed" errors and subpar autocomplete. The Cline-fork lineage also draws ongoing community criticism over heavy marketing relative to upstream contribution.
 
 **Links:** [Homepage](https://kilo.ai) and [Pricing](https://kilo.ai/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

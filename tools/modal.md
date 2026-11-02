@@ -7,7 +7,7 @@ summary: "Serverless cloud compute platform that runs Python code, GPUs, and iso
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://modal.com
 pricing: https://modal.com/pricing
@@ -32,8 +32,8 @@ pricing: https://modal.com/pricing
 
 **Pricing posture:** Free Starter plan includes $30/month in credits, 3 seats, and 10 GPU concurrency. Team is $250/month plus compute; both bill compute per second, GPUs roughly $0.0002 to $0.0017 per second.
 
-**Reality check:** A competitor analysis claims production workloads can hit 3.75x the advertised base rate once regional and preemption multipliers stack, and notes that Volume storage and egress are not publicly priced; treat the exact figures as vendor-adjacent but the structure as real. Reviews more broadly flag preemptible GPU instances interrupting long jobs and multi-second container delays that hurt real-time agent calls. Strong for experimentation and bursty work, weaker for persistent, high-utilization production.
+**Reality check:** A competitor analysis claims production workloads can hit 3.75x the advertised base rate once regional and preemption multipliers stack, and notes that Volume storage and egress are not publicly priced; treat the exact figures as vendor-adjacent but the structure as real. As of August 2026, the Shared API token feature (for serving models to external callers) moved to Team-and-above only. Reviews broadly flag preemptible GPU instances interrupting long jobs and multi-second container delays that hurt real-time agent calls. Strong for experimentation and bursty work, weaker for persistent, high-utilization production.
 
 **Links:** [Homepage](https://modal.com) and [Pricing](https://modal.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21
