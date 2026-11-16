@@ -43,9 +43,9 @@ this deployed" tax on side projects.
   containers still cost money.
 
 **Pricing posture:** No permanent free tier, only a one-time $5 trial credit
-with no card required. Hobby is $5/month including $5 of compute, with a hard
-$5 spend cap (services stop when it is hit, so no surprise bill, but the app
-goes down). Pro is $20/month per seat. Genuinely hobby-friendly at the low
+with no card required. Hobby is $5/month including $5 of compute; usage above the
+included $5 is billed as pay-as-you-go, so a spending limit must be configured
+separately in the dashboard to prevent a surprise bill. Pro is $20/month per seat. Genuinely hobby-friendly at the low
 end.
 
 **Reality check:** Marketing and the community record diverge sharply.

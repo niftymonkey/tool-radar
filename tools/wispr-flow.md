@@ -50,8 +50,7 @@ default on Free and Pro plans — opt out in Settings before using it with
 anything sensitive. Memory footprint on older hardware is meaningful (reports
 of ~1 GB while recording on 8 GB machines). Independent reviews report a
 2.7/5 Trustpilot score. Notetaker transcription is strong and identifies
-speakers, but it may use generic labels when identification is uncertain. It
-doesn't keep meeting audio for verification. Local-first tools
+speakers, but it may use generic labels when identification is uncertain. Encrypted meeting audio may be temporarily retained on-device or in cloud storage, including for transcription verification; check the privacy policy for current retention limits and opt-out options. Local-first tools
 like SuperWhisper win on privacy.
 
 **Links:** [Homepage](https://wisprflow.ai) · [Pricing](https://wisprflow.ai/pricing)
