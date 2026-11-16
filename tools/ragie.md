@@ -7,7 +7,7 @@ summary: "Fully managed RAG API that ingests, parses, chunks, indexes, and retri
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://www.ragie.ai
 pricing: https://www.ragie.ai/pricing
@@ -36,4 +36,4 @@ pricing: https://www.ragie.ai/pricing
 
 **Links:** [Homepage](https://www.ragie.ai) and [Pricing](https://www.ragie.ai/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

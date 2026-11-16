@@ -9,7 +9,7 @@ summary: "Open-source React SDK for adding in-app AI copilot UIs — chat panels
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08
-last-researched: 2026-08-10
+last-researched: 2026-11-16
 managed: auto
 homepage: https://www.copilotkit.ai
 pricing: https://www.copilotkit.ai/pricing
@@ -34,7 +34,7 @@ pricing: https://www.copilotkit.ai/pricing
 
 **Pricing posture:** Core framework is MIT-licensed and free to self-host, and the hosted Developer tier is free forever for one seat. Paid plans start at $39/month, rising to $100 per developer per month up to five seats; enterprise is quote-based. For a side project, self-hosting with your own LLM key costs nothing beyond inference.
 
-**Reality check:** 34,000+ GitHub stars, a $27M Series A in 2026, and stated Fortune 500 production use, with the AG-UI protocol positioned as an open standard for agent-UI communication. The free tier is genuinely useful for solo projects. Primary gotcha: the SDK opinionates heavily on state management and its event protocol, so an agent backend that deviates from LangGraph's graph model means fighting the abstractions; wiring memory, permissions, and multi-agent orchestration in a complex app takes real engineering beyond the base hooks. Because inference bills to your own provider key, set cost guardrails before exposing a copilot to real traffic. Alternatives: the Vercel AI SDK (lower-level, more flexible) and Mastra (agent runtime with built-in memory and tools).
+**Reality check:** AG-UI 1.0 — a stable open spec for agent-to-UI communication — shipped in September 2026 with subagents, interrupts, multimodal tool results, and token usage, with reported backing from Google, Microsoft, Amazon, and Oracle. The v1.50 release introduced `useAgent`, a React hook that wraps the full AG-UI lifecycle in one API call. CopilotKit has also expanded beyond React: React Native support for AG-UI agents in mobile apps, and a Channels SDK that lets one agent address React, Slack, and Teams from a single wiring. GitHub star count is not firmly confirmed as of this research — sources range from ~14K (AG-UI repo specifically) to 35K+ (CopilotKit repo); check the repo directly for a current number. The free tier is genuinely useful for solo projects. Primary gotcha: the SDK opinionates heavily on state management and its event protocol, so an agent backend that deviates from LangGraph's graph model means fighting the abstractions; wiring memory, permissions, and multi-agent orchestration in a complex app takes real engineering beyond the base hooks. Because inference bills to your own provider key, set cost guardrails before exposing a copilot to real traffic. Alternatives: the Vercel AI SDK (lower-level, more flexible) and Mastra (agent runtime with built-in memory and tools).
 
 **Links:**
 - [Homepage](https://www.copilotkit.ai)
@@ -42,4 +42,4 @@ pricing: https://www.copilotkit.ai/pricing
 - [Pricing](https://www.copilotkit.ai/pricing)
 - [Docs](https://docs.copilotkit.ai)
 
-**Last researched:** 2026-08-10
+**Last researched:** 2026-11-16

@@ -7,7 +7,7 @@ summary: "Code review and workflow platform for GitHub built around stacked pull
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://graphite.com
 pricing: https://graphite.com/pricing
@@ -36,4 +36,4 @@ pricing: https://graphite.com/pricing
 
 **Links:** [Homepage](https://graphite.com) and [Pricing](https://graphite.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

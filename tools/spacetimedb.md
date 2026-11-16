@@ -7,7 +7,7 @@ summary: "Database that is also the application server, where server logic (redu
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://spacetimedb.com
 pricing: https://spacetimedb.com/pricing
@@ -32,8 +32,8 @@ pricing: https://spacetimedb.com/pricing
 
 **Pricing posture:** Free Maincloud tier with 2,500 TeV monthly (roughly 3 million reducer calls, 1 GB storage); Pro is $25/month with about 120 million calls and pay-as-you-go beyond; Team is $250/month, additional members $25 each.
 
-**Reality check:** SpacetimeDB is young and still moving: APIs can shift between releases and it lacks Postgres-grade battle-testing. The TypeScript SDK requires unsafe-eval (Function() codegen), which breaks strict Content Security Policies and rules out Cloudflare Workers, an open and unresolved issue. Free-tier databases pause after a week of inactivity, annoying during active development. The open-source release runs a single node only; clustering and replication are closed and BSL-licensed. Reducers are a real mental shift from REST or ORMs, expect a learning curve.
+**Reality check:** SpacetimeDB is young and still moving: APIs can shift between releases and it lacks Postgres-grade battle-testing. The TypeScript SDK requires unsafe-eval (Function() codegen), which breaks strict Content Security Policies and rules out Cloudflare Workers, an open and unresolved issue. Free-tier databases pause after a week of inactivity, annoying during active development. The open-source release runs a single node only; clustering and replication are closed and BSL-licensed. Clockwork Labs announced two scaling features (database replication) scheduled for October 31, 2026, which may address the single-node limitation. Reducers are a real mental shift from REST or ORMs, expect a learning curve.
 
 **Links:** [Homepage](https://spacetimedb.com) and [Pricing](https://spacetimedb.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

@@ -7,7 +7,7 @@ summary: "From-first-principles CI/CD platform that models builds as a DAG of ca
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://www.rwx.com
 pricing: https://www.rwx.com/pricing
@@ -36,4 +36,4 @@ pricing: https://www.rwx.com/pricing
 
 **Links:** [Homepage](https://www.rwx.com) and [Pricing](https://www.rwx.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

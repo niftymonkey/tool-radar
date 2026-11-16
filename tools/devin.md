@@ -8,7 +8,7 @@ summary: "Autonomous AI software engineer from Cognition that takes a task descr
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08
-last-researched: 2026-08-17
+last-researched: 2026-11-16
 managed: auto
 homepage: https://devin.ai
 pricing: https://devin.ai/pricing
@@ -25,6 +25,7 @@ pricing: https://devin.ai/pricing
 - Implementing a well-scoped bug fix or small feature described in a GitHub issue.
 - Repetitive implementation work such as adding CRUD endpoints, writing tests, or updating configuration.
 - When I want a pull request to review rather than one to write from scratch.
+- Working inside a Windsurf IDE session, where Devin can be invoked as an in-IDE agent alongside the AI coding assistant.
 
 **When I wouldn't:**
 
@@ -33,10 +34,10 @@ pricing: https://devin.ai/pricing
 
 **Pricing posture:** Free plan available; Pro is $20/month (Devin 2.0, launched late 2025, a 96% price cut from the original $500). All active work is billed in ACUs — Agentic Computing Units, each representing approximately 15 minutes of active autonomous work (model inference, VM time, and networking combined) — at $2.25/ACU on the Pro plan. Max is $200/month with a higher included ACU quota. Teams is $80/month plus $40/seat. Enterprise is custom. The $20 headline is a floor: real spend tracks ACU consumption, which dominates budget for any sustained use.
 
-**Reality check:** Cognition's ARR grew from $1M to $73M in the nine months following the Devin 2.0 price cut, a strong adoption signal. Community consensus is consistent: it performs well on well-scoped, specific tasks and struggles on open-ended or multi-system changes requiring deep judgment, with independent benchmark success rates on complex tasks far below the marketing narrative. Task latency is minutes to hours rather than seconds, so it complements rather than replaces in-the-loop tools like Cursor or Claude Code. ACU billing is the key budget variable: 1 ACU is approximately 15 minutes of active autonomous work at $2.25/ACU on the Pro plan; a multi-hour task can cost $10–30 in ACUs before the $20 subscription fee is a rounding error. Noted gotcha: Devin goes quiet on ambiguous tasks, and specifying acceptance criteria upfront dramatically improves results. Comparable to Factory and Augment Code in the autonomous-PR category.
+**Reality check:** Cognition raised a $1B+ Series D at a $26B valuation in May 2026, cementing it as one of the most heavily funded AI coding companies. In July 2025 Cognition acquired Windsurf (the AI IDE formerly known as Codeium) after Google's talent raid had hollowed out the team; in April 2026, Devin began shipping as an in-IDE agent inside Windsurf. Devin 2.2 launched in February 2026. Community consensus remains consistent: it performs well on well-scoped, specific tasks and struggles on open-ended or multi-system changes requiring deep judgment, with independent benchmark success rates on complex tasks far below the marketing narrative. Task latency is minutes to hours rather than seconds, so it complements rather than replaces in-the-loop tools like Claude Code. ACU billing is the key budget variable: 1 ACU is approximately 15 minutes of active autonomous work at $2.25/ACU on the Pro plan; a multi-hour task can cost $10–30 in ACUs before the $20 subscription fee is a rounding error. Noted gotcha: Devin goes quiet on ambiguous tasks, and specifying acceptance criteria upfront dramatically improves results. Comparable to Factory and Augment Code in the autonomous-PR category.
 
 **Links:**
 - [Homepage](https://devin.ai)
 - [Pricing](https://devin.ai/pricing)
 
-**Last researched:** 2026-08-10
+**Last researched:** 2026-11-16

@@ -7,7 +7,7 @@ summary: "AI app builder that generates full-stack websites from prompts, output
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://lovable.dev
 pricing: https://lovable.dev/pricing
@@ -36,4 +36,4 @@ pricing: https://lovable.dev/pricing
 
 **Links:** [Homepage](https://lovable.dev) and [Pricing](https://lovable.dev/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

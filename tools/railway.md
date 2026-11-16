@@ -7,7 +7,7 @@ summary: "Full-stack cloud platform that deploys apps, databases, and background
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://railway.com
 pricing: https://railway.com/pricing
@@ -43,9 +43,9 @@ this deployed" tax on side projects.
   containers still cost money.
 
 **Pricing posture:** No permanent free tier, only a one-time $5 trial credit
-with no card required. Hobby is $5/month including $5 of compute, with a hard
-$5 spend cap (services stop when it is hit, so no surprise bill, but the app
-goes down). Pro is $20/month per seat. Genuinely hobby-friendly at the low
+with no card required. Hobby is $5/month including $5 of compute; usage above the
+included $5 is billed as pay-as-you-go, so a spending limit must be configured
+separately in the dashboard to prevent a surprise bill. Pro is $20/month per seat. Genuinely hobby-friendly at the low
 end.
 
 **Reality check:** Marketing and the community record diverge sharply.
@@ -54,9 +54,12 @@ Through 2026, multiple analyses (around 1,900 platform issues across roughly
 jobs, geographic misrouting causing latency spikes, and, most seriously,
 irreversible data loss: auto-promoted Postgres major versions corrupting
 databases, volumes wiped on redeploy. Support misses its own SLA and treats
-environment deletion as final. Consensus: excellent for throwaway work,
-risky for production with real data.
+environment deletion as final. The Summer 2026 update notes 203 tracked
+product improvements across the year and a second-generation Metal hardware
+rollout (4 new datacenter sites), so reliability work is ongoing, but the
+production track record has not yet recovered community trust. Consensus:
+excellent for throwaway work, risky for production with real data.
 
 **Links:** [Homepage](https://railway.com) and [Pricing](https://railway.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28
