@@ -7,7 +7,7 @@ summary: "Searchable library of real, shipped mobile and web app screenshots org
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-21
 managed: auto
 homepage: https://mobbin.com
 pricing: https://mobbin.com/pricing
@@ -36,4 +36,4 @@ pricing: https://mobbin.com/pricing
 
 **Links:** [Homepage](https://mobbin.com) and [Pricing](https://mobbin.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-21

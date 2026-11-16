@@ -10,7 +10,7 @@ summary: "Managed cloud platform for deploying web services, static sites, Postg
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08
-last-researched: 2026-08-17
+last-researched: 2026-11-16
 managed: auto
 homepage: https://render.com
 pricing: https://render.com/pricing
@@ -35,11 +35,11 @@ pricing: https://render.com/pricing
 
 **Pricing posture:** Free tier with meaningful limits — services spin down after 15 minutes of inactivity with a 30–60 second cold-start penalty, free PostgreSQL expires after 30 days, and free RAM is 512 MB. Always-on web services start at $7/month. As of April 2026, Pro is a flat $25/month per workspace with no per-seat fees, and Scale is $499/month. Outbound bandwidth on the current (post-August 2026) workspace plans: 5 GB included on Hobby (free), 25 GB included on Pro; overage is $0.15/GB on both plans.
 
-**Reality check:** A long-standing, established platform with broad language support (Node, Python, Go, Rust, Ruby, Elixir) and a reputation as a reliable Heroku successor, with no major platform outages reported in the preceding 12 months. The April 2026 pricing restructure removed per-seat fees, making Pro more predictable for small teams. The main gotcha is the free-tier cold start: 30–60 seconds on the first request after 15 minutes idle is unsuitable for anything customer-facing without the $7/month always-on tier. The second is data loss by expiry — free PostgreSQL is hard-deleted at 30 days, so treat it as scratch space only. The April 2026 pricing restructure cut the included outbound bandwidth significantly from legacy plan allowances: Hobby includes 5 GB and Pro includes 25 GB, with overage at $0.15/GB on both. All workspaces were migrated to these new plans by August 1, 2026. Treat Render as unsuitable for media-heavy traffic at either tier without budgeting for bandwidth overages. The community places it alongside Railway and Fly.io in the Heroku-successor tier: Railway wins on developer experience, Render on pricing predictability.
+**Reality check:** A long-standing, established platform with broad language support (Node, Python, Go, Rust, Ruby, Elixir) and a reputation as a reliable Heroku successor, with no major platform outages reported in the preceding 12 months. The April 2026 pricing restructure removed per-seat fees, making Pro more predictable for small teams. As of October 1, 2026, Render also lowered prices on its managed Key Value (Redis-compatible) service by up to 45%. In November 2026 Render launched Sandboxes in public beta: fully isolated Linux environments running on Firecracker microVMs, billed at $0.12/active CPU hour plus memory ($0.038–$0.304/hour by instance size), with auto-suspend when idle and no session-length cap on Pro and above. The main gotcha is the free-tier cold start: 30–60 seconds on the first request after 15 minutes idle is unsuitable for anything customer-facing without the $7/month always-on tier. The second is data loss by expiry — free PostgreSQL is hard-deleted at 30 days, so treat it as scratch space only. The April 2026 pricing restructure cut the included outbound bandwidth significantly from legacy plan allowances: Hobby includes 5 GB and Pro includes 25 GB, with overage at $0.15/GB on both. All workspaces were migrated to these new plans by August 1, 2026. Treat Render as unsuitable for media-heavy traffic at either tier without budgeting for bandwidth overages. The community places it alongside Railway and Fly.io in the Heroku-successor tier: Railway wins on developer experience, Render on pricing predictability.
 
 **Links:**
 - [Homepage](https://render.com)
 - [Pricing](https://render.com/pricing)
 - [Docs](https://docs.render.com)
 
-**Last researched:** 2026-08-10
+**Last researched:** 2026-11-16

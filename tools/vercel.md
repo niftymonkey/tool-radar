@@ -7,7 +7,7 @@ summary: "Frontend cloud platform that builds and deploys web apps from a Git pu
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-10-05
 managed: auto
 homepage: https://vercel.com
 pricing: https://vercel.com/pricing
@@ -32,8 +32,8 @@ pricing: https://vercel.com/pricing
 
 **Pricing posture:** Free Hobby tier for personal projects. Pro is $20/month per developer seat with $20 of included usage, then uncapped pay-as-you-go; viewer seats are free.
 
-**Reality check:** The DX is best in class for Next.js, but the 2026 community story shifted from praise to billing horror stories. Vercel charges for all traffic including DDoS attacks, has no hard spending limit, and bandwidth overage at roughly $0.15/GB has produced $400 to $1,200 invoices on plans expected to cost $20, plus a reported $23,000 DDoS bill. Heavy use of Vercel-specific storage also creates real lock-in.
+**Reality check:** The DX remains best in class for Next.js. As of 2026, Vercel has introduced a default on-demand spend threshold (~$200 for new teams) that triggers an alert before further charges, but this is a soft alert, not a hard cap — you cannot prevent spending beyond it. Vercel has repriced four times since 2024. Bandwidth overage at $0.15/GB still applies to all served traffic including DDoS attacks: documented community cases include a $23,000 DDoS bill and $3,200 attack-traffic invoice. The advice to set a spending alert rather than a spending cap is well-intentioned but insufficient for worst-case scenarios. Heavy use of Vercel-specific storage (KV, Blob, Postgres) deepens lock-in. Multiple repricings since 2024 are a pattern worth tracking for long-term cost planning.
 
 **Links:** [Homepage](https://vercel.com) and [Pricing](https://vercel.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-10-05

@@ -7,7 +7,7 @@ summary: "Full-stack cloud platform that deploys apps, databases, and background
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-09-28
 managed: auto
 homepage: https://railway.com
 pricing: https://railway.com/pricing
@@ -54,9 +54,12 @@ Through 2026, multiple analyses (around 1,900 platform issues across roughly
 jobs, geographic misrouting causing latency spikes, and, most seriously,
 irreversible data loss: auto-promoted Postgres major versions corrupting
 databases, volumes wiped on redeploy. Support misses its own SLA and treats
-environment deletion as final. Consensus: excellent for throwaway work,
-risky for production with real data.
+environment deletion as final. The Summer 2026 update notes 203 tracked
+product improvements across the year and a second-generation Metal hardware
+rollout (4 new datacenter sites), so reliability work is ongoing, but the
+production track record has not yet recovered community trust. Consensus:
+excellent for throwaway work, risky for production with real data.
 
 **Links:** [Homepage](https://railway.com) and [Pricing](https://railway.com/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-09-28

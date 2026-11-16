@@ -7,7 +7,7 @@ summary: "Developer platform for building voice AI agents that answer and place 
 source: scraped
 discovered-via: https://t3.gg/sponsors
 first-seen: 2026-05-21
-last-researched: 2026-05-21
+last-researched: 2026-10-05
 managed: auto
 homepage: https://vapi.ai
 pricing: https://vapi.ai/pricing
@@ -30,10 +30,10 @@ pricing: https://vapi.ai/pricing
 - A standard appointment-booking or after-hours flow, where Retell or a no-code tool ships in a fraction of the time.
 - Any build needing predictable monthly costs, since stacked per-provider billing makes bills swing.
 
-**Pricing posture:** Build tier has no upfront cost: $0.05 per minute for call hosting plus pass-through model and telephony costs, with around $10 of free credits to test. Concurrency is $10 per extra line per month. HIPAA and zero-data-retention add-ons cost thousands per month.
+**Pricing posture:** Build tier has no upfront cost: $0.05 per minute for call hosting plus pass-through model and telephony costs, with around $10 of free credits to test. Concurrency is $10 per extra line per month above the included 10 lines. HIPAA add-on at $2,000/month. Scale tier available as annual contract with volume-based rates.
 
-**Reality check:** 2026 reviews agree Vapi is excellent infrastructure with top-tier docs, but it is a toolkit, not a product: a first build takes 20 to 60 hours and there are no templates or native CRM integrations. The $0.05 base rate becomes $0.13 to $0.36 all-in once STT, TTS, LLM, and telephony are added, and managing four to five API keys is an operational burden. Community forums flag latency from routing audio through multiple providers, and reported uptime (around 99.5 percent) trails Retell. Post-call observability is a common complaint.
+**Reality check:** 2026 reviews agree Vapi is excellent infrastructure with top-tier docs, but it is a toolkit, not a product: a first build takes 20 to 60 hours and there are no templates or native CRM integrations. The $0.05 base rate becomes $0.12 to $0.25 all-in per minute once STT, TTS, LLM, and telephony are added, and managing four to five API keys is an operational burden. At 5,000 minutes per month with BYOK (bring your own keys), typical monthly spend runs $600–$1,200 ($0.12–$0.24/min effective). Community forums flag latency from routing audio through multiple providers, and reported uptime (around 99.5%) trails Retell. Post-call observability remains a common complaint. Pricing structure is stable in 2026 with no major changes from the initial research.
 
 **Links:** [Homepage](https://vapi.ai) and [Pricing](https://vapi.ai/pricing)
 
-**Last researched:** 2026-05-21
+**Last researched:** 2026-10-05

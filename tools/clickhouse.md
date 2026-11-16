@@ -8,7 +8,7 @@ summary: "Open-source column-oriented database for real-time OLAP analytics. No 
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-17
-last-researched: 2026-08-17
+last-researched: 2026-11-16
 managed: auto
 homepage: https://clickhouse.com
 pricing: https://clickhouse.com/pricing
@@ -34,11 +34,11 @@ pricing: https://clickhouse.com/pricing
 
 **Pricing posture:** ClickHouse Cloud has no permanent free tier; a 30-day trial with $300 in credits is available. Basic starts at ~$67/month; Scale starts at ~$499/month. Self-hosted is free and open-source but demands significant operational investment in production.
 
-**Reality check:** Consistently benchmarks as one of the fastest OLAP systems for high-cardinality aggregations; adopted as a core store by observability vendors including Sentry and Grafana. The main gotchas are ClickHouse's SQL dialect extensions, which differ from standard SQL and surprise engineers expecting Postgres behavior; table engine and sort-key choices are made at schema creation time and bad choices require full table rebuilds; and the lack of ACID guarantees means it is unsuitable as a primary transactional store. Self-hosting at real scale feels like a second job — cluster management, shard balancing, and query tuning consume engineering time. For solo-developer OLAP needs, DuckDB is dramatically simpler; MotherDuck wraps DuckDB in a managed cloud offering with a free tier; Tinybird provides a serverless real-time API layer on top of ClickHouse without its operational surface.
+**Reality check:** Consistently benchmarks as one of the fastest OLAP systems for high-cardinality aggregations; adopted as a core store by observability vendors including Sentry and Grafana. The main gotchas are ClickHouse's SQL dialect extensions, which differ from standard SQL and surprise engineers expecting Postgres behavior; table engine and sort-key choices are made at schema creation time and bad choices require full table rebuilds; and the lack of ACID guarantees means it is unsuitable as a primary transactional store. A practical nuisance: ClickHouse's DateTime64 columns reject JavaScript's ISO 8601 format (`2026-11-16T10:00:00.000Z`) — the column expects a space separator and no trailing Z, so ingestion pipelines need an explicit format step. Egress costs add up: internet egress from ClickHouse Cloud runs $0.03–$0.16/GB depending on region, which matters for pipelines that export query results to external dashboards or downstream systems. Self-hosting at real scale feels like a second job — cluster management, shard balancing, and query tuning consume engineering time. For solo-developer OLAP needs, DuckDB is dramatically simpler; MotherDuck wraps DuckDB in a managed cloud offering with a free tier; Tinybird provides a serverless real-time API layer on top of ClickHouse without its operational surface.
 
 **Links:**
 - [Homepage](https://clickhouse.com)
 - [Pricing](https://clickhouse.com/pricing)
 - [Docs](https://clickhouse.com/docs)
 
-**Last researched:** 2026-08-17
+**Last researched:** 2026-11-16

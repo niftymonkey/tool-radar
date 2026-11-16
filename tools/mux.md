@@ -8,7 +8,7 @@ summary: "API-first video infrastructure platform handling encoding, storage, an
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-17
-last-researched: 2026-08-17
+last-researched: 2026-11-16
 managed: auto
 homepage: https://mux.com
 pricing: https://mux.com/pricing
@@ -31,13 +31,13 @@ pricing: https://mux.com/pricing
 - Simple video embeds where YouTube or Vimeo handles hosting without any infrastructure work.
 - Projects with low or incidental video volume where Cloudflare Stream's flat per-minute model is simpler to budget.
 
-**Pricing posture:** 100K delivery minutes/month free with no credit card required. After free tier: ~$0.07/min encoding, $0.025/min delivery, and $0.015/GB/month storage. Mux Data (the analytics product) is separately free up to 100K concurrent streams.
+**Pricing posture:** 100K delivery minutes/month free with no credit card required. Mux cut encoding costs by approximately 22% for plus and premium quality levels in July 2025. In April 2026 Mux published a "simple pricing doesn't work for infrastructure" post signaling a move toward usage-based pricing shapes; check the current pricing page for the latest per-minute rates. Mux Data (the analytics product) is separately free up to 100K concurrent streams.
 
-**Reality check:** Long-standing video API trusted across developer-tooling and SaaS companies; per-title encoding analyzes each video individually to find the optimal quality-to-bitrate ratio rather than applying a fixed rendition ladder. Just-in-time encoding means the first viewer of a newly uploaded or cold asset may wait fractionally longer while a rendition is prepared — a documented trade-off worth planning around for any time-sensitive or live-adjacent content. Mux Video and Mux Data are separate products with separate dashboards and separate billing lines, which surprises teams expecting one console. Community consensus is positive on developer experience and encoding quality; the common alternative is Cloudflare Stream for dead-simple per-minute billing or bunny.net Stream for lower per-unit cost.
+**Reality check:** Long-standing video API trusted across developer-tooling and SaaS companies; per-title encoding analyzes each video individually to find the optimal quality-to-bitrate ratio rather than applying a fixed rendition ladder. In 2026 Mux added the Robots Technical Preview — a hosted AI workflow layer that runs inference pipelines against video assets — and a Robots Directives API (beta, July 2026). Just-in-time encoding means the first viewer of a newly uploaded or cold asset may wait fractionally longer while a rendition is prepared — a documented trade-off worth planning around for any time-sensitive or live-adjacent content. Mux Video and Mux Data are separate products with separate dashboards and separate billing lines, which surprises teams expecting one console. Community consensus is positive on developer experience and encoding quality; the common alternative is Cloudflare Stream for dead-simple per-minute billing or bunny.net Stream for lower per-unit cost.
 
 **Links:**
 - [Homepage](https://mux.com)
 - [Pricing](https://mux.com/pricing)
 - [Docs](https://docs.mux.com)
 
-**Last researched:** 2026-08-17
+**Last researched:** 2026-11-16
