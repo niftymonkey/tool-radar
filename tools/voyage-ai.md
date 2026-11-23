@@ -31,7 +31,7 @@ pricing: https://docs.voyageai.com/docs/pricing
 - When vendor-neutral or self-hosted embeddings are required: Voyage is a managed SaaS with no self-host option.
 - Benchmark claims should be verified independently against the public MTEB leaderboard.
 
-**Pricing posture:** First 200M tokens free on major models; pay-as-you-go from $0.02/1M tokens (voyage-4-lite) to $0.12/1M tokens (voyage-4-large); voyage-4 at $0.06/1M tokens. 33% Batch API discount available. No subscription required. Reranker models from $0.02–$0.05/1M tokens.
+**Pricing posture:** First 200M tokens free on major models (free credits do not apply to Batch API — Batch tokens are billed even when free credits remain); pay-as-you-go from $0.02/1M tokens (voyage-4-lite) to $0.12/1M tokens (voyage-4-large); voyage-4 at $0.06/1M tokens. 33% Batch API discount off pay-as-you-go rates. No subscription required. Reranker models from $0.02–$0.05/1M tokens.
 
 **Reality check:** MongoDB completed the acquisition of Voyage AI in February 2025 for approximately $220M. The standalone Voyage API has continued operating as Phase 1 of the integration, with the same per-token rates and 200M free-token allowance intact. MongoDB's roadmap includes automatic embeddings in Atlas and native reranking. Developer community feedback is positive on retrieval quality gains in real RAG workloads. The voyage-4 model series (voyage-4, voyage-4-large, voyage-4-lite) is the current generation. The main caution is cost at scale: voyage-4 at $0.06/1M tokens is roughly 10× Google text-embedding-004 ($0.006/1M), making Voyage a quality-first choice. The 200M free tokens are enough to embed a sizeable document corpus before any spend.
 

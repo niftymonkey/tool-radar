@@ -27,13 +27,13 @@ pricing: https://www.daily.co/pricing/pipecat-cloud/
 
 **When I wouldn't:**
 
-- When I need telephony features as turnkey: phone number provisioning, IVR routing, warm transfer, and call analytics require integrations Pipecat leaves to the developer.
+- When I need telephony as fully turnkey: Pipecat Cloud includes integrated Daily SIP and PSTN calling (at separate rates), but IVR routing, warm transfer, and advanced call analytics still require custom integrations.
 - TypeScript-first teams: the JS port is less mature than the Python framework.
 - When I want a managed abstraction over the whole stack — Vapi or LiveKit Agents provide higher-level voice agent APIs with less configuration.
 
 **Pricing posture:** Framework is free open-source (BSD-2); self-host for free. Pipecat Cloud (by Daily.co, GA January 2026): agent-1x at $0.01/min active ($0.0005/min reserved), agent-2x at $0.02/min, agent-3x at $0.03/min. No monthly minimum. Enterprise/VPC deployments are quote-only.
 
-**Reality check:** Pipecat Cloud became generally available in January 2026 at $0.01/min active for agent-1x instances, with tiered sizing up to agent-3x ($0.03/min). The open-source framework (~12K+ GitHub stars) remains the foundation, with integrations spanning Deepgram, AssemblyAI, OpenAI, Anthropic, Cartesia, ElevenLabs, and more. The main caveat is that self-hosted production deployments require significant ops work: hosting, monitoring, and third-party service billing become the real cost drivers. Pipecat Cloud simplifies the managed side but doesn't cover telephony — phone number provisioning, SIP, and IVR require additional integrations. Compared to LiveKit Agents, Pipecat wins on framework-level control; LiveKit wins on turnkey managed scale. Compared to Vapi, Pipecat is lower-level and more configurable, while Vapi handles telephony as a managed feature.
+**Reality check:** Pipecat Cloud became generally available in January 2026 at $0.01/min active for agent-1x instances, with tiered sizing up to agent-3x ($0.03/min). The open-source framework (~12K+ GitHub stars) remains the foundation, with integrations spanning Deepgram, AssemblyAI, OpenAI, Anthropic, Cartesia, ElevenLabs, and more. The main caveat is that self-hosted production deployments require significant ops work: hosting, monitoring, and third-party service billing become the real cost drivers. Pipecat Cloud simplifies the managed side and includes integrated Daily SIP and PSTN calling (separate charges apply); IVR routing, warm transfer, and advanced call analytics still require additional integrations. Compared to LiveKit Agents, Pipecat wins on framework-level control; LiveKit wins on turnkey managed scale. Compared to Vapi, Pipecat is lower-level and more configurable, while Vapi handles telephony as a managed feature.
 
 **Links:** [Homepage](https://pipecat.ai), [Pipecat Cloud Pricing](https://www.daily.co/pricing/pipecat-cloud/), and [GitHub](https://github.com/pipecat-ai/pipecat)
 
