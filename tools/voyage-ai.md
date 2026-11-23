@@ -27,7 +27,7 @@ pricing: https://docs.voyageai.com/docs/pricing
 
 **When I wouldn't:**
 
-- High-volume commodity embedding where cost per million tokens is the primary driver: Google's embedding API at $0.006/1M tokens is roughly 20× cheaper than voyage-4 at $0.12/1M tokens.
+- High-volume commodity embedding where cost per million tokens is the primary driver: Google's embedding API at $0.006/1M tokens is roughly 10× cheaper than voyage-4 at $0.06/1M tokens.
 - When vendor-neutral or self-hosted embeddings are required: Voyage is a managed SaaS with no self-host option.
 - Benchmark claims should be verified independently against the public MTEB leaderboard.
 
