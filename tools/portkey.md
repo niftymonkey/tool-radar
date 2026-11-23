@@ -2,8 +2,8 @@
 name: Portkey
 problem-areas: [ai-apis]
 ring: hold
-ring-reasoning: "Acquired by Palo Alto Networks (May 29, 2026, ~$117M) and folded into the Prisma AIRS enterprise AI security platform. Managed cloud is now enterprise-quoted with no self-serve indie pricing. The open-source gateway remains MIT-licensed and free to self-host."
-summary: "AI gateway and LLM observability control plane — now part of Palo Alto Networks' Prisma AIRS after a May 2026 acquisition; managed cloud is enterprise-only. Open-source self-hosted gateway remains MIT-licensed."
+ring-reasoning: "Acquired by Palo Alto Networks (May 29, 2026, ~$117M) and folded into the Prisma AIRS enterprise AI security platform. Self-serve Developer (free) and Production ($49/month) plans still appear on the site, but the product direction is enterprise and long-term plan availability under new ownership is uncertain. The open-source gateway remains MIT-licensed and free to self-host."
+summary: "AI gateway and LLM observability control plane — now part of Palo Alto Networks' Prisma AIRS after a May 2026 acquisition. Self-serve plans (Developer free, Production $49/month) still listed but product direction is enterprise; long-term availability uncertain. Open-source self-hosted gateway remains MIT-licensed."
 source: manual
 discovered-via: https://portkey.ai
 first-seen: 2026-05-25
@@ -26,12 +26,12 @@ pricing: https://portkey.ai/pricing
 
 **When I wouldn't:**
 
-- As a self-serve solo-developer tool — the managed cloud is now part of an enterprise security platform with enterprise pricing. No self-serve indie plan exists post-acquisition.
+- When you need a stable long-term solo-developer tool — while self-serve Developer (free) and Production ($49/month) plans still appear on the site, the product direction is enterprise and plan continuity under Palo Alto Networks' ownership is uncertain.
 - When MCP gateway support or agentic observability is the primary need and you want a vendor in active indie-developer development; Helicone is a closer alternative at this scale.
 
-**Pricing posture:** Managed Portkey is now part of Palo Alto Networks' Prisma AIRS; pricing is enterprise-quoted. The open-source gateway (Portkey-AI/gateway) is MIT-licensed and free to self-host with no per-request fees.
+**Pricing posture:** Self-serve plans as of late 2026: Developer (free, 10K logs/month, 3-day retention) and Production ($49/month, additional charges per 100K requests). Enterprise is custom-quoted via Prisma AIRS. The open-source gateway (Portkey-AI/gateway) is MIT-licensed and free to self-host with no per-request fees. Note: plan availability may change as the acquisition integration proceeds.
 
-**Reality check:** Palo Alto Networks completed its $117M acquisition of Portkey on May 29, 2026, with the product absorbed into Prisma AIRS as a core AI gateway and observability control plane alongside runtime security and agentic identity features. The strategic fit is enterprise AI security: routing every LLM and MCP tool call through a centralized gateway where security policies and cost guardrails apply. The managed product is no longer aimed at solo or indie developers. Prior to acquisition, Portkey earned strong G2 reviews for developer experience and semantic caching (20–50% reported cost reduction). The open-source self-hosted gateway (Portkey-AI/gateway) remains unaffected and is a credible option for anyone who wants LLM routing and basic observability without platform fees. For solo developers, Helicone (free tier up to 10K requests/month, self-serve) is the natural alternative.
+**Reality check:** Palo Alto Networks completed its $117M acquisition of Portkey on May 29, 2026, with the product absorbed into Prisma AIRS as a core AI gateway and observability control plane alongside runtime security and agentic identity features. The strategic fit is enterprise AI security: routing every LLM and MCP tool call through a centralized gateway where security policies and cost guardrails apply. The managed product's self-serve plans (Developer free, Production $49/month) still appear to be available, but the stated strategic direction is enterprise AI security via Prisma AIRS. Prior to acquisition, Portkey earned strong G2 reviews for developer experience and semantic caching (20–50% reported cost reduction). The open-source self-hosted gateway (Portkey-AI/gateway) remains unaffected and is a credible option for anyone who wants LLM routing and basic observability without platform fees. For solo developers, Helicone (free tier up to 10K requests/month, self-serve) is the natural alternative.
 
 **Links:**
 - [Homepage](https://portkey.ai)

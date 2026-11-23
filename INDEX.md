@@ -60,7 +60,7 @@ Last refreshed 2026-11-23. 90 tools across 23 problem areas.
 - [Upstash](tools/upstash.md) `assess`: Serverless data platform offering Redis, a Vector database, and the QStash message queue, all accessible over HTTP and billed per request.
 
 **Held:**
-- [ClickHouse](tools/clickhouse.md) `hold`: Open-source column-oriented database for real-time OLAP analytics. No free tier; 30-day/$300 trial. November 2026 compute price cut of ~55% on AWS self-serve tier.
+- [ClickHouse](tools/clickhouse.md) `hold`: Open-source column-oriented database for real-time OLAP analytics. No free tier; 30-day/$300 trial. OLAP Basic compute at $0.2181/unit-hour; Managed Postgres now GA on AWS.
 - [SingleStore](tools/singlestore.md) `hold`: Distributed SQL database running transactional, analytical, and vector workloads in one MySQL-compatible engine. Production pricing starts ~$700/month.
 
 ## backend-platform
@@ -203,7 +203,7 @@ Last refreshed 2026-11-23. 90 tools across 23 problem areas.
 
 **Held:**
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
-- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Flex plan ~$25/month (annual billing); Community Edition deprecated.
+- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Flex plan $125/month (monthly billing) or $104/month annual; Community Edition deprecated.
 
 ## ai-apis
 
@@ -223,7 +223,7 @@ Last refreshed 2026-11-23. 90 tools across 23 problem areas.
 
 **Held:**
 - [PlayHT](tools/playht.md) `hold`: Text-to-speech API and voice cloning platform — shut down December 31, 2025 after Meta acquired the team in July 2025. No longer operational.
-- [Portkey](tools/portkey.md) `hold`: AI gateway and LLM observability control plane — now part of Palo Alto Networks' Prisma AIRS after a May 2026 acquisition; managed cloud is enterprise-only. Open-source self-hosted gateway remains MIT-licensed.
+- [Portkey](tools/portkey.md) `hold`: AI gateway and LLM observability control plane — now part of Palo Alto Networks' Prisma AIRS after a May 2026 acquisition. Self-serve plans (Developer free, Production $49/month) still listed but product direction is enterprise; long-term availability uncertain.
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
 
 ## ai-web-data
