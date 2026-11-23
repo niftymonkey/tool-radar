@@ -8,7 +8,7 @@ summary: "AI-powered i18n toolkit for React and Next.js whose <T> wrapper transl
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08
-last-researched: 2026-08-10
+last-researched: 2026-11-23
 managed: auto
 homepage: https://generaltranslation.com
 pricing: https://generaltranslation.com/pricing
@@ -31,13 +31,13 @@ pricing: https://generaltranslation.com/pricing
 - Non-React or non-Next.js stacks, which the SDK does not target.
 - When professional human translators need to sit in an approval workflow (Lokalise or Crowdin fit better), or for legal, medical, or heavily formatted content where translation quality is critical.
 
-**Pricing posture:** Free API key to get started, then usage-based pricing per translation with no per-seat fees.
+**Pricing posture:** Free plan ($0, usage-limited); Starter at $0 platform fee with usage-based pricing (pay per translation credit). Enterprise is custom-priced. Translations are billed as usage credits covering build-time, runtime, and dev-time calls. No per-seat fees.
 
-**Reality check:** The libraries (`gt-next`, `gt-react`) are open source, and the toolchain includes a CLI (`npx gt@latest`) plus an agent, Locadex, for automating i18n across a larger codebase. The differentiator over i18next and react-intl is the keyless `<T>` path for literal JSX; it is an option rather than a replacement for dictionaries, and JSON translation files remain supported for dynamic strings and content the wrapper cannot reach statically. Community signal is thin next to i18next's decade of adoption and ecosystem, so edge-case handling at scale is less proven. Main risks for a solo developer: translation quality depends on the underlying AI models, and any translations served at runtime create a vendor dependency.
+**Reality check:** The libraries (`gt-next`, `gt-react`) are open source, and the toolchain includes a CLI (`npx gt@latest`) plus an agent, Locadex, for automating i18n across a larger codebase. The libraries have been actively developed — gt-next reached major version 11 (vs. the 6.x series from mid-2026), indicating ongoing API evolution. The differentiator over i18next and react-intl is the keyless `<T>` path for literal JSX; it is an option rather than a replacement for dictionaries, and JSON translation files remain supported for dynamic strings. Translation updates are served from a CDN and can go live without a code redeploy. Community signal is thin next to i18next's decade of adoption and ecosystem, so edge-case handling at scale is less proven. Main risks for a solo developer: translation quality depends on the underlying AI models, and any translations served at runtime create a vendor dependency. The Starter tier's usage-based pricing (no platform fee) makes it accessible for a side project where translation volume is modest.
 
 **Links:**
 - [Homepage](https://generaltranslation.com)
 - [GitHub](https://github.com/generaltranslation/gt)
 - [Docs](https://generaltranslation.com/docs)
 
-**Last researched:** 2026-08-10
+**Last researched:** 2026-11-23

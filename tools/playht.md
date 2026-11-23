@@ -1,13 +1,13 @@
 ---
 name: PlayHT
 problem-areas: [ai-apis]
-ring: assess
-ring-reasoning: "Free tier covers 5K words per month and self-serve signup allow voice quality evaluation at no cost; real production use requires the Creator plan at $39/month."
-summary: "Text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model with sub-300ms latency."
+ring: hold
+ring-reasoning: "Meta acquired Play AI in July 2025 and the standalone play.ht service shut down on December 31, 2025. The domain no longer resolves. Held because the product is discontinued."
+summary: "Text-to-speech API and voice cloning platform — shut down December 31, 2025 after Meta acquired the team in July 2025. No longer operational."
 source: manual
 discovered-via: https://play.ht
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-11-23
 managed: auto
 homepage: https://play.ht
 pricing: https://play.ht/pricing
@@ -15,26 +15,23 @@ pricing: https://play.ht/pricing
 
 # PlayHT
 
-**What it is:** A text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model delivering sub-300ms latency for real-time applications.
+**What it is:** A text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model delivering sub-300ms latency. **Service shut down December 31, 2025.**
 
-**Problem it solves:** Lets a solo developer add voice narration or cloned voices to a content or agent app without recording studios or model training.
+**Problem it solves:** Let a solo developer add voice narration or cloned voices to a content or agent app without recording studios or model training. No longer available.
 
 **When I'd reach for it:**
 
-- Content creation workflows where breadth of voice choice matters — 800+ voices across 142 languages is one of the largest catalogs available.
-- Voice cloning with cross-language output: clone a voice in one language and generate audio in another.
-- Real-time voice assistant features where the Turbo model's sub-300ms speed is acceptable and ElevenLabs-tier naturalness is not required.
+- Not applicable — the service is shut down.
 
 **When I wouldn't:**
 
-- When voice quality at the frontier matters: ElevenLabs and Cartesia consistently rate higher for naturalness and real-time latency respectively.
-- The free tier at 5K words/month is too constrained for a production side project; budget for the Creator plan at $39/month from the start.
-- Customer support is slow and billing issues are cited repeatedly in user reviews — plan for self-service troubleshooting.
+- The service is not operational. Use ElevenLabs (quality-first), Cartesia (real-time, low-latency), or Deepgram TTS (cost-effective) instead.
 
-**Pricing posture:** Free tier at 5K words/month; Creator at $39/month for 50K words with 10 instant voice clones; Pro at $99/month for 200K words.
+**Pricing posture:** Service discontinued. The play.ht domain does not resolve as of late 2025 / 2026.
 
-**Reality check:** The wide voice catalog and cross-language cloning are genuine differentiators that PlayHT reviews highlight. The recurring criticism is quality inconsistency — some voices sound robotic and sentence endings occasionally get cut off — and sluggish customer support. Compared to ElevenLabs, PlayHT offers more voices but lower quality floors; compared to Cartesia, PlayHT is less optimized for real-time latency. The $39 Creator plan is the practical minimum for any regular usage, which is above the roughly $20 hobby threshold.
+**Reality check:** Meta acquired the Play AI team in July 2025, with roughly 35 people joining Meta's Superintelligence Labs to work on internal AI voice and character technology. The standalone play.ht service shut down on December 31, 2025. User accounts, saved audio, and voice clones were deleted at sunset with no migration path provided. The domain no longer resolves. PlayHT's wide voice catalog (800+ voices, cross-language cloning) and Turbo model were competitive features, but ElevenLabs and Cartesia have continued improving and are the stronger choices for new projects: ElevenLabs for quality and voice cloning, Cartesia for ultra-low-latency real-time use cases.
 
-**Links:** [Homepage](https://play.ht) and [Pricing](https://play.ht/pricing)
+**Links:**
+- [Homepage](https://play.ht) *(domain inactive)*
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-11-23

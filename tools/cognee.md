@@ -8,7 +8,7 @@ summary: "Open-source AI agent memory control plane that combines vector search 
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01
-last-researched: 2026-06-01
+last-researched: 2026-11-23
 managed: auto
 homepage: https://www.cognee.ai
 pricing: https://www.cognee.ai/pricing
@@ -29,9 +29,9 @@ pricing: https://www.cognee.ai/pricing
 - When you need per-user personalization or conversation history memory — Cognee is optimized for structured knowledge ingestion, not adapting to individual user preferences over time.
 - When you need a production-grade managed service with SLAs today — Cognee Cloud is newer and community feedback notes documentation thins out for advanced pipelines.
 
-**Pricing posture:** Open source and free to self-host; Cognee Cloud starts at $25/month with a free tier available.
+**Pricing posture:** Open source and free to self-host (pip install cognee); Cognee Cloud free tier available; paid plans from approximately $5–$19/month per workspace (pricing is in flux — confirm at cognee.ai/pricing).
 
-**Reality check:** Cognee is one of a cluster of open-source agent-memory projects that emerged in 2025–2026 alongside Mem0, Zep/Graphiti, and Letta. Its differentiator is the hybrid vector + knowledge graph architecture with RDF-based ontologies, which is theoretically stronger for entity-relationship queries than pure-vector stores. Gotchas: the documentation covers the basics but thins out for advanced custom pipelines (teams report reading source code to fill gaps); Cognee hasn't published LongMemEval benchmark scores, making retrieval quality claims architecture-based rather than measured; the managed cloud service is newer than competitors like Zep. GitHub activity and community size (30+ source connectors, active repo) are positive signals for an open-source tool at this stage. For most side projects, the self-hosted path with `pip install cognee` is the practical entry point.
+**Reality check:** Cognee is one of a cluster of open-source agent-memory projects alongside Mem0, Zep/Graphiti, and Letta. Its differentiator is the hybrid vector + knowledge graph architecture with RDF-based ontologies, theoretically stronger for entity-relationship queries than pure-vector stores. The core API (remember, recall, improve, forget) is clean, and the tool integrates with Claude Code, LangGraph, OpenAI, MCP-compatible clients, and others. Knowledge graph memory is available at every pricing tier, including the free self-hosted tier — a contrast with Mem0, which gates graph memory behind higher plans. Gotchas: documentation thins out for advanced custom pipelines; Cognee hasn't published LongMemEval benchmark scores; the managed cloud service is still maturing. GitHub activity (active repo, 30+ source connectors) is a positive signal for a newer project. For most side projects, `pip install cognee` is the practical entry point.
 
 **Links:**
 - [Homepage](https://www.cognee.ai)
@@ -39,4 +39,4 @@ pricing: https://www.cognee.ai/pricing
 - [Pricing](https://www.cognee.ai/pricing)
 - [Docs](https://docs.cognee.ai)
 
-**Last researched:** 2026-06-01
+**Last researched:** 2026-11-23

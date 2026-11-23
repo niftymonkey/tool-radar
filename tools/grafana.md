@@ -8,7 +8,7 @@ summary: "Open-source observability and dashboarding platform unifying metrics (
 source: scraped
 discovered-via: queue
 first-seen: 2026-06-01
-last-researched: 2026-06-01
+last-researched: 2026-11-23
 managed: auto
 homepage: https://grafana.com
 pricing: https://grafana.com/pricing/
@@ -31,11 +31,11 @@ pricing: https://grafana.com/pricing/
 
 **Pricing posture:** Self-hosted open source is free; Grafana Cloud free tier includes 10K metric series, 50 GB logs, 50 GB traces, 14-day retention; Pro adds $19/month platform fee plus usage beyond the free tier.
 
-**Reality check:** Grafana is the most widely deployed open-source observability stack in the industry — battle-tested at massive scale — and the community, plugin ecosystem, and tutorial library are enormous. The core gotcha is complexity: a standard self-hosted deployment wires together Prometheus, Loki, Tempo, and Grafana as separate services, which is more operational overhead than tools like Axiom or Honeycomb. Grafana Cloud solves this but introduces usage-based billing that surprises teams when metric cardinality grows (each Kubernetes pod label or new deployment multiplies series counts). Community feedback in 2026 frequently describes the Cloud billing model as hard to predict. Compared to Axiom (already in the catalog), Grafana Cloud is more powerful for metrics and dashboards but has a steeper setup curve; Axiom wins on log simplicity and pricing predictability for most solo projects.
+**Reality check:** Grafana is the most widely deployed open-source observability stack in the industry — battle-tested at massive scale — and the community, plugin ecosystem, and tutorial library are enormous. In February 2026, Grafana renamed its cloud tiers to Free, Pro, and Enterprise, simplifying the lineup from more options. The free tier (10K metric series, 50 GB logs/traces, 14-day retention) remains intact. The core gotcha is complexity: a standard self-hosted deployment wires together Prometheus, Loki, Tempo, and Grafana as separate services. Grafana Cloud solves this but introduces usage-based billing that surprises teams when metric cardinality grows ($6.50/1K active series above the free tier). Community feedback in 2026 frequently describes the Cloud billing model as hard to predict. Compared to Axiom (already in the catalog), Grafana Cloud is more powerful for metrics and dashboards but has a steeper setup curve; Axiom wins on log simplicity and pricing predictability for most solo projects.
 
 **Links:**
 - [Homepage](https://grafana.com)
 - [Pricing](https://grafana.com/pricing/)
 - [Docs](https://grafana.com/docs/)
 
-**Last researched:** 2026-06-01
+**Last researched:** 2026-11-23
