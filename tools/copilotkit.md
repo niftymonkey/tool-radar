@@ -4,12 +4,12 @@ problem-areas:
   - ui-components
   - ai-agent-infra
 ring: assess
-ring-reasoning: Free-forever tier for a single developer seat, MIT-licensed core that is free to self-host, and self-serve sign-up; 34k+ GitHub stars and a $27M Series A indicate real maturity. Assess for any React app that needs an embedded AI assistant or agent UI wired to an agent backend.
+ring-reasoning: Free-forever tier for a single developer seat (up to 50 MAU), MIT-licensed core free to self-host, and self-serve sign-up; 34K+ GitHub stars and a $27M Series A (May 2026). AG-UI adopted by Google, Microsoft, Amazon, Oracle, LangChain, and PydanticAI. Assess for any React app that needs an embedded AI assistant or agent UI.
 summary: "Open-source React SDK for adding in-app AI copilot UIs — chat panels, assistants, and human-in-the-loop interfaces — to an existing React application."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-06-08
-last-researched: 2026-08-10
+last-researched: 2026-11-23
 managed: auto
 homepage: https://www.copilotkit.ai
 pricing: https://www.copilotkit.ai/pricing
@@ -32,9 +32,9 @@ pricing: https://www.copilotkit.ai/pricing
 - Frontends outside CopilotKit's supported platform list. The hooks and components are built around React, and support beyond it has moved over time, so check the current list before committing a non-React stack.
 - When a plain Vercel AI SDK chatbot component already covers the use case, or you only need a markdown-rendered LLM response box.
 
-**Pricing posture:** Core framework is MIT-licensed and free to self-host, and the hosted Developer tier is free forever for one seat. Paid plans start at $39/month, rising to $100 per developer per month up to five seats; enterprise is quote-based. For a side project, self-hosting with your own LLM key costs nothing beyond inference.
+**Pricing posture:** Core framework is MIT-licensed and free to self-host. Hosted Developer tier is free forever for one seat (up to 50 monthly active users). Pro is $39/user/month for up to 5 seats; Team is $500/month flat (5 seats included); Enterprise is quote-based. For a side project, self-hosting with your own LLM key costs nothing beyond inference.
 
-**Reality check:** 34,000+ GitHub stars, a $27M Series A in 2026, and stated Fortune 500 production use, with the AG-UI protocol positioned as an open standard for agent-UI communication. The free tier is genuinely useful for solo projects. Primary gotcha: the SDK opinionates heavily on state management and its event protocol, so an agent backend that deviates from LangGraph's graph model means fighting the abstractions; wiring memory, permissions, and multi-agent orchestration in a complex app takes real engineering beyond the base hooks. Because inference bills to your own provider key, set cost guardrails before exposing a copilot to real traffic. Alternatives: the Vercel AI SDK (lower-level, more flexible) and Mastra (agent runtime with built-in memory and tools).
+**Reality check:** 34,000+ GitHub stars, a $27M Series A in May 2026, and stated Fortune 500 production use. AG-UI — the open protocol for agent-UI communication — has been adopted by Google, Microsoft, Amazon, Oracle, LangChain, Mastra, PydanticAI, and Agno, giving the abstraction real ecosystem momentum. The Channels SDK (launched August 2026, beta) extends copilot UIs to Slack, Microsoft Teams, Discord, and Google Chat. CopilotKit Enterprise Intelligence (self-hostable) launched alongside the Series A for production agent deployments. The free tier (1 seat, 50 MAU) is genuinely useful for side projects. Primary gotcha: the SDK opinionates heavily on state management and its event protocol; an agent backend that deviates from LangGraph's graph model means fighting the abstractions. Set cost guardrails before exposing a copilot to real traffic. Alternatives: the Vercel AI SDK (lower-level, more flexible) and Mastra (agent runtime with built-in memory and tools).
 
 **Links:**
 - [Homepage](https://www.copilotkit.ai)
@@ -42,4 +42,4 @@ pricing: https://www.copilotkit.ai/pricing
 - [Pricing](https://www.copilotkit.ai/pricing)
 - [Docs](https://docs.copilotkit.ai)
 
-**Last researched:** 2026-08-10
+**Last researched:** 2026-11-23

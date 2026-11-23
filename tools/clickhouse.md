@@ -3,12 +3,12 @@ name: ClickHouse
 problem-areas:
   - database
 ring: hold
-ring-reasoning: No permanent free tier on ClickHouse Cloud — entry-level Basic starts at ~$67/month, well above the solo-developer threshold. Self-hosted is free and open-source but running column-oriented OLAP in production requires schema design expertise and ongoing tuning that is not side-project-sized work.
-summary: "Open-source column-oriented database for real-time OLAP analytics. No free tier; Basic cloud tier starts at ~$67/month."
+ring-reasoning: No permanent free tier on ClickHouse Cloud — entry pricing requires significant budget even after the November 2026 compute price cut. Self-hosted is free and open-source but running column-oriented OLAP in production requires schema design expertise and ongoing tuning that is not side-project-sized work.
+summary: "Open-source column-oriented database for real-time OLAP analytics. No free tier; 30-day/$300 trial. November 2026 compute price cut of ~55% on AWS self-serve tier."
 source: scraped
 discovered-via: t3-sponsors
 first-seen: 2026-08-17
-last-researched: 2026-08-17
+last-researched: 2026-11-23
 managed: auto
 homepage: https://clickhouse.com
 pricing: https://clickhouse.com/pricing
@@ -32,13 +32,13 @@ pricing: https://clickhouse.com/pricing
 - Any transactional workload: ClickHouse is not ACID-compliant and is not a replacement for a primary relational database.
 - When budget is constrained and a 30-day trial is not enough runway to validate the use case.
 
-**Pricing posture:** ClickHouse Cloud has no permanent free tier; a 30-day trial with $300 in credits is available. Basic starts at ~$67/month; Scale starts at ~$499/month. Self-hosted is free and open-source but demands significant operational investment in production.
+**Pricing posture:** ClickHouse Cloud has no permanent free tier; a 30-day trial with $300 in credits is available. Billing is usage-based (compute + storage). In mid-November 2026, ClickHouse cut AWS self-serve compute ~55% (from $0.125 to $0.056/unit-hour). Storage is ~$25.30/TB/month. Self-hosted is free and open-source but demands significant operational investment in production.
 
-**Reality check:** Consistently benchmarks as one of the fastest OLAP systems for high-cardinality aggregations; adopted as a core store by observability vendors including Sentry and Grafana. The main gotchas are ClickHouse's SQL dialect extensions, which differ from standard SQL and surprise engineers expecting Postgres behavior; table engine and sort-key choices are made at schema creation time and bad choices require full table rebuilds; and the lack of ACID guarantees means it is unsuitable as a primary transactional store. Self-hosting at real scale feels like a second job — cluster management, shard balancing, and query tuning consume engineering time. For solo-developer OLAP needs, DuckDB is dramatically simpler; MotherDuck wraps DuckDB in a managed cloud offering with a free tier; Tinybird provides a serverless real-time API layer on top of ClickHouse without its operational surface.
+**Reality check:** Consistently benchmarks as one of the fastest OLAP systems for high-cardinality aggregations; adopted as a core store by observability vendors including Sentry and Grafana. In mid-November 2026, ClickHouse cut AWS self-serve compute pricing by roughly 55% (from $0.125 to $0.056/unit-hour), making cloud evaluation less expensive. MySQL CDC ClickPipes became billable in September 2026. Managed Postgres is in private preview/beta. The main gotchas remain: ClickHouse's SQL dialect extensions differ from standard SQL; table engine and sort-key choices are made at schema creation time and bad choices require full rebuilds; and the lack of ACID guarantees makes it unsuitable as a primary transactional store. Self-hosting at real scale feels like a second job. For solo-developer OLAP needs, DuckDB is dramatically simpler; MotherDuck wraps DuckDB in a managed cloud offering with a free tier; Tinybird provides a serverless real-time API layer on top of ClickHouse without its operational surface.
 
 **Links:**
 - [Homepage](https://clickhouse.com)
 - [Pricing](https://clickhouse.com/pricing)
 - [Docs](https://clickhouse.com/docs)
 
-**Last researched:** 2026-08-17
+**Last researched:** 2026-11-23

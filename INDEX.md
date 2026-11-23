@@ -1,6 +1,6 @@
 # Tool Radar Index
 
-Last refreshed 2026-09-07. 90 tools across 23 problem areas.
+Last refreshed 2026-11-23. 90 tools across 23 problem areas.
 
 ## auth
 
@@ -60,7 +60,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Upstash](tools/upstash.md) `assess`: Serverless data platform offering Redis, a Vector database, and the QStash message queue, all accessible over HTTP and billed per request.
 
 **Held:**
-- [ClickHouse](tools/clickhouse.md) `hold`: Open-source column-oriented database for real-time OLAP analytics. No free tier; Basic cloud tier starts at ~$67/month.
+- [ClickHouse](tools/clickhouse.md) `hold`: Open-source column-oriented database for real-time OLAP analytics. No free tier; 30-day/$300 trial. November 2026 compute price cut of ~55% on AWS self-serve tier.
 - [SingleStore](tools/singlestore.md) `hold`: Distributed SQL database running transactional, analytical, and vector workloads in one MySQL-compatible engine. Production pricing starts ~$700/month.
 
 ## backend-platform
@@ -123,7 +123,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 - [Vercel](tools/vercel.md) `adopt`: Frontend cloud platform that builds and deploys web apps from a Git push, with deep Next.js integration, a global edge network, and preview deployments.
 - [ImageKit](tools/imagekit.md) `assess`: Media optimization platform that resizes, transforms, and format-converts images and video through URL parameters, then delivers them over a global CDN.
-- [Mux](tools/mux.md) `assess`: API-first video infrastructure platform handling encoding, storage, and streaming delivery with a 100K delivery-minutes/month free tier.
+- [Mux](tools/mux.md) `assess`: API-first video infrastructure platform handling encoding, storage, and streaming delivery — 100K delivery-minutes/month free tier plus a $20/month Launch prepay plan.
 
 ## dev-workflow
 
@@ -203,7 +203,7 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 
 **Held:**
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
-- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Free tier exhausts in days; Pro is $99/month.
+- [Zep](tools/zep.md) `hold`: Managed temporal knowledge graph memory platform for AI agents that tracks how facts change over time. Flex plan ~$25/month (annual billing); Community Edition deprecated.
 
 ## ai-apis
 
@@ -218,12 +218,12 @@ Last refreshed 2026-09-07. 90 tools across 23 problem areas.
 - [Firecrawl](tools/firecrawl.md) `assess`: Web scraping and crawling API that turns websites, including JavaScript-rendered pages and PDFs, into clean markdown and structured JSON ready for LLMs.
 - [LiteLLM](tools/litellm.md) `assess`: Open-source Python library and proxy server that presents a unified OpenAI-compatible API across 100+ LLM providers.
 - [OpenRouter](tools/openrouter.md) `assess`: Unified API gateway that routes requests to 300+ AI models from 60+ providers through a single OpenAI-compatible endpoint.
-- [PlayHT](tools/playht.md) `assess`: Text-to-speech API with 800+ voices across 142 languages, voice cloning from 30 seconds of audio, and a Turbo model with sub-300ms latency.
-- [Portkey](tools/portkey.md) `assess`: AI gateway and observability control plane that routes requests to 250+ LLM providers with fallbacks, load balancing, semantic caching, and per-request cost logging.
 - [Vapi](tools/vapi.md) `assess`: Developer platform for building voice AI agents that answer and place phone calls, orchestrating swappable STT, LLM, TTS, and telephony providers behind one API.
 - [Voyage AI](tools/voyage-ai.md) `assess`: Specialized text embedding API with a 32K-token context window, domain-specific variants (code, legal, finance), and multimodal support optimized for retrieval accuracy.
 
 **Held:**
+- [PlayHT](tools/playht.md) `hold`: Text-to-speech API and voice cloning platform — shut down December 31, 2025 after Meta acquired the team in July 2025. No longer operational.
+- [Portkey](tools/portkey.md) `hold`: AI gateway and LLM observability control plane — now part of Palo Alto Networks' Prisma AIRS after a May 2026 acquisition; managed cloud is enterprise-only. Open-source self-hosted gateway remains MIT-licensed.
 - [Ragie](tools/ragie.md) `hold`: Fully managed RAG API that ingests, parses, chunks, indexes, and retrieves content across text, PDFs, images, audio, and video. Cheapest real plan is $100/month.
 
 ## ai-web-data

@@ -7,7 +7,7 @@ summary: "Specialized text embedding API with a 32K-token context window, domain
 source: manual
 discovered-via: https://www.voyageai.com
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-11-23
 managed: auto
 homepage: https://www.voyageai.com
 pricing: https://docs.voyageai.com/docs/pricing
@@ -27,14 +27,14 @@ pricing: https://docs.voyageai.com/docs/pricing
 
 **When I wouldn't:**
 
-- High-volume commodity embedding where cost per million tokens is the primary driver: Google's embedding API at $0.006/1M tokens is 30× cheaper than Voyage's premium model at $0.18/1M tokens.
+- High-volume commodity embedding where cost per million tokens is the primary driver: Google's embedding API at $0.006/1M tokens is roughly 20× cheaper than voyage-4 at $0.12/1M tokens.
 - When vendor-neutral or self-hosted embeddings are required: Voyage is a managed SaaS with no self-host option.
-- Benchmark claims should be verified independently — Voyage's RTEB numbers use Voyage models as baselines and have not been reproduced on the public MTEB leaderboard as of mid-2026.
+- Benchmark claims should be verified independently against the public MTEB leaderboard.
 
-**Pricing posture:** First 200M tokens free on major models (voyage-4, voyage-4-large, voyage-4-lite, voyage-code-3); pay-as-you-go from $0.02/1M tokens (voyage-4-lite) to $0.18/1M tokens (voyage-4-large); no subscription required.
+**Pricing posture:** First 200M tokens free on major models; pay-as-you-go from $0.02/1M tokens (voyage-4-lite) to $0.12/1M tokens (voyage-4-large); voyage-4 at $0.06/1M tokens. 33% Batch API discount available. No subscription required. Reranker models from $0.02–$0.05/1M tokens.
 
-**Reality check:** Acquired by MongoDB in late 2024, which raised questions about long-term independence, though the API has continued as a standalone product. Developer community feedback is positive on retrieval quality gains in real RAG workloads. The main caution is cost at scale: embedding 1B tokens costs $180 at Voyage versus $6 at Google text-embedding-004, making Voyage a quality-first choice rather than a cost-first one. The 200M free tokens are enough to embed a sizeable document corpus before any spend.
+**Reality check:** MongoDB completed the acquisition of Voyage AI in February 2025 for approximately $220M. The standalone Voyage API has continued operating as Phase 1 of the integration, with the same per-token rates and 200M free-token allowance intact. MongoDB's roadmap includes automatic embeddings in Atlas and native reranking. Developer community feedback is positive on retrieval quality gains in real RAG workloads. The voyage-4 model series (voyage-4, voyage-4-large, voyage-4-lite) is the current generation. The main caution is cost at scale: voyage-4 at $0.06/1M tokens is roughly 10× Google text-embedding-004 ($0.006/1M), making Voyage a quality-first choice. The 200M free tokens are enough to embed a sizeable document corpus before any spend.
 
 **Links:** [Homepage](https://www.voyageai.com) and [Pricing](https://docs.voyageai.com/docs/pricing)
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-11-23

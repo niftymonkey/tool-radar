@@ -7,7 +7,7 @@ summary: "Open-source Firebase alternative wrapping PostgreSQL with auto-generat
 source: manual
 discovered-via: https://supabase.com
 first-seen: 2026-05-25
-last-researched: 2026-05-25
+last-researched: 2026-11-23
 managed: auto
 homepage: https://supabase.com
 pricing: https://supabase.com/pricing
@@ -33,8 +33,8 @@ pricing: https://supabase.com/pricing
 
 **Pricing posture:** Free tier: 50K monthly active users, 500MB database, 1GB file storage, unlimited API requests; Pro at $25/month with 8GB database and 100GB storage included; compute add-ons from $10/month.
 
-**Reality check:** Supabase's share of the BaaS market grew significantly from 2025 to 2026 as Firebase's pricing unpredictability drove migrations. Developer experience reviews are strongly positive for the dashboard, auto-generated APIs, and SQL power. Row Level Security policies are powerful but require careful design — misconfigured RLS is a common source of security bugs. Edge Functions cold-start latency is approximately 42ms (down from hundreds of milliseconds in earlier versions). Compared to Firebase, Supabase wins on cost predictability and SQL capability; Firebase wins on offline mobile sync and mature real-time mobile SDKs.
+**Reality check:** Supabase's share of the BaaS market grew significantly from 2025 to 2026 as Firebase's pricing unpredictability drove migrations. The Pro plan has held at $25/month for years while ARR reportedly grew from $10M to $70M. A Team tier ($599/month) is available for organizations that need SSO, priority support, and no project limits. Developer experience reviews are strongly positive for the dashboard, auto-generated APIs, and SQL power. Row Level Security policies are powerful but require careful design — misconfigured RLS is a common source of security bugs. Edge Functions cold-start latency has improved significantly (reported ~42ms). Compared to Firebase, Supabase wins on cost predictability and SQL capability; Firebase wins on offline mobile sync and mature real-time mobile SDKs.
 
 **Links:** [Homepage](https://supabase.com) and [Pricing](https://supabase.com/pricing)
 
-**Last researched:** 2026-05-25
+**Last researched:** 2026-11-23
